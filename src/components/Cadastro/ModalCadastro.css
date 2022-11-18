@@ -1,0 +1,265 @@
+  .modalBackgroundCadastro {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(37, 37, 37, 0.7);
+    padding: 25px;
+    }
+
+.modalBackgroundColorCadastro {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+  
+  .modalContainerCadastro {
+    width: 600px;
+    height: 700px;
+    border-radius: 12px;
+    background-color: rgb(37, 37, 37);
+    box-shadow: rgba(255, 255, 255, 0.45) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    z-index: 3;
+  }
+  
+  .modalContainerCadastro .titleCadastro {
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 20px;
+    color: #a151b4;
+  }
+
+  .modalContainerCadastro hr {
+    margin-bottom: 20px;
+  }
+  
+  .titleCloseBtnCadastro {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .titleCloseBtnCadastro button {
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .modalContainerCadastro .bodyCadastro {
+    flex: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: normal;
+    font-size: 1.7rem;
+  }
+
+  .modalContainerCadastro input {
+    margin-top: 0px;
+    font-size: 22px;
+    padding: 15px;
+    background: none;
+    z-index: 1;
+    border-radius: 7px;
+    border: none;
+    outline: solid 2px white;
+    color: white;
+  }
+
+  .modalContainerCadastro input:focus {
+    text-indent: 0%;
+    transition: ease 0.5s;
+  }
+
+  .modalContainerCadastro .user {
+    text-indent: 26%;
+    transition: ease 0.3s;
+  }
+
+  .modalContainerCadastro .email {
+    text-indent: 18%;
+    transition: ease 0.3s;
+  }
+
+  .modalContainerCadastro .senha {
+    text-indent: 18%;
+    transition: ease 0.3s;
+  }
+
+  .modalContainerCadastro .senhaconfirmada {
+    text-indent: 48.5%;
+    transition: ease 0.3s;
+  }
+
+  .modalContainerCadastro label {
+    position: relative;
+    width: fit-content;
+    height: 30px;
+    top: 12%;
+    left: 3%;
+    z-index: 2;
+    font-size: 27px;
+    background-color: rgb(37, 37, 37);
+    color: rgb(208, 147, 226);
+  }
+
+  .modalContainerCadastro .labeldesactive {
+    position: relative;
+    top: 12%;
+    left: 3%;
+    z-index: 2;
+    transition: ease 0.5s;
+  }
+
+  .modalContainerCadastro .labelactive {
+    position: relative;
+    transform: translateX(10px) translateY(-25px);
+    font-size: 0.8em;
+    transition: ease 0.5s;
+    z-index: 2;
+    padding: 0px 10px;
+  }
+  
+  .modalContainerCadastro .footerCadastro {
+    flex: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -10px;
+    margin-bottom: -30px;
+  }
+  
+  .modalContainerCadastro .footerCadastro button {
+    width: 170px;
+    height: 55px;
+    margin: 20px;
+    border: none;
+    background-color: cornflowerblue;
+    color: white;
+    border-radius: 8px;
+    font-size: 25px;
+    cursor: pointer;
+  }
+  
+  #cancelBtnCadastro {
+    background-color: crimson;
+  }
+
+  .divtoggleCadastro {
+    height: 70px;
+    display: flex;
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+
+  .divtoggleCadastro h3 {
+    color: white;
+    position: relative;
+    top: 9%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 100;
+    text-decoration:underline ;
+  }
+
+  .toggleCadastro {
+    display: none;
+  }
+
+  .toggleCadastro + .toggleCadastrolabel {
+    width: 38px;
+    height: 20px;
+    background: lightgrey;
+    display: block;
+    position: relative;
+    border-radius: 20px;
+    padding: 2px;
+    transition: 200ms;
+    cursor: pointer;
+  }
+
+  .toggleCadastro + .toggleCadastrolabel:before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 19px;
+    background: white;
+    display: block;
+    border-radius: 50%;
+    right: unset;
+    left: 0px;
+    top: 1px;
+    transition: 200ms;
+  }
+
+  .toggleCadastro:checked + .toggleCadastrolabel {
+    background: blue;
+  }
+
+  .toggleCadastro:checked + .toggleCadastrolabel:before {
+    content: '';
+    left: calc(100% - 20px);
+    box-shadow: 0 4px 4px rgb(0 0 0 / 10%);
+  }
+
+  @media (max-width: 650px) {
+    .modalContainerCadastro{
+      width: 500px;
+      height: 700px;
+    }
+    .modalContainerCadastro .user {
+      text-indent: 31%;
+      transition: ease 0.3s;
+    }
+  
+    .modalContainerCadastro .email {
+      text-indent: 20%;
+      transition: ease 0.3s;
+    }
+  
+    .modalContainerCadastro .senha {
+      text-indent: 20%;
+      transition: ease 0.3s;
+    }
+  
+    .modalContainerCadastro .senhaconfirmada {
+      text-indent: 58%;
+      transition: ease 0.3s;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .modalContainerCadastro{
+      width: 450px;
+      height: 700px;
+    }
+    .modalContainerCadastro .user {
+      text-indent: 35%;
+      transition: ease 0.3s;
+    }
+  
+    .modalContainerCadastro .email {
+      text-indent: 23%;
+      transition: ease 0.3s;
+    }
+  
+    .modalContainerCadastro .senha {
+      text-indent: 23%;
+      transition: ease 0.3s;
+    }
+  
+    .modalContainerCadastro .senhaconfirmada {
+      text-indent: 66%;
+      transition: ease 0.3s;
+    }
+  }
