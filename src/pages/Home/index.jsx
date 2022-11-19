@@ -1,62 +1,24 @@
-import "./styles.css";
-import { ToastContainer } from "react-toastify";
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import ModalLogin from "../../components/Login/ModalLogin";
-import ModalCadastro from "../../components/Cadastro/ModalCadastro";
-import { Button } from "./styles";
+import { Modal } from "../../components/Modal";
+import { Button, Container, Main } from "./styles";
 
 export function Home() {
-  const [modalLoginOpen, setModalLoginOpen] = useState(false);
-  const [modalCadastroOpen, setModalCadastroOpen] = useState(false);
-
-  const [isActive, setIsActive] = useState(false);
-
+  const [isOpen, setIsOpen] = useState(true);
   return (
-    <div className="homeAll">
-      {modalLoginOpen ? (
-        <ModalLogin setModalLoginOpen={setModalLoginOpen} />
-      ) : null}
-
-      {modalCadastroOpen ? (
-        <ModalCadastro setModalCadastroOpen={setModalCadastroOpen} />
-      ) : null}
-
-      <div className="homeContainer">
+    <Container>
+      <Main>
         <h1>RPG</h1>
         <h2>Fichas</h2>
 
-        <Button
-          active={isActive}
-          onClick={() => {
-            setIsActive(!isActive);
-          }}
-        >
-          {isActive ? "Sair" : "Entrar"}
-        </Button>
-        <button
-          onClick={() => {
-            if (!modalCadastroOpen) {
-              setModalLoginOpen(true);
-            }
-          }}
-          className="login"
-        >
+        <Button background="roxo" size="35" onClick={() => setIsOpen(true)}>
           Entrar
-        </button>
-
-        <button
-          onClick={() => {
-            if (!modalLoginOpen) {
-              setModalCadastroOpen(true);
-            }
-          }}
-          className="create"
-        >
-          Criar conta
-        </button>
-      </div>
-
-      <ToastContainer />
-    </div>
+        </Button>
+        <Button>Criar conta</Button>
+        <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
+          <ModalLogin />
+        </Modal>
+      </Main>
+    </Container>
   );
 }
