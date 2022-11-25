@@ -22,6 +22,8 @@ export const Container = styled('div', {
 })
 
 export const Body = styled('div', {
+    width: '100%',
+    minWidth: '1rem',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',

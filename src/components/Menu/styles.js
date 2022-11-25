@@ -6,7 +6,7 @@ export const Container = styled('div', {
     height: '100%',
     transition: 'ease 0.5s',
     textAlign: 'center',
-    overflowX: 'hidden',
+    overflow: 'hidden',
 
     button: {
         background: 'none',
@@ -46,6 +46,7 @@ export const Container = styled('div', {
 export const Header = styled('div', {
     marginTop: '3rem',
     height: 'auto',
+    overflow: 'hidden',
 
     hr: {
         marginTop: '2rem',
@@ -55,7 +56,8 @@ export const Header = styled('div', {
 
 export const Body = styled('div', {
 
-    height: '40%',
+    height: '100%',
+    overflowY: 'auto',
 
     ul: {
         display: 'grid',
