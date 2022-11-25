@@ -48,7 +48,7 @@ export const Body1 = styled('div', {
     gridColumnGap: '6rem',
 
     '@sm3': {
-        gridTemplateColumns: '100%'
+        gridTemplateColumns: '80%'
     }
 
 })
@@ -61,10 +61,10 @@ export const Body2 = styled('div', {
     gridTemplateColumns: '50%',
 
     '@sm3': {
-        gridTemplateColumns: '110%'
+        gridTemplateColumns: '90%'
     },
     '@sm4': {
-        gridTemplateColumns: '120%'
+        gridTemplateColumns: '100%'
     }
 })
 
