@@ -7,7 +7,8 @@ export const Container = styled("div", {
   display: "flex",
   backgroundImage: `url(${BackgroundImage})`,
   backgroundRepeat: "no-repeat",
-  backgroundSize: "cover"
+  backgroundSize: "cover",
+  overflowX: "hidden"
 });
 
 export const Main = styled("main", {
@@ -30,6 +31,10 @@ export const Main = styled("main", {
     marginBottom: "20rem",
     fontSize: "7rem",
     color: "#ffffff"
+  },
+
+  "@md": {
+    margin: 'auto auto'
   }
 });
 
@@ -40,6 +45,8 @@ export const Button = styled("button", {
   borderRadius: "2rem",
   padding: "1rem 7rem",
   fontFamily: "League Gothic, sans-serif",
+  marginBottom: '3rem',
+  marginTop: '-3rem',
 
   variants: {
     background: {
@@ -49,11 +56,16 @@ export const Button = styled("button", {
     size: {
       25: { fontSize: "2.5rem" },
       35: { fontSize: "3.5rem" }
+    },
+    underline: {
+      default: {textDecoration: 'underline'},
+      false: {}
     }
   },
 
   defaultVariants: {
     background: "default",
-    size: 25
+    size: 25,
+    underline: 'default'
   }
 });

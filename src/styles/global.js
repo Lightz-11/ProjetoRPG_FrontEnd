@@ -4,38 +4,54 @@ export const GlobalStyles = globalCss({
   ":root": {
     fontSize: "62.5%",
 
-    "@media (max-width:1200px)": {
-      fontSize: "56.25%"
-    },
+    // "@media (max-width:1200px)": {
+    //   fontSize: "56.25%"
+    // },
 
-    "@media(max-width:1080px)": {
-      fontSize: "50%"
-    },
+    // "@media(max-width:1080px)": {
+    //   fontSize: "50%"
+    // },
 
-    "@media(max-width: 900px)": {
-      fontSize: "43.75%"
-    },
+    // "@media(max-width: 900px)": {
+    //   fontSize: "43.75%"
+    // },
 
-    "@media(max-width: 790px)": {
-      fontSize: "38.5%"
-    }
+    // "@media(max-width: 790px)": {
+    //   fontSize: "38.5%"
+    // }
   },
 
   "*": {
     margin: 0,
     padding: 0,
     boxSizing: "border-box",
-    fontSize: "1.6rem"
+    fontSize: "1.6rem",
+    '::-webkit-scrollbar':{
+      backgroundColor: '#1d1d1d',
+      width: '12px',
+      borderTopRightRadius: '5px',
+      borderBottomRightRadius: '5px'
+    },
+    '::-webkit-scrollbar-thumb': {
+      backgroundColor: '#5b5b5b',
+      borderRadius: '5px'
+    }
   },
 
   body: {
     width: "100vw",
     minHeight: "100vh",
     fontFamily: "Arial, Helvetica, sans-serif",
-    backgroundColor: "#020821"
+    backgroundColor: "rgb(10,10,10)",
+    overflow: 'hidden'
   },
 
   button: {
     cursor: "pointer"
+  },
+
+  input: {
+    '-webkit-text-fill-color': 'white !important',
   }
+
 });

@@ -1,44 +1,122 @@
-import { useAuth } from "../../hooks/auth"
-import '../Dashboard/styles.css'
-import React, {useState, useEffect} from 'react';
-import {RiUser3Line, RiUserUnfollowLine} from 'react-icons/ri'
-import ModalConta from "../../components/Conta/ModalConta";
-import { ToastContainer } from "react-toastify";
+import { useAuth } from "../../hooks/auth";
+import React, { useState, useEffect } from "react";
+import { Container, SessaoContainer, FichaContainer, Sessoes } from "./styles";
+import { Modal } from "../../components/Modals/Modal";
+import { Sessao } from "../../components/Sessao";
+import { ModalAddSessao } from "../../components/Modals/ModalAddSessao/ModalAddSessao.jsx";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { api } from "../../services/api";
+import { AddSessao } from "../../components/AddSessao";
+import { ModalEditSessao } from "../../components/Modals/ModalEditSessao/ModalEditSessao";
 
 export function Dashboard() {
 
-  const { signOut } = useAuth();
-  const [modalContaOpen, setModalContaOpen] = useState(false);
+  const [modalCriarSessaoIsOpen, setModalCriarSessaoIsOpen] = useState(false);
+  const [modalEditSessaoIsOpen, setModalEditSessaoIsOpen] = useState(false);
 
-  function handleQuit() {
-    signOut();
+  const [sessoes, setSessoes] = useState([]);
+  const [fichas, setFichas] = useState([]);
+
+  const [sessaoId, setSessaoId] = useState("");
+  const [sessaoName, setSessaoName] = useState("");
+  const [sessaoDesc, setSessaoDesc] = useState("");
+
+  const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"));
+
+  useEffect(() => {
+    async function fetchData() {
+      setSessoes([]);
+
+      try {
+        const response = await api.get(`/sessoes/userid/${dataUser.id}`);
+
+        for (let i = 0; i < response.data.length; i++) {
+          const sessao = {
+            id: response.data[i].id,
+            nome: response.data[i].nome,
+            descricao: response.data[i].descricao,
+            Participantes: response.data[i].Participantes,
+          };
+
+          setSessoes((prevState) => [...prevState, sessao]);
+        }
+      } catch (error) {}
+    }
+    fetchData();
+  }, []);
+
+  function modalConta () {
+    setModalContaIsOpen(true)
   }
+
   return (
+    <Container>
+      <Modal
+        isOpen={modalCriarSessaoIsOpen}
+        setIsOpen={() => setModalCriarSessaoIsOpen(false)}
+      >
+        <ModalAddSessao
+          setModalClose={() => {
+            setModalCriarSessaoIsOpen(false);
+          }}
+          atualizar={setSessoes}
+        ></ModalAddSessao>
+      </Modal>
 
-    <div className="all">
+      <Modal
+        isOpen={modalEditSessaoIsOpen}
+        setIsOpen={() => setModalEditSessaoIsOpen(false)}
+      >
+        <ModalEditSessao
+          id={sessaoId}
+          name={sessaoName}
+          desc={sessaoDesc}
+          setModalClose={() => {
+            setModalEditSessaoIsOpen(false);
+          }}
+          sessoes={sessoes}
+          atualizar={setSessoes}
+        />
+      </Modal>
 
-      <div className="navbar">
+      <SessaoContainer>
+        <h1>Sessões</h1>
+        <hr />
+        <Sessoes>
+          {sessoes.map((sessao) => (
+            <Sessao
+              key={sessao.id}
+              id={sessao.id}
+              nome={sessao.nome}
+              desc={sessao.descricao}
+              participantes={
+                sessao.Participantes.length > 0
+                  ? dataUser.username +
+                    ", " +
+                    sessao.Participantes.map(
+                      (participante) => participante.username
+                    ).join(", ")
+                  : dataUser.username
+              }
+              editar={() => {
+                setModalEditSessaoIsOpen(true);
+                setSessaoId(sessao.id);
+                setSessaoName(sessao.nome);
+                setSessaoDesc(sessao.descricao);
+              }}
+            />
+          ))}
+          <AddSessao criar={() => setModalCriarSessaoIsOpen(true)} />
+        </Sessoes>
+      </SessaoContainer>
 
-        <div className="button">
-          <button onClick={() => setModalContaOpen(true)} className="conta"> <RiUser3Line className="icon1"/> Conta</button>
-        </div>
+      <FichaContainer>
+        <h1>Fichas</h1>
+        <hr />
+      </FichaContainer>
 
-        <div className="button">
-          <button onClick={handleQuit} className="sair"> <RiUserUnfollowLine className="icon2"/> Sair</button>
-        </div>
-
-      </div>
-  
-      <div className="body">
-    
-      {modalContaOpen ? <ModalConta setModalContaOpen={setModalContaOpen} /> : null}
-    
-      </div>
-
-      <ToastContainer/>
-
-    </div>
-  
-  )
-      
-  }
+      <ToastContainer />
+    </Container>
+  );
+}
