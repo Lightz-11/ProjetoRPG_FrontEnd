@@ -1,6 +1,13 @@
 import { useAuth } from "../../hooks/auth";
 import React, { useState, useEffect } from "react";
-import { Container, SessaoContainer, FichaContainer, Sessoes } from "./styles";
+import {
+  Container,
+  Header,
+  SessaoContainer,
+  FichaContainer,
+  Sessoes,
+  Body,
+} from "./styles";
 import { Modal } from "../../components/Modals/Modal";
 import { Sessao } from "../../components/Sessao";
 import { ModalAddSessao } from "../../components/Modals/ModalAddSessao/ModalAddSessao.jsx";
@@ -11,7 +18,6 @@ import { AddSessao } from "../../components/AddSessao";
 import { ModalEditSessao } from "../../components/Modals/ModalEditSessao/ModalEditSessao";
 
 export function Dashboard() {
-
   const [modalCriarSessaoIsOpen, setModalCriarSessaoIsOpen] = useState(false);
   const [modalEditSessaoIsOpen, setModalEditSessaoIsOpen] = useState(false);
 
@@ -46,8 +52,8 @@ export function Dashboard() {
     fetchData();
   }, []);
 
-  function modalConta () {
-    setModalContaIsOpen(true)
+  function modalConta() {
+    setModalContaIsOpen(true);
   }
 
   return (
@@ -80,41 +86,51 @@ export function Dashboard() {
         />
       </Modal>
 
-      <SessaoContainer>
-        <h1>Sessões</h1>
-        <hr />
-        <Sessoes>
-          {sessoes.map((sessao) => (
-            <Sessao
-              key={sessao.id}
-              id={sessao.id}
-              nome={sessao.nome}
-              desc={sessao.descricao}
-              participantes={
-                sessao.Participantes.length > 0
-                  ? dataUser.username +
-                    ", " +
-                    sessao.Participantes.map(
-                      (participante) => participante.username
-                    ).join(", ")
-                  : dataUser.username
-              }
-              editar={() => {
-                setModalEditSessaoIsOpen(true);
-                setSessaoId(sessao.id);
-                setSessaoName(sessao.nome);
-                setSessaoDesc(sessao.descricao);
-              }}
-            />
-          ))}
-          <AddSessao criar={() => setModalCriarSessaoIsOpen(true)} />
-        </Sessoes>
-      </SessaoContainer>
+      <Header>
+        <h1>Painel</h1>
+      </Header>
 
-      <FichaContainer>
-        <h1>Fichas</h1>
-        <hr />
-      </FichaContainer>
+      <hr />
+
+      <Body>
+
+        <SessaoContainer>
+          <h1>Sessões</h1>
+          <hr />
+          <Sessoes>
+            {sessoes.map((sessao) => (
+              <Sessao
+                key={sessao.id}
+                id={sessao.id}
+                nome={sessao.nome}
+                desc={sessao.descricao}
+                participantes={
+                  sessao.Participantes.length > 0
+                    ? dataUser.username +
+                      ", " +
+                      sessao.Participantes.map(
+                        (participante) => participante.username
+                      ).join(", ")
+                    : dataUser.username
+                }
+                editar={() => {
+                  setModalEditSessaoIsOpen(true);
+                  setSessaoId(sessao.id);
+                  setSessaoName(sessao.nome);
+                  setSessaoDesc(sessao.descricao);
+                }}
+              />
+            ))}
+            <AddSessao criar={() => setModalCriarSessaoIsOpen(true)} />
+          </Sessoes>
+        </SessaoContainer>
+
+        <FichaContainer>
+          <h1>Fichas</h1>
+          <hr />
+        </FichaContainer>
+
+      </Body>
 
       <ToastContainer />
     </Container>

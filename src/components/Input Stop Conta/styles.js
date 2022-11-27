@@ -2,7 +2,7 @@ import { styled } from '../../stitches.config';
 
 export const Container = styled('div', {
 
-    width: '100%',
+    width: '85%',
     minWidth: '1rem',
     display: 'flex',
     alignItems: 'center',
@@ -14,7 +14,7 @@ export const Container = styled('div', {
 
 export const InputB = styled ('h2', {
 
-    width: '96%',
+    width: '100%',
     height: '5.2rem',
     alignItems: 'center',
     justifyContent: 'center',

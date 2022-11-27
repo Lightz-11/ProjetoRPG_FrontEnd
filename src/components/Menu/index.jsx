@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container, Header, Body } from './styles';
+import { Container, Header, Body, Button, Li } from './styles';
 import {BiArrowFromLeft, BiArrowFromRight} from 'react-icons/bi'
 import {RiUserLine, RiUserUnfollowLine} from 'react-icons/ri'
 import {BsFillDice6Fill} from 'react-icons/bs'
@@ -9,32 +9,42 @@ import { useAuth } from "../../hooks/auth";
 export function Menu() {
 
   const [active, setActive] = useState(false)
+  const [low, setLow] = useState(false)
   const navigate = useNavigate()
   const { signOut } = useAuth();
+
+  window.addEventListener('resize', function(){
+    if (window.innerWidth < 800 ) {
+      setLow(true)
+      setActive(false)
+    } else {
+      setLow(false)
+    }
+  });
 
   return (
   <Container active={active}>
 
     <Header>
-      <button onClick={() => setActive(!active)}> { active ? <h1> <BiArrowFromRight/> </h1> : <h1> <BiArrowFromLeft/></h1> } </button>
+      <Button onClick={() => { if (!low) { setActive(!active) } } }> { active ? <BiArrowFromRight size={40}/> : <BiArrowFromLeft size={40}/> } </Button>
 
       <hr />
 
     </Header>
 
-    <Body>
+    <Body active={active}>
 
       <ul>
 
-        <li>
-          <button onClick={() => navigate("/")}> { active ? <div> <h1> <BsFillDice6Fill className='dado'/> </h1> <h2 className='dadonome'> Painel </h2> </div> : <h1> <BsFillDice6Fill className='dado'/></h1> } </button>
-        </li>
-        <li>
-          <button onClick={() => navigate("/conta")} > { active ? <div> <h1> <RiUserLine className='user'/> </h1> <h2 className='usernome'> Conta </h2> </div> : <h1> <RiUserLine className='user'/></h1> } </button>
-        </li>
-        <li>
-          <button onClick={() => { signOut(); navigate("/") } }> { active ? <div> <h1> <RiUserUnfollowLine className='userquit'/> </h1> <h2 className='userquitnome'> Sair </h2> </div> : <h1> <RiUserUnfollowLine className='userquit'/></h1> } </button>
-        </li>
+        <Li active={active}>
+          <Button color={'purple'} onClick={() => navigate("/")}> <BsFillDice6Fill size={20}/> {active ? 'Painel' : ''} </Button>
+        </Li>
+        <Li active={active}>
+          <Button color={'yellow'} onClick={() => navigate("/conta")} > <RiUserLine size={25}/> {active ? 'Conta' : ''} </Button>
+        </Li>
+        <Li active={active}>
+          <Button color={'crimson'} onClick={() => { signOut(); navigate("/") } }> <RiUserUnfollowLine size={25}/> {active ? 'Sair' : ''} </Button>
+        </Li>
         
       </ul>
 

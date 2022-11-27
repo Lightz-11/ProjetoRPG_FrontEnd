@@ -1,104 +1,91 @@
-import { styled } from '../../stitches.config';
+import { styled } from "../../stitches.config";
 
-export const Container = styled('div', {
-    minWidth: '7rem',
-    width: '7rem',
-    height: '100%',
-    transition: 'ease 0.5s',
-    textAlign: 'center',
-    overflow: 'hidden',
-
-    button: {
-        background: 'none',
-        color: 'white',
-        border: 'none',
-    },
-
-    h1: {
-        scale: '250%'
-    },
-
-    h2: {
-        scale: '100%',
-        fontSize: '2rem',
-        position: 'relative',
-        bottom: '8px',
-        marginLeft: '2rem',
-    },
+export const Container = styled("div", {
+    minWidth: "4rem",
+    width: "7rem",
+    height: "100%",
+    transition: "ease 0.5s",
+    textAlign: "center",
+    overflow: "hidden",
 
     variants: {
-        active : {
+        active: {
             true: {
-                minWidth: '15rem',
-                width: '20rem',
+                minWidth: "15rem",
+                width: "15rem",
+            },
+        },
+    },
+});
 
-                li: {
-                    div: {
-                        display: 'flex',
-                        flexDirection: 'row',
-                    }
-                }
+export const Header = styled("div", {
+    marginTop: "1.5rem",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+
+    hr: {
+        width: "100%",
+        marginTop: "1.5rem",
+        borderColor: "White",
+    },
+});
+
+export const Body = styled("div", {
+    height: "100%",
+    overflowY: "auto",
+
+    ul: {
+        display: "flex",
+        flexDirection: "column",
+    },
+
+    "button:hover": {
+        opacity: "0.5",
+    },
+
+});
+
+export const Button = styled("button", {
+    background: "none",
+    color: "white",
+    border: "none",
+
+    display: "flex",
+    alignContent: "center",
+    ustifyContent: "center",
+    fontSize: "1.8rem",
+    gap: "1rem",
+
+    variants: {
+        color: {
+            crimson: {
+                color: 'Crimson'
+            },
+            purple: {
+                color: 'Purple'
+            },
+            yellow: {
+                color: 'Yellow'
             }
         }
     }
-})
+});
 
-export const Header = styled('div', {
-    marginTop: '3rem',
-    height: 'auto',
-    overflow: 'hidden',
+export const Li = styled('li', {
 
-    hr: {
-        marginTop: '2rem',
-        borderColor: 'White'
-    }
-})
+    margin: "5rem 0",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
 
-export const Body = styled('div', {
-
-    height: '100%',
-    overflowY: 'auto',
-
-    ul: {
-        display: 'grid',
+    variants: {
+        active: {
+            true: {
+                justifyContent: 'flex-start',
+                paddingLeft: '3.5rem'
+            },
+        },
     },
-
-    li: {
-        margin: '10rem 0'
-    },
-
-    '.dado': {
-        scale: '80%',
-        color: 'Purple'
-    },
-
-    '.user': {
-        scale: '90%',
-        color: 'Yellow'
-    },
-
-    '.usernome': {
-        color: 'Yellow'
-    },
-
-    '.userquit': {
-        scale: '90%'
-    },
-
-    '.dadonome': {
-        color: 'Purple'
-    },
-
-    '.userquit': {
-        color: 'crimson'
-    },
-
-    '.userquitnome': {
-        color: 'crimson'
-    },
-
-    'button:hover': {
-        opacity: '0.5'
-    },
-
 })

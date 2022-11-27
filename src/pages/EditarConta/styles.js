@@ -32,7 +32,8 @@ export const Header = styled('div', {
 
 export const Body = styled('div', {
 
-    padding: '5rem',
+    width: '100%',
+    padding: '5rem 0',
     display: 'flex',
     flexDirection: 'column',
     overflowY: 'auto',
@@ -63,9 +64,6 @@ export const Body2 = styled('div', {
     '@sm3': {
         gridTemplateColumns: '90%'
     },
-    '@sm4': {
-        gridTemplateColumns: '100%'
-    }
 })
 
 export const Footer = styled('div', {
@@ -106,7 +104,3 @@ export const Button = styled('button', {
         color: 'crismon'
     }
 })
-
-
-
-
