@@ -50,27 +50,30 @@ export function LinhaTabela({data, iniciativas, atualizar}) {
 
       const id = window.location.href.substring(36)
 
-      atualizar([])
       try {
 
-        await api.put(`http://localhost:8080/sessoes/iniciativa/${data.id}`, {
-          posicao: (posicao - 1),
-        });
+        // const acimaDele = (posicao - 1)
 
-        const response = await api.get(`http://localhost:8080/sessoes/iniciativa/${id}`);
+        // await api.put(`http://localhost:8080/sessoes/iniciativa/posicao/${acimaDele}`, {
+        //   posicao: posicao,
+        // });
 
-        for (let i = 0; i < response.data.length; i++) {
+        // await api.put(`http://localhost:8080/sessoes/iniciativa/${data.id}`, {
+        //   posicao: (posicao - 1),
+        // });
 
-          const iniciativa = {
-            id: response.data[i].id,
-            posicao: response.data[i].posicao,
-            nome: response.data[i].nome,
-            iniciativa: response.data[i].iniciativa,
-            dano: response.data[i].dano,
-          };
+        function changePosition(arr, from, to) {
+          arr.splice(to, 0, arr.splice(from, 1)[0]);
+          return arr;
+        };
 
-          atualizar((prevState) => [...prevState, iniciativa]);
-        }
+        const iniciativasAtualizadas = changePosition(iniciativas, posicao - 1, posicao - 2)
+
+        setPosicao(posicao - 1)
+
+        console.log(iniciativasAtualizadas)
+
+        atualizar(iniciativasAtualizadas)
 
       } catch (error) {
         console.log(error)
@@ -90,6 +93,12 @@ export function LinhaTabela({data, iniciativas, atualizar}) {
 
       atualizar([])
       try {
+
+        const abaixoDele = (posicao + 1)
+
+        await api.put(`http://localhost:8080/sessoes/iniciativa/posicao/${abaixoDele}`, {
+          posicao: posicao,
+        });
 
         await api.put(`http://localhost:8080/sessoes/iniciativa/${data.id}`, {
           posicao: (posicao + 1),
