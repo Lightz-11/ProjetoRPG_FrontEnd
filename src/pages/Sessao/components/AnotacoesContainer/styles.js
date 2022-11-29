@@ -43,13 +43,85 @@ export const HeaderContainer = styled("div", {
 });
 
 export const BodyContainer = styled("div", {
-  padding: "1rem",
-  display: "grid",
-  gridTemplateColumns: "1fr 1fr",
-  gridColumnGap: "3rem",
-  gridRowGap: "2rem",
-
-  "@lg4": {
-      gridTemplateColumns: "1fr",
-  },
+  
 });
+
+export const TopBody = styled('div', {
+
+  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
+  alignItems: 'center',
+  margin: '1rem',
+  gap: '2rem',
+
+})
+
+export const BottomBody = styled('div', {
+
+  display: 'flex',
+  flexDirection: 'column',
+  marginTop: '1rem',
+  alignItems: 'center',
+  marginBottom: '1rem',
+
+  div: {
+    display: 'flex',
+    flexDirection: 'row',
+    width: '98%',
+    padding: '0 .5rem',
+    gap: '.8rem',
+    marginBottom: '1rem'
+  },
+  
+  input: {
+
+    background: 'none',
+    color: 'white',
+    width: '97%',
+    border: 'none',
+    outline: '2px solid #ffffff90',
+    borderRadius: '5px',
+    padding: '.5rem'
+
+  },
+
+  textarea: {
+
+    width: '98%',
+    background: 'none',
+    resize: 'vertical',
+    maxHeight: '25rem',
+    minHeight: '3.5rem',
+    borderRadius: '5px',
+    border: '2px solid #ffffff90',
+    padding: '.5rem',
+    color: 'white',
+    fontFamily: 'arial'
+
+  }
+
+})
+
+export const Button = styled('button', {
+
+  border: '1px solid white',
+  padding: '.5rem 1rem',
+  background: 'none',
+  color: 'grey',
+  transition: '0.3s',
+  wordBreak: 'break-word',
+
+  '&:hover': {
+    border: '1px solid #03d9ffff'
+  },
+
+  variants: {
+    active: {
+      true: {
+        border: '1px solid #03d9ffff'
+      }
+    }
+  }
+
+})

@@ -38,15 +38,15 @@ export const Container = styled('tr', {
 })
 
 export const TD1 = styled('td', {
-
+  paddingRight: '0.6rem'
 })
 
 export const TD2 = styled('td', {
-  
+  paddingRight: '2rem'
 })
 
 export const TD3 = styled('td', {
-  paddingRight: '5rem',
+  paddingRight: '3rem',
 
   '@md2': {
     paddingRight: '1rem'
@@ -58,7 +58,7 @@ export const TD3 = styled('td', {
 })
 
 export const TD4 = styled('td', {
-  paddingRight: '1rem',
+  paddingRight: '4rem',
 
   input: {
     width: '5rem'

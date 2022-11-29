@@ -6,7 +6,7 @@ import {
     Body,
     DoubleParteContainer,
 } from "./styles";
-import {AnotacoesContainer, DadosContainer, FichaContainer, IniciativasContainer, UTContainer, FichasNPCsContainer} from "./components"
+import {AnotacoesContainer, DadosContainer, FichaContainer, IniciativasContainer, UTContainer, FichasNPCsContainer, InventarioContainer} from "./components"
 import { ToastContainer } from "react-toastify";
 
 export function Sessao() {
@@ -53,6 +53,8 @@ export function Sessao() {
                 </DoubleParteContainer>
 
                 <FichasNPCsContainer/>
+
+                <InventarioContainer/>
 
             </Body>
 

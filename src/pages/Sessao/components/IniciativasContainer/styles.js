@@ -60,19 +60,19 @@ export const Table = styled('table', {
 })
 
 export const TH1 = styled('th', {
-  paddingRight: '2rem'
+  paddingRight: '0.5rem'
 })
 
 export const TH2 = styled('th', {
-  paddingRight: '3rem'
+  paddingRight: '1rem'
 })
 
 export const TH3 = styled('th', {
-  paddingRight: '4rem'
+  paddingRight: '17rem'
 })
 
 export const TH4 = styled('th', {
-  paddingRight: '2rem'
+  paddingRight: '0rem'
 })
 
 export const TH5 = styled('th', {
@@ -80,4 +80,45 @@ export const TH5 = styled('th', {
 })
 
 export const TH6 = styled('th', {
+})
+
+export const Footer = styled('div', {
+
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '10rem',
+  margin: '0.5rem 0',
+
+})
+
+export const Button = styled('button', {
+
+  background: 'none',
+  padding: '0.5rem 1rem',
+  fontSize: '1.9rem',
+  transition: '0.3s',
+
+  '&:hover': {
+    border: '1px solid #ffffff',
+    opacity: '0.5'
+  },
+
+  variants: {
+    color: {
+      aqua: {
+        color: '#03d9ffff',
+        border: '1px solid #03d9ffff',
+      },
+      yellow: {
+        color: 'Yellow',
+        border: '1px solid Yellow',
+      }
+    }
+  },
+
+  defaultVariants: {
+    color: 'aqua'
+  }
+
 })

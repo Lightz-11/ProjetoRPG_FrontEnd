@@ -28,7 +28,7 @@ export const GlobalStyles = globalCss({
     fontSize: "1.6rem",
     '::-webkit-scrollbar':{
       backgroundColor: '#1d1d1d',
-      width: '12px',
+      width: '7px',
       borderTopRightRadius: '5px',
       borderBottomRightRadius: '5px'
     },

@@ -22,11 +22,18 @@ export function Menu() {
     }
   });
 
+  function abrirMenu() {
+    if (!low) {
+      setActive(!active)
+    }
+  }
+
   return (
   <Container active={active}>
 
     <Header>
-      <Button onClick={() => { if (!low) { setActive(!active) } } }> { active ? <BiArrowFromRight size={40}/> : <BiArrowFromLeft size={40}/> } </Button>
+      
+      <Button onClick={abrirMenu}> { active ? <BiArrowFromRight size={40}/> : <BiArrowFromLeft size={40}/> } </Button>
 
       <hr />
 

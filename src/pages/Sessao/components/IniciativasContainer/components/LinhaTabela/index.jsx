@@ -7,11 +7,6 @@ import { api } from '../../../../../../services/api';
 
 export function LinhaTabela({data, iniciativas, atualizar}) {
 
-  const [posicao, setPosicao] = useState(data.posicao)
-  const [nome, setNome] = useState('')
-  const [iniciativa, setIniciativa] = useState('')
-  const [dano, setDano] = useState('')
-
   async function handleDelete() {
 
     try {
@@ -20,60 +15,42 @@ export function LinhaTabela({data, iniciativas, atualizar}) {
 
       const iniciativasAtualizadas = iniciativas.filter(iniciativa => iniciativa.id != data.id)
 
+      for (let i = data.posicao - 1; i < iniciativasAtualizadas.length; i++) {
+
+        await api.put(`http://localhost:8080/sessoes/iniciativa/${iniciativasAtualizadas[i].id}`, {
+          posicao: (iniciativasAtualizadas[i].posicao - 1),
+        });
+
+        iniciativasAtualizadas[i].posicao = iniciativasAtualizadas[i].posicao - 1
+
+      }
+
       atualizar(iniciativasAtualizadas)
 
     } catch (error) {
-      console.log(error.response.data.mensagem);
-    }
-
-  }
-
-  async function handleEdit() {
-
-    try {
-
-      await api.put(`http://localhost:8080/sessoes/iniciativa/${data.id}`, {
-        nome: nome,
-        iniciativa: iniciativa,
-        dano: dano
-      });
-
-    } catch (error) {
-      console.log(error)
+      console.log(error);
     }
 
   }
 
   async function handleEditTop() {
 
-    if (posicao != 1) {
-
-      const id = window.location.href.substring(36)
+    if (data.posicao != 1) {
 
       try {
-
-        // const acimaDele = (posicao - 1)
-
-        // await api.put(`http://localhost:8080/sessoes/iniciativa/posicao/${acimaDele}`, {
-        //   posicao: posicao,
-        // });
-
-        // await api.put(`http://localhost:8080/sessoes/iniciativa/${data.id}`, {
-        //   posicao: (posicao - 1),
-        // });
 
         function changePosition(arr, from, to) {
           arr.splice(to, 0, arr.splice(from, 1)[0]);
           return arr;
         };
 
-        const iniciativasAtualizadas = changePosition(iniciativas, posicao - 1, posicao - 2)
+        iniciativas[data.posicao - 2].posicao = data.posicao
+        iniciativas[data.posicao - 1].posicao = data.posicao - 1
+        const iniciativasAtualizadas = changePosition(iniciativas, data.posicao, data.posicao - 1)
 
-        setPosicao(posicao - 1)
+        const iniciativasA = iniciativasAtualizadas.map(iniciativa => iniciativa)
 
-        console.log(iniciativasAtualizadas)
-
-        atualizar(iniciativasAtualizadas)
+        atualizar(iniciativasA)
 
       } catch (error) {
         console.log(error)
@@ -89,36 +66,23 @@ export function LinhaTabela({data, iniciativas, atualizar}) {
 
     const length = await api.get(`http://localhost:8080/sessoes/iniciativa/${id}`);
 
-    if (posicao != length.data.length) {
+    if (data.posicao != length.data.length) {
 
-      atualizar([])
       try {
 
-        const abaixoDele = (posicao + 1)
+        function changePosition(arr, from, to) {
+          arr.splice(to, 0, arr.splice(from, 1)[0]);
+          return arr;
+        };
 
-        await api.put(`http://localhost:8080/sessoes/iniciativa/posicao/${abaixoDele}`, {
-          posicao: posicao,
-        });
+        iniciativas[data.posicao].posicao = data.posicao
+        iniciativas[data.posicao - 1].posicao = data.posicao + 1
+        const iniciativasAtualizadas = changePosition(iniciativas, data.posicao - 2, data.posicao - 1)
 
-        await api.put(`http://localhost:8080/sessoes/iniciativa/${data.id}`, {
-          posicao: (posicao + 1),
-        });
+        const iniciativasA = iniciativasAtualizadas.map(iniciativa => iniciativa)
 
-        const response = await api.get(`http://localhost:8080/sessoes/iniciativa/${id}`);
-
-        for (let i = 0; i < response.data.length; i++) {
-
-          const iniciativa = {
-            id: response.data[i].id,
-            posicao: response.data[i].posicao,
-            nome: response.data[i].nome,
-            iniciativa: response.data[i].iniciativa,
-            dano: response.data[i].dano,
-          };
-
-          atualizar((prevState) => [...prevState, iniciativa]);
-        }
-
+        atualizar(iniciativasA)
+        
       } catch (error) {
         console.log(error)
       }
@@ -130,10 +94,16 @@ export function LinhaTabela({data, iniciativas, atualizar}) {
   return (
     <Container>
       <TD1><ButtonIcon color={'aqua'}><HiOutlineBarsArrowUp color='#03d9ffff' size={20} onClick={handleEditTop}/></ButtonIcon></TD1>
-      <TD2>{posicao}</TD2>
-      <TD3><input type={'text'} defaultValue={data.nome} maxLength={22} onChange={(e) => setNome(e.target.value)} onBlur={handleEdit} /></TD3>
-      <TD4><input type={'number'} defaultValue={data.iniciativa} onChange={(e) => setIniciativa(e.target.value)} onBlur={handleEdit} /></TD4>
-      <TD5><input type={'number'} defaultValue={data.dano} onChange={(e) => setDano(e.target.value)} onBlur={handleEdit}/></TD5>
+      <TD2>{data.posicao}</TD2>
+      <TD3><input type={'text'} defaultValue={data.nome} maxLength={22} onChange={(e) => {
+        data.nome = e.target.value
+      }} /></TD3>
+      <TD4><input type={'number'} defaultValue={data.iniciativa} onChange={(e) => {
+        data.iniciativa = e.target.value
+      }} /></TD4>
+      <TD5><input type={'number'} defaultValue={data.dano} onChange={(e) => {
+        data.dano = e.target.value
+      }} /></TD5>
       <TD6>
       <ButtonIcon color={'aqua'}><HiOutlineBarsArrowDown color='#03d9ffff' size={20} onClick={handleEditBottom} /></ButtonIcon> 
       <ButtonIcon color={'red'}><BiTrashAlt onClick={handleDelete} size={20} color='#ae0808ff' /></ButtonIcon>

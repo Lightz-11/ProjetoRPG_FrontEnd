@@ -1,4 +1,4 @@
-import { BodyContainer, Container, HeaderContainer, Table, TH1, TH2, TH3, TH4, TH5, TH6 } from './styles';
+import { BodyContainer, Container, Button, HeaderContainer, Table, TH1, TH2, TH3, TH4, TH5, TH6, Footer } from './styles';
 import { MdApi, MdOutlineAddBox } from "react-icons/md";
 import { LinhaTabela } from './components/LinhaTabela';
 import { useEffect, useState } from 'react';
@@ -67,6 +67,27 @@ export function IniciativasContainer() {
 
   }
 
+  async function handleUpdate() {
+
+    try {
+
+      for (let i = 0; i < iniciativas.length; i++) {
+
+        await api.put(`http://localhost:8080/sessoes/iniciativa/${iniciativas[i].id}`, {
+          nome: iniciativas[i].nome,
+          posicao: iniciativas[i].posicao,
+          iniciativa: iniciativas[i].iniciativa,
+          dano: iniciativas[i].dano
+        });
+
+      }
+
+    } catch (erro) {
+      console.log(erro)
+    }
+
+  }
+
   return (
     <Container>
       <HeaderContainer>
@@ -95,6 +116,13 @@ export function IniciativasContainer() {
             {iniciativas && iniciativas.map(iniciativa => <LinhaTabela key={iniciativa.id} data={iniciativa} iniciativas={iniciativas} atualizar={setIniciativas}/>)}
           </tbody>
         </Table>
+
+        <Footer>
+
+          <Button color={'yellow'}>Combate All</Button>
+          <Button onClick={handleUpdate}>Salvar</Button>
+
+        </Footer>
 
       </BodyContainer>
 
