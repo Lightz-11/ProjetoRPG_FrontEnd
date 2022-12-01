@@ -56,13 +56,25 @@ export const Button = styled('button', {
 
     variants: {
         color: {
-            crismon: {backgroundColor: 'Crimson'},
-            blue: {backgroundColor: 'CornflowerBlue'}
+            red: {
+                backgroundColor: '#d41717ff',
+
+                '&:hover': {
+                    backgroundColor: '#ac1414ff',
+                },
+            },
+            purple: {
+                backgroundColor: '#4f1db4',
+
+                '&:hover': {
+                    backgroundColor: '#3f178f',
+                },
+            }
         }
     },
 
     defaultVariants: {
-        color: 'crismon'
+        color: 'red'
     }
 })
 
@@ -86,7 +98,7 @@ export const ButtonDelete = styled('button', {
     },
 
     '&:hover': {
-        color:'Crimson',
+        color: 'Crimson',
     },
 
 })

@@ -57,7 +57,7 @@ export function ModalCadastro({ setModalCadastroClose }) {
     } else {
       toast.error("Suas senhas não coincidem.")
     }
-    
+
   }
 
   return (
@@ -67,11 +67,11 @@ export function ModalCadastro({ setModalCadastroClose }) {
 
       <hr />
 
-      <Input label1={'Nome'} label2={'Nome |'} setValor={setNome} campo={'Nome'} minLength={3} maxLength={15} />
-      <Input label1={'Username'} label2={'Username |'} setValor={setUsername} campo={'Username'} minLength={3} maxLength={30} />
-      <Input label1={'Email'} label2={'Email |'} setValor={setEmail} campo={'Email'} minLength={10} maxLength={30} />
-      <Input label1={'Senha'} label2={'Senha |'} setValor={setSenha} campo={'Senha'} minLength={8} maxLength={24} id="senha" type="password" />
-      <Input label1={'Confirme Sua Senha'} label2={'Confirme Sua Senha |'} setValor={setSenhaConfirmada} campo={'SenhaConfirmada'} minLength={8} maxLength={24} id="senhaconfirmada" type="password" />
+      <Input label={'Nome'} setValor={setNome} valor={nome} maxLength={15} />
+      <Input label={'Username'} setValor={setUsername} valor={username} maxLength={30} />
+      <Input label={'Email'} setValor={setEmail} valor={email} />
+      <Input label={'Senha'} setValor={setSenha} valor={senha} maxLength={24} id="senha" type="password" />
+      <Input label={'Confirme Sua Senha'} setValor={setSenhaConfirmada} valor={senhaConfirmada} maxLength={24} id="senhaconfirmada" type="password" />
 
       <div className="toggles">
 
@@ -82,7 +82,7 @@ export function ModalCadastro({ setModalCadastroClose }) {
       <div className="footer">
 
         <Button onClick={setModalCadastroClose} autoFocus>Fechar</Button>
-        <Button color='blue' onClick={handleLogin}>Criar Conta</Button>
+        <Button color='purple' onClick={handleLogin}>Criar Conta</Button>
 
       </div>
 

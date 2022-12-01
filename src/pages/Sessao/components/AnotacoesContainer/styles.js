@@ -15,35 +15,35 @@ export const HeaderContainer = styled("div", {
   position: "relative",
 
   h1: {
-      textAlign: "center",
-      color: "white",
-      fontSize: "2rem",
+    textAlign: "center",
+    color: "white",
+    fontSize: "2rem",
   },
 
   button: {
-      background: "none",
-      border: "none",
-      color: "Green",
-      position: "absolute",
-      right: "1.5rem",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
+    background: "none",
+    border: "none",
+    color: "Green",
+    position: "absolute",
+    right: "1.5rem",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   svg: {
-      transition: "0.3s",
+    transition: "0.3s",
   },
 
   "button:hover": {
-      svg: {
-          filter: "brightness(2)",
-      },
+    svg: {
+      filter: "brightness(2)",
+    },
   },
 });
 
 export const BodyContainer = styled("div", {
-  
+
 });
 
 export const TopBody = styled('div', {
@@ -73,7 +73,7 @@ export const BottomBody = styled('div', {
     gap: '.8rem',
     marginBottom: '1rem'
   },
-  
+
   input: {
 
     background: 'none',
@@ -108,9 +108,10 @@ export const Button = styled('button', {
   border: '1px solid white',
   padding: '.5rem 1rem',
   background: 'none',
-  color: 'grey',
+  color: '#88edffe7',
   transition: '0.3s',
   wordBreak: 'break-word',
+  borderRadius: '5px',
 
   '&:hover': {
     border: '1px solid #03d9ffff'

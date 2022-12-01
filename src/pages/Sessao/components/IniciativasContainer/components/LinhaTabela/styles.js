@@ -25,13 +25,13 @@ export const Container = styled('tr', {
     color: 'White'
   },
 
-  "input[type=number]::-webkit-inner-spin-button": { 
+  "input[type=number]::-webkit-inner-spin-button": {
     "-webkit-appearance": 'none',
   },
 
-  "input[type=number]": { 
-   "-moz-appearance": 'textfield',
-   "appearance": 'textfield',
+  "input[type=number]": {
+    "-moz-appearance": 'textfield',
+    "appearance": 'textfield',
 
   }
 
@@ -47,10 +47,6 @@ export const TD2 = styled('td', {
 
 export const TD3 = styled('td', {
   paddingRight: '3rem',
-
-  '@md2': {
-    paddingRight: '1rem'
-  },
 
   input: {
     width: '100%',
@@ -75,5 +71,5 @@ export const TD5 = styled('td', {
 })
 
 export const TD6 = styled('td', {
-  
+
 })

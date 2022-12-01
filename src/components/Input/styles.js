@@ -11,7 +11,7 @@ export const Container = styled('div', {
 
 })
 
-export const InputB = styled ('input', {
+export const InputB = styled('input', {
 
     width: '100%',
     height: 'auto',
@@ -24,57 +24,28 @@ export const InputB = styled ('input', {
     border: 'none',
     outline: 'solid 0.2rem white',
     color: 'white',
-    transition: 'ease 0.5s',
-
-    variants: {
-        active: {
-            falseCampo: {
-                textIndent: '37%',
-                transition: 'ease 0.3s'
-            },
-            falseUsername: {
-                textIndent: '35%',
-                transition: 'ease 0.3s'
-            },
-            falseEmail: {
-                textIndent: '21.5%',
-                transition: 'ease 0.3s'
-            },
-            falseSenha: {
-                textIndent: '24%',
-                transition: 'ease 0.3s'
-            },
-            falseSenhaConfirmada: {
-                textIndent: '64.7%',
-                transition: 'ease 0.3s'
-            },
-            falseNome: {
-                textIndent: '23%',
-                transition: 'ease 0.3s'
-            }
-        }
-    }
+    zIndex: 1
 })
 
 export const LabelContainer = styled('label', {
-    
+
     position: 'absolute',
     width: 'fit-content',
     bottom: '25%',
     left: 15,
-    zIndex: '1',
+    zIndex: 0,
     fontSize: '2.5rem',
     backgroundColor: 'rgb(27, 27, 27)',
     color: 'rgb(208, 147, 226)',
-    transition: 'ease 0.5s',
+    transition: '0.3s',
 
     variants: {
         active: {
             true: {
                 fontSize: '2rem',
-                transform: 'translateX(0.1rem) translateY(-2.8rem)',
+                transform: 'translateX(1rem) translateY(-3rem)',
                 padding: '0px 10px',
-                zIndex: 3
+                zIndex: 2
             }
         }
     },

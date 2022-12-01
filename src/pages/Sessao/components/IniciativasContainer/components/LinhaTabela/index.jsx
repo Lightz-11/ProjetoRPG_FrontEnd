@@ -1,11 +1,21 @@
 import { Container, TD1, TD2, TD3, TD4, TD5, TD6, } from './styles';
-import {BiTrashAlt} from "react-icons/bi"
-import {HiOutlineBarsArrowDown, HiOutlineBarsArrowUp} from "react-icons/hi2"
-import {ButtonIcon} from "../../../../../../components/ButtonIcon"
+import { BiTrashAlt } from "react-icons/bi"
+import { HiOutlineBarsArrowDown, HiOutlineBarsArrowUp } from "react-icons/hi2"
+import { ButtonIcon } from "../../../../../../components/ButtonIcon"
 import { useEffect, useState } from 'react';
 import { api } from '../../../../../../services/api';
 
-export function LinhaTabela({data, iniciativas, atualizar}) {
+export function LinhaTabela({ data, iniciativas, atualizar, setPrecisaSalvar }) {
+
+  const [low, setLow] = useState(false)
+
+  window.addEventListener('resize', function () {
+    if (window.innerWidth < 650) {
+      setLow(true)
+    } else {
+      setLow(false)
+    }
+  });
 
   async function handleDelete() {
 
@@ -22,7 +32,6 @@ export function LinhaTabela({data, iniciativas, atualizar}) {
         });
 
         iniciativasAtualizadas[i].posicao = iniciativasAtualizadas[i].posicao - 1
-
       }
 
       atualizar(iniciativasAtualizadas)
@@ -51,6 +60,7 @@ export function LinhaTabela({data, iniciativas, atualizar}) {
         const iniciativasA = iniciativasAtualizadas.map(iniciativa => iniciativa)
 
         atualizar(iniciativasA)
+        setPrecisaSalvar()
 
       } catch (error) {
         console.log(error)
@@ -82,7 +92,8 @@ export function LinhaTabela({data, iniciativas, atualizar}) {
         const iniciativasA = iniciativasAtualizadas.map(iniciativa => iniciativa)
 
         atualizar(iniciativasA)
-        
+        setPrecisaSalvar()
+
       } catch (error) {
         console.log(error)
       }
@@ -93,20 +104,28 @@ export function LinhaTabela({data, iniciativas, atualizar}) {
 
   return (
     <Container>
-      <TD1><ButtonIcon color={'aqua'}><HiOutlineBarsArrowUp color='#03d9ffff' size={20} onClick={handleEditTop}/></ButtonIcon></TD1>
+      <TD1><ButtonIcon color={'aqua'}><HiOutlineBarsArrowUp color='#03d9ffff' size={20} onClick={handleEditTop} /></ButtonIcon></TD1>
       <TD2>{data.posicao}</TD2>
       <TD3><input type={'text'} defaultValue={data.nome} maxLength={22} onChange={(e) => {
         data.nome = e.target.value
+        setPrecisaSalvar()
       }} /></TD3>
-      <TD4><input type={'number'} defaultValue={data.iniciativa} onChange={(e) => {
-        data.iniciativa = e.target.value
-      }} /></TD4>
-      <TD5><input type={'number'} defaultValue={data.dano} onChange={(e) => {
-        data.dano = e.target.value
-      }} /></TD5>
+      {!low &&
+
+        <><TD4><input type={'number'} defaultValue={data.iniciativa} onChange={(e) => {
+          data.iniciativa = e.target.value
+          setPrecisaSalvar()
+        }} /></TD4>
+          <TD5><input type={'number'} defaultValue={data.dano} onChange={(e) => {
+            data.dano = e.target.value
+            setPrecisaSalvar()
+          }} /></TD5></>
+
+      }
+
       <TD6>
-      <ButtonIcon color={'aqua'}><HiOutlineBarsArrowDown color='#03d9ffff' size={20} onClick={handleEditBottom} /></ButtonIcon> 
-      <ButtonIcon color={'red'}><BiTrashAlt onClick={handleDelete} size={20} color='#ae0808ff' /></ButtonIcon>
+        <ButtonIcon color={'aqua'}><HiOutlineBarsArrowDown color='#03d9ffff' size={20} onClick={handleEditBottom} /></ButtonIcon>
+        <ButtonIcon color={'red'}><BiTrashAlt onClick={handleDelete} size={20} color='#ae0808ff' /></ButtonIcon>
       </TD6>
     </Container>
   );

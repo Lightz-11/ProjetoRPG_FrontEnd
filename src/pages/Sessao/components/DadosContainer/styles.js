@@ -15,41 +15,100 @@ export const HeaderContainer = styled("div", {
   position: "relative",
 
   h1: {
-      textAlign: "center",
-      color: "white",
-      fontSize: "2rem",
+    textAlign: "center",
+    color: "white",
+    fontSize: "2rem",
   },
 
   button: {
-      background: "none",
-      border: "none",
-      color: "Green",
-      position: "absolute",
-      right: "1.5rem",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
+    background: "none",
+    border: "none",
+    color: "Green",
+    position: "absolute",
+    right: "1.5rem",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   svg: {
-      transition: "0.3s",
+    transition: "0.3s",
   },
 
   "button:hover": {
-      svg: {
-          filter: "brightness(2)",
-      },
+    svg: {
+      filter: "brightness(2)",
+    },
   },
 });
 
 export const BodyContainer = styled("div", {
-  padding: "1rem",
-  display: "grid",
-  gridTemplateColumns: "1fr 1fr",
-  gridColumnGap: "3rem",
-  gridRowGap: "2rem",
 
-  "@lg4": {
-      gridTemplateColumns: "1fr",
-  },
+  display: 'flex',
+  flexDirection: 'column'
+
 });
+
+export const Elemento = styled('div', {
+
+  marginTop: '2rem',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'center',
+
+  input: {
+    width: '90%',
+    background: 'none',
+    border: 'none',
+    outline: '2px solid #ffffff90',
+    padding: '.5rem',
+    color: 'white',
+  },
+
+  'input::placeholder': {
+    opacity: .5
+  },
+
+})
+
+export const Button = styled('button', {
+  width: '5%',
+  background: 'none',
+  border: '2px solid #ffffff90',
+  borderLeft: '2px solid transparent',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  padding: '.4rem',
+  transition: '.2s',
+
+  '&:hover': {
+    background: '#ffffff20'
+  }
+})
+
+export const Body = styled('div', {
+
+  h1: {
+    fontSize: '2rem',
+    color: 'white',
+    textAlign: 'center',
+  },
+
+  display: 'flex',
+  flexDirection: 'column',
+
+})
+
+export const BodyDados = styled('div', {
+
+  padding: "1rem",
+  display: "flex",
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
+  alignItems: 'center',
+  gap: '3rem'
+
+})

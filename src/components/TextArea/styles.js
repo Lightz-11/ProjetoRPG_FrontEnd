@@ -11,7 +11,7 @@ export const Container = styled('div', {
 
 })
 
-export const InputB = styled ('textarea', {
+export const InputB = styled('textarea', {
 
     width: '100%',
     minHeight: '10rem',
@@ -31,7 +31,7 @@ export const InputB = styled ('textarea', {
 })
 
 export const LabelContainer = styled('label', {
-    
+
     position: 'absolute',
     width: 'fit-content',
     top: -13,
@@ -40,7 +40,7 @@ export const LabelContainer = styled('label', {
     fontSize: '2rem',
     backgroundColor: 'rgb(27, 27, 27)',
     color: 'rgb(208, 147, 226)',
-    transition: 'ease 0.5s',
+    transition: '.3s',
     padding: '0px 10px',
 
     variants: {

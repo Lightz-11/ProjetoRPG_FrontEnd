@@ -11,7 +11,7 @@ export const Container = styled('div', {
 
 })
 
-export const InputB = styled ('input', {
+export const InputB = styled('input', {
 
     width: '100%',
     marginTop: "0px",
@@ -26,7 +26,7 @@ export const InputB = styled ('input', {
 })
 
 export const LabelContainer = styled('label', {
-    
+
     position: 'absolute',
     width: 'fit-content',
     top: '-22%',
@@ -35,7 +35,7 @@ export const LabelContainer = styled('label', {
     fontSize: '2rem',
     backgroundColor: 'rgb(27, 27, 27)',
     color: 'rgb(208, 147, 226)',
-    transition: 'ease 0.5s',
+    transition: '.3s',
     padding: '0px 10px',
 
     variants: {

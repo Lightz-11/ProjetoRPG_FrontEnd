@@ -3,7 +3,7 @@ import { styled } from "../../../stitches.config";
 export const Container = styled('div', {
 
     width: '65rem',
-    height: '65rem',
+    height: '52rem',
     borderRadius: '1.2rem',
     backgroundColor: 'rgb(27,27,27)',
     boxShadow: 'rgba(255, 255, 255, 0.45) 0rem 0.5rem 1.5rem',
@@ -55,12 +55,24 @@ export const Button = styled('button', {
 
     variants: {
         color: {
-            crismon: {backgroundColor: 'Crimson'},
-            blue: {backgroundColor: 'CornflowerBlue'}
+            red: {
+                backgroundColor: '#d41717ff',
+
+                '&:hover': {
+                    backgroundColor: '#ac1414ff',
+                },
+            },
+            purple: {
+                backgroundColor: '#4f1db4',
+
+                '&:hover': {
+                    backgroundColor: '#3f178f',
+                },
+            }
         }
     },
 
     defaultVariants: {
-        color: 'crismon'
+        color: 'red'
     }
 })

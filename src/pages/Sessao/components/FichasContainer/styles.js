@@ -15,30 +15,30 @@ export const HeaderContainer = styled("div", {
   position: "relative",
 
   h1: {
-      textAlign: "center",
-      color: "white",
-      fontSize: "2rem",
+    textAlign: "center",
+    color: "white",
+    fontSize: "2rem",
   },
 
   button: {
-      background: "none",
-      border: "none",
-      color: "Green",
-      position: "absolute",
-      right: "1.5rem",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
+    background: "none",
+    border: "none",
+    color: "Green",
+    position: "absolute",
+    right: "1.5rem",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   svg: {
-      transition: "0.3s",
+    transition: "0.3s",
   },
 
   "button:hover": {
-      svg: {
-          filter: "brightness(2)",
-      },
+    svg: {
+      filter: "brightness(2)",
+    },
   },
 });
 
@@ -49,8 +49,38 @@ export const BodyContainer = styled("div", {
   gridColumnGap: "1rem",
   gridRowGap: "2rem",
 
+  variants: {
+    quantidade: {
+      1: {
+        gridTemplateColumns: "1fr",
+
+        "@lg4": {
+          gridTemplateColumns: "1fr 1fr",
+        },
+
+        "@lg2": {
+          gridTemplateColumns: "1fr"
+        }
+
+      },
+      2: {
+
+        gridTemplateColumns: "1fr 1fr",
+
+        "@lg4": {
+          gridTemplateColumns: "1fr 1fr",
+        },
+
+        "@lg2": {
+          gridTemplateColumns: "1fr"
+        }
+
+      }
+    }
+  },
+
   "@lg4": {
-      gridTemplateColumns: "1fr 1fr",
+    gridTemplateColumns: "1fr 1fr",
   },
 
   "@lg2": {

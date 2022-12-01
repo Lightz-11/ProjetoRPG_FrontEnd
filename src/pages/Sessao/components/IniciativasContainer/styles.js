@@ -15,30 +15,30 @@ export const HeaderContainer = styled("div", {
   position: "relative",
 
   h1: {
-      textAlign: "center",
-      color: "white",
-      fontSize: "2rem",
+    textAlign: "center",
+    color: "white",
+    fontSize: "2rem",
   },
 
   button: {
-      background: "none",
-      border: "none",
-      color: "Green",
-      position: "absolute",
-      right: "1.5rem",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
+    background: "none",
+    border: "none",
+    color: "Green",
+    position: "absolute",
+    right: "1.5rem",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   svg: {
-      transition: "0.3s",
+    transition: "0.3s",
   },
 
   "button:hover": {
-      svg: {
-          filter: "brightness(2)",
-      },
+    svg: {
+      filter: "brightness(2)",
+    },
   },
 });
 
@@ -68,7 +68,7 @@ export const TH2 = styled('th', {
 })
 
 export const TH3 = styled('th', {
-  paddingRight: '17rem'
+  paddingRight: '17rem',
 })
 
 export const TH4 = styled('th', {
@@ -99,26 +99,41 @@ export const Button = styled('button', {
   fontSize: '1.9rem',
   transition: '0.3s',
 
+  color: 'Yellow',
+  border: '1px solid Yellow',
+
   '&:hover': {
-    border: '1px solid #ffffff',
+    border: '1px solid yellow',
     opacity: '0.5'
   },
 
+})
+
+export const ButtonSalvar = styled('button', {
+
+  background: 'none',
+  padding: '0.5rem 1rem',
+  fontSize: '1.9rem',
+  transition: '0.3s',
+
   variants: {
-    color: {
-      aqua: {
-        color: '#03d9ffff',
-        border: '1px solid #03d9ffff',
+    precisaSalvar: {
+      false: {
+        color: '#00ff62',
+        border: '1px solid #41ff8a',
+        cursor: 'default'
       },
-      yellow: {
-        color: 'Yellow',
-        border: '1px solid Yellow',
+      true: {
+        color: 'crimson',
+        border: '1px solid crimson',
+
+        '&:hover': {
+          border: '1px solid crimson',
+          opacity: '0.5'
+        },
       }
     }
   },
 
-  defaultVariants: {
-    color: 'aqua'
-  }
 
 })

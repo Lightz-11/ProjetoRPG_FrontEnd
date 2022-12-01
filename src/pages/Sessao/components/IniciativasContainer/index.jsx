@@ -1,4 +1,4 @@
-import { BodyContainer, Container, Button, HeaderContainer, Table, TH1, TH2, TH3, TH4, TH5, TH6, Footer } from './styles';
+import { BodyContainer, Container, Button, HeaderContainer, Table, TH1, TH2, TH3, TH4, TH5, TH6, Footer, ButtonSalvar } from './styles';
 import { MdApi, MdOutlineAddBox } from "react-icons/md";
 import { LinhaTabela } from './components/LinhaTabela';
 import { useEffect, useState } from 'react';
@@ -9,30 +9,40 @@ import "react-toastify/dist/ReactToastify.css";
 export function IniciativasContainer() {
 
   const [iniciativas, setIniciativas] = useState([])
+  const [low, setLow] = useState(false)
+  const [precisaSalvar, setPrecisaSalvar] = useState(false)
+
+  window.addEventListener('resize', function () {
+    if (window.innerWidth < 650) {
+      setLow(true)
+    } else {
+      setLow(false)
+    }
+  });
 
   useEffect(() => {
-  
+
     const id = window.location.href.substring(36);
 
     async function fetchData() {
 
       setIniciativas([])
       try {
-          
+
         const response = await api.get(`http://localhost:8080/sessoes/iniciativa/${id}`);
 
-          for (let i = 0; i < response.data.length; i++) {
+        for (let i = 0; i < response.data.length; i++) {
 
-            const iniciativa = {
-              id: response.data[i].id,
-              posicao: response.data[i].posicao,
-              nome: response.data[i].nome,
-              iniciativa: response.data[i].iniciativa,
-              dano: response.data[i].dano,
-            };
-  
-            setIniciativas((prevState) => [...prevState, iniciativa]);
-          }
+          const iniciativa = {
+            id: response.data[i].id,
+            posicao: response.data[i].posicao,
+            nome: response.data[i].nome,
+            iniciativa: response.data[i].iniciativa,
+            dano: response.data[i].dano,
+          };
+
+          setIniciativas((prevState) => [...prevState, iniciativa]);
+        }
 
       } catch (erro) {
         console.log(erro.data);
@@ -69,21 +79,27 @@ export function IniciativasContainer() {
 
   async function handleUpdate() {
 
-    try {
+    if (precisaSalvar) {
 
-      for (let i = 0; i < iniciativas.length; i++) {
+      try {
 
-        await api.put(`http://localhost:8080/sessoes/iniciativa/${iniciativas[i].id}`, {
-          nome: iniciativas[i].nome,
-          posicao: iniciativas[i].posicao,
-          iniciativa: iniciativas[i].iniciativa,
-          dano: iniciativas[i].dano
-        });
+        for (let i = 0; i < iniciativas.length; i++) {
 
+          await api.put(`http://localhost:8080/sessoes/iniciativa/${iniciativas[i].id}`, {
+            nome: iniciativas[i].nome,
+            posicao: iniciativas[i].posicao,
+            iniciativa: iniciativas[i].iniciativa,
+            dano: iniciativas[i].dano
+          });
+
+        }
+
+        setPrecisaSalvar(false)
+
+      } catch (erro) {
+        console.log(erro)
       }
 
-    } catch (erro) {
-      console.log(erro)
     }
 
   }
@@ -101,26 +117,34 @@ export function IniciativasContainer() {
 
       <BodyContainer>
 
-        <Table>
-          <thead>
-            <tr>
-              <TH1>Up</TH1>
-              <TH2>#</TH2>
-              <TH3>Nome</TH3>
-              <TH4>Iniciativa</TH4>
-              <TH5>Dano</TH5>
-              <TH6>Down</TH6>
-            </tr>
-          </thead>
-          <tbody>
-            {iniciativas && iniciativas.map(iniciativa => <LinhaTabela key={iniciativa.id} data={iniciativa} iniciativas={iniciativas} atualizar={setIniciativas}/>)}
-          </tbody>
-        </Table>
+        {iniciativas.length > 0 &&
+
+          <Table>
+            <thead>
+              <tr>
+                <TH1>Up</TH1>
+                <TH2>#</TH2>
+                <TH3>Nome</TH3>
+                {!low &&
+                  <><TH4>Iniciativa</TH4>
+                    <TH5>Dano</TH5></>
+                }
+                <TH6>Down</TH6>
+              </tr>
+            </thead>
+            <tbody>
+              {iniciativas && iniciativas.map(iniciativa => <LinhaTabela key={iniciativa.id} data={iniciativa} iniciativas={iniciativas} atualizar={setIniciativas} setPrecisaSalvar={() => setPrecisaSalvar(true)} />)}
+            </tbody>
+          </Table>
+
+        }
 
         <Footer>
 
           <Button color={'yellow'}>Combate All</Button>
-          <Button onClick={handleUpdate}>Salvar</Button>
+          {iniciativas.length > 0 &&
+            <ButtonSalvar precisaSalvar={precisaSalvar} onClick={handleUpdate}> {precisaSalvar ? 'Salvar' : 'Salvo!'} </ButtonSalvar>
+          }
 
         </Footer>
 

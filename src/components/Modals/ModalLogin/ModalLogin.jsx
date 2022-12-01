@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Switch } from '@headlessui/react'
 import { useAuth } from "../../../hooks/auth";
 import "./styles";
-import { Button, Container} from "./styles";
+import { Button, Container } from "./styles";
 import { Input } from "../../Input";
 import { Toggle } from "../../Toggle";
 
@@ -57,8 +57,8 @@ export function ModalLogin({ setModalLoginClose }) {
 
       <hr />
 
-      <Input label1={'Email/User'} label2={'Email/User |'} setValor={setCampo} campo={'Campo'} minLength={3} maxLength={30} />
-      <Input label1={'Senha'} label2={'Senha |'} setValor={setSenha} campo={'Senha'} minLength={8} maxLength={24} id="senha" type="password" />
+      <Input label={'Email/User'} setValor={setCampo} valor={campo} maxLength={30} />
+      <Input label={'Senha'} setValor={setSenha} valor={senha} maxLength={24} id="senha" type="password" />
 
       <div className="toggles">
 
@@ -70,7 +70,7 @@ export function ModalLogin({ setModalLoginClose }) {
       <div className="footer">
 
         <Button onClick={setModalLoginClose} autoFocus>Fechar</Button>
-        <Button color='blue' onClick={handleLogin}>Entrar</Button>
+        <Button color='purple' onClick={handleLogin}>Entrar</Button>
 
       </div>
 

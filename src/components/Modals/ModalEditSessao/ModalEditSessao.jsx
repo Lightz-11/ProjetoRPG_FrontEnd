@@ -79,11 +79,11 @@ export function ModalEditSessao({ id, name, desc, setModalClose, sessoes, atuali
         <TextArea label1={'Descição'} setValor={setDesc} campo={'Desc'} minLength={16} maxLength={300} defaultValue={desc} />
         <ButtonDelete onClick={handleDelete}> <BiTrashAlt className="icon" /> Deletar Sessão</ButtonDelete>
       </Body>
-      
+
       <div className="footer">
 
         <Button onClick={setModalClose} autoFocus>Fechar</Button>
-        <Button color='blue' onClick={handleEdit}>Editar Sessão</Button>
+        <Button color='purple' onClick={handleEdit}>Editar Sessão</Button>
 
       </div>
 

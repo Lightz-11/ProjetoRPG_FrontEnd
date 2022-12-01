@@ -1,7 +1,7 @@
 import { Container, SpanContainer, Input } from "./styles"
 
-export function Toggle ({span, classNumber, ...rest}) {
-    return(
+export function Toggle({ span, classNumber, ...rest }) {
+    return (
         <Container>
             <SpanContainer>
                 {span}
