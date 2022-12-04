@@ -5,7 +5,7 @@ import { FaUserCircle } from "react-icons/fa";
 import { BiUnlink } from "react-icons/bi";
 import { useState } from "react";
 
-export function CardFichasPersonagem() {
+export function CardFichasPersonagem({ data }) {
 
     const [buttonActive, setButtonActive] = useState('Status')
 
@@ -13,7 +13,7 @@ export function CardFichasPersonagem() {
         <Container>
             <Header>
                 <div>
-                    <h1>Peter</h1>
+                    <h1>{data.nome}</h1>
                     <LinkButton>
                         <IoOpenOutline size={22} color="#1f55c2ff" />
                     </LinkButton>

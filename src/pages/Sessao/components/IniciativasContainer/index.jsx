@@ -5,12 +5,15 @@ import { useEffect, useState } from 'react';
 import { api } from "../../../../services/api";
 import { toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import { useParams } from 'react-router-dom';
 
 export function IniciativasContainer() {
 
   const [iniciativas, setIniciativas] = useState([])
   const [low, setLow] = useState(false)
   const [precisaSalvar, setPrecisaSalvar] = useState(false)
+
+  const { id } = useParams()
 
   window.addEventListener('resize', function () {
     if (window.innerWidth < 650) {
@@ -21,8 +24,6 @@ export function IniciativasContainer() {
   });
 
   useEffect(() => {
-
-    const id = window.location.href.substring(36);
 
     async function fetchData() {
 
@@ -52,8 +53,6 @@ export function IniciativasContainer() {
   }, [])
 
   async function handleCreate() {
-
-    const id = window.location.href.substring(36);
 
     try {
 

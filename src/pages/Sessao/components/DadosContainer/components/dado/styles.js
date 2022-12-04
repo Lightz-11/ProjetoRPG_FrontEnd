@@ -37,7 +37,8 @@ export const Button = styled('button', {
     fontSize: '2rem',
     marginTop: '.5rem',
     color: 'white',
-    fontWeight: 100
+    fontWeight: 100,
+    textTransform: 'capitalize'
   },
 
   background: 'none',

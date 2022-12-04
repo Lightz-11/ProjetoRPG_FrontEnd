@@ -2,10 +2,11 @@ import { BodyContainer, Container, HeaderContainer } from './styles';
 import { CardFichasPersonagem } from "../../../../components/CardFichasPersonagem";
 import { MdOutlineAddBox } from "react-icons/md";
 import { useState } from 'react';
+import { useFichas } from '../../../../hooks/useFichas';
 
 export function FichaContainer() {
 
-  const [fichas, setFichas] = useState([])
+  const { fichas } = useFichas()
 
   return (
     <Container>
@@ -18,10 +19,9 @@ export function FichaContainer() {
 
       <hr />
 
-      <BodyContainer quantidade={2}>
+      <BodyContainer quantidade={fichas.length}>
 
-        <CardFichasPersonagem />
-        <CardFichasPersonagem />
+        {fichas.map(ficha => <CardFichasPersonagem key={ficha.id} data={ficha} />)}
 
       </BodyContainer>
 

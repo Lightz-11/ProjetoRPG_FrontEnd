@@ -10,10 +10,10 @@ export function Routes() {
 
   return (
     <BrowserRouter>
-      {user ? 
-      <UserRoutes/> 
-      : 
-      <AuthRoutes />}
+      {user ?
+        <UserRoutes />
+        :
+        <AuthRoutes />}
     </BrowserRouter>
   );
 }

@@ -93,8 +93,9 @@ export const BottomBody = styled('div', {
     resize: 'vertical',
     maxHeight: '25rem',
     minHeight: '3.5rem',
+    border: 'none',
     borderRadius: '5px',
-    border: '2px solid #ffffff90',
+    outline: '2px solid #ffffff90',
     padding: '.5rem',
     color: 'white',
     fontFamily: 'arial'

@@ -1,34 +1,47 @@
 import { useEffect, useState } from "react"
-import { Container, InputB, LabelContainer } from "./styles"
+import { Container, InputB, LabelContainer, LabelContainerMenor } from "./styles"
 
-export function Input({ label, setValor, valor, ...rest }) {
+
+export function Input({ label, labelMenor = false, setValor, valor, onlyNumber = false, ...rest }) {
 
     const [focus, setFocus] = useState(false)
 
     useEffect(() => {
-
-        if (valor.length > 0) {
+        if (valor != null && valor.toString().length > 0) {
             setFocus(true)
         }
-
     })
 
-
+    function onlyNumbers(v) {
+        v = v.replace(/[^0-9]/g, "")
+        setValor(v)
+    }
 
     return (
         <Container>
-            <LabelContainer active={focus}>
-                {label}
-            </LabelContainer>
-            <InputB type="text" {...rest}
+            {labelMenor
+                ?
+                <LabelContainerMenor active={focus}>
+                    {label}
+                </LabelContainerMenor>
+                :
+                <LabelContainer active={focus}>
+                    {label}
+                </LabelContainer>
+            }
+            <InputB autoComplete="off" value={valor} type="text" {...rest}
                 onChange={(event) => {
-                    setValor(event.target.value)
+                    if (onlyNumber) {
+                        onlyNumbers(event.target.value)
+                    } else {
+                        setValor(event.target.value)
+                    }
                 }}
                 onFocus={() => {
                     setFocus(true)
                 }}
                 onBlur={() => {
-                    if (valor.length == 0) {
+                    if (valor == null || valor.toString().length == 0) {
                         setFocus(false)
                     }
                 }}

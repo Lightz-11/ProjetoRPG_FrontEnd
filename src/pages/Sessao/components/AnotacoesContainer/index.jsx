@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import { ButtonIcon } from "../../../../components/ButtonIcon"
 import { BiTrashAlt } from "react-icons/bi"
+import { useParams } from 'react-router-dom';
 
 export function AnotacoesContainer() {
 
@@ -17,9 +18,9 @@ export function AnotacoesContainer() {
   const [buttonActive, setButtonActive] = useState(-1)
   const [aberto, setAberto] = useState(false)
 
-  useEffect(() => {
+  const { id } = useParams();
 
-    const id = window.location.href.substring(36);
+  useEffect(() => {
 
     async function fetchData() {
 
@@ -49,8 +50,6 @@ export function AnotacoesContainer() {
   }, [])
 
   async function handleCreate() {
-
-    const id = window.location.href.substring(36);
 
     try {
 
@@ -148,7 +147,7 @@ export function AnotacoesContainer() {
               <><BottomBody>
 
                 <div>
-                  <input type="text" value={nome} onChange={(e) => setNome(e.target.value)} onBlur={(e) => handleEdit(infos.id, nome, infos.desc)} />
+                  <input type="text" value={nome} maxLength={20} onChange={(e) => setNome(e.target.value)} onBlur={(e) => handleEdit(infos.id, nome, infos.desc)} />
                   <ButtonIcon color={'red'}><BiTrashAlt size={20} color='#ae0808ff' onClick={() => handleDelete(infos.id)} /></ButtonIcon>
                 </div>
                 <textarea value={desc} onChange={(e) => setDesc(e.target.value)} onBlur={(e) => handleEdit(infos.id, infos.nome, desc)} />

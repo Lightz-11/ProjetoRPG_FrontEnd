@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { RiContactsBookLine } from 'react-icons/ri';
 import { Container, Header, Main, Footer, CloseButton } from './styles';
 
-export function ModalDadoRolado({ setModalEditIsOpenFalse, data }) {
+export function DadoRolado({ data }) {
 
   const [dados, setDados] = useState({
     valorTotal: 0,
@@ -50,7 +50,7 @@ export function ModalDadoRolado({ setModalEditIsOpenFalse, data }) {
 
           }
 
-          const menor = Math.min.apply(null, totalValores)
+          const menor = Math.min(...totalValores)
           contaTotal.push(menor)
 
         } else if (qtdDado == -1) {
@@ -62,7 +62,7 @@ export function ModalDadoRolado({ setModalEditIsOpenFalse, data }) {
 
           }
 
-          const menor = Math.min.apply(null, totalValores)
+          const menor = Math.min(...totalValores)
           contaTotal.push(menor)
 
         } else {
@@ -74,7 +74,7 @@ export function ModalDadoRolado({ setModalEditIsOpenFalse, data }) {
 
           }
 
-          const maior = Math.max.apply(null, totalValores)
+          const maior = Math.max(...totalValores)
           contaTotal.push(maior)
 
         }
@@ -175,7 +175,7 @@ export function ModalDadoRolado({ setModalEditIsOpenFalse, data }) {
     }
 
     rolarDado();
-  }, []);
+  }, [data]);
 
   return (
     <Container>
@@ -183,23 +183,26 @@ export function ModalDadoRolado({ setModalEditIsOpenFalse, data }) {
       <Header>
 
         <h1>Resultado</h1>
-        <CloseButton onClick={setModalEditIsOpenFalse}>X</CloseButton>
 
       </Header>
 
       <Main isDano={data.isDano}>
-        <h1>{data.nome}:</h1>
+        <h1>{data.nome && data.nome + ':'}</h1>
         <span>
-          {dados.conta} = {dados.valorTotal}
+          {dados.conta && dados.conta + ' = '} {dados.valorTotal}
         </span>
       </Main>
 
       <Footer>
-        {dados.dadosRolados.map((dado) => (
-          <span>
-            {dado.dado}: {dado.valores.join(', ')}
-          </span>
-        ))}
+        {data.isDano != null &&
+          <>
+            {dados.dadosRolados.map((dado) => (
+              <span>
+                {dado.dado}: {dado.valores.join(', ')}
+              </span>
+            ))}
+          </>
+        }
       </Footer>
 
     </Container>

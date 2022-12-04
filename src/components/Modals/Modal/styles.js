@@ -18,6 +18,9 @@ export const ContentContainer = styled("div", {
 export const Content = styled(Dialog.Panel, {
 
   height: 'fit-content',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
   margin: 'auto'
 
 });

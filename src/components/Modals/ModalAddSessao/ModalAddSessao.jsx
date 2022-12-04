@@ -40,7 +40,7 @@ export function ModalAddSessao({ setModalClose, atualizar }) {
 
       <Body>
         <InputCenter label1={'Nome'} label2={'Nome |'} setValor={setNome} campo={'Nome'} minLength={3} maxLength={30} />
-        <TextArea label1={'Descição'} setValor={setDesc} campo={'Desc'} minLength={10} maxLength={300} />
+        <TextArea label={'Descição'} setValor={setDesc} minLength={10} maxLength={300} />
       </Body>
 
       <div className="footer">

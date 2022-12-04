@@ -15,41 +15,109 @@ export const HeaderContainer = styled("div", {
   position: "relative",
 
   h1: {
-      textAlign: "center",
-      color: "white",
-      fontSize: "2rem",
+    textAlign: "center",
+    color: "white",
+    fontSize: "2rem",
   },
 
   button: {
-      background: "none",
-      border: "none",
-      color: "Green",
-      position: "absolute",
-      right: "1.5rem",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
+    background: "none",
+    border: "none",
+    color: "Green",
+    position: "absolute",
+    right: "1.5rem",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   svg: {
-      transition: "0.3s",
+    transition: "0.3s",
   },
 
   "button:hover": {
-      svg: {
-          filter: "brightness(2)",
-      },
+    svg: {
+      filter: "brightness(2)",
+    },
   },
 });
 
 export const BodyContainer = styled("div", {
   padding: "1rem",
   display: "grid",
-  gridTemplateColumns: "1fr 1fr",
+  gridTemplateColumns: "1fr 1fr 1fr 1fr",
   gridColumnGap: "3rem",
   gridRowGap: "2rem",
 
   "@lg4": {
-      gridTemplateColumns: "1fr",
+    gridTemplateColumns: "1fr 1fr 1fr",
   },
+  '@lg3': {
+    gridTemplateColumns: "1fr 1fr",
+  },
+  '@md': {
+    gridTemplateColumns: '1fr'
+  },
+
 });
+
+export const Footer = styled('div', {
+
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '2rem',
+  padding: '2rem',
+  color: 'white'
+
+})
+
+export const Row = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexDirection: 'row',
+  gap: '5rem'
+})
+
+export const Column = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexDirection: 'column',
+  gap: '1rem',
+
+  span: {
+    fontWeight: 700,
+    fontSize: '2rem'
+  },
+
+  select: {
+    width: '15rem',
+    padding: '.5rem',
+    background: 'none',
+    color: 'white',
+    fontWeight: 100,
+    textTransform: 'capitalize'
+  },
+
+})
+
+export const Option = styled('option', {
+  color: 'white',
+  background: 'rgb(20,20,20)',
+  textTransform: 'capitalize'
+})
+
+export const Button = styled('button', {
+  width: '10rem',
+  padding: '.5rem 0',
+  background: 'none',
+  color: 'Purple',
+  border: '2px solid purple',
+
+  '&:hover': {
+    background: '#80008050',
+  }
+})

@@ -9,6 +9,7 @@ import { ToastContainer } from 'react-toastify';
 import { AiOutlineSend } from 'react-icons/ai'
 import { ButtonIcon } from '../../../../components/ButtonIcon';
 import { ModalDadoRolado } from './components/ModalDadoRolado';
+import { useParams } from 'react-router-dom'
 
 export function DadosContainer() {
 
@@ -20,9 +21,9 @@ export function DadosContainer() {
   const [valor, setValor] = useState('')
   const [isDano, setIsDano] = useState(false)
 
-  useEffect(() => {
+  const { id } = useParams();
 
-    const id = window.location.href.substring(36);
+  useEffect(() => {
 
     async function fetchData() {
 

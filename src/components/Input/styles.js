@@ -47,7 +47,32 @@ export const LabelContainer = styled('label', {
                 padding: '0px 10px',
                 zIndex: 2
             }
-        }
+        },
+    },
+
+})
+
+export const LabelContainerMenor = styled('label', {
+
+    position: 'absolute',
+    width: 'fit-content',
+    bottom: '30%',
+    left: 15,
+    zIndex: 0,
+    fontSize: '2rem',
+    backgroundColor: 'rgb(27, 27, 27)',
+    color: 'rgb(208, 147, 226)',
+    transition: '0.3s',
+
+    variants: {
+        active: {
+            true: {
+                fontSize: '1.6rem',
+                transform: 'translateX(1rem) translateY(-3rem)',
+                padding: '0px 10px',
+                zIndex: 2
+            }
+        },
     },
 
 })

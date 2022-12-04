@@ -4,6 +4,7 @@ import { Toggle } from '../../../../../../components/Toggle';
 import { Container, Footer, Button } from './styles';
 import { toast } from 'react-toastify'
 import { api } from '../../../../../../services/api';
+import { useParams } from 'react-router-dom';
 
 export function ModalAddDado({ setModalAddIsOpenFalse, atualizar }) {
 
@@ -11,9 +12,9 @@ export function ModalAddDado({ setModalAddIsOpenFalse, atualizar }) {
   const [valor, setValor] = useState('')
   const [isDano, setIsDano] = useState(false)
 
-  async function handleCreate() {
+  const { id } = useParams()
 
-    const id = window.location.href.substring(36);
+  async function handleCreate() {
 
     try {
 

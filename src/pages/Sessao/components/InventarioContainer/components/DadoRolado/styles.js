@@ -2,10 +2,11 @@ import { styled } from '../../../../../../stitches.config';
 
 export const Container = styled('div', {
 
-  minWidth: '30rem',
+  width: '100%',
+  minHeight: '15rem',
   borderRadius: '1.2rem',
   backgroundColor: 'rgb(27,27,27)',
-  boxShadow: 'rgba(255, 255, 255, 0.45) 0rem 0.5rem 1.5rem',
+  border: '2px solid #ffffff90',
   textAlign: 'center',
   display: 'flex',
   flexDirection: 'column',
@@ -20,14 +21,13 @@ export const Header = styled('div', {
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
-  justifyContent: 'space-between',
+  justifyContent: 'center',
   background: 'rgb(20,20,20)',
   padding: '0 2rem',
 
   h1: {
     color: 'purple',
     fontSize: '2.2rem',
-    textAlign: 'left'
   },
 
 })
@@ -56,7 +56,6 @@ export const Main = styled('div', {
   h1: {
     fontSize: '2.5rem',
     marginRight: '1rem',
-    textTransform: 'capitalize'
   },
 
   span: {

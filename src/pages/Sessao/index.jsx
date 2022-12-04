@@ -6,14 +6,15 @@ import {
     Body,
     DoubleParteContainer,
 } from "./styles";
-import {AnotacoesContainer, DadosContainer, FichaContainer, IniciativasContainer, UTContainer, FichasNPCsContainer, InventarioContainer} from "./components"
+import { AnotacoesContainer, DadosContainer, FichaContainer, IniciativasContainer, UTContainer, FichasNPCsContainer, InventarioContainer } from "./components"
 import { ToastContainer } from "react-toastify";
+import { useParams } from "react-router-dom";
 
 export function Sessao() {
     const [nomeSessao, setNomeSessao] = useState("");
+    const { id } = useParams()
 
     useEffect(() => {
-        const id = window.location.href.substring(36);
 
         const fetchData = async () => {
             try {
@@ -40,25 +41,25 @@ export function Sessao() {
 
             <Body>
 
-                <FichaContainer/>
+                <FichaContainer />
 
                 <DoubleParteContainer>
-                    <IniciativasContainer/>
-                    <UTContainer/>
+                    <IniciativasContainer />
+                    <UTContainer />
                 </DoubleParteContainer>
 
                 <DoubleParteContainer>
-                    <AnotacoesContainer/>
-                    <DadosContainer/>
+                    <AnotacoesContainer />
+                    <DadosContainer />
                 </DoubleParteContainer>
 
-                <FichasNPCsContainer/>
+                <FichasNPCsContainer />
 
-                <InventarioContainer/>
+                <InventarioContainer />
 
             </Body>
 
-            <ToastContainer/>
+            <ToastContainer />
         </Container>
     );
 }
