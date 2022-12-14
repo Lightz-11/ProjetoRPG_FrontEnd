@@ -16,7 +16,7 @@ export function ModalEditDado({ setModalEditIsOpenFalse, data, atualizar, dados 
 
     try {
 
-      const data2 = await api.put(`http://localhost:8080/sessoes/dado/${data.id}`, {
+      const data2 = await api.put(`/sessoes/dado/${data.id}`, {
         nome: nome,
         valor: valor,
         isDano: isDano
@@ -40,7 +40,7 @@ export function ModalEditDado({ setModalEditIsOpenFalse, data, atualizar, dados 
 
     try {
 
-      await api.delete(`http://localhost:8080/sessoes/dado/${data.id}`)
+      await api.delete(`/sessoes/dado/${data.id}`)
 
       const dadosAtualizados = dados.filter(dado => dado.id != data.id)
 

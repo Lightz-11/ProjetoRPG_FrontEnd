@@ -36,7 +36,7 @@ export function InventarioContainer() {
 
       try {
 
-        const responseItens = await api.get(`http://localhost:8080/sessoes/item/${id}`);
+        const responseItens = await api.get(`/sessoes/item/${id}`);
 
         for (let i = 0; i < responseItens.data.length; i++) {
 
@@ -52,7 +52,7 @@ export function InventarioContainer() {
           setItens((prevState) => [...prevState, item]);
         }
 
-        const responseArmas = await api.get(`http://localhost:8080/sessoes/arma/${id}`);
+        const responseArmas = await api.get(`/sessoes/arma/${id}`);
 
         for (let i = 0; i < responseArmas.data.length; i++) {
 

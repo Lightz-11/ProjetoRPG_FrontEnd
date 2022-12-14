@@ -27,7 +27,7 @@ export function AnotacoesContainer() {
       setAnotacoes([])
       try {
 
-        const response = await api.get(`http://localhost:8080/sessoes/anotacao/${id}`);
+        const response = await api.get(`/sessoes/anotacao/${id}`);
 
         for (let i = 0; i < response.data.length; i++) {
 
@@ -53,7 +53,7 @@ export function AnotacoesContainer() {
 
     try {
 
-      const response = await api.post(`http://localhost:8080/sessoes/anotacao`, {
+      const response = await api.post(`/sessoes/anotacao`, {
         nome: "Nova Anotação",
         descricao: "Escreva aqui...",
         sessaoId: id
@@ -76,7 +76,7 @@ export function AnotacoesContainer() {
 
     try {
 
-      const response = await api.put(`http://localhost:8080/sessoes/anotacao/${id}`, {
+      const response = await api.put(`/sessoes/anotacao/${id}`, {
         nome: nome,
         descricao: desc
       })
@@ -91,7 +91,7 @@ export function AnotacoesContainer() {
 
     try {
 
-      await api.delete(`http://localhost:8080/sessoes/anotacao/${id}`)
+      await api.delete(`/sessoes/anotacao/${id}`)
 
       const anotacoesAtt = anotacoes.filter(anotacao => anotacao.id != id)
 

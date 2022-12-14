@@ -30,7 +30,7 @@ export function ModalAddArma({ setModalAddArmaIsOpenFalse, atualizar, setPesoAtu
 
     try {
 
-      const data = await api.post(`http://localhost:8080/fichas/arma`, {
+      const data = await api.post(`/fichas/arma`, {
         nome,
         tipo,
         alcance,

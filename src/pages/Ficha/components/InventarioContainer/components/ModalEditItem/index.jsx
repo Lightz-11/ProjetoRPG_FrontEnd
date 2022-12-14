@@ -19,7 +19,7 @@ export function ModalEditItem({ data, setModalEditItemIsOpenFalse, atualizar, it
 
     try {
 
-      const data2 = await api.put(`http://localhost:8080/fichas/item/${data.id}`, {
+      const data2 = await api.put(`/fichas/item/${data.id}`, {
         nome,
         espaco,
         categoria,
@@ -49,7 +49,7 @@ export function ModalEditItem({ data, setModalEditItemIsOpenFalse, atualizar, it
     if (window.confirm("Tem certeza que deseja excluir este item? Uma vez deletado jamais poderá ser recuperado.")) {
       try {
 
-        await api.delete(`http://localhost:8080/sessoes/item/${data.id}`);
+        await api.delete(`/sessoes/item/${data.id}`);
 
         const itensAtualizados = itens.filter(item => item.id != data.id)
 

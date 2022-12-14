@@ -21,13 +21,13 @@ export function LinhaTabela({ data, iniciativas, atualizar, setPrecisaSalvar }) 
 
     try {
 
-      await api.delete(`http://localhost:8080/sessoes/iniciativa/${data.id}`);
+      await api.delete(`/sessoes/iniciativa/${data.id}`);
 
       const iniciativasAtualizadas = iniciativas.filter(iniciativa => iniciativa.id != data.id)
 
       for (let i = data.posicao - 1; i < iniciativasAtualizadas.length; i++) {
 
-        await api.put(`http://localhost:8080/sessoes/iniciativa/${iniciativasAtualizadas[i].id}`, {
+        await api.put(`/sessoes/iniciativa/${iniciativasAtualizadas[i].id}`, {
           posicao: (iniciativasAtualizadas[i].posicao - 1),
         });
 
@@ -74,7 +74,7 @@ export function LinhaTabela({ data, iniciativas, atualizar, setPrecisaSalvar }) 
 
     const id = window.location.href.substring(36)
 
-    const length = await api.get(`http://localhost:8080/sessoes/iniciativa/${id}`);
+    const length = await api.get(`/sessoes/iniciativa/${id}`);
 
     if (data.posicao != length.data.length) {
 

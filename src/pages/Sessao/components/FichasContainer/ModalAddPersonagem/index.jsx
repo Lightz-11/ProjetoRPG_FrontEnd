@@ -19,7 +19,7 @@ export function ModalAddPersonagem({ setModalAddIsOpenFalse }) {
 
       try {
 
-        await api.post(`http://localhost:8080/sessoes/convite`, {
+        await api.post(`/sessoes/convite`, {
           userEmail: email,
           sessaoId: id
         })

@@ -42,7 +42,7 @@ export function ModalEditArma({ data, setModalEditArmaIsOpenFalse, atualizar, ar
 
     try {
 
-      const data2 = await api.put(`http://localhost:8080/sessoes/arma/${data.id}`, {
+      const data2 = await api.put(`/sessoes/arma/${data.id}`, {
         nome,
         tipo,
         alcance,
@@ -88,7 +88,7 @@ export function ModalEditArma({ data, setModalEditArmaIsOpenFalse, atualizar, ar
 
       try {
 
-        await api.delete(`http://localhost:8080/sessoes/arma/${data.id}`);
+        await api.delete(`/sessoes/arma/${data.id}`);
 
         const armasAtualizadas = armas.filter(arma => arma.id != data.id)
 

@@ -18,7 +18,7 @@ export function ModalAddDado({ setModalAddIsOpenFalse, atualizar }) {
 
     try {
 
-      const data = await api.post(`http://localhost:8080/sessoes/dado`, {
+      const data = await api.post(`/sessoes/dado`, {
         nome: nome,
         valor: valor,
         isDano: isDano,

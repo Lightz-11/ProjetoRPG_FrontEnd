@@ -16,7 +16,7 @@ export function ModalPortrait({ data, setModalPortraitIsOpenFalse }) {
 
     try {
 
-      const data2 = await api.put(`http://localhost:8080/fichas/portrait/${data.id}`, {
+      const data2 = await api.put(`/fichas/portrait/${data.id}`, {
         normal,
         ferido,
         insano,

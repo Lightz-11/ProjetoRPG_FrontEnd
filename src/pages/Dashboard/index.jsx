@@ -45,7 +45,7 @@ export function Dashboard() {
         setSessaoConvite([])
 
         for (let i = 0; i < responseConvite.data.length; i++) {
-          const responseSessaoConvite = await api.get(`http://localhost:8080/sessoes/${responseConvite.data[i].sessaoId}`);
+          const responseSessaoConvite = await api.get(`/sessoes/${responseConvite.data[i].sessaoId}`);
           const donoDaSessao = await api.get(`/usuarios/${responseSessaoConvite.data.userId}`)
 
           const novaSessaoConvite = {

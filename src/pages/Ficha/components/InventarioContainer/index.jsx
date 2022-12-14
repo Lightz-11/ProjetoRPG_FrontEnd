@@ -39,7 +39,7 @@ export function InventarioContainer({ peso }) {
 
       try {
 
-        const responseItens = await api.get(`http://localhost:8080/fichas/item/${id}`);
+        const responseItens = await api.get(`/fichas/item/${id}`);
 
         for (let i = 0; i < responseItens.data.length; i++) {
 
@@ -56,7 +56,7 @@ export function InventarioContainer({ peso }) {
           setItens((prevState) => [...prevState, item]);
         }
 
-        const responseArmas = await api.get(`http://localhost:8080/fichas/arma/${id}`);
+        const responseArmas = await api.get(`/fichas/arma/${id}`);
 
         for (let i = 0; i < responseArmas.data.length; i++) {
 

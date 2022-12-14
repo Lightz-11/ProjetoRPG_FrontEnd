@@ -20,7 +20,7 @@ export function Sessao() {
         const fetchData = async () => {
             try {
                 const response = await api.get(
-                    `http://localhost:8080/sessoes/${id}`
+                    `/sessoes/${id}`
                 );
 
                 if (response.data.userId != dataUser.id) {

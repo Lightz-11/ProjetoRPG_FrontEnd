@@ -30,7 +30,7 @@ export function DadosContainer() {
       setDados([])
       try {
 
-        const response = await api.get(`http://localhost:8080/sessoes/dado/${id}`);
+        const response = await api.get(`/sessoes/dado/${id}`);
 
         for (let i = 0; i < response.data.length; i++) {
 

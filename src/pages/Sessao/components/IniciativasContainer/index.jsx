@@ -30,7 +30,7 @@ export function IniciativasContainer() {
       setIniciativas([])
       try {
 
-        const response = await api.get(`http://localhost:8080/sessoes/iniciativa/${id}`);
+        const response = await api.get(`/sessoes/iniciativa/${id}`);
 
         for (let i = 0; i < response.data.length; i++) {
 
@@ -56,11 +56,11 @@ export function IniciativasContainer() {
 
     try {
 
-      const response = await api.get(`http://localhost:8080/sessoes/iniciativa/${id}`);
+      const response = await api.get(`/sessoes/iniciativa/${id}`);
 
       const ultimaPosicao = (response.data.length + 1)
 
-      const data = await api.post(`http://localhost:8080/sessoes/iniciativa`, {
+      const data = await api.post(`/sessoes/iniciativa`, {
         posicao: ultimaPosicao,
         nome: "Jogador",
         iniciativa: 0,
@@ -84,7 +84,7 @@ export function IniciativasContainer() {
 
         for (let i = 0; i < iniciativas.length; i++) {
 
-          await api.put(`http://localhost:8080/sessoes/iniciativa/${iniciativas[i].id}`, {
+          await api.put(`/sessoes/iniciativa/${iniciativas[i].id}`, {
             nome: iniciativas[i].nome,
             posicao: iniciativas[i].posicao,
             iniciativa: iniciativas[i].iniciativa,

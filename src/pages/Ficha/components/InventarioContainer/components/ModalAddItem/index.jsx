@@ -20,7 +20,7 @@ export function ModalAddItem({ setModalAddItemIsOpenFalse, atualizar, setPesoAtu
 
     try {
 
-      const data = await api.post(`http://localhost:8080/fichas/item`, {
+      const data = await api.post(`/fichas/item`, {
         nome,
         espaco,
         categoria,

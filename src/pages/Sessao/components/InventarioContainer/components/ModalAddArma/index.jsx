@@ -30,7 +30,7 @@ export function ModalAddArma({ setModalAddArmaIsOpenFalse, atualizar }) {
 
     try {
 
-      const data = await api.post(`http://localhost:8080/sessoes/arma`, {
+      const data = await api.post(`/sessoes/arma`, {
         nome,
         tipo,
         alcance,
