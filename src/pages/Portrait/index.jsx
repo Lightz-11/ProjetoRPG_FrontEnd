@@ -26,6 +26,10 @@ export function Portrait() {
           navigate('/')
         }
 
+        // if (response.data.visible != true) {
+        //   navigate('/')
+        // } 
+
         const status = response.data.Status[0]
 
         setarPvAtual(status.pv)

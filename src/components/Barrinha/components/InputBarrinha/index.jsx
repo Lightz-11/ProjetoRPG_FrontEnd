@@ -20,7 +20,6 @@ export function InputBarrinha({ setValor, valor, valorMax, right = false, ...res
                 const response2 = await api.get(`/sessoes/${response.data.sessaoId}`)
 
                 if (response.data.userId == dataUser.id || dataUser.id == response2.data.userId) {
-                    console.log('a')
                     setDisabled(false)
                 }
 

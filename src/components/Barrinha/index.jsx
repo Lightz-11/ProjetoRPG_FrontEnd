@@ -25,7 +25,6 @@ export function Barrinha({ valorA, setValorA, setValorMax, valorMax, color, numb
         const response2 = await api.get(`/sessoes/${response.data.sessaoId}`)
 
         if (response.data.userId == dataUser.id || dataUser.id == response2.data.userId) {
-          console.log('a')
           setDisabled(false)
         }
 

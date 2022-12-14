@@ -20,6 +20,10 @@ export function Ficha() {
 
         const response = await api.get(`/fichas/${id}`)
 
+        // if (response.data.visible != true) {
+        //   navigate('/')
+        // } 
+
         setFicha(response.data)
 
       } catch (error) { console.log(error) }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Container, Header, Main, MainTop, MainBottom, Span, ButtonIcon, Infos, DivInfos, ParteImg, ParteImgModal, ImgModal, Icon, Dados, Button, Danos, ContainerDadoRolado } from './styles';
 import { BiInfoCircle } from 'react-icons/bi'
 import { MdOutlineEdit } from 'react-icons/md'
@@ -10,6 +10,8 @@ import { Modal } from '../../../../../../components/Modals/Modal';
 import { DadoRolado } from '../DadoRolado';
 import { ModalEditArma } from '../ModalEditArma';
 import { ButtonEdit } from '../../../../../../components/ButtonEdit';
+import { useParams } from 'react-router-dom';
+import { api } from '../../../../../../services/api';
 
 export function Arma({ data, atualizar, armas, setPesoAtual }) {
 
@@ -24,6 +26,30 @@ export function Arma({ data, atualizar, armas, setPesoAtual }) {
   })
 
   const [modalEditArmaIsOpen, setModalEditArmaIsOpen] = useState(false)
+
+  const [disabled, setDisabled] = useState(true)
+
+  const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
+
+  const { id } = useParams()
+
+  useEffect(() => {
+
+    async function fetchData() {
+      try {
+
+        const response = await api.get(`/fichas/${id}`)
+        const response2 = await api.get(`/sessoes/${response.data.sessaoId}`)
+
+        if (response.data.userId == dataUser.id || dataUser.id == response2.data.userId) {
+          setDisabled(false)
+        }
+
+      } catch (error) { console.log(error) }
+    }
+    fetchData();
+
+  }, []);
 
   return (
     <Container>
@@ -73,7 +99,7 @@ export function Arma({ data, atualizar, armas, setPesoAtual }) {
 
           <Dados>
 
-            <Button onClick={() => {
+            <Button disabled={disabled} onClick={() => {
               setDadoData({
                 nome: 'Ataque',
                 valor: data.ataque,
@@ -81,14 +107,14 @@ export function Arma({ data, atualizar, armas, setPesoAtual }) {
               })
             }} color={'purple'}> <strong>Ataque:</strong> {data.ataque}</Button>
             <Danos>
-              <Button onClick={() => {
+              <Button disabled={disabled} onClick={() => {
                 setDadoData({
                   nome: 'Dano',
                   valor: data.dano,
                   isDano: true
                 })
               }} color={'crimson'}><strong>Dano:</strong> {data.dano}</Button>
-              <Button onClick={() => {
+              <Button disabled={disabled} onClick={() => {
                 setDadoData({
                   nome: 'Dano Crítico',
                   valor: data.danoCritico,

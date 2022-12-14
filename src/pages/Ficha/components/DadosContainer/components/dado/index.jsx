@@ -1,16 +1,42 @@
 import { Container, Button, Body } from './styles';
 import { FaDiceD20 } from 'react-icons/fa'
 import { Modal } from '../../../../../../components/Modals/Modal';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ModalDadoRolado } from '../ModalDadoRolado';
 import { MdOutlineEdit } from 'react-icons/md'
 import { ModalEditDado } from '../ModalEditDado';
 import { ButtonEdit } from '../../../../../../components/ButtonEdit';
+import { useParams } from 'react-router-dom';
+import { api } from '../../../../../../services/api';
 
 export function Dado({ data, atualizar, dados }) {
 
   const [modalDadoRoladoIsOpen, setModalDadoRoladoIsOpen] = useState(false)
   const [modalDadoEditIsOpen, setModalDadoEditIsOpen] = useState(false)
+
+  const [disabled, setDisabled] = useState(true)
+
+  const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
+
+  const { id } = useParams()
+
+  useEffect(() => {
+
+    async function fetchData() {
+      try {
+
+        const response = await api.get(`/fichas/${id}`)
+        const response2 = await api.get(`/sessoes/${response.data.sessaoId}`)
+
+        if (response.data.userId == dataUser.id || dataUser.id == response2.data.userId) {
+          setDisabled(false)
+        }
+
+      } catch (error) { console.log(error) }
+    }
+    fetchData();
+
+  }, []);
 
   return (
     <Container>
@@ -27,7 +53,7 @@ export function Dado({ data, atualizar, dados }) {
 
       <Body>
 
-        <Button id='click'
+        <Button disabled={disabled} id='click'
           onClick={() => setModalDadoRoladoIsOpen(true)}
           isDano={data.isDano}>
           <FaDiceD20 size={40} />
