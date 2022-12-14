@@ -51,6 +51,7 @@ export function ModalAddArma({ setModalAddArmaIsOpenFalse, atualizar }) {
       atualizar((prevState) => [...prevState, data.data])
 
     } catch (erro) {
+      console.log(erro)
       toast.error(erro.response.data.mensagem)
     }
 
