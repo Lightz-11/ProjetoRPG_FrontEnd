@@ -4,6 +4,7 @@ import { Container, BarrinhaDiv, Botoes, Progress, ProgressBar, Esquerda, Direit
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl'
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { api } from '../../services/api';
 
 export function Barrinha({ valorA, setValorA, setValorMax, valorMax, color, number }) {
 
@@ -24,6 +25,7 @@ export function Barrinha({ valorA, setValorA, setValorMax, valorMax, color, numb
         const response2 = await api.get(`/sessoes/${response.data.sessaoId}`)
 
         if (response.data.userId == dataUser.id || dataUser.id == response2.data.userId) {
+          console.log('a')
           setDisabled(false)
         }
 

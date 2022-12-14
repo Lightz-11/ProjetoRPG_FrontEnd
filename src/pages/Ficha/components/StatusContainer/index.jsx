@@ -21,6 +21,10 @@ export function StatusContainer({ status, defesas, portrait }) {
   const [portraitZoom, setPortraitZoom] = useState(false)
   const [modalPortraitIsOpen, setModalPortraitIsOpen] = useState(false)
 
+  const [disabled, setDisabled] = useState(true)
+
+  const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
+
   const { id } = useParams()
 
   async function handleEdit(combate, insano, danoMassivo, inconsciente) {
@@ -42,6 +46,21 @@ export function StatusContainer({ status, defesas, portrait }) {
   }
 
   useEffect(() => {
+
+    async function fetchData() {
+      try {
+
+        const response = await api.get(`/fichas/${id}`)
+        const response2 = await api.get(`/sessoes/${response.data.sessaoId}`)
+
+        if (response.data.userId == dataUser.id || dataUser.id == response2.data.userId) {
+          console.log('a')
+          setDisabled(false)
+        }
+
+      } catch (error) { console.log(error) }
+    }
+    fetchData();
 
     setarCombate(false)
     setarInconsciente(false)
@@ -205,10 +224,10 @@ export function StatusContainer({ status, defesas, portrait }) {
 
             <hr />
 
-            <Button active={'combate' + combate} onClick={() => { setarCombate(!combate); handleEdit(!combate, insano, massivo, inconsciente) }} color={'yellow'}>Combate</Button>
-            <Button active={'insano' + insano} onClick={() => { setarInsano(!insano); handleEdit(combate, !insano, massivo, inconsciente) }} color={'aqua'}>Insano</Button>
-            <Button active={'massivo' + massivo} onClick={() => { setarMassivo(!massivo); handleEdit(combate, insano, !massivo, inconsciente) }} color={'red'}>Dano Massivo</Button>
-            <Button active={'inconsciente' + inconsciente} onClick={() => { setarInconsciente(!inconsciente); handleEdit(combate, insano, massivo, !inconsciente) }} color={'red2'}>Inconsciente</Button>
+            <Button disabled={disabled} active={'combate' + combate} onClick={() => { setarCombate(!combate); handleEdit(!combate, insano, massivo, inconsciente) }} color={'yellow'}>Combate</Button>
+            <Button disabled={disabled} active={'insano' + insano} onClick={() => { setarInsano(!insano); handleEdit(combate, !insano, massivo, inconsciente) }} color={'aqua'}>Insano</Button>
+            <Button disabled={disabled} active={'massivo' + massivo} onClick={() => { setarMassivo(!massivo); handleEdit(combate, insano, !massivo, inconsciente) }} color={'red'}>Dano Massivo</Button>
+            <Button disabled={disabled} active={'inconsciente' + inconsciente} onClick={() => { setarInconsciente(!inconsciente); handleEdit(combate, insano, massivo, !inconsciente) }} color={'red2'}>Inconsciente</Button>
 
           </Buttons>
 
