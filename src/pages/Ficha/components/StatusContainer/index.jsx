@@ -165,7 +165,7 @@ export function StatusContainer({ status, defesas, portrait }) {
 
   useEffect(() => {
 
-    if (pvA != 0) {
+    if (pvA != '0') {
       handleEdit(combate, insano, massivo, inconsciente)
     }
 

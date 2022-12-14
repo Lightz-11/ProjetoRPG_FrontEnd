@@ -21,6 +21,8 @@ export function Portrait() {
 
         const response = await api.get(`/fichas/${id}`)
 
+        console.log(response)
+
         const status = response.data.Status[0]
 
         setarPvAtual(status.pv)

@@ -13,7 +13,7 @@ function PortraitProvider({ children }) {
 
   const [portraitImg, setPortraitImg] = useState(null)
 
-  const [pvA, setPvA] = useState(0)
+  const [pvA, setPvA] = useState('0')
   const [pvMax, setPvMax] = useState(0)
 
   const [sanA, setSanA] = useState(0)
