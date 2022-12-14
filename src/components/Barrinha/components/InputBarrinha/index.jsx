@@ -30,7 +30,7 @@ export function InputBarrinha({ setValor, valor, valorMax, right = false, ...res
     }, []);
 
     function onlyNumbers(v) {
-        if (disabled) {
+        if (!disabled) {
             if (v > valorMax) {
                 setValor(valor)
             } else {
