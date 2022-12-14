@@ -8,7 +8,8 @@ export const Container = styled('div', {
   overflowY: 'hidden',
   display: 'flex',
   alignItems: 'center',
-  paddingLeft: '3rem'
+  paddingLeft: '3rem',
+  paddingTop: '10rem'
 
 })
 
