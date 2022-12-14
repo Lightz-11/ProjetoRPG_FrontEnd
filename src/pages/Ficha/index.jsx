@@ -1,7 +1,7 @@
 import { Container, Header, DoubleParteContainer, Body } from './styles';
 import { DadosContainer, InventarioContainer, PrincipalContainer, StatusContainer } from './components'
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { api } from '../../services/api';
 
@@ -10,12 +10,20 @@ export function Ficha() {
   const [ficha, setFicha] = useState(null)
 
   const { id } = useParams()
+  const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     async function fetchData() {
       try {
 
         const response = await api.get(`/fichas/${id}`)
+        const responseSessao = await api.get(`/sessoes/${response.data.sessaoId}`)
+
+        if (response.data.userId != dataUser.id && responseSessao.data.userId != dataUser.id) {
+          navigate('/')
+        }
 
         setFicha(response.data)
 

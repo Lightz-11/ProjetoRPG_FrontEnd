@@ -121,7 +121,7 @@ export function Dashboard() {
                 desc={sessao.descricao}
                 participantes={
                   sessao.Participantes.length > 0
-                    ? dataUser.username +
+                    ? dataUser.nome +
                     ", " +
                     sessao.Participantes.map(
                       (participante) => participante.user.nome
