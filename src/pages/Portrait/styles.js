@@ -9,7 +9,6 @@ export const Container = styled('div', {
   display: 'flex',
   alignItems: 'center',
   paddingLeft: '3rem',
-  paddingTop: '16rem'
 
 })
 
