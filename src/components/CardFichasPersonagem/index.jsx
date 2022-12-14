@@ -18,7 +18,9 @@ export function CardFichasPersonagem({ data }) {
                 <div>
                     <h1>{data.Principal[0].nome}</h1>
                     <LinkButton>
-                        <IoOpenOutline size={22} color="#1f55c2ff" />
+                        <IoOpenOutline onClick={() => {
+                            navigate(`/sessao/ficha/${data.id}`)
+                        }} size={22} color="#1f55c2ff" />
                     </LinkButton>
                 </div>
                 <div>

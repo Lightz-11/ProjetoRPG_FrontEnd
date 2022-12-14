@@ -1,15 +1,32 @@
 import { Container, Header, Desc, Part, Footer } from './styles'
 import { BsGear } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom'
+import { api } from '../../services/api'
+import { useEffect, useState } from 'react'
 
 export function Ficha({ data }) {
 
     const navigate = useNavigate()
 
+    const [sessao, setSessao] = useState([])
+
+    useEffect(() => {
+
+        async function fetchData() {
+
+            const response = await api.get(`/sessoes/${data.sessaoId}`)
+
+            setSessao(response.data)
+
+        }
+        fetchData()
+
+    }, [])
+
     return (
         <Container>
             <Header>
-                <h2>{data.Principal[0].nome}</h2>
+                <h2>{data.Principal[0].nome} - {sessao.nome}</h2>
                 <button onClick={() => navigate(`/ficha/portrait/${data.id}`)}><BsGear /></button>
             </Header>
             <hr />
