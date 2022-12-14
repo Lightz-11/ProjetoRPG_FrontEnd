@@ -12,7 +12,7 @@ export function Portrait() {
 
   const { id } = useParams()
 
-  const [nome, setNome] = useState('')
+  const [nomePortrait, setNome] = useState('')
 
   useEffect(() => {
 
@@ -128,7 +128,7 @@ export function Portrait() {
           </Status>
           :
           <Status>
-            <h4>{nome}</h4>
+            <h4>{nomePortrait}</h4>
           </Status>
 
         }
