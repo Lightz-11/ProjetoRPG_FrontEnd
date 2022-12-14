@@ -138,7 +138,7 @@ export function InventarioContainer() {
           <Column>
             <span>Ficha</span>
             <select onChange={(e) => console.log(e.target.value)}>
-              {fichas.map(ficha => <Option key={ficha.id} value={ficha.id}>{ficha.nome}</Option>)}
+              {fichas.map(ficha => <Option key={ficha.id} value={ficha.id}>{ficha.Principal[0].nome}</Option>)}
             </select>
           </Column>
 

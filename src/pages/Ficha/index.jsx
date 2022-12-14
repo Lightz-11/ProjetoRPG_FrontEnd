@@ -19,11 +19,6 @@ export function Ficha() {
       try {
 
         const response = await api.get(`/fichas/${id}`)
-        const responseSessao = await api.get(`/sessoes/${response.data.sessaoId}`)
-
-        if (response.data.userId != dataUser.id && responseSessao.data.userId != dataUser.id) {
-          navigate('/')
-        }
 
         setFicha(response.data)
 
