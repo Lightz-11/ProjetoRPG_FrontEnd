@@ -14,9 +14,12 @@ export function Ficha({ data }) {
 
         async function fetchData() {
 
-            const response = await api.get(`/sessoes/${data.sessaoId}`)
+            if (data.sessaoId) {
 
-            setSessao(response.data)
+                const response = await api.get(`/sessoes/${data.sessaoId}`)
+
+                setSessao(response.data)
+            }
 
         }
         fetchData()
@@ -26,7 +29,7 @@ export function Ficha({ data }) {
     return (
         <Container>
             <Header>
-                <h2>{data.Principal[0].nome} - {sessao.nome}</h2>
+                <h2>{data.Principal[0].nome} - {data.sessaoId && sessao.nome}</h2>
                 <button onClick={() => navigate(`/ficha/portrait/${data.id}`)}><BsGear /></button>
             </Header>
             <hr />
