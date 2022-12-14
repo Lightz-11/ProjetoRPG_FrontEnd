@@ -3,6 +3,7 @@ import { InputBarrinha } from './components/InputBarrinha';
 import { Container, BarrinhaDiv, Botoes, Progress, ProgressBar, Esquerda, Direita } from './styles';
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl'
 import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 export function Barrinha({ valorA, setValorA, setValorMax, valorMax, color, number }) {
 
