@@ -31,6 +31,7 @@ export function ModalCadastro({ setModalCadastroClose }) {
 
     if (senha === senhaConfirmada) {
       try {
+
         const response = await api.post("/usuarios", {
           nome,
           username,
@@ -38,19 +39,11 @@ export function ModalCadastro({ setModalCadastroClose }) {
           senha
         });
 
-        //MEME KKKKKKKKKKKKKKKKK
+        console.log(response)
 
-        if (username.includes("rick") || email.includes("rick") || senha.includes("rick")) {
-          toast("Sua conta foi criada com sucesso, seu merda. TAPETE, RANDOLA!")
-          setModalCadastroClose()
-        } else {
-          toast.success("Conta criada com sucesso!");
-          setModalCadastroClose()
-        }
+        toast.success("Conta criada com sucesso!");
+        setModalCadastroClose()
 
-        //MEME KKKKKKKKKKKKKKKKK
-
-        setModalCadastroClose
       } catch (error) {
         toast.error(error.response.data.mensagem);
       }

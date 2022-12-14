@@ -1,8 +1,9 @@
 import { React, createContext, useContext, useState, useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import io from 'socket.io-client'
+import { api } from "../services/api";
 
-const socket = io('http://localhost:8080')
+const socket = io(api.defaults.baseURL)
 
 socket.on('connect', () => console.log('Conectado!'))
 

@@ -11,8 +11,6 @@ import noportrait from '../../../../assets/img/noportrait.png'
 import io from 'socket.io-client'
 import { Container, Header, Body, BottomBody, TopBody, Buttons, AreaPortrait, Portrait, Button, ContainerDeferes, Deferes, Img, ImgZoom } from './styles';
 
-const socket = io('http://localhost:8080')
-
 export function StatusContainer({ status, defesas, portrait }) {
 
   const { portraitImg, setarPortrait, pvA, setarPvAtual, pvMax, setarPvMax, sanA, setarSanAtual, sanMax, setarSanMax, peA, setarPeAtual, peMax, setarPeMax, combate, setarCombate, insano, setarInsano, massivo, setarMassivo, inconsciente, setarInconsciente } = usePortrait()
