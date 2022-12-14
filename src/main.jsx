@@ -4,12 +4,15 @@ import { GlobalStyles } from "./styles/global";
 import { AuthProvider } from "./hooks/auth";
 import { Routes } from "./routes";
 import { FichasProvider } from "./hooks/useFichas";
+import { PortraitProvider } from "./hooks/usePortrait";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <AuthProvider>
     <FichasProvider>
-      <Routes />
-      <GlobalStyles />
+      <PortraitProvider>
+        <Routes />
+        <GlobalStyles />
+      </PortraitProvider>
     </FichasProvider>
   </AuthProvider>
 );

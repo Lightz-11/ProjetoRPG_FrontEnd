@@ -18,6 +18,9 @@ export const HeaderContainer = styled("div", {
     textAlign: "center",
     color: "white",
     fontSize: "2rem",
+    fontFamily: 'Special Elite',
+    letterSpacing: '.1rem',
+    paddingTop: '.3rem'
   },
 
   button: {
@@ -50,11 +53,14 @@ export const Table = styled('table', {
   width: '100%',
   borderSpacing: '0 1rem',
   color: 'white',
+  fontFamily: 'El Messiri',
+  letterSpacing: '.1rem',
 
   th: {
     borderBottom: '1px solid white',
     textAlign: 'left',
     paddingBottom: '2rem',
+    fontSize: '1.7rem',
     fontWeight: '700'
   }
 })
@@ -96,8 +102,10 @@ export const Button = styled('button', {
 
   background: 'none',
   padding: '0.5rem 1rem',
-  fontSize: '1.9rem',
+  fontSize: '2rem',
   transition: '0.3s',
+  fontFamily: 'Crimson Text',
+  letterSpacing: '.1rem',
 
   color: 'Yellow',
   border: '1px solid Yellow',
@@ -113,7 +121,9 @@ export const ButtonSalvar = styled('button', {
 
   background: 'none',
   padding: '0.5rem 1rem',
-  fontSize: '1.9rem',
+  fontSize: '2rem',
+  letterSpacing: '.1rem',
+  fontFamily: 'Crimson Text',
   transition: '0.3s',
 
   variants: {

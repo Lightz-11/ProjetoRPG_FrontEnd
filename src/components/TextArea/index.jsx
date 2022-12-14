@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Container, InputB, LabelContainer } from "./styles"
 
-export function TextArea({ label, setValor, ...rest }) {
+export function TextArea({ label, valor, setValor, ...rest }) {
 
     const [focus, setFocus] = useState(false)
 
@@ -10,7 +10,7 @@ export function TextArea({ label, setValor, ...rest }) {
             <LabelContainer active={focus}>
                 {label}
             </LabelContainer>
-            <InputB type="text" {...rest}
+            <InputB defaultValue={valor} type="text" {...rest}
                 onChange={(event) => {
                     setValor(event.target.value)
                 }}

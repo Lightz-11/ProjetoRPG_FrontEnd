@@ -3,7 +3,7 @@ import { styled } from "../../../../../../stitches.config"
 export const Container = styled('div', {
 
   width: '65rem',
-  height: '105rem',
+  height: '110rem',
   borderRadius: '1.2rem',
   backgroundColor: 'rgb(27,27,27)',
   boxShadow: 'rgba(255, 255, 255, 0.45) 0rem 0.5rem 1.5rem',
@@ -33,6 +33,7 @@ export const Header = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  fontFamily: 'Arvo'
 })
 
 export const Main = styled('div', {
@@ -62,12 +63,14 @@ export const Main2 = styled('div', {
 export const Main3 = styled('div', {
 
   display: 'flex',
+  flexDirection: 'column',
+  gap: '1rem',
   width: '100%',
 
 })
 
 export const Footer = styled('div', {
-  top: '7rem',
+  top: '12rem',
   position: 'relative',
   alignItems: 'stretch',
   justifyContent: 'center'
@@ -80,7 +83,9 @@ export const Button = styled('button', {
   border: 'none',
   color: 'white',
   borderRadius: '8px',
-  fontSize: '2rem',
+  fontSize: '2.2rem',
+  fontFamily: 'Crimson Text',
+  letterSpacing: '.1rem',
   cursor: 'pointer',
 
   variants: {
@@ -105,4 +110,29 @@ export const Button = styled('button', {
   defaultVariants: {
     color: 'red'
   }
+})
+
+export const ButtonDelete = styled('button', {
+  width: '15rem',
+  height: '3rem',
+  background: 'none',
+  border: '2px solid',
+  borderColor: 'Crimson',
+  color: 'white',
+  borderRadius: '8px',
+  fontSize: '1.8rem',
+  cursor: 'pointer',
+  paddingRight: '1px',
+  transition: 'color ease 0.3s',
+  fontFamily: 'El Messeri',
+
+  '.icon': {
+    position: 'relative',
+    top: '6.5%'
+  },
+
+  '&:hover': {
+    color: 'Crimson',
+  },
+
 })

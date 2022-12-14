@@ -54,9 +54,10 @@ export const Button = styled("button", {
 
     display: "flex",
     alignContent: "center",
-    ustifyContent: "center",
-    fontSize: "1.8rem",
+    justifyContent: "center",
+    fontSize: "2rem",
     gap: "1rem",
+    fontFamily: 'Neko One',
 
     variants: {
         color: {

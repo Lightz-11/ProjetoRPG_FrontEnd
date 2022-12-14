@@ -9,8 +9,9 @@ export const Container = styled('div', {
     borderStyle: 'dotted',
     padding: '1rem',
     borderRadius: '1rem',
+    fontFamily: 'El Messiri',
 
-    hr:{
+    hr: {
         margin: '0rem -1rem',
         borderColor: '#ffffff75'
     },
@@ -29,7 +30,7 @@ export const Header = styled('div', {
     },
 })
 
-export const Desc = styled ('div', {
+export const Desc = styled('div', {
     height: '12.2rem',
     display: 'flex',
     justifyContent: 'left',
@@ -49,7 +50,7 @@ export const Desc = styled ('div', {
     }
 })
 
-export const Footer = styled ('div', {
+export const Footer = styled('div', {
     height: '4rem',
     display: 'flex',
     justifyContent: 'center',
@@ -59,9 +60,11 @@ export const Footer = styled ('div', {
     button: {
         width: '100%',
         color: 'crimson',
+        fontFamily: 'Crimson Text',
+        fontSize: '2rem',
         background: 'none',
         border: '2px solid crimson',
-        padding: '1rem',
+        padding: '.5rem',
         borderRadius: '1rem',
         transition: 'ease 0.3s',
         borderStyle: 'dotted',

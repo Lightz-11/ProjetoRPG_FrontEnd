@@ -18,6 +18,9 @@ export const HeaderContainer = styled("div", {
     textAlign: "center",
     color: "white",
     fontSize: "2rem",
+    fontFamily: 'Special Elite',
+    letterSpacing: '.1rem',
+    paddingTop: '.3rem'
   },
 
   button: {

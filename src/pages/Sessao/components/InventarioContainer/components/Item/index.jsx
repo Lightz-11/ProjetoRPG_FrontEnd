@@ -4,7 +4,7 @@ import { MdOutlineEdit } from 'react-icons/md'
 import { Modal } from '../../../../../../components/Modals/Modal';
 import { ModalEditItem } from '../ModalEditItem';
 
-export function Item({ data, atualizar }) {
+export function Item({ data, atualizar, itens }) {
 
   const [imgAberta, setImgAberta] = useState(false)
 
@@ -14,7 +14,7 @@ export function Item({ data, atualizar }) {
     <Container>
 
       <Modal isOpen={modalEditItemIsOpen} setIsOpen={() => setModalEditItemIsOpen(false)}>
-        <ModalEditItem data={data} atualizar={atualizar} setModalEditItemIsOpenFalse={() => setModalEditItemIsOpen(false)} />
+        <ModalEditItem itens={itens} data={data} atualizar={atualizar} setModalEditItemIsOpenFalse={() => setModalEditItemIsOpen(false)} />
       </Modal>
 
       <Modal isOpen={imgAberta} setIsOpen={() => setImgAberta(false)}>

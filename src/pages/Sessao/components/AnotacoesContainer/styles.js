@@ -18,6 +18,9 @@ export const HeaderContainer = styled("div", {
     textAlign: "center",
     color: "white",
     fontSize: "2rem",
+    fontFamily: 'Special Elite',
+    letterSpacing: '.1rem',
+    paddingTop: '.3rem'
   },
 
   button: {
@@ -113,6 +116,9 @@ export const Button = styled('button', {
   transition: '0.3s',
   wordBreak: 'break-word',
   borderRadius: '5px',
+  letterSpacing: '.05rem',
+  fontFamily: 'Crimson Text',
+  fontSize: '1.8rem',
 
   '&:hover': {
     border: '1px solid #03d9ffff'

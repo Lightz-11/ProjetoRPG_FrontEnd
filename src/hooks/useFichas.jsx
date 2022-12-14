@@ -8,16 +8,7 @@ const FichasContext = createContext({});
 
 function FichasProvider({ children }) {
 
-  const [fichas, setFichas] = useState([
-    {
-      id: 1,
-      nome: 'Luis'
-    },
-    {
-      id: 2,
-      nome: 'Theo'
-    }
-  ])
+  const [fichas, setFichas] = useState([])
 
   return (
     <FichasContext.Provider

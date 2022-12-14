@@ -6,6 +6,7 @@ import {
   SessaoContainer,
   FichaContainer,
   Sessoes,
+  Fichas,
   Body,
 } from "./styles";
 import { Modal } from "../../components/Modals/Modal";
@@ -16,6 +17,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { api } from "../../services/api";
 import { AddSessao } from "../../components/AddSessao";
 import { ModalEditSessao } from "../../components/Modals/ModalEditSessao/ModalEditSessao";
+import { Convite } from "../../components/Convite";
+import { Ficha } from "../../components/Ficha";
 
 export function Dashboard() {
   const [modalCriarSessaoIsOpen, setModalCriarSessaoIsOpen] = useState(false);
@@ -23,6 +26,7 @@ export function Dashboard() {
 
   const [sessoes, setSessoes] = useState([]);
   const [fichas, setFichas] = useState([]);
+  const [sessaoConvite, setSessaoConvite] = useState([])
 
   const [sessaoId, setSessaoId] = useState("");
   const [sessaoName, setSessaoName] = useState("");
@@ -32,29 +36,37 @@ export function Dashboard() {
 
   useEffect(() => {
     async function fetchData() {
-      setSessoes([]);
 
       try {
         const response = await api.get(`/sessoes/userid/${dataUser.id}`);
+        const fichasResponse = await api.get(`/fichas/user/${dataUser.id}`)
+        const responseConvite = await api.get(`/sessoes/convite/${dataUser.email}`)
 
-        for (let i = 0; i < response.data.length; i++) {
-          const sessao = {
-            id: response.data[i].id,
-            nome: response.data[i].nome,
-            descricao: response.data[i].descricao,
-            Participantes: response.data[i].Participantes,
-          };
+        setSessaoConvite([])
 
-          setSessoes((prevState) => [...prevState, sessao]);
+        for (let i = 0; i < responseConvite.data.length; i++) {
+          const responseSessaoConvite = await api.get(`http://localhost:8080/sessoes/${responseConvite.data[i].sessaoId}`);
+          const donoDaSessao = await api.get(`/usuarios/${responseSessaoConvite.data.userId}`)
+
+          const novaSessaoConvite = {
+            id: responseConvite.data[i].id,
+            sessaoId: responseConvite.data[i].sessaoId,
+            nome: responseSessaoConvite.data.nome,
+            descricao: responseSessaoConvite.data.descricao,
+            participantes: responseSessaoConvite.data.Participantes,
+            owner: donoDaSessao.data.nome
+          }
+
+          setSessaoConvite((prevState) => [...prevState, novaSessaoConvite])
         }
-      } catch (error) {}
+
+        setSessoes(response.data)
+        setFichas(fichasResponse.data)
+
+      } catch (error) { console.log(error) }
     }
     fetchData();
   }, []);
-
-  function modalConta() {
-    setModalContaIsOpen(true);
-  }
 
   return (
     <Container>
@@ -98,6 +110,9 @@ export function Dashboard() {
           <h1>Sessões</h1>
           <hr />
           <Sessoes>
+            {sessaoConvite.map((convite) => (
+              <Convite key={convite.id} data={convite} lista={sessaoConvite} atualizar={setSessaoConvite} />
+            ))}
             {sessoes.map((sessao) => (
               <Sessao
                 key={sessao.id}
@@ -107,11 +122,11 @@ export function Dashboard() {
                 participantes={
                   sessao.Participantes.length > 0
                     ? dataUser.username +
-                      ", " +
-                      sessao.Participantes.map(
-                        (participante) => participante.username
-                      ).join(", ")
-                    : dataUser.username
+                    ", " +
+                    sessao.Participantes.map(
+                      (participante) => participante.user.nome
+                    ).join(", ")
+                    : dataUser.nome
                 }
                 editar={() => {
                   setModalEditSessaoIsOpen(true);
@@ -128,6 +143,13 @@ export function Dashboard() {
         <FichaContainer>
           <h1>Fichas</h1>
           <hr />
+          <Fichas>
+            {fichas.map((ficha) => (
+              <Ficha
+                key={ficha.id}
+                data={ficha} />
+            ))}
+          </Fichas>
         </FichaContainer>
 
       </Body>

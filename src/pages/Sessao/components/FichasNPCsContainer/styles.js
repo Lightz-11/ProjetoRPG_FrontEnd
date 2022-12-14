@@ -15,30 +15,33 @@ export const HeaderContainer = styled("div", {
   position: "relative",
 
   h1: {
-      textAlign: "center",
-      color: "white",
-      fontSize: "2rem",
+    textAlign: "center",
+    color: "white",
+    fontSize: "2rem",
+    fontFamily: 'Special Elite',
+    letterSpacing: '.1rem',
+    paddingTop: '.3rem'
   },
 
   button: {
-      background: "none",
-      border: "none",
-      color: "Green",
-      position: "absolute",
-      right: "1.5rem",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
+    background: "none",
+    border: "none",
+    color: "Green",
+    position: "absolute",
+    right: "1.5rem",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   svg: {
-      transition: "0.3s",
+    transition: "0.3s",
   },
 
   "button:hover": {
-      svg: {
-          filter: "brightness(2)",
-      },
+    svg: {
+      filter: "brightness(2)",
+    },
   },
 });
 
@@ -50,6 +53,6 @@ export const BodyContainer = styled("div", {
   gridRowGap: "2rem",
 
   "@lg4": {
-      gridTemplateColumns: "1fr",
+    gridTemplateColumns: "1fr",
   },
 });

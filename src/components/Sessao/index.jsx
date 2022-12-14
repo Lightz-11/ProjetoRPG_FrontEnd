@@ -1,8 +1,8 @@
 import { Container, Header, Desc, Part, Footer } from './styles'
-import {BsGear} from 'react-icons/bs'
+import { BsGear } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom'
 
-export function Sessao({id, nome, desc, participantes, editar}) {
+export function Sessao({ id, nome, desc, participantes, editar }) {
 
     const navigate = useNavigate()
 
@@ -10,7 +10,7 @@ export function Sessao({id, nome, desc, participantes, editar}) {
         <Container>
             <Header>
                 <h2>{nome}</h2>
-                <button onClick={editar}><BsGear/></button>
+                <button onClick={editar}><BsGear /></button>
             </Header>
             <hr />
             <Desc>

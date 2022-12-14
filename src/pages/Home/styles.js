@@ -17,16 +17,20 @@ export const Main = styled("main", {
   flexDirection: "column",
   alignItems: "center",
   margin: "auto 0",
+
   h1: {
     fontSize: "18rem",
-    fontFamily: "Gagalin, cursive",
+    fontFamily: 'Gagalin',
+    marginLeft: '3rem',
+    fontWeight: 100,
     color: "#ffffff59",
     letterSpacing: "1rem",
     textShadow: "1rem 1rem 2rem #edadff8d"
   },
 
   h2: {
-    fontFamily: "Alegreya, serif",
+    fontFamily: 'Fredericka the Great',
+    fontWeight: 100,
     letterSpacing: "0.5rem",
     marginBottom: "20rem",
     fontSize: "7rem",
@@ -40,25 +44,28 @@ export const Main = styled("main", {
 
 export const Button = styled("button", {
   fontSize: "3.5rem",
+  width: 'fit-content',
   color: "#ffffff",
   border: "none",
   borderRadius: "2rem",
   padding: "1rem 7rem",
-  fontFamily: "League Gothic, sans-serif",
+  fontFamily: 'Concert One',
+  fontWeight: 100,
   marginBottom: '3rem',
   marginTop: '-3rem',
+  transition: '0.3s',
 
   variants: {
     background: {
       default: { background: "none" },
-      roxo: { backgroundColor: "#78108d" }
+      roxo: { backgroundColor: "#78108d", '&:hover': { backgroundColor: '#620d73' } }
     },
     size: {
-      25: { fontSize: "2.5rem" },
+      25: { fontSize: "2.5rem", padding: "1rem 0rem", },
       35: { fontSize: "3.5rem" }
     },
     underline: {
-      default: {textDecoration: 'underline'},
+      default: { '&:hover': { textDecoration: 'underline' } },
       false: {}
     }
   },

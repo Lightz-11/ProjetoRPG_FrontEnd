@@ -23,8 +23,10 @@ export const Header = styled('div', {
     h1: {
         color: 'Purple',
         textAlign: 'center',
-        marginTop: '1.5rem',
-        marginBottom: '1.5rem',
+        fontFamily: 'Fredoka One',
+        letterSpacing: '.2rem',
+        marginTop: '1.4rem',
+        marginBottom: '1.4rem',
         fontSize: '3.5rem',
         textShadow: '4px 3px 2px black'
     },
@@ -84,6 +86,7 @@ export const Button = styled('button', {
     border: 'none',
     color: 'white',
     borderRadius: '8px',
+    fontFamily: 'Crimson Text',
     fontSize: '2.6rem',
     cursor: 'pointer',
 
@@ -95,8 +98,20 @@ export const Button = styled('button', {
 
     variants: {
         color: {
-            crismon: {backgroundColor: 'Crimson'},
-            blue: {backgroundColor: 'CornflowerBlue'}
+            crismon: {
+                backgroundColor: '#b91313ff',
+
+                '&:hover': {
+                    backgroundColor: '#9c1111ff',
+                },
+            },
+            blue: {
+                backgroundColor: '#4f1db4',
+
+                '&:hover': {
+                    backgroundColor: '#3f178f',
+                },
+            }
         }
     },
 

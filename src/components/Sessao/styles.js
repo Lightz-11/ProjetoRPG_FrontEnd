@@ -8,8 +8,9 @@ export const Container = styled('div', {
     borderColor: 'crimson',
     padding: '1rem',
     borderRadius: '1rem',
+    fontFamily: 'El Messiri',
 
-    hr:{
+    hr: {
         margin: '0rem -1rem',
         borderColor: '#ffffff75'
     },
@@ -19,11 +20,12 @@ export const Header = styled('div', {
 
     display: 'flex',
     justifyContent: 'space-between',
-    marginBottom: '0.5rem',
+    marginBottom: '0.6rem',
+    marginTop: '-0.2rem',
 
     button: {
         background: 'none',
-        color:'White',
+        color: 'White',
         border: 'none',
         transition: 'ease 0.3s'
     },
@@ -41,7 +43,7 @@ export const Header = styled('div', {
     },
 })
 
-export const Desc = styled ('div', {
+export const Desc = styled('div', {
     height: '6rem',
     display: 'flex',
     justifyContent: 'left',
@@ -61,7 +63,7 @@ export const Desc = styled ('div', {
     }
 })
 
-export const Part = styled ('div', {
+export const Part = styled('div', {
     height: '3.8rem',
     display: 'flex',
     justifyContent: 'left',
@@ -81,7 +83,7 @@ export const Part = styled ('div', {
     }
 })
 
-export const Footer = styled ('div', {
+export const Footer = styled('div', {
     height: '4rem',
     display: 'flex',
     justifyContent: 'center',
@@ -90,10 +92,12 @@ export const Footer = styled ('div', {
 
     button: {
         width: '100%',
+        fontFamily: 'Crimson Text',
         color: 'crimson',
+        fontSize: '2rem',
         background: 'none',
         border: '2px solid crimson',
-        padding: '1rem',
+        padding: '.5rem',
         borderRadius: '1rem',
         transition: 'ease 0.3s'
     },

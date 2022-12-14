@@ -12,9 +12,11 @@ export const Header = styled("div", {
     padding: "1.5rem 0",
 
     h1: {
-        color: "Purple",
-        textAlign: "center",
-        fontSize: "3.5rem",
+        color: 'Purple',
+        textAlign: 'center',
+        fontFamily: 'Fredoka One',
+        letterSpacing: '.2rem',
+        fontSize: '3.3rem',
         textShadow: "4px 3px 2px black",
     },
 });

@@ -27,28 +27,28 @@ export const InputB = styled('textarea', {
     border: 'none',
     outline: 'solid 0.2rem white',
     color: 'white',
-    transition: 'textIdent ease 0.5s',
 })
 
 export const LabelContainer = styled('label', {
 
     position: 'absolute',
     width: 'fit-content',
-    top: -13,
+    top: '-1.9rem',
     textAlign: 'center',
     zIndex: '1',
-    fontSize: '2rem',
+    fontFamily: 'Cormorant Garamond',
+    fontSize: '2.5rem',
     backgroundColor: 'rgb(27, 27, 27)',
     color: 'rgb(208, 147, 226)',
     transition: '.3s',
-    padding: '0px 10px',
+    padding: '0px 1rem',
 
     variants: {
         active: {
             true: {
-                fontSize: '1.9rem',
+                fontSize: '2.3rem',
                 transform: 'translateY(-0.6rem)',
-                padding: '0px 10px',
+                padding: '0px 1.3rem',
             }
         }
     },

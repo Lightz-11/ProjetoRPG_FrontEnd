@@ -34,8 +34,8 @@ export const GlobalStyles = globalCss({
     },
     '::-webkit-scrollbar-thumb': {
       backgroundColor: '#5b5b5b',
-      borderRadius: '5px'
-    }
+      borderRadius: '5px',
+    },
   },
 
   body: {
@@ -52,6 +52,10 @@ export const GlobalStyles = globalCss({
 
   input: {
     '-webkit-text-fill-color': 'white !important',
+  },
+
+  'input:-webkit-autofill': {
+    '-webkit-box-shadow': '0 0 0 30px rgb(27,27,27) inset'
   }
 
 });

@@ -12,7 +12,7 @@ export const Container = styled('div', {
 
 })
 
-export const InputB = styled ('h2', {
+export const InputB = styled('h2', {
 
     width: '100%',
     height: '5.2rem',
@@ -32,17 +32,18 @@ export const InputB = styled ('h2', {
 })
 
 export const LabelContainer = styled('label', {
-    
+
     position: 'absolute',
     width: 'fit-content',
-    top: '-22%',
+    top: '-33%',
     textAlign: 'center',
     zIndex: '1',
-    fontSize: '2rem',
+    fontSize: '2.5rem',
     backgroundColor: 'transparent',
+    fontFamily: 'Cormorant Garamond',
     color: 'rgb(208, 147, 226)',
     background: 'rgb(20,20,20)',
     transition: 'ease 0.5s',
-    padding: '0px 10px',
+    padding: '0px 1rem',
 
 })

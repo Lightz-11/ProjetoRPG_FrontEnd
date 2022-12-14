@@ -4,12 +4,13 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Input } from '../../../../../../components';
 import { TextArea } from '../../../../../../components/TextArea';
 import { api } from '../../../../../../services/api';
-import { Container, Header, Main, Main1, Main2, Main3, Button, Footer } from './styles';
+import { Container, Header, Main, Main1, Main2, Main3, Button, Footer, ButtonDelete } from './styles';
+import { BiTrashAlt } from 'react-icons/bi';
 
-export function ModalEditArma({ data, setModalEditArmaIsOpenFalse, atualizar }) {
+export function ModalEditArma({ data, setModalEditArmaIsOpenFalse, atualizar, armas }) {
 
-  let recargaExists
-  let especialExists
+  let recargaExists = data.recarga
+  let especialExists = data.especial
 
   if (recargaExists != null) {
     recargaExists = data.recarga[0].toUpperCase() + data.recarga.substring(1)
@@ -41,7 +42,7 @@ export function ModalEditArma({ data, setModalEditArmaIsOpenFalse, atualizar }) 
 
     try {
 
-      const data = await api.put(`http://localhost:8080/sessoes/arma/${data.id}`, {
+      const data2 = await api.put(`http://localhost:8080/sessoes/arma/${data.id}`, {
         nome,
         tipo,
         alcance,
@@ -55,16 +56,49 @@ export function ModalEditArma({ data, setModalEditArmaIsOpenFalse, atualizar }) 
         categoria,
         descricao,
         imagem,
-        sessaoId: id
       });
 
       setModalEditArmaIsOpenFalse()
-      atualizar((prevState) => [...prevState, data.data])
+
+      const arma = armas.filter(arma => arma.id == data.id)
+
+      arma[0].nome = data2.data.nome
+      arma[0].tipo = data2.data.tipo
+      arma[0].alcance = data2.data.alcance
+      arma[0].recarga = data2.data.recarga
+      arma[0].especial = data2.data.especial
+      arma[0].ataque = data2.data.ataque
+      arma[0].dano = data2.data.dano
+      arma[0].margemCritico = data2.data.margemCritico
+      arma[0].danoCritico = data2.data.danoCritico
+      arma[0].espaco = data2.data.espaco
+      arma[0].categoria = data2.data.categoria
+      arma[0].descricao = data2.data.descricao
+      arma[0].imagem = data2.data.imagem
 
     } catch (erro) {
       toast.error(erro.response.data.mensagem)
     }
 
+  }
+
+  async function handleDelete() {
+
+    if (window.confirm("Tem certeza que deseja excluir esta arma? Uma vez deletada jamais poderá ser recuperada.")) {
+
+      try {
+
+        await api.delete(`http://localhost:8080/sessoes/arma/${data.id}`);
+
+        const armasAtualizadas = armas.filter(arma => arma.id != data.id)
+
+        atualizar(armasAtualizadas)
+
+      } catch (error) {
+        console.log(error);
+      }
+
+    }
   }
 
   return (
@@ -80,30 +114,31 @@ export function ModalEditArma({ data, setModalEditArmaIsOpenFalse, atualizar }) 
 
         <Main1>
 
-          <Input labelMenor label={'Nome'} valor={nome} setValor={setNome} />
-          <Input labelMenor label={'Espaços'} onlyNumber valor={espaco} setValor={setEspaco} />
-          <Input labelMenor label={'Categoria'} onlyNumber valor={categoria} setValor={setCategoria} />
-          <Input labelMenor label={'Imagem'} valor={imagem} setValor={setImagem} />
+          <Input labelMenor label={'Nome'} valor={nome} setValor={setNome} maxLength={20} />
+          <Input labelMenor label={'Espaços'} onlyNumber valor={espaco} setValor={setEspaco} maxLength={1} />
+          <Input labelMenor label={'Categoria'} onlyNumber valor={categoria} setValor={setCategoria} maxLength={1} />
+          <Input labelMenor opcional label={'Imagem'} valor={imagem} setValor={setImagem} />
 
         </Main1>
 
         <hr />
 
         <Main2>
-          <Input labelMenor label={'Tipo'} valor={tipo} setValor={setTipo} />
-          <Input labelMenor label={'Alcance'} valor={alcance} setValor={setAlcance} />
-          <Input labelMenor label={'Recarga'} valor={recarga} setValor={setRecarga} />
-          <Input labelMenor label={'Especial'} valor={especial} setValor={setEspecial} />
-          <Input labelMenor label={'Ataque'} valor={ataque} setValor={setAtaque} />
-          <Input labelMenor label={'Dano'} valor={dano} setValor={setDano} />
-          <Input labelMenor label={'Margem Crítico'} valor={margemCritico} setValor={setMargemCritico} />
-          <Input labelMenor label={'Dano Crítico'} valor={danoCritico} setValor={setDanoCritico} />
+          <Input labelMenor label={'Tipo'} valor={tipo} setValor={setTipo} maxLength={10} />
+          <Input labelMenor label={'Alcance'} valor={alcance} setValor={setAlcance} maxLength={10} />
+          <Input labelMenor opcional label={'Recarga'} valor={recarga} setValor={setRecarga} maxLength={10} />
+          <Input labelMenor opcional label={'Especial'} valor={especial} setValor={setEspecial} maxLength={20} />
+          <Input labelMenor label={'Ataque'} valor={ataque} setValor={setAtaque} maxLength={8} />
+          <Input labelMenor label={'Dano'} valor={dano} setValor={setDano} maxLength={20} />
+          <Input labelMenor label={'Margem Crítico'} valor={margemCritico} setValor={setMargemCritico} maxLength={2} />
+          <Input labelMenor label={'Dano Crítico'} valor={danoCritico} setValor={setDanoCritico} maxLength={20} />
         </Main2>
 
         <hr />
 
         <Main3>
-          <TextArea label={'Descrição'} setValor={setDescricao} maxLength={100} />
+          <TextArea label={'Descrição'} valor={descricao} setValor={setDescricao} maxLength={100} />
+          <ButtonDelete onClick={handleDelete}> <BiTrashAlt className="icon" /> Deletar Arma</ButtonDelete>
         </Main3>
 
       </Main>

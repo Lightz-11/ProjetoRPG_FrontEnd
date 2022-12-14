@@ -76,7 +76,7 @@ export function ModalEditSessao({ id, name, desc, setModalClose, sessoes, atuali
 
       <Body>
         <InputCenter label1={'Nome'} label2={'Nome |'} setValor={setNome} campo={'Nome'} minLength={3} maxLength={30} defaultValue={name} />
-        <TextArea label={'Descição'} setValor={setDesc} minLength={16} maxLength={300} defaultValue={desc} />
+        <TextArea label={'Descrição'} setValor={setDesc} minLength={16} maxLength={300} defaultValue={desc} />
         <ButtonDelete onClick={handleDelete}> <BiTrashAlt className="icon" /> Deletar Sessão</ButtonDelete>
       </Body>
 

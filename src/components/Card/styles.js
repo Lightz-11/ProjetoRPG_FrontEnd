@@ -13,7 +13,8 @@ export const Container = styled('div', {
     h1: {
         color: 'Purple',
         fontSize: '2.2rem',
-        marginBottom: '1.5rem'
+        marginBottom: '1.5rem',
+        fontFamily: 'Arvo',
     },
 
     hr: {

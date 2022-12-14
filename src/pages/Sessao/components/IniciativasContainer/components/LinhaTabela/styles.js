@@ -42,7 +42,8 @@ export const TD1 = styled('td', {
 })
 
 export const TD2 = styled('td', {
-  paddingRight: '2rem'
+  paddingRight: '2rem',
+  fontFamily: 'arial'
 })
 
 export const TD3 = styled('td', {

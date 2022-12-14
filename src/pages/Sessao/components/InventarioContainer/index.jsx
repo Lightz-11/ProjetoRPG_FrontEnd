@@ -24,8 +24,6 @@ export function InventarioContainer() {
   const [modalAddIsOpen, setModalAddIsOpen] = useState(false)
   const [modalAddItemIsOpen, setModalAddItemIsOpen] = useState(false)
   const [modalAddArmaIsOpen, setModalAddArmaIsOpen] = useState(false)
-  const [modalEditItemIsOpen, setModalEditItemIsOpen] = useState(false)
-  const [modalEditArmaIsOpen, setModalEditArmaIsOpen] = useState(false)
 
   const { id } = useParams()
 
@@ -118,8 +116,8 @@ export function InventarioContainer() {
 
       <BodyContainer>
 
-        {armas.map(arma => <Arma key={arma.id} data={arma} atualizar={setArmas} />)}
-        {itens.map(item => <Item key={item.id} data={item} atualizar={setItens} />)}
+        {armas.map(arma => <Arma key={arma.id} data={arma} atualizar={setArmas} armas={armas} />)}
+        {itens.map(item => <Item key={item.id} data={item} atualizar={setItens} itens={itens} />)}
 
       </BodyContainer>
 

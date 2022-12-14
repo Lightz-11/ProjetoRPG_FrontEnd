@@ -10,7 +10,7 @@ export const Header = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  padding: '1rem',
+  padding: '0.5rem',
 
   div: {
     width: '34px',
@@ -18,9 +18,12 @@ export const Header = styled('div', {
 
   h1: {
     color: 'purple',
-    fontSize: '2rem',
+    fontSize: '3rem',
     wordBreak: 'break-word',
-    textTransform: 'capitalize'
+    textTransform: 'capitalize',
+    fontFamily: 'Permanent Marker',
+    fontWeight: 100,
+    letterSpacing: '.1rem'
   }
 
 })
@@ -48,8 +51,9 @@ export const MainTop = styled('div', {
     color: 'white',
     width: '45%',
     textAlign: 'center',
-    padding: '.5rem',
-    border: '1px solid #ffffff90'
+    padding: '.2rem 0.5rem 0rem 0.5rem',
+    border: '1px solid #ffffff90',
+    fontFamily: 'El Messiri'
   }
 
 })
@@ -76,7 +80,8 @@ export const Span = styled('span', {
   outline: '1px solid #ffffff90',
   color: 'white',
   fontFamily: 'arial',
-  padding: '1rem'
+  padding: '0.5rem 1rem',
+  fontFamily: 'El Messiri'
 
 })
 

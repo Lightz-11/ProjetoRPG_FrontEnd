@@ -10,7 +10,7 @@ import { Modal } from '../../../../../../components/Modals/Modal';
 import { DadoRolado } from '../DadoRolado';
 import { ModalEditArma } from '../ModalEditArma';
 
-export function Arma({ data, atualizar }) {
+export function Arma({ data, atualizar, armas }) {
 
   const [mostrarComoItem, setMostrarComoItem] = useState(false)
 
@@ -28,7 +28,7 @@ export function Arma({ data, atualizar }) {
     <Container>
 
       <Modal isOpen={modalEditArmaIsOpen} setIsOpen={() => setModalEditArmaIsOpen(false)}>
-        <ModalEditArma data={data} atualizar={atualizar} setModalEditArmaIsOpenFalse={() => setModalEditArmaIsOpen(false)} />
+        <ModalEditArma armas={armas} data={data} atualizar={atualizar} setModalEditArmaIsOpenFalse={() => setModalEditArmaIsOpen(false)} />
       </Modal>
 
       <Modal isOpen={imgAberta} setIsOpen={() => setImgAberta(false)}>
@@ -65,7 +65,7 @@ export function Arma({ data, atualizar }) {
             </DivInfos>
             <DivInfos title='Especial'>
               <Icon><IoIosStarOutline size={30} color={'#d9c21a'} /></Icon> {/* especial */}
-              <span>{data.especial ? data.espaco : '- - -'}</span>
+              <span>{data.especial ? data.especial : '- - -'}</span>
             </DivInfos>
 
           </Infos>
@@ -93,7 +93,7 @@ export function Arma({ data, atualizar }) {
                   valor: data.danoCritico,
                   isDano: true
                 })
-              }} color={'red'}><strong>Crítico:</strong> {data.danoCritico}/{data.margemCritico}</Button>
+              }} color={'red'}><strong>Crítico:</strong> {data.danoCritico} / {data.margemCritico}</Button>
             </Danos>
 
           </Dados>

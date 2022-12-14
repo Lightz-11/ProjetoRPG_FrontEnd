@@ -8,11 +8,12 @@ import {
 } from "./styles";
 import { AnotacoesContainer, DadosContainer, FichaContainer, IniciativasContainer, UTContainer, FichasNPCsContainer, InventarioContainer } from "./components"
 import { ToastContainer } from "react-toastify";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export function Sessao() {
     const [nomeSessao, setNomeSessao] = useState("");
     const { id } = useParams()
+    const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
 
     useEffect(() => {
 
@@ -21,6 +22,10 @@ export function Sessao() {
                 const response = await api.get(
                     `http://localhost:8080/sessoes/${id}`
                 );
+
+                if (response.data.userId != dataUser.id) {
+                    window.location.href = "/"
+                }
 
                 setNomeSessao(response.data.nome);
             } catch (erro) {

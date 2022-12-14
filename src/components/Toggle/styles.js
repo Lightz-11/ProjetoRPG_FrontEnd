@@ -14,7 +14,7 @@ export const Container = styled('div', {
 export const SpanContainer = styled('span', {
     color: 'white',
     position: 'relative',
-    top: '0%',
+    top: '-0.5px',
     fontFamily: "'Arial', sans-serif",
     fontWeight: 100,
     textDecoration: 'underline',

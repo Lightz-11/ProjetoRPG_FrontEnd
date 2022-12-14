@@ -12,6 +12,15 @@ export const Container = styled('div', {
     border: '20px solid rgb(20,20,20)',
     background: 'rgb(20,20,20)',
 
+    span: {
+        color: 'red',
+        position: 'absolute',
+        fontSize: '1.8rem',
+        right: '1.5rem',
+        top: '1.6rem',
+        fontFamily: 'emoji',
+    },
+
     variants: {
         noMarginTop: {
             false: {
@@ -39,23 +48,24 @@ export const LabelContainer = styled('label', {
 
     position: 'absolute',
     width: 'fit-content',
-    top: '-22%',
+    top: '-34%',
     textAlign: 'center',
     zIndex: '1',
-    fontSize: '2rem',
+    fontFamily: 'Cormorant Garamond',
+    fontSize: '2.5rem',
     color: 'rgb(208, 147, 226)',
     transition: '0.3s',
     background: 'rgb(20,20,20)',
-    padding: '0px 10px',
+    padding: '0px 1rem',
 
 
 
     variants: {
         active: {
             true: {
-                fontSize: '1.9rem',
-                transform: 'translateY(-0.8rem)',
-                padding: '0px 10px',
+                fontSize: '2.3rem',
+                transform: 'translateY(-0.6rem)',
+                padding: '0px 1.6rem',
             },
         },
     },

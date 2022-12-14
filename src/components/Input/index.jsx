@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import { Container, InputB, LabelContainer, LabelContainerMenor } from "./styles"
+import { Container, ContainerInput, InputB, LabelContainer, LabelContainerMenor } from "./styles"
 
 
-export function Input({ label, labelMenor = false, setValor, valor, onlyNumber = false, ...rest }) {
+export function Input({ label, labelMenor = false, setValor, valor, onlyNumber = false, opcional = false, ...rest }) {
 
     const [focus, setFocus] = useState(false)
 
@@ -29,23 +29,26 @@ export function Input({ label, labelMenor = false, setValor, valor, onlyNumber =
                     {label}
                 </LabelContainer>
             }
-            <InputB autoComplete="off" value={valor} type="text" {...rest}
-                onChange={(event) => {
-                    if (onlyNumber) {
-                        onlyNumbers(event.target.value)
-                    } else {
-                        setValor(event.target.value)
-                    }
-                }}
-                onFocus={() => {
-                    setFocus(true)
-                }}
-                onBlur={() => {
-                    if (valor == null || valor.toString().length == 0) {
-                        setFocus(false)
-                    }
-                }}
-            />
+            <ContainerInput>
+                <InputB autoComplete="off" value={valor} type="text" {...rest}
+                    onChange={(event) => {
+                        if (onlyNumber) {
+                            onlyNumbers(event.target.value)
+                        } else {
+                            setValor(event.target.value)
+                        }
+                    }}
+                    onFocus={() => {
+                        setFocus(true)
+                    }}
+                    onBlur={() => {
+                        if (valor == null || valor.toString().length == 0) {
+                            setFocus(false)
+                        }
+                    }}
+                />
+            </ContainerInput>
+            {(opcional && valor == null || opcional && String(valor).length == 0) && <span>(Opcional)</span>}
         </Container>
     )
 }

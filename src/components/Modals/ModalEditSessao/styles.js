@@ -41,7 +41,8 @@ export const Body = styled('div', {
 })
 
 export const Header = styled('div', {
-    width: '100%'
+    width: '100%',
+    fontFamily: 'Arvo'
 })
 
 export const Button = styled('button', {
@@ -51,8 +52,10 @@ export const Button = styled('button', {
     border: 'none',
     color: 'white',
     borderRadius: '8px',
-    fontSize: '2rem',
+    fontSize: '2.3rem',
     cursor: 'pointer',
+    fontFamily: 'Crimson Text',
+    paddingLeft: '.2rem',
 
     variants: {
         color: {
@@ -80,21 +83,21 @@ export const Button = styled('button', {
 
 export const ButtonDelete = styled('button', {
     width: '14rem',
-    height: '3rem',
     background: 'none',
     border: '2px solid',
     borderColor: 'Crimson',
     color: 'white',
+    fontFamily: 'El Messiri',
     borderRadius: '8px',
     fontSize: '1.6rem',
     cursor: 'pointer',
-    paddingRight: '1px',
     transition: 'color ease 0.3s',
     marginTop: '15px',
+    paddingTop: '.3rem',
 
     '.icon': {
         position: 'relative',
-        top: '5.5%'
+        top: '.2rem'
     },
 
     '&:hover': {

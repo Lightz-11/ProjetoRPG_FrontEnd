@@ -3,7 +3,7 @@ import { styled } from "../../../stitches.config";
 export const Container = styled('div', {
 
     width: '47rem',
-    height: '71rem',
+    height: '73rem',
     borderRadius: '1.2rem',
     backgroundColor: 'rgb(27,27,27)',
     boxShadow: 'rgba(255, 255, 255, 0.45) 0rem 0.5rem 1.5rem',
@@ -15,7 +15,8 @@ export const Container = styled('div', {
         fontSize: "3rem",
         color: "#a151b4",
         textAlign: 'center',
-        marginBottom: '3rem'
+        marginBottom: '3rem',
+        fontFamily: 'Arvo',
     },
 
     '.toggles': {
@@ -39,8 +40,9 @@ export const Button = styled('button', {
     border: 'none',
     color: 'white',
     borderRadius: '8px',
-    fontSize: '2rem',
+    fontSize: '2.5rem',
     cursor: 'pointer',
+    fontFamily: 'Crimson Text',
 
     variants: {
         color: {

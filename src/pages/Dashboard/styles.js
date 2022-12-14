@@ -17,17 +17,19 @@ export const Header = styled("div", {
     h1: {
         color: 'Purple',
         textAlign: 'center',
-        marginTop: '1.5rem',
-        marginBottom: '1.5rem',
+        marginTop: '1.4rem',
+        marginBottom: '1.4rem',
         fontSize: '3.5rem',
-        textShadow: '4px 3px 2px black'
+        textShadow: '4px 3px 2px black',
+        fontFamily: 'Fredoka One',
+        letterSpacing: '.2rem'
     },
 
 });
 
 export const Body = styled('div', {
     padding: '3rem',
-    overflowY: 'auto'
+    overflowY: 'auto',
 })
 
 export const SessaoContainer = styled("div", {
@@ -42,7 +44,10 @@ export const SessaoContainer = styled("div", {
     h1: {
         color: "White",
         textAlign: "center",
-        fontSize: "2.5rem",
+        fontSize: "3.5rem",
+        letterSpacing: '.1rem',
+        fontWeight: 100,
+        fontFamily: 'Special Elite',
     },
 
     hr: {
@@ -52,6 +57,19 @@ export const SessaoContainer = styled("div", {
 });
 
 export const Sessoes = styled("div", {
+    minWidth: "5rem",
+    display: "grid",
+    gridTemplateColumns: "49% 49%",
+    gridColumnGap: "3rem",
+    gridRowGap: "3rem",
+    justifyContent: "center",
+
+    "@lg2": {
+        gridTemplateColumns: "100%",
+    },
+});
+
+export const Fichas = styled("div", {
     minWidth: "5rem",
     display: "grid",
     gridTemplateColumns: "49% 49%",
@@ -75,7 +93,10 @@ export const FichaContainer = styled("div", {
     h1: {
         color: "White",
         textAlign: "center",
-        fontSize: "2.5rem",
+        fontSize: "3.5rem",
+        letterSpacing: '.1rem',
+        fontWeight: 100,
+        fontFamily: 'Special Elite',
     },
 
     hr: {

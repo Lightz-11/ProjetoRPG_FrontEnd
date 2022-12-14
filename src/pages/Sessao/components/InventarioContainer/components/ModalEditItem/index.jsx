@@ -2,11 +2,12 @@ import { useState } from 'react';
 import { Input } from '../../../../../../components';
 import { TextArea } from '../../../../../../components/TextArea';
 import { api } from '../../../../../../services/api';
-import { Container, Header, Main, Button, Footer } from './styles';
+import { Container, Header, Main, Main1, Main2, Button, Footer, ButtonDelete } from './styles';
 import { toast, ToastContainer } from 'react-toastify'
 import { useParams } from 'react-router-dom';
+import { BiTrashAlt } from 'react-icons/bi';
 
-export function ModalEditItem({ data, setModalEditItemIsOpenFalse, atualizar }) {
+export function ModalEditItem({ data, setModalEditItemIsOpenFalse, atualizar, itens }) {
 
   const [nome, setNome] = useState(data.nome[0].toUpperCase() + data.nome.substring(1))
   const [espaco, setEspaco] = useState(data.espaco)
@@ -14,13 +15,11 @@ export function ModalEditItem({ data, setModalEditItemIsOpenFalse, atualizar }) 
   const [descricao, setDescricao] = useState(data.descricao)
   const [imagem, setImagem] = useState(data.imagem)
 
-  const { id } = useParams()
-
   async function handleCreate() {
 
     try {
 
-      const data = await api.put(`http://localhost:8080/sessoes/item/${data.id}`, {
+      const data2 = await api.put(`http://localhost:8080/sessoes/item/${data.id}`, {
         nome,
         espaco,
         categoria,
@@ -29,10 +28,35 @@ export function ModalEditItem({ data, setModalEditItemIsOpenFalse, atualizar }) 
       });
 
       setModalEditItemIsOpenFalse()
-      atualizar((prevState) => [...prevState, data.data])
+
+      const item = itens.filter(item => item.id == data.id)
+
+      item[0].nome = data2.data.nome
+      item[0].espaco = data2.data.espaco
+      item[0].categoria = data2.data.categoria
+      item[0].descricao = data2.data.descricao
+      item[0].imagem = data2.data.imagem
 
     } catch (erro) {
       toast.error(erro.response.data.mensagem)
+    }
+
+  }
+
+  async function handleDelete() {
+
+    if (window.confirm("Tem certeza que deseja excluir este item? Uma vez deletado jamais poderá ser recuperado.")) {
+      try {
+
+        await api.delete(`http://localhost:8080/sessoes/item/${data.id}`);
+
+        const itensAtualizados = itens.filter(item => item.id != data.id)
+
+        atualizar(itensAtualizados)
+
+      } catch (error) {
+        console.log(error);
+      }
     }
 
   }
@@ -47,13 +71,23 @@ export function ModalEditItem({ data, setModalEditItemIsOpenFalse, atualizar }) 
 
       <Main>
 
-        <Input label={'Nome'} valor={nome} setValor={setNome} maxLength={20} />
-        <Input label={'Espaços'} onlyNumber valor={espaco} setValor={setEspaco} type='text' maxLength={1} />
-        <Input label={'Categoria'} onlyNumber valor={categoria} setValor={setCategoria} type='text' maxLength={1} />
-        <Input label={'Imagem'} valor={imagem} setValor={setImagem} />
-        <TextArea label={'Descrição'} setValor={setDescricao} maxLength={100} />
+        <Main1>
+
+          <Input label={'Nome'} valor={nome} setValor={setNome} maxLength={20} />
+          <Input label={'Espaços'} onlyNumber valor={espaco} setValor={setEspaco} type='text' maxLength={1} />
+          <Input label={'Categoria'} onlyNumber valor={categoria} setValor={setCategoria} type='text' maxLength={1} />
+          <Input opcional label={'Imagem'} valor={imagem} setValor={setImagem} />
+
+        </Main1>
+
+        <Main2>
+          <TextArea label={'Descrição'} valor={descricao} setValor={setDescricao} maxLength={100} />
+          <ButtonDelete onClick={handleDelete}> <BiTrashAlt className="icon" /> Deletar Item</ButtonDelete>
+        </Main2>
 
       </Main>
+
+
 
       <Footer>
 

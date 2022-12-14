@@ -6,55 +6,71 @@ import { api } from "../../services/api";
 import { useAuth } from "../../hooks/auth"
 import { Container, Header, Body, Body1, Body2, Footer, Button } from "./styles";
 import { InputCenterConta } from "../../components/Input Center Conta";
-import {Toggle} from '../../components/Toggle'
+import { Toggle } from '../../components/Toggle'
 import { InputStopConta } from "../../components/Input Stop Conta";
-import {BiTrashAlt} from "react-icons/bi";
+import { BiTrashAlt } from "react-icons/bi";
 import { Card } from "../../components/Card";
 
 export function EditarConta() {
 
-    const { signOut } = useAuth();
+  const { signOut } = useAuth();
 
-    const [nomeAtual, setNomeAtual] = useState('')
-    const [usernameAtual, setUsernameAtual] = useState('')
-    const [emailAtual, setEmailAtual] = useState('');
-  
-    const [nome, setNome] = useState('');
-    const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
-    const [senha, setSenha] = useState('');
-    const [senhaConfirmada, setSenhaConfirmada] = useState('')
-    const [senhaAtual, setSenhaAtual] = useState('');
+  const [nomeAtual, setNomeAtual] = useState('')
+  const [usernameAtual, setUsernameAtual] = useState('')
+  const [emailAtual, setEmailAtual] = useState('');
 
-    const [noSg, setNoSg] = useState(true)
+  const [nome, setNome] = useState('');
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const [senhaConfirmada, setSenhaConfirmada] = useState('')
+  const [senhaAtual, setSenhaAtual] = useState('');
 
-    const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
+  const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
 
-    useEffect(() => {
-      setNomeAtual(dataUser.nome)
-      setUsernameAtual(dataUser.username)
-      setEmailAtual(dataUser.email)
-    })
+  useEffect(() => {
+    setNomeAtual(dataUser.nome)
+    setUsernameAtual(dataUser.username)
+    setEmailAtual(dataUser.email)
+  })
 
-    function switchMostrarSenha() {
+  function switchMostrarSenha1() {
 
-      const senha1 = document.getElementById("senha")
-      const senha2 = document.getElementById("senhaconfirmada")
-      const senha3 = document.getElementById("senhaatual")
+    const senha1 = document.getElementById("senha")
+    const senha2 = document.getElementById("senhaconfirmada")
 
-      if (senha1.type == "text") {
-        senha1.type = 'password'
-        senha2.type = 'password'
-        senha3.type = 'password'
-      } else {
-        senha1.type = 'text'
-        senha2.type = 'text'
-        senha3.type = 'text'
-      }
-
+    if (senha1.type == "text") {
+      senha1.type = 'password'
+      senha2.type = 'password'
+    } else {
+      senha1.type = 'text'
+      senha2.type = 'text'
     }
-  
-    async function handleEdit() {
+
+  }
+
+  function switchMostrarSenha2() {
+
+    const senha1 = document.getElementById("senhaatual")
+
+    if (senha1.type == "text") {
+      senha1.type = 'password'
+    } else {
+      senha1.type = 'text'
+    }
+
+  }
+
+  async function handleEdit() {
+
+    setNome('')
+    setUsername('')
+    setEmail('')
+    setSenha('')
+    setSenhaConfirmada('')
+    setSenhaAtual('')
+
+    if (senha === senhaConfirmada) {
 
       try {
         const response = await api.put(`/usuarios/${dataUser.id}`, {
@@ -71,81 +87,83 @@ export function EditarConta() {
 
         localStorage.setItem("@rpgfichas:user", JSON.stringify(user));
 
-        const dataUserAtualizado = JSON.parse(localStorage.getItem("@rpgfichas:user"))
-
-        setUsernameAtual(dataUserAtualizado.username)
-        setEmailAtual(dataUserAtualizado.email)
+        setUsernameAtual(user.username)
+        setEmailAtual(user.email)
 
       } catch (error) {
         toast.error(error.response.data.mensagem);
       }
+    } else {
+      toast.error("As senhas não coincidem.")
     }
+  }
 
-    async function handleDelete() {
-      if (window.confirm("Tem certeza que deseja excluir sua conta? Uma vez deletada jamais será recuperada.")) {
-        try {
-          const response = await api.delete(`/usuarios/${dataUser.id}`)
-          toast.success("Conta Deletada")
-          signOut()
-        } catch (error) {
-          toast.error(error.response.data.mensagem)
-        }
+  async function handleDelete() {
+    if (window.confirm("Tem certeza que deseja excluir sua conta? Uma vez deletada jamais será recuperada.")) {
+      try {
+        const response = await api.delete(`/usuarios/${dataUser.id}`)
+        toast.success("Conta Deletada!")
+        signOut()
+      } catch (error) {
+        toast.error(error.response.data.mensagem)
       }
     }
-  
-    return (
-      <Container>
+  }
 
-        <Header>
-            <h1>Conta</h1>
-        </Header>
+  return (
+    <Container>
 
-        <hr />
+      <Header>
+        <h1>Conta</h1>
+      </Header>
 
-        <Body>
+      <hr />
 
-          <Body1>
+      <Body>
 
-            <Card title={"Alterar Nome"}>
-              <InputStopConta label={'| Nome Atual |'} valor={nomeAtual} />
-              <InputCenterConta label1={'| Novo Nome |'} setValor={setNome} minLength={3} maxLength={30} />
-            </Card>
+        <Body1>
 
-            <Card title={"Alterar Username"}>
-              <InputStopConta label={'| Username Atual |'} valor={usernameAtual} />
-              <InputCenterConta label1={'| Novo Username |'} setValor={setUsername} minLength={3} maxLength={30} />
-            </Card>
+          <Card title={"Alterar Nome"}>
+            <InputStopConta label={'| Nome Atual |'} valor={nomeAtual} />
+            <InputCenterConta label={'| Novo Nome |'} valor={nome} setValor={setNome} minLength={3} maxLength={30} />
+          </Card>
 
-            <Card title={"Alterar Email"}>
-              <InputStopConta label={'| Email Atual |'} valor={emailAtual} />
-              <InputCenterConta label1={'| Novo Email |'} setValor={setEmail} minLength={10} maxLength={30} />
-            </Card>
+          <Card title={"Alterar Username"}>
+            <InputStopConta label={'| Username Atual |'} valor={usernameAtual} />
+            <InputCenterConta label={'| Novo Username |'} valor={username} setValor={setUsername} minLength={3} maxLength={30} />
+          </Card>
 
-            <Card title={"Alterar Senha"}>
-              <InputCenterConta label1={'| Nova Senha |'} setValor={setSenha} minLength={8} maxLength={24} id="senha" type="password"  />
-              <InputCenterConta marginTop={'false'} label1={'| Confirme A Senha |'} setValor={setSenhaConfirmada} minLength={8} maxLength={24} id="senhaconfirmada" type="password" />
-            </Card>
+          <Card title={"Alterar Email"}>
+            <InputStopConta label={'| Email Atual |'} valor={emailAtual} />
+            <InputCenterConta label={'| Novo Email |'} valor={email} setValor={setEmail} minLength={10} maxLength={30} />
+          </Card>
 
-          </Body1>
+          <Card title={"Alterar Senha"}>
+            <InputCenterConta label={'| Nova Senha |'} valor={senha} setValor={setSenha} minLength={8} maxLength={24} id="senha" type="password" />
+            <InputCenterConta marginTop={'false'} label={'| Confirme A Senha |'} valor={senhaConfirmada} setValor={setSenhaConfirmada} minLength={8} maxLength={24} id="senhaconfirmada" type="password" />
+            <Toggle span={'Mostrar Senhas'} classNumber={1} onClick={switchMostrarSenha1} />
+          </Card>
 
-          <Body2>
-            <Card title={"Senha Atual"}>
-              <InputCenterConta label1={'| Senha Atual |'} setValor={setSenhaAtual}  maxLength={24} id='senhaatual' type='password' />
-              <Toggle span={'Mostrar Senhas'} classNumber={1} onClick={switchMostrarSenha} />
-            </Card>
-          </Body2>
+        </Body1>
 
-          <Footer>
+        <Body2>
+          <Card title={"Senha Atual"}>
+            <InputCenterConta opcional label={'| Senha Atual |'} valor={senhaAtual} setValor={setSenhaAtual} maxLength={24} id='senhaatual' type='password' />
+            <Toggle span={'Mostrar Senha'} classNumber={2} onClick={switchMostrarSenha2} />
+          </Card>
+        </Body2>
 
-            <Button onClick={handleDelete}>Deletar Conta</Button>
-            <Button color='blue' onClick={handleEdit}>Atualizar Conta</Button>
+        <Footer>
 
-          </Footer>
+          <Button onClick={handleDelete}>Deletar Conta</Button>
+          <Button color='blue' onClick={handleEdit}>Atualizar Conta</Button>
 
-        </Body>
+        </Footer>
 
-        <ToastContainer/>
+      </Body>
 
-      </Container>
-    );
+      <ToastContainer />
+
+    </Container>
+  );
 }

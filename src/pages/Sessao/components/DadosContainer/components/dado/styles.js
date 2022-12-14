@@ -38,7 +38,8 @@ export const Button = styled('button', {
     marginTop: '.5rem',
     color: 'white',
     fontWeight: 100,
-    textTransform: 'capitalize'
+    textTransform: 'capitalize',
+    fontFamily: 'Rye'
   },
 
   background: 'none',
@@ -52,12 +53,20 @@ export const Button = styled('button', {
       true: {
         color: 'crimson',
 
+        h1: {
+          textShadow: '2px 2px 2px crimson'
+        },
+
         '&:hover': {
           border: '2px solid crimson',
         },
       },
       false: {
         color: 'Purple',
+
+        h1: {
+          textShadow: '2px 2px 1px #854cff'
+        },
 
         '&:hover': {
           border: '2px solid Purple',
