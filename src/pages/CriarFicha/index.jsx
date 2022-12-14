@@ -121,11 +121,11 @@ export function CriarFicha() {
       if (classe == "Mundano") {
         arrayStatus.pv = 8 + Number(vig)
       } else if (classe == "Combatente") {
-        arrayStatus.pv = 20 + Number(vig) + Math.floor((nex - 5) / 5) * (4 + vig)
+        arrayStatus.pv = 20 + Number(vig) + Math.floor((nex - 5) / 5) * (4 + Number(vig))
       } else if (classe == 'Especialista') {
-        arrayStatus.pv = 16 + Number(vig) + Math.floor((nex - 5) / 5) * (3 + vig)
+        arrayStatus.pv = 16 + Number(vig) + Math.floor((nex - 5) / 5) * (3 + Number(vig))
       } else if (classe == 'Ocultista') {
-        arrayStatus.pv = 12 + Number(vig) + Math.floor((nex - 5) / 5) * (2 + vig)
+        arrayStatus.pv = 12 + Number(vig) + Math.floor((nex - 5) / 5) * (2 + Number(vig))
       }
     }
 
@@ -133,11 +133,11 @@ export function CriarFicha() {
       if (classe == "Mundano") {
         arrayStatus.ps = 8
       } else if (classe == "Combatente") {
-        arrayStatus.ps = 12 + Math.floor((nex - 5) / 5) * (3)
+        arrayStatus.ps = 12 + Math.floor((nex - 5) / 5) * 3
       } else if (classe == 'Especialista') {
-        arrayStatus.ps = 16 + Math.floor((nex - 5) / 5) * (4)
+        arrayStatus.ps = 16 + Math.floor((nex - 5) / 5) * 4
       } else if (classe == 'Ocultista') {
-        arrayStatus.ps = 20 + Math.floor((nex - 5) / 5) * (5)
+        arrayStatus.ps = 20 + Math.floor((nex - 5) / 5) * 5
       }
     }
 
@@ -145,11 +145,11 @@ export function CriarFicha() {
       if (classe == "Mundano") {
         arrayStatus.pe = 1 + Number(pre)
       } else if (classe == "Combatente") {
-        arrayStatus.pe = 2 + Number(pre) + Math.floor((nex - 5) / 5) * (2 + pre)
+        arrayStatus.pe = 2 + Number(pre) + Math.floor((nex - 5) / 5) * (2 + Number(pre))
       } else if (classe == 'Especialista') {
-        arrayStatus.pe = 3 + Number(pre) + Math.floor((nex - 5) / 5) * (3 + pre)
+        arrayStatus.pe = 3 + Number(pre) + Math.floor((nex - 5) / 5) * (3 + Number(pre))
       } else if (classe == 'Ocultista') {
-        arrayStatus.pe = 4 + Number(pre) + Math.floor((nex - 5) / 5) * (4 + pre)
+        arrayStatus.pe = 4 + Number(pre) + Math.floor((nex - 5) / 5) * (4 + Number(pre))
       }
     }
 

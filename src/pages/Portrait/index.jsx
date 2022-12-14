@@ -12,7 +12,7 @@ export function Portrait() {
 
   const { id } = useParams()
 
-  const [status, setStatus] = useState([])
+  const [nome, setNome] = useState('')
 
   useEffect(() => {
 
@@ -35,7 +35,7 @@ export function Portrait() {
         setarMassivo(status.danoMassivo)
         setarInconsciente(status.inconsciente)
 
-        setStatus(status)
+        setNome(response.data.Principal[0].nome)
 
         const portrait = response.data.Portrait[0]
 
@@ -126,7 +126,7 @@ export function Portrait() {
           </Status>
           :
           <Status>
-            <h4>Luis Ferreira</h4>
+            <h4>{nome}</h4>
           </Status>
 
         }
