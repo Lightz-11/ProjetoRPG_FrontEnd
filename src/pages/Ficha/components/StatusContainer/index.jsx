@@ -13,7 +13,7 @@ import { Container, Header, Body, BottomBody, TopBody, Buttons, AreaPortrait, Po
 
 export function StatusContainer({ status, defesas, portrait }) {
 
-  const { portraitImg, setarPortrait, pvA, setarPvAtual, pvMax, setarPvMax, sanA, setarSanAtual, sanMax, setarSanMax, peA, setarPeAtual, peMax, setarPeMax, combate, setarCombate, insano, setarInsano, massivo, setarMassivo, inconsciente, setarInconsciente } = usePortrait()
+  const { setUserPortrait, portraitImg, setarPortrait, pvA, setarPvAtual, pvMax, setarPvMax, sanA, setarSanAtual, sanMax, setarSanMax, peA, setarPeAtual, peMax, setarPeMax, combate, setarCombate, insano, setarInsano, massivo, setarMassivo, inconsciente, setarInconsciente } = usePortrait()
 
   const [dataDefesas, setDataDefesas] = useState([])
   const [dataRes, setDataRes] = useState([])
@@ -29,7 +29,7 @@ export function StatusContainer({ status, defesas, portrait }) {
 
   async function handleEdit(combate, insano, danoMassivo, inconsciente) {
 
-    const response = await api.put(`/fichas/status/${id}`, {
+    await api.put(`/fichas/status/${id}`, {
       combate,
       insano,
       danoMassivo,
@@ -54,7 +54,6 @@ export function StatusContainer({ status, defesas, portrait }) {
         const response2 = await api.get(`/sessoes/${response.data.sessaoId}`)
 
         if (response.data.userId == dataUser.id || dataUser.id == response2.data.userId) {
-          console.log('a')
           setDisabled(false)
         }
 

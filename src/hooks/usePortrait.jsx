@@ -11,6 +11,8 @@ const PortraitContext = createContext({});
 
 function PortraitProvider({ children }) {
 
+  const [userPortrait, setUserPortrait] = useState([])
+
   const [portraitImg, setPortraitImg] = useState(null)
 
   const [pvA, setPvA] = useState('0')
@@ -22,7 +24,7 @@ function PortraitProvider({ children }) {
   const [peA, setPeA] = useState(0)
   const [peMax, setPeMax] = useState(0)
 
-  const [combate, setCombate] = useState(false)
+  const [combate, setCombate] = useState([{ fichaId: '', combate: false }])
   const [insano, setInsano] = useState(false)
   const [massivo, setMassivo] = useState(false)
   const [inconsciente, setInconsciente] = useState(false)

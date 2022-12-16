@@ -14,6 +14,10 @@ export function Portrait() {
 
   const [nomePortrait, setNome] = useState('')
 
+  const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
+
+  const [combateDoCombateCerto, setCombateDoCombateCerto] = useState(false)
+
   useEffect(() => {
 
     async function fetchData() {
@@ -39,7 +43,7 @@ export function Portrait() {
         setarPvMax(status.pvMax)
         setarSanMax(status.psMax)
 
-        setarCombate(status.combate)
+        setarCombate(id, status.combate)
         setarInsano(status.insano)
         setarMassivo(status.danoMassivo)
         setarInconsciente(status.inconsciente)
@@ -133,12 +137,15 @@ export function Portrait() {
             <h1>{pvA}/{pvMax}</h1>
             <h2>{sanA}/{sanMax}</h2>
           </Status>
+
           :
+
           <Status>
             <h4>{nomePortrait}</h4>
           </Status>
 
         }
+
         <h3>{peA}</h3>
         <PortraitImg inconsciente={inconsciente} src={portraitImg} />
         <img src={FundoPortrait} />
