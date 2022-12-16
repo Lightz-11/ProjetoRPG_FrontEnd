@@ -41,15 +41,11 @@ export function Portrait() {
         const response = await api.get(`/fichas/${id}`)
         const responseSessao = await api.get(`/sessoes/${response.data.sessaoId}`)
 
-        if (response.data.userId != dataUser.id && responseSessao.data.userId != dataUser.id) {
-          navigate('/')
-        }
-
-        setNome(response.data.Principal[0].nome)
-
         // if (response.data.visible != true) {
         //   navigate('/')
         // } 
+
+        setNome(response.data.Principal[0].nome)
 
         const status = response.data.Status[0]
 
