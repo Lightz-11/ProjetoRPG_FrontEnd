@@ -6,6 +6,10 @@ import { api } from "../../../../services/api";
 import { toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import { useParams } from 'react-router-dom';
+import { useFichas } from '../../../../hooks/useFichas';
+import { io } from 'socket.io-client';
+
+const socket = io(api.defaults.baseURL);
 
 export function IniciativasContainer() {
 
@@ -13,7 +17,11 @@ export function IniciativasContainer() {
   const [low, setLow] = useState(false)
   const [precisaSalvar, setPrecisaSalvar] = useState(false)
 
+  const [combate, setCombate] = useState(false)
+
   const { id } = useParams()
+
+  const { fichas } = useFichas()
 
   window.addEventListener('resize', function () {
     if (window.innerWidth < 650) {
@@ -103,6 +111,20 @@ export function IniciativasContainer() {
 
   }
 
+  function setarCombate(fichaId, newCombate) {
+    socket.emit("status.combate", { fichaId, newCombate });
+  }
+
+  function combateAll() {
+
+    fichas.forEach(ficha => {
+      setarCombate(ficha.id, !combate)
+    });
+
+    setCombate(!combate)
+
+  }
+
   return (
     <Container>
       <HeaderContainer>
@@ -140,7 +162,7 @@ export function IniciativasContainer() {
 
         <Footer>
 
-          <Button color={'yellow'}>Combate All</Button>
+          <Button onClick={combateAll} combate={combate}>Combate All</Button>
           {iniciativas.length > 0 &&
             <ButtonSalvar precisaSalvar={precisaSalvar} onClick={handleUpdate}> {precisaSalvar ? 'Salvar' : 'Salvo!'} </ButtonSalvar>
           }
@@ -149,6 +171,6 @@ export function IniciativasContainer() {
 
       </BodyContainer>
 
-    </Container>
+    </Container >
   );
 }

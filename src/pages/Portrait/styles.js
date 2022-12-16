@@ -108,6 +108,7 @@ export const Status1 = styled('div', {
   justifyContent: 'center',
   flexDirection: 'column',
   left: '90%',
+  zIndex: 10,
   top: '50%',
   transform: 'translateY(-50%)',
   opacity: 0,
@@ -135,6 +136,7 @@ export const Status2 = styled('div', {
   flexDirection: 'column',
   left: '90%',
   top: '50%',
+  zIndex: 10,
   transform: 'translateY(-50%)',
   opacity: 0,
 

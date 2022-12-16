@@ -107,13 +107,28 @@ export const Button = styled('button', {
   fontFamily: 'Crimson Text',
   letterSpacing: '.1rem',
 
-  color: 'Yellow',
-  border: '1px solid Yellow',
+  variants: {
+    combate: {
+      true: {
+        color: 'Crimson',
+        border: '1px solid Crimson',
 
-  '&:hover': {
-    border: '1px solid yellow',
-    opacity: '0.5'
-  },
+        '&:hover': {
+          border: '1px solid Crimson',
+          opacity: '0.5'
+        },
+      },
+      false: {
+        color: '#00ca39',
+        border: '1px solid #00ca39',
+
+        '&:hover': {
+          border: '1px solid #00ca39',
+          opacity: '0.5'
+        },
+      }
+    }
+  }
 
 })
 
