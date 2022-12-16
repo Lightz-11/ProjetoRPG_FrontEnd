@@ -59,7 +59,7 @@ export const Main = styled('main', {
     lineHeight: '17rem',
     textTransform: 'capitalize',
     textShadow: '#60eeff 0 0 20px',
-    zIndex: 3
+    zIndex: 10
   },
 
 })
@@ -174,6 +174,7 @@ export const PortraitImg = styled('img', {
 
   position: 'absolute',
   width: '750px',
+  height: '750px',
   borderRadius: '700px',
   top: '-3rem',
   left: '50%',
