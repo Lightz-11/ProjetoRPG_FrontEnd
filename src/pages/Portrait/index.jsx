@@ -31,8 +31,6 @@ export function Portrait() {
 
   const [animation, setAnimation] = useState(false)
 
-  const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
-
   useEffect(() => {
 
     async function fetchData() {

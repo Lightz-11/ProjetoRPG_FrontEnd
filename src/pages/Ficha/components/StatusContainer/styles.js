@@ -104,6 +104,7 @@ export const Portrait = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  objectFit: 'contain',
 
 })
 
@@ -117,10 +118,12 @@ export const Img = styled('img', {
   justifyContent: 'center',
   position: 'relative',
   width: '220px',
+  height: '220px',
   transition: 'filter 1s',
 
   '@md2': {
-    width: '150px'
+    width: '150px',
+    height: '150px'
   },
 
   variants: {
