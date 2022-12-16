@@ -4,16 +4,15 @@ import { useParams } from 'react-router-dom';
 import { Barrinha } from '../../../../components/Barrinha';
 import { ButtonEdit } from '../../../../components/ButtonEdit';
 import { Modal } from '../../../../components/Modals/Modal';
-import { usePortrait } from '../../../../hooks/usePortrait';
 import { api } from '../../../../services/api';
 import { ModalPortrait } from './components/ModalPortrait'
 import noportrait from '../../../../assets/img/noportrait.png'
-import io from 'socket.io-client'
 import { Container, Header, Body, BottomBody, TopBody, Buttons, AreaPortrait, Portrait, Button, ContainerDeferes, Deferes, Img, ImgZoom } from './styles';
+import { io } from 'socket.io-client';
+
+const socket = io(api.defaults.baseURL);
 
 export function StatusContainer({ status, defesas, portrait }) {
-
-  const { setUserPortrait, portraitImg, setarPortrait, pvA, setarPvAtual, pvMax, setarPvMax, sanA, setarSanAtual, sanMax, setarSanMax, peA, setarPeAtual, peMax, setarPeMax, combate, setarCombate, insano, setarInsano, massivo, setarMassivo, inconsciente, setarInconsciente } = usePortrait()
 
   const [dataDefesas, setDataDefesas] = useState([])
   const [dataRes, setDataRes] = useState([])
@@ -26,6 +25,22 @@ export function StatusContainer({ status, defesas, portrait }) {
   const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
 
   const { id } = useParams()
+
+  const [combate, setCombate] = useState(false)
+  const [insano, setInsano] = useState(false)
+  const [massivo, setMassivo] = useState(false)
+  const [inconsciente, setInconsciente] = useState(false)
+
+  const [portraitImg, setPortraitImg] = useState(null)
+
+  const [pvA, setPvA] = useState(0)
+  const [pvMax, setPvMax] = useState(0)
+  const [sanA, setSanA] = useState(0)
+  const [sanMax, setSanMax] = useState(0)
+  const [peA, setPeA] = useState(0)
+  const [peMax, setPeMax] = useState(0)
+  const [municao, setMunicao] = useState(0)
+  const [municaoMax, setMunicaoMax] = useState(0)
 
   async function handleEdit(combate, insano, danoMassivo, inconsciente) {
 
@@ -47,6 +62,11 @@ export function StatusContainer({ status, defesas, portrait }) {
 
   useEffect(() => {
 
+    setarCombate(false)
+    setarInsano(false)
+    setarMassivo(false)
+    setarInconsciente(false)
+
     async function fetchData() {
       try {
 
@@ -60,9 +80,6 @@ export function StatusContainer({ status, defesas, portrait }) {
       } catch (error) { console.log(error) }
     }
     fetchData();
-
-    setarCombate(false)
-    setarInconsciente(false)
 
     return () => {
       handleEdit(false, false, false, false)
@@ -183,11 +200,65 @@ export function StatusContainer({ status, defesas, portrait }) {
 
   useEffect(() => {
 
-    if (pvA != '0') {
+    if (pvMax != 0) {
       handleEdit(combate, insano, massivo, inconsciente)
     }
 
   }, [pvA, pvMax, sanA, sanMax, peA, peMax])
+
+  function setarCombate(newCombate) {
+    socket.emit("status.combate", { fichaId: id, newCombate });
+    setCombate(newCombate)
+  }
+
+  function setarInsano(newInsano) {
+    socket.emit("status.insano", { fichaId: id, newInsano });
+    setInsano(newInsano)
+  }
+
+  function setarMassivo(newMassivo) {
+    socket.emit("status.massivo", { fichaId: id, newMassivo });
+    setMassivo(newMassivo)
+  }
+
+  function setarInconsciente(newInconsciente) {
+    socket.emit("status.inconsciente", { fichaId: id, newInconsciente });
+    setInconsciente(newInconsciente)
+  }
+
+  function setarPvAtual(newPvAtual) {
+    socket.emit("status.pvA", { fichaId: id, newPvAtual });
+    setPvA(newPvAtual)
+  }
+
+  function setarPvMax(newPvMax) {
+    socket.emit("status.pvMax", { fichaId: id, newPvMax });
+    setPvMax(newPvMax)
+  }
+
+  function setarSanAtual(newSanAtual) {
+    socket.emit("status.sanA", { fichaId: id, newSanAtual });
+    setSanA(newSanAtual)
+  }
+
+  function setarSanMax(newSanMax) {
+    socket.emit("status.sanMax", { fichaId: id, newSanMax });
+    setSanMax(newSanMax)
+  }
+
+  function setarPeAtual(newPeAtual) {
+    socket.emit("status.peA", { fichaId: id, newPeAtual });
+    setPeA(newPeAtual)
+  }
+
+  function setarPeMax(newPeMax) {
+    setPeMax(newPeMax)
+  }
+
+  function setarPortrait(newPortrait) {
+    socket.emit("status.portrait", { fichaId: id, newPortrait });
+    setPortraitImg(newPortrait)
+  }
 
   return (
     <Container>

@@ -1,4 +1,4 @@
-import { styled } from '../../stitches.config';
+import { styled, keyframes } from '../../stitches.config';
 
 export const Container = styled('div', {
 
@@ -64,7 +64,44 @@ export const Main = styled('main', {
 
 })
 
-export const Status = styled('div', {
+const opacityUp1 = keyframes({
+  '0%': {
+    opacity: 0
+  },
+  '100%': {
+    opacity: 1
+  },
+});
+
+const opacityDown1 = keyframes({
+  '0%': {
+    opacity: 1
+  },
+  '100%': {
+    opacity: 0
+  },
+});
+
+const opacityUp2 = keyframes({
+  '0%': {
+    opacity: 0
+  },
+  '100%': {
+    opacity: 1
+  },
+});
+
+const opacityDown2 = keyframes({
+  '0%': {
+    opacity: 1
+  },
+  '100%': {
+    opacity: 0
+  },
+});
+
+export const Status1 = styled('div', {
+
   position: 'absolute',
   display: 'flex',
   alignItems: 'center',
@@ -72,8 +109,66 @@ export const Status = styled('div', {
   flexDirection: 'column',
   left: '90%',
   top: '50%',
-  transform: 'translateY(-50%)'
+  transform: 'translateY(-50%)',
+  opacity: 0,
+
+  variants: {
+    combate: {
+      true: {
+        animation: `${opacityUp1} 1s`,
+        animationDelay: '.3s',
+        animationFillMode: 'forwards'
+      },
+      false: {
+        animation: `${opacityDown1} .4s`,
+      }
+    }
+  }
 })
+
+export const Status2 = styled('div', {
+
+  position: 'absolute',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexDirection: 'column',
+  left: '90%',
+  top: '50%',
+  transform: 'translateY(-50%)',
+  opacity: 0,
+
+  variants: {
+    combate: {
+      true: {
+        animation: `${opacityDown2} .4s`,
+      },
+      false: {
+        animation: `${opacityUp2} 1s`,
+        animationDelay: '.3s',
+        animationFillMode: 'forwards'
+      }
+    }
+  }
+})
+
+const opacityDown = keyframes({
+  '0%': {
+    opacity: 1,
+  },
+  '100%': {
+    opacity: 0,
+  },
+});
+
+const opacityUp = keyframes({
+  '0%': {
+    opacity: 0
+  },
+  '100%': {
+    opacity: 1
+  },
+});
 
 export const PortraitImg = styled('img', {
 
@@ -83,12 +178,23 @@ export const PortraitImg = styled('img', {
   top: '-3rem',
   left: '50%',
   transform: 'translateX(-50%)',
-  transition: '1s',
+  transition: 'filter 1s',
 
   variants: {
     inconsciente: {
       true: {
         filter: 'brightness(0)'
+      }
+    },
+
+    animation: {
+      true: {
+        animation: `${opacityDown} .5s`,
+        opacity: 0
+      },
+      false: {
+        animation: `${opacityUp} 1s`,
+        opacity: 1
       }
     }
   }
