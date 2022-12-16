@@ -104,13 +104,13 @@ export const Portrait = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  objectFit: 'contain',
+  overflow: 'hidden'
 
 })
 
 export const Img = styled('img', {
 
-  objectFit: 'contain',
+  objectFit: 'cover',
   cursor: 'pointer',
   borderRadius: '72rem',
   display: 'flex',
