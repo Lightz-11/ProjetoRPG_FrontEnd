@@ -22,7 +22,7 @@ export const Main = styled('main', {
     fontWeight: 100,
     rotate: '-10deg',
     textShadow: '0 0 20px',
-    zIndex: 3
+    zIndex: 10
   },
 
   h2: {
@@ -32,7 +32,7 @@ export const Main = styled('main', {
     color: '#5e97e5',
     rotate: '-10deg',
     textShadow: '0 0 20px',
-    zIndex: 3
+    zIndex: 10
   },
 
   h3: {
@@ -45,7 +45,7 @@ export const Main = styled('main', {
     color: '#fff000',
     rotate: '-5deg',
     textShadow: '0 0 20px',
-    zIndex: 3
+    zIndex: 10
   },
 
   h4: {
@@ -176,6 +176,7 @@ export const PortraitImg = styled('img', {
   width: '750px',
   height: '750px',
   borderRadius: '700px',
+  zIndex: 3,
   top: '-3rem',
   left: '50%',
   transform: 'translateX(-50%)',
