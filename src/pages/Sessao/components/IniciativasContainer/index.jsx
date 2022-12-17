@@ -33,6 +33,10 @@ export function IniciativasContainer() {
 
   useEffect(() => {
 
+    fichas.forEach(ficha => {
+      setarCombate(ficha.id, false)
+    });
+
     async function fetchData() {
 
       setIniciativas([])
@@ -116,13 +120,11 @@ export function IniciativasContainer() {
   }
 
   function combateAll() {
-
     fichas.forEach(ficha => {
       setarCombate(ficha.id, !combate)
     });
 
     setCombate(!combate)
-
   }
 
   return (
