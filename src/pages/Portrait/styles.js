@@ -193,11 +193,11 @@ export const PortraitImg = styled('img', {
 
     animation: {
       true: {
-        animation: `${opacityDown} .25s`,
+        animation: `${opacityDown} .2s`,
         opacity: 0
       },
       false: {
-        animation: `${opacityUp} .5s`,
+        animation: `${opacityUp} .2s`,
         opacity: 1
       }
     }

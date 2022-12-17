@@ -104,13 +104,21 @@ export const Portrait = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  overflow: 'hidden'
+  width: '220px',
+  height: '220px',
+  zIndex: 1,
+
+  '@md2': {
+    width: '150px',
+    height: '150px'
+  },
 
 })
 
 export const Img = styled('img', {
 
-  objectFit: 'cover',
+  objectFit: 'contain',
+  zIndex: 0,
   cursor: 'pointer',
   borderRadius: '72rem',
   display: 'flex',
@@ -118,12 +126,12 @@ export const Img = styled('img', {
   justifyContent: 'center',
   position: 'relative',
   width: '220px',
-  height: '220px',
+  height: '217px',
   transition: 'filter 1s',
 
   '@md2': {
     width: '150px',
-    height: '150px'
+    height: '147px'
   },
 
   variants: {

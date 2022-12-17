@@ -110,7 +110,7 @@ export const Column = styled('div', {
 })
 
 export const Option = styled('option', {
-  color: 'red',
+  color: 'white',
   background: 'rgb(20,20,20)',
   textTransform: 'capitalize'
 })

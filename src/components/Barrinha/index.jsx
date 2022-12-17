@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { api } from '../../services/api';
 
-export function Barrinha({ valorA, setValorA, setValorMax, valorMax, color, number }) {
+export function Barrinha({ valorA, setValorA, setValorMax, valorMax, color, number, ...rest }) {
 
   const [low, setLow] = useState(false)
 
@@ -65,10 +65,21 @@ export function Barrinha({ valorA, setValorA, setValorMax, valorMax, color, numb
         </Esquerda>
         <InputBarrinha right setValor={setValorA} valor={valorA} valorMax={valorMax} />
         <span>/</span>
-        <InputBarrinha setValor={setValorMax} valor={valorMax} onBlur={() => {
-          if (valorMax < valorA) {
-            setValorA(valorMax)
-          }
+        <InputBarrinha setValor={setValorMax} valor={valorMax} {...rest} onBlur={() => {
+
+          if (valorMax == 1) {
+            if (number == 1) {
+              setValorMax(20)
+            } else if (number == 2) {
+              setValorMax(15)
+            } else if (number == 3) {
+              setValorMax(10)
+            }
+          } else
+
+            if (valorMax < valorA) {
+              setValorA(valorMax)
+            }
         }
         } />
         <Direita>

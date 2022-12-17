@@ -42,7 +42,7 @@ export function StatusContainer({ status, defesas, portrait }) {
   const [municao, setMunicao] = useState(0)
   const [municaoMax, setMunicaoMax] = useState(0)
 
-  async function handleEdit(combate, insano, danoMassivo, inconsciente) {
+  async function handleEditAll(combate, insano, danoMassivo, inconsciente) {
 
     await api.put(`/fichas/status/${id}`, {
       combate,
@@ -57,6 +57,16 @@ export function StatusContainer({ status, defesas, portrait }) {
       peMax,
       municao: null,
       municaoMax: null
+    })
+  }
+
+  async function handleEdit(combate, insano, danoMassivo, inconsciente) {
+
+    await api.put(`/fichas/status/${id}`, {
+      combate,
+      insano,
+      danoMassivo,
+      inconsciente,
     })
   }
 
@@ -201,7 +211,7 @@ export function StatusContainer({ status, defesas, portrait }) {
   useEffect(() => {
 
     if (pvMax != 0) {
-      handleEdit(combate, insano, massivo, inconsciente)
+      handleEditAll(combate, insano, massivo, inconsciente)
     }
 
   }, [pvA, pvMax, sanA, sanMax, peA, peMax])
@@ -259,6 +269,13 @@ export function StatusContainer({ status, defesas, portrait }) {
     socket.emit("status.portrait", { fichaId: id, newPortrait });
     setPortraitImg(newPortrait)
   }
+
+  function executeUpdateCombate({ fichaId, newCombate }) {
+    if (fichaId == id) {
+      setCombate(newCombate)
+    }
+  }
+  socket.on("status.combate", executeUpdateCombate);
 
   return (
     <Container>
