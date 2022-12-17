@@ -109,7 +109,7 @@ export const Button = styled('button', {
 
   variants: {
     combate: {
-      true: {
+      false: {
         color: 'Crimson',
         border: '1px solid Crimson',
 
@@ -118,7 +118,7 @@ export const Button = styled('button', {
           opacity: '0.5'
         },
       },
-      false: {
+      true: {
         color: '#00ca39',
         border: '1px solid #00ca39',
 
