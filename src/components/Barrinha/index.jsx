@@ -12,6 +12,11 @@ export function Barrinha({ valorA, setValorA, setValorMax, valorMax, color, numb
 
   const [disabled, setDisabled] = useState(true)
 
+  const [classe, setClasse] = useState('')
+  const [pre, setPre] = useState(0)
+  const [vig, setVig] = useState(0)
+  const [nex, setNex] = useState(0)
+
   const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
 
   const { id } = useParams()
@@ -27,6 +32,14 @@ export function Barrinha({ valorA, setValorA, setValorMax, valorMax, color, numb
         if (response.data.userId == dataUser.id || dataUser.id == response2.data.userId) {
           setDisabled(false)
         }
+
+        console.log(response.data)
+
+        setClasse(response.data.Principal[0].classe)
+        setNex(response.data.Principal[0].nex)
+
+        setPre(response.data.Atributos[0].pre)
+        setVig(response.data.Atributos[0].vig)
 
       } catch (error) { console.log(error) }
     }
@@ -66,17 +79,47 @@ export function Barrinha({ valorA, setValorA, setValorMax, valorMax, color, numb
         <InputBarrinha right setValor={setValorA} valor={valorA} valorMax={valorMax} />
         <span>/</span>
         <InputBarrinha setValor={setValorMax} valor={valorMax} {...rest} onBlur={() => {
-
           if (valorMax == 1) {
-            if (number == 1) {
-              setValorMax(20)
-            } else if (number == 2) {
-              setValorMax(15)
-            } else if (number == 3) {
-              setValorMax(10)
-            }
-          } else
 
+            if (number == 1) {
+
+              if (classe == "Mundano") {
+                setValorMax(8 + Number(vig))
+              } else if (classe == "Combatente") {
+                setValorMax(20 + Number(vig) + Math.floor((nex - 5) / 5) * (4 + Number(vig)))
+              } else if (classe == 'Especialista') {
+                setValorMax(16 + Number(vig) + Math.floor((nex - 5) / 5) * (3 + Number(vig)))
+              } else if (classe == 'Ocultista') {
+                setValorMax(12 + Number(vig) + Math.floor((nex - 5) / 5) * (2 + Number(vig)))
+              }
+
+            } else if (number == 2) {
+
+              if (classe == "Mundano") {
+                setValorMax(8)
+              } else if (classe == "Combatente") {
+                setValorMax(12 + Math.floor((nex - 5) / 5) * 3)
+              } else if (classe == 'Especialista') {
+                setValorMax(16 + Math.floor((nex - 5) / 5) * 4)
+              } else if (classe == 'Ocultista') {
+                setValorMax(20 + Math.floor((nex - 5) / 5) * 5)
+              }
+
+            } else if (number == 3) {
+
+              if (classe == "Mundano") {
+                setValorMax(1 + Number(pre))
+              } else if (classe == "Combatente") {
+                setValorMax(2 + Number(pre) + Math.floor((nex - 5) / 5) * (2 + Number(pre)))
+              } else if (classe == 'Especialista') {
+                setValorMax(3 + Number(pre) + Math.floor((nex - 5) / 5) * (3 + Number(pre)))
+              } else if (classe == 'Ocultista') {
+                setValorMax(4 + Number(pre) + Math.floor((nex - 5) / 5) * (4 + Number(pre)))
+              }
+
+            }
+
+          } else
             if (valorMax < valorA) {
               setValorA(valorMax)
             }

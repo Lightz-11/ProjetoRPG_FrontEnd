@@ -121,6 +121,11 @@ export const ParteImgModal = styled('div', {
   width: '100%',
   display: 'flex',
   justifyContent: 'center',
+  overflow: 'hidden',
+
+  img: {
+    objectFit: 'contain'
+  }
 })
 
 const scaleUpImgModal = keyframes({
@@ -138,6 +143,6 @@ const scaleUpImgModal = keyframes({
 export const ImgModal = styled('img', {
 
   animation: `${scaleUpImgModal} 300ms`,
-  objectFit: 'contain'
+  width: '100%'
 
 })

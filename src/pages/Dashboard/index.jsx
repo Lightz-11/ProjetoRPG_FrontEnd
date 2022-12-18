@@ -19,6 +19,9 @@ import { AddSessao } from "../../components/AddSessao";
 import { ModalEditSessao } from "../../components/Modals/ModalEditSessao/ModalEditSessao";
 import { Convite } from "../../components/Convite";
 import { Ficha } from "../../components/Ficha";
+import { io } from 'socket.io-client';
+
+const socket = io(api.defaults.baseURL);
 
 export function Dashboard() {
   const [modalCriarSessaoIsOpen, setModalCriarSessaoIsOpen] = useState(false);
@@ -66,6 +69,14 @@ export function Dashboard() {
       } catch (error) { console.log(error) }
     }
     fetchData();
+
+    function atualizarConvites({ userId }) {
+      if (userId == dataUser.id) {
+        fetchData()
+      }
+    }
+    socket.on('enviado.convite', atualizarConvites)
+
   }, []);
 
   return (

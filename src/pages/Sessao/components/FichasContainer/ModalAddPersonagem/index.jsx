@@ -4,6 +4,9 @@ import { toast, ToastContainer } from 'react-toastify';
 import { Input } from '../../../../../components';
 import { api } from '../../../../../services/api';
 import { Container, Header, Main, Button, Footer } from './styles';
+import { io } from 'socket.io-client';
+
+const socket = io(api.defaults.baseURL);
 
 export function ModalAddPersonagem({ setModalAddIsOpenFalse }) {
 
@@ -23,6 +26,8 @@ export function ModalAddPersonagem({ setModalAddIsOpenFalse }) {
           userEmail: email,
           sessaoId: id
         })
+
+        socket.emit("enviado.convite", { userId: user.id });
 
         toast.success("Convite enviado com sucesso!")
         setModalAddIsOpenFalse()

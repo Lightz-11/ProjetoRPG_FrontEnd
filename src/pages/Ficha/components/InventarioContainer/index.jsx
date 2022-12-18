@@ -13,6 +13,9 @@ import { api } from '../../../../services/api';
 import { ModalEditArma } from './components/ModalEditArma';
 import { ModalEditItem } from './components/ModalEditItem';
 import { ButtonAdd } from '../../../../components/ButtonAdd';
+import { io } from 'socket.io-client';
+
+const socket = io(api.defaults.baseURL);
 
 export function InventarioContainer({ peso }) {
 
@@ -30,9 +33,9 @@ export function InventarioContainer({ peso }) {
 
   useEffect(() => {
 
-    setPesoAtual(0)
-
     async function fetchData() {
+
+      setPesoAtual(0)
 
       setItens([])
       setArmas([])
@@ -86,6 +89,13 @@ export function InventarioContainer({ peso }) {
       }
     }
     fetchData()
+
+    function atualizarInv({ fichaId }) {
+      if (fichaId == id) {
+        fetchData()
+      }
+    }
+    socket.on('enviado.inv', atualizarInv)
 
   }, [])
 
