@@ -41,7 +41,7 @@ export const Main = styled('main', {
     bottom: '8rem',
     left: '11rem',
     color: '#fff000',
-    rotate: '-5deg',
+    transform: 'rotate(-5deg)',
     textShadow: '0 0 20px',
     zIndex: 10
   },
@@ -104,11 +104,11 @@ export const Status1 = styled('div', {
   alignItems: 'center',
   justifyContent: 'center',
   flexDirection: 'column',
-  rotate: '-10deg',
+
   left: '90%',
   zIndex: 10,
   top: '50%',
-  transform: 'translateY(-50%)',
+  transform: 'translateY(-50%) rotate(-10deg)',
   opacity: 0,
 
   variants: {
@@ -132,11 +132,10 @@ export const Status2 = styled('div', {
   alignItems: 'center',
   justifyContent: 'center',
   flexDirection: 'column',
-  rotate: '-10deg',
   left: '90%',
   top: '50%',
   zIndex: 10,
-  transform: 'translateY(-50%)',
+  transform: 'translateY(-50%) rotate(-10deg)',
   opacity: 0,
 
   variants: {
