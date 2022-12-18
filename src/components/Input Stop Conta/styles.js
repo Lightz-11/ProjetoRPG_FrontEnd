@@ -19,7 +19,6 @@ export const InputB = styled('h2', {
     alignItems: 'center',
     justifyContent: 'center',
     textAlign: 'left',
-    marginTop: "0px",
     fontSize: "2rem",
     padding: "1.5rem",
     background: "none",

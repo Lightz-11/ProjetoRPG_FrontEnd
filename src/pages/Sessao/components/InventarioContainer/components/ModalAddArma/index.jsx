@@ -82,7 +82,7 @@ export function ModalAddArma({ setModalAddArmaIsOpenFalse, atualizar }) {
         <Main2>
           <Input labelMenor label={'Tipo'} valor={tipo} setValor={setTipo} maxLength={10} />
           <Input labelMenor label={'Alcance'} valor={alcance} setValor={setAlcance} maxLength={10} />
-          <Input labelMenor opcional label={'Recarga'} valor={recarga} setValor={setRecarga} maxLength={10} />
+          <Input labelMenor onlyNumber opcional label={'Recarga'} valor={recarga} setValor={setRecarga} maxLength={2} />
           <Input labelMenor opcional label={'Especial'} valor={especial} setValor={setEspecial} maxLength={20} />
           <Input labelMenor label={'Ataque'} valor={ataque} setValor={setAtaque} maxLength={8} />
           <Input labelMenor label={'Dano'} valor={dano} setValor={setDano} maxLength={20} />

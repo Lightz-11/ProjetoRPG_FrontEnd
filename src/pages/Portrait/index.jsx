@@ -206,11 +206,13 @@ export function Portrait() {
 
   function executeUpdatePortrait({ fichaId, newPortrait }) {
     if (fichaId == id) {
-      const portraitAtual = document.getElementById('imagem').src.toString()
-      if (portraitAtual != newPortrait) {
-        setAnimation(true)
-        setTimeout(() => { setAnimation(false) }, 500)
-        setTimeout(() => { setPortraitImg(newPortrait) }, 500)
+      const portraitAtual = document.getElementById('imagem')
+      if (portraitAtual != undefined && portraitAtual != null) {
+        if (portraitAtual.src != newPortrait) {
+          setAnimation(true)
+          setTimeout(() => { setAnimation(false) }, 500)
+          setTimeout(() => { setPortraitImg(newPortrait) }, 500)
+        }
       }
     }
   }

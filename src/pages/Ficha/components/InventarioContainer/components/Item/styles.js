@@ -2,7 +2,7 @@ import { styled, keyframes } from '../../../../../../stitches.config';
 
 export const Container = styled('div', {
   border: '2px solid purple',
-  height: '54.3rem'
+  height: 'auto'
 })
 
 export const Header = styled('div', {
@@ -105,7 +105,6 @@ export const ButtonIcon = styled('button', {
 })
 
 export const ParteImg = styled('div', {
-  height: '32rem',
   overflowY: 'auto',
   cursor: 'pointer',
   display: 'flex',

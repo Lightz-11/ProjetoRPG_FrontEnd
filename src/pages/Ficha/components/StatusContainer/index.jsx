@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { Barrinha } from '../../../../components/Barrinha';
 import { ButtonEdit } from '../../../../components/ButtonEdit';
 import { Modal } from '../../../../components/Modals/Modal';
 import { api } from '../../../../services/api';
 import { ModalPortrait } from './components/ModalPortrait'
 import noportrait from '../../../../assets/img/noportrait.png'
-import { Container, Header, Body, BottomBody, TopBody, Buttons, AreaPortrait, Portrait, Button, ContainerDeferes, Deferes, Img, ImgZoom } from './styles';
+import { Container, Header, Body, BottomBody, TopBody, Buttons, AreaPortrait, Portrait, Button, ContainerDeferes, Deferes, Img } from './styles';
 import { io } from 'socket.io-client';
 
 const socket = io(api.defaults.baseURL);
@@ -17,7 +17,6 @@ export function StatusContainer({ status, defesas, portrait }) {
   const [dataDefesas, setDataDefesas] = useState([])
   const [dataRes, setDataRes] = useState([])
 
-  const [portraitZoom, setPortraitZoom] = useState(false)
   const [modalPortraitIsOpen, setModalPortraitIsOpen] = useState(false)
 
   const [disabled, setDisabled] = useState(true)
@@ -280,16 +279,6 @@ export function StatusContainer({ status, defesas, portrait }) {
   return (
     <Container>
 
-      <Modal isOpen={portraitZoom} setIsOpen={() => setPortraitZoom(false)}>
-        {portraitImg ?
-
-          <ImgZoom onClick={() => setPortraitZoom(true)} active={inconsciente} src={portraitImg} />
-          :
-          <ImgZoom onClick={() => setPortraitZoom(true)} src={noportrait} />
-
-        }
-      </Modal>
-
       <Modal isOpen={modalPortraitIsOpen} setIsOpen={() => setModalPortraitIsOpen(false)}>
         <ModalPortrait data={portrait} setModalPortraitIsOpenFalse={() => setModalPortraitIsOpen(false)} />
       </Modal>
@@ -320,12 +309,12 @@ export function StatusContainer({ status, defesas, portrait }) {
 
           <AreaPortrait>
 
-            <Portrait>
+            <Portrait to={`/ficha/portrait/${id}`}>
               {portraitImg ?
 
-                <Img onClick={() => setPortraitZoom(true)} active={inconsciente} src={portraitImg} />
+                <Img active={inconsciente} src={portraitImg} />
                 :
-                <Img onClick={() => setPortraitZoom(true)} src={noportrait} />
+                <Img src={noportrait} />
 
               }
 

@@ -196,8 +196,8 @@ export function DadoRolado({ data }) {
       <Footer>
         {data.isDano != null &&
           <>
-            {dados.dadosRolados.map((dado) => (
-              <span>
+            {dados.dadosRolados.map((dado, index) => (
+              <span key={index}>
                 {dado.dado}: {dado.valores.join(', ')}
               </span>
             ))}

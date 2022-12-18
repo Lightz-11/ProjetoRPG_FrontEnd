@@ -12,6 +12,7 @@ import { ModalEditArma } from '../ModalEditArma';
 import { ButtonEdit } from '../../../../../../components/ButtonEdit';
 import { useParams } from 'react-router-dom';
 import { api } from '../../../../../../services/api';
+import { Barrinha } from './Barrinha';
 
 export function Arma({ data, atualizar, armas, setPesoAtual }) {
 
@@ -32,6 +33,8 @@ export function Arma({ data, atualizar, armas, setPesoAtual }) {
   const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
 
   const { id } = useParams()
+
+  const [municaoA, setMunicaoA] = useState(0)
 
   useEffect(() => {
 
@@ -96,6 +99,12 @@ export function Arma({ data, atualizar, armas, setPesoAtual }) {
             </DivInfos>
 
           </Infos>
+
+          {data.recarga > 0 &&
+
+            <Barrinha valorA={municaoA} setValorA={setMunicaoA} valorMax={data.recarga} />
+
+          }
 
           <Dados>
 

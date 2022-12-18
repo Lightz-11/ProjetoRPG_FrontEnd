@@ -29,27 +29,27 @@ export function Menu() {
   }
 
   return (
-    <Container active={active}>
+    <Container active={active.toString()}>
 
       <Header>
 
-        <Button onClick={abrirMenu}> {active ? <BiArrowFromRight size={40} /> : <BiArrowFromLeft size={40} />} </Button>
+        <Button onClick={abrirMenu}> {active == true ? <BiArrowFromRight size={40} /> : <BiArrowFromLeft size={40} />} </Button>
 
         <hr />
 
       </Header>
 
-      <Body active={active}>
+      <Body active={active.toString()}>
 
         <ul>
 
-          <Li active={active}>
+          <Li active={active.toString()}>
             <Button color={'purple'} onClick={() => navigate("/")}> <BsFillDice6Fill size={20} /> {active ? 'Painel' : ''} </Button>
           </Li>
-          <Li active={active}>
+          <Li active={active.toString()}>
             <Button color={'yellow'} onClick={() => navigate("/conta")} > <RiUserLine size={25} /> {active ? 'Conta' : ''} </Button>
           </Li>
-          <Li active={active}>
+          <Li active={active.toString()}>
             <Button color={'crimson'} onClick={() => { signOut() }}> <RiUserUnfollowLine size={25} /> {active ? 'Sair' : ''} </Button>
           </Li>
 

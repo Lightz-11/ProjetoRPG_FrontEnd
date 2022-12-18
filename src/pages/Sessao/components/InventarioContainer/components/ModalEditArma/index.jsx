@@ -9,12 +9,7 @@ import { BiTrashAlt } from 'react-icons/bi';
 
 export function ModalEditArma({ data, setModalEditArmaIsOpenFalse, atualizar, armas }) {
 
-  let recargaExists = data.recarga
   let especialExists = data.especial
-
-  if (recargaExists != null) {
-    recargaExists = data.recarga[0].toUpperCase() + data.recarga.substring(1)
-  }
 
   if (especialExists != null) {
     especialExists = data.especial[0].toUpperCase() + data.especial.substring(1)
@@ -24,7 +19,7 @@ export function ModalEditArma({ data, setModalEditArmaIsOpenFalse, atualizar, ar
 
   const [tipo, setTipo] = useState(data.tipo[0].toUpperCase() + data.tipo.substring(1))
   const [alcance, setAlcance] = useState(data.alcance[0].toUpperCase() + data.alcance.substring(1))
-  const [recarga, setRecarga] = useState(recargaExists)
+  const [recarga, setRecarga] = useState(data.recarga)
   const [especial, setEspecial] = useState(especialExists)
   const [ataque, setAtaque] = useState(data.ataque)
   const [dano, setDano] = useState(data.dano)
@@ -126,7 +121,7 @@ export function ModalEditArma({ data, setModalEditArmaIsOpenFalse, atualizar, ar
         <Main2>
           <Input labelMenor label={'Tipo'} valor={tipo} setValor={setTipo} maxLength={10} />
           <Input labelMenor label={'Alcance'} valor={alcance} setValor={setAlcance} maxLength={10} />
-          <Input labelMenor opcional label={'Recarga'} valor={recarga} setValor={setRecarga} maxLength={10} />
+          <Input labelMenor onlyNumber opcional label={'Recarga'} valor={recarga} setValor={setRecarga} maxLength={2} />
           <Input labelMenor opcional label={'Especial'} valor={especial} setValor={setEspecial} maxLength={20} />
           <Input labelMenor label={'Ataque'} valor={ataque} setValor={setAtaque} maxLength={8} />
           <Input labelMenor label={'Dano'} valor={dano} setValor={setDano} maxLength={20} />

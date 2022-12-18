@@ -2,7 +2,6 @@ import { styled, keyframes } from '../../../../../../stitches.config';
 
 export const Container = styled('div', {
   border: '2px solid crimson',
-  height: '54.3rem'
 })
 
 export const Header = styled('div', {
@@ -219,7 +218,7 @@ export const Danos = styled('div', {
 })
 
 export const ContainerDadoRolado = styled('div', {
-  paddingTop: '1.5rem',
+  paddingTop: '1rem',
   width: '90%'
 })
 
