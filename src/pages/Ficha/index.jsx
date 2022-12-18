@@ -10,13 +10,14 @@ export function Ficha() {
   const [ficha, setFicha] = useState(null)
 
   const { id } = useParams()
-  const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
 
-  const navigate = useNavigate()
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     async function fetchData() {
       try {
+
+        setIsLoading(true)
 
         const response = await api.get(`/fichas/${id}`)
 
@@ -27,6 +28,9 @@ export function Ficha() {
         setFicha(response.data)
 
       } catch (error) { console.log(error) }
+      finally {
+        setIsLoading(false)
+      }
     }
     fetchData();
   }, []);
@@ -34,20 +38,30 @@ export function Ficha() {
   return (
     <Container>
 
-      <Header>
-        <h1>{ficha && ficha.Principal[0].nome}</h1>
-      </Header>
+      {isLoading ?
 
-      <Body>
+        <>
+          <Header>
+            <h1>Carregando...</h1>
+          </Header>
+        </>
 
-        <DoubleParteContainer>
-          <PrincipalContainer data={ficha && ficha.Principal[0]} />
-          <StatusContainer status={ficha && ficha.Status[0]} defesas={ficha && ficha.Defesas[0]} portrait={ficha && ficha.Portrait[0]} />
-        </DoubleParteContainer>
-        <DadosContainer />
-        <InventarioContainer peso={ficha && ficha.Status[0].peso} />
+        :
 
-      </Body>
+        <><Header>
+          <h1>{ficha && ficha.Principal[0].nome}</h1>
+        </Header>
+
+          <Body>
+
+            <DoubleParteContainer>
+              <PrincipalContainer data={ficha && ficha.Principal[0]} />
+              <StatusContainer status={ficha && ficha.Status[0]} defesas={ficha && ficha.Defesas[0]} portrait={ficha && ficha.Portrait[0]} />
+            </DoubleParteContainer>
+            <DadosContainer />
+            <InventarioContainer peso={ficha && ficha.Status[0].peso} />
+
+          </Body></>}
 
     </Container>
   );

@@ -10,6 +10,8 @@ const socket = io(api.defaults.baseURL);
 
 export function Portrait() {
 
+  const [isLoading, setIsLoading] = useState(true)
+
   const { id } = useParams()
 
   const [nomePortrait, setNome] = useState('')
@@ -45,8 +47,6 @@ export function Portrait() {
         setNome(response.data.Principal[0].nome)
 
         const status = response.data.Status[0]
-
-        console.log(status)
 
         setPvA(status.pv)
         setSanA(status.ps)
@@ -133,6 +133,9 @@ export function Portrait() {
         }
 
       } catch (error) { console.log(error) }
+      finally {
+        setIsLoading(false)
+      }
     }
 
     fetchData();
@@ -215,25 +218,30 @@ export function Portrait() {
 
   return (
     <Container>
-      <Main>
 
-        <Status1 combate={combate}>
-          <h1>{pvA}/{pvMax}</h1>
-          <h2>{sanA}/{sanMax}</h2>
-        </Status1>
+      {!isLoading &&
+        <>
+          <Main>
 
-        <Status2 combate={combate}>
-          <h4>{nomePortrait}</h4>
-        </Status2>
+            <Status1 combate={combate}>
+              <h1>{pvA}/{pvMax}</h1>
+              <h2>{sanA}/{sanMax}</h2>
+            </Status1>
 
-        <h3>{peA}</h3>
-        <PortraitImg id='imagem' animation={animation} inconsciente={inconsciente} src={portraitImg} />
-        <img src={FundoPortrait} />
-      </Main>
-      <Dado active={false}>
-        <span>24</span>
-        <FaDiceD20 color='#60eeff90' size={160} />
-      </Dado>
+            <Status2 combate={combate}>
+              <h4>{nomePortrait}</h4>
+            </Status2>
+
+            <h3>{peA}</h3>
+            <PortraitImg id='imagem' animation={animation} inconsciente={inconsciente} src={portraitImg} />
+            <img src={FundoPortrait} />
+          </Main>
+          <Dado active={false}>
+            <span>24</span>
+            <FaDiceD20 color='#60eeff90' size={160} />
+          </Dado>
+        </>
+      }
     </Container>
   );
 }

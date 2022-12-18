@@ -24,6 +24,9 @@ import { io } from 'socket.io-client';
 const socket = io(api.defaults.baseURL);
 
 export function Dashboard() {
+
+  const [isLoading, setIsLoading] = useState(false)
+
   const [modalCriarSessaoIsOpen, setModalCriarSessaoIsOpen] = useState(false);
   const [modalEditSessaoIsOpen, setModalEditSessaoIsOpen] = useState(false);
 
@@ -41,6 +44,9 @@ export function Dashboard() {
     async function fetchData() {
 
       try {
+
+        setIsLoading(true)
+
         const response = await api.get(`/sessoes/userid/${dataUser.id}`);
         const fichasResponse = await api.get(`/fichas/user/${dataUser.id}`)
         const responseConvite = await api.get(`/sessoes/convite/${dataUser.email}`)
@@ -67,6 +73,9 @@ export function Dashboard() {
         setFichas(fichasResponse.data)
 
       } catch (error) { console.log(error) }
+      finally {
+        setIsLoading(false)
+      }
     }
     fetchData();
 
@@ -81,89 +90,102 @@ export function Dashboard() {
 
   return (
     <Container>
-      <Modal
-        isOpen={modalCriarSessaoIsOpen}
-        setIsOpen={() => setModalCriarSessaoIsOpen(false)}
-      >
-        <ModalAddSessao
-          setModalClose={() => {
-            setModalCriarSessaoIsOpen(false);
-          }}
-          atualizar={setSessoes}
-        ></ModalAddSessao>
-      </Modal>
 
-      <Modal
-        isOpen={modalEditSessaoIsOpen}
-        setIsOpen={() => setModalEditSessaoIsOpen(false)}
-      >
-        <ModalEditSessao
-          id={sessaoId}
-          name={sessaoName}
-          desc={sessaoDesc}
-          setModalClose={() => {
-            setModalEditSessaoIsOpen(false);
-          }}
-          sessoes={sessoes}
-          atualizar={setSessoes}
-        />
-      </Modal>
+      {isLoading ?
 
-      <Header>
-        <h1>Painel</h1>
-      </Header>
+        <>
+          <Header>
+            <h1>Carregando...</h1>
+          </Header>
 
-      <hr />
-
-      <Body>
-
-        <SessaoContainer>
-          <h1>Sessões</h1>
           <hr />
-          <Sessoes>
-            {sessaoConvite.map((convite) => (
-              <Convite key={convite.id} data={convite} lista={sessaoConvite} atualizar={setSessaoConvite} />
-            ))}
-            {sessoes.map((sessao) => (
-              <Sessao
-                key={sessao.id}
-                id={sessao.id}
-                nome={sessao.nome}
-                desc={sessao.descricao}
-                participantes={
-                  sessao.Participantes.length > 0
-                    ? dataUser.nome +
-                    ", " +
-                    sessao.Participantes.map(
-                      (participante) => participante.user.nome
-                    ).join(", ")
-                    : dataUser.nome
-                }
-                editar={() => {
-                  setModalEditSessaoIsOpen(true);
-                  setSessaoId(sessao.id);
-                  setSessaoName(sessao.nome);
-                  setSessaoDesc(sessao.descricao);
-                }}
-              />
-            ))}
-            <AddSessao criar={() => setModalCriarSessaoIsOpen(true)} />
-          </Sessoes>
-        </SessaoContainer>
+        </>
 
-        <FichaContainer>
-          <h1>Fichas</h1>
+        :
+
+        <><Modal
+          isOpen={modalCriarSessaoIsOpen}
+          setIsOpen={() => setModalCriarSessaoIsOpen(false)}
+        >
+          <ModalAddSessao
+            setModalClose={() => {
+              setModalCriarSessaoIsOpen(false);
+            }}
+            atualizar={setSessoes}
+          ></ModalAddSessao>
+        </Modal>
+
+          <Modal
+            isOpen={modalEditSessaoIsOpen}
+            setIsOpen={() => setModalEditSessaoIsOpen(false)}
+          >
+            <ModalEditSessao
+              id={sessaoId}
+              name={sessaoName}
+              desc={sessaoDesc}
+              setModalClose={() => {
+                setModalEditSessaoIsOpen(false);
+              }}
+              sessoes={sessoes}
+              atualizar={setSessoes}
+            />
+          </Modal>
+
+          <Header>
+            <h1>Painel</h1>
+          </Header>
+
           <hr />
-          <Fichas>
-            {fichas.map((ficha) => (
-              <Ficha
-                key={ficha.id}
-                data={ficha} />
-            ))}
-          </Fichas>
-        </FichaContainer>
 
-      </Body>
+          <Body>
+
+            <SessaoContainer>
+              <h1>Sessões</h1>
+              <hr />
+              <Sessoes>
+                {sessaoConvite.map((convite) => (
+                  <Convite key={convite.id} data={convite} lista={sessaoConvite} atualizar={setSessaoConvite} />
+                ))}
+                {sessoes.map((sessao) => (
+                  <Sessao
+                    key={sessao.id}
+                    id={sessao.id}
+                    nome={sessao.nome}
+                    desc={sessao.descricao}
+                    participantes={
+                      sessao.Participantes.length > 0
+                        ? dataUser.nome +
+                        ", " +
+                        sessao.Participantes.map(
+                          (participante) => participante.user.nome
+                        ).join(", ")
+                        : dataUser.nome
+                    }
+                    editar={() => {
+                      setModalEditSessaoIsOpen(true);
+                      setSessaoId(sessao.id);
+                      setSessaoName(sessao.nome);
+                      setSessaoDesc(sessao.descricao);
+                    }}
+                  />
+                ))}
+                <AddSessao criar={() => setModalCriarSessaoIsOpen(true)} />
+              </Sessoes>
+            </SessaoContainer>
+
+            <FichaContainer>
+              <h1>Fichas</h1>
+              <hr />
+              <Fichas>
+                {fichas.map((ficha) => (
+                  <Ficha
+                    key={ficha.id}
+                    data={ficha} />
+                ))}
+              </Fichas>
+            </FichaContainer>
+
+          </Body></>}
 
       <ToastContainer />
     </Container>

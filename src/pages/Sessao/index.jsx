@@ -11,14 +11,18 @@ import { ToastContainer } from "react-toastify";
 import { useNavigate, useParams } from "react-router-dom";
 
 export function Sessao() {
+
+    const [isLoading, setIsLoading] = useState(true)
+
     const [nomeSessao, setNomeSessao] = useState("");
     const { id } = useParams()
     const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
 
     useEffect(() => {
 
-        const fetchData = async () => {
+        async function fetchData() {
             try {
+
                 const response = await api.get(
                     `/sessoes/${id}`
                 );
@@ -30,6 +34,8 @@ export function Sessao() {
                 setNomeSessao(response.data.nome);
             } catch (erro) {
                 console.log(erro.data);
+            } finally {
+                setIsLoading(false)
             }
         };
 
@@ -38,31 +44,49 @@ export function Sessao() {
 
     return (
         <Container>
-            <Header>
-                <h1>{nomeSessao}</h1>
-            </Header>
 
-            <hr />
+            {isLoading ?
 
-            <Body>
 
-                <FichaContainer />
+                <>
+                    <Header>
+                        <h1>Carregando...</h1>
+                    </Header>
 
-                <DoubleParteContainer>
-                    <IniciativasContainer />
-                    <UTContainer />
-                </DoubleParteContainer>
+                    <hr />
+                </>
 
-                <DoubleParteContainer>
-                    <AnotacoesContainer />
-                    <DadosContainer />
-                </DoubleParteContainer>
 
-                <FichasNPCsContainer />
+                :
 
-                <InventarioContainer />
+                <>
+                    <Header>
+                        <h1>{nomeSessao}</h1>
+                    </Header>
 
-            </Body>
+                    <hr />
+
+                    <Body>
+
+                        <FichaContainer />
+
+                        <DoubleParteContainer>
+                            <IniciativasContainer />
+                            <UTContainer />
+                        </DoubleParteContainer>
+
+                        <DoubleParteContainer>
+                            <AnotacoesContainer />
+                            <DadosContainer />
+                        </DoubleParteContainer>
+
+                        <FichasNPCsContainer />
+
+                        <InventarioContainer />
+
+                    </Body>
+                </>
+            }
 
             <ToastContainer />
         </Container>
