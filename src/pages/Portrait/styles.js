@@ -41,7 +41,7 @@ export const Main = styled('main', {
     bottom: '8rem',
     left: '11rem',
     color: '#fff000',
-    transform: 'rotate(-5deg)',
+    transform: 'rotate(-7deg)',
     textShadow: '0 0 20px',
     zIndex: 10
   },
@@ -107,7 +107,7 @@ export const Status1 = styled('div', {
 
   left: '90%',
   zIndex: 10,
-  top: '50%',
+  top: '53%',
   transform: 'translateY(-50%) rotate(-10deg)',
   opacity: 0,
 
