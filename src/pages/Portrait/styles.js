@@ -61,6 +61,13 @@ export const Main = styled('main', {
 
 })
 
+export const Municao = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  position: 'absolute'
+})
+
 const opacityUp1 = keyframes({
   '0%': {
     opacity: 0

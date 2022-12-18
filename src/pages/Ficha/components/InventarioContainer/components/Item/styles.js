@@ -2,7 +2,8 @@ import { styled, keyframes } from '../../../../../../stitches.config';
 
 export const Container = styled('div', {
   border: '2px solid purple',
-  height: 'auto'
+  display: 'flex',
+  flexDirection: 'column'
 })
 
 export const Header = styled('div', {
@@ -34,7 +35,7 @@ export const Main = styled('div', {
   flexDirection: 'column',
   alignItems: 'center',
   gap: '1rem',
-  justifyContent: 'center',
+  flex: '1',
   padding: '1rem 0'
 
 })
@@ -65,6 +66,7 @@ export const MainBottom = styled('div', {
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
+  flex: 1,
   gap: '1rem'
 
 })
@@ -109,6 +111,7 @@ export const ParteImg = styled('div', {
   cursor: 'pointer',
   display: 'flex',
   justifyContent: 'center',
+  flex: 1,
 
   img: {
     objectFit: 'contain'

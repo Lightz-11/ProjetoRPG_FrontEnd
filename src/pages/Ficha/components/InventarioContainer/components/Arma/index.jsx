@@ -13,6 +13,9 @@ import { ButtonEdit } from '../../../../../../components/ButtonEdit';
 import { useParams } from 'react-router-dom';
 import { api } from '../../../../../../services/api';
 import { Barrinha } from './Barrinha';
+import { io } from 'socket.io-client';
+
+const socket = io(api.defaults.baseURL);
 
 export function Arma({ data, atualizar, armas, setPesoAtual }) {
 
@@ -34,9 +37,11 @@ export function Arma({ data, atualizar, armas, setPesoAtual }) {
 
   const { id } = useParams()
 
-  const [municaoA, setMunicaoA] = useState(0)
+  const [municaoA, setMunicaoA] = useState(null)
 
   useEffect(() => {
+
+    setMunicaoA(data.municao)
 
     async function fetchData() {
       try {
@@ -53,6 +58,41 @@ export function Arma({ data, atualizar, armas, setPesoAtual }) {
     fetchData();
 
   }, []);
+
+  useEffect(() => {
+
+    async function update() {
+      try {
+
+        const response = await api.put(`/fichas/arma/${data.id}`, {
+          nome: data.nome,
+          tipo: data.tipo,
+          alcance: data.alcance,
+          recarga: data.recarga,
+          especial: data.especial,
+          ataque: data.ataque,
+          dano: data.dano,
+          margemCritico: data.margemCritico,
+          danoCritico: data.danoCritico,
+          espaco: data.espaco,
+          categoria: data.categoria,
+          descricao: data.descricao,
+          imagem: data.imagem,
+          municao: Number(municaoA)
+        });
+
+      } catch (erro) {
+        console.log(erro)
+      }
+    }
+
+    if (municaoA != null) {
+      update()
+    }
+
+    socket.emit("status.municao", { fichaId: id, municao: municaoA });
+
+  }, [municaoA])
 
   return (
     <Container>

@@ -1,10 +1,11 @@
-import { Container, Main, PortraitImg, Status1, Status2, Dado } from './styles';
+import { Container, Main, PortraitImg, Status1, Status2, Dado, Municao } from './styles';
 import FundoPortrait from '../../assets/img/FundoPortrait.png'
 import { useState, useEffect } from 'react';
 import { FaDiceD20 } from 'react-icons/fa'
 import { useParams } from 'react-router-dom';
 import { api } from '../../services/api';
 import { io } from 'socket.io-client';
+import municaoImg from '../../assets/img/municaoImg.png'
 
 const socket = io(api.defaults.baseURL);
 
@@ -29,7 +30,7 @@ export function Portrait() {
   const [sanMax, setSanMax] = useState(0)
   const [peA, setPeA] = useState(0)
   const [municao, setMunicao] = useState(0)
-  const [municaoMax, setMunicaoMax] = useState(0)
+  const [municaoAtiva, setMunicaoAtiva] = useState(false)
 
   const [animation, setAnimation] = useState(false)
 
@@ -204,6 +205,18 @@ export function Portrait() {
   }
   socket.on("status.peA", executeUpdatePeAtual);
 
+  function executeUpdateMunicao({ fichaId, municao }) {
+    if (fichaId == id) {
+      setMunicao(municao)
+      setMunicaoAtiva(true)
+
+      setTimeout(() => {
+        setMunicaoAtiva(false)
+      }, 5000)
+    }
+  }
+  socket.on("status.municao", executeUpdateMunicao);
+
   function executeUpdatePortrait({ fichaId, newPortrait }) {
     if (fichaId == id) {
       const portraitAtual = document.getElementById('imagem')
@@ -235,6 +248,16 @@ export function Portrait() {
             </Status2>
 
             <h3>{peA}</h3>
+
+            {municaoAtiva &&
+
+              <Municao>
+                <img src={municaoImg} />
+                <h4>x {municao}</h4>
+              </Municao>
+
+            }
+
             <PortraitImg id='imagem' animation={animation} inconsciente={inconsciente} src={portraitImg} />
             <img src={FundoPortrait} />
           </Main>

@@ -34,7 +34,7 @@ export function ModalAddArma({ setModalAddArmaIsOpenFalse, atualizar }) {
         nome,
         tipo,
         alcance,
-        recarga,
+        recarga: Number(recarga),
         especial,
         ataque,
         dano,
@@ -51,7 +51,6 @@ export function ModalAddArma({ setModalAddArmaIsOpenFalse, atualizar }) {
       atualizar((prevState) => [...prevState, data.data])
 
     } catch (erro) {
-      console.log(erro)
       toast.error(erro.response.data.mensagem)
     }
 

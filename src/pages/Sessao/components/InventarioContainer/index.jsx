@@ -78,6 +78,7 @@ export function InventarioContainer() {
             categoria: responseArmas.data[i].categoria,
             descricao: responseArmas.data[i].descricao,
             imagem: responseArmas.data[i].imagem,
+            municao: responseArmas.data[i].municao,
           };
 
           setArmas((prevState) => [...prevState, arma]);

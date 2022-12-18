@@ -9,6 +9,10 @@ import { IoLocateSharp } from 'react-icons/io5'
 import { Modal } from '../../../../../../components/Modals/Modal';
 import { DadoRolado } from '../DadoRolado';
 import { ModalEditArma } from '../ModalEditArma';
+import { Barrinha } from './Barrinha';
+import { useEffect } from 'react';
+import { api } from '../../../../../../services/api';
+import { useParams } from 'react-router';
 
 export function Arma({ data, atualizar, armas }) {
 
@@ -23,6 +27,52 @@ export function Arma({ data, atualizar, armas }) {
   })
 
   const [modalEditArmaIsOpen, setModalEditArmaIsOpen] = useState(false)
+
+  const [municaoA, setMunicaoA] = useState(null)
+
+  const { id } = useParams()
+
+  useEffect(() => {
+
+    console.log(data)
+    setMunicaoA(data.municao)
+
+  }, [])
+
+  useEffect(() => {
+
+    async function update() {
+      try {
+
+        await api.put(`/sessoes/arma/${data.id}`, {
+          nome: data.nome,
+          tipo: data.tipo,
+          alcance: data.alcance,
+          recarga: data.recarga,
+          especial: data.especial,
+          ataque: data.ataque,
+          dano: data.dano,
+          margemCritico: data.margemCritico,
+          danoCritico: data.danoCritico,
+          espaco: data.espaco,
+          categoria: data.categoria,
+          descricao: data.descricao,
+          imagem: data.imagem,
+          municao: Number(municaoA),
+          sessaoId: id
+        });
+
+      } catch (erro) {
+        console.log(erro)
+      }
+    }
+
+
+    if (municaoA != null) {
+      update()
+    }
+
+  }, [municaoA])
 
   return (
     <Container>
@@ -69,6 +119,12 @@ export function Arma({ data, atualizar, armas }) {
             </DivInfos>
 
           </Infos>
+
+          {data.recarga > 0 &&
+
+            <Barrinha valorA={municaoA} setValorA={setMunicaoA} valorMax={data.recarga} />
+
+          }
 
           <Dados>
 

@@ -77,6 +77,7 @@ export function InventarioContainer({ peso }) {
             espaco: responseArmas.data[i].espaco,
             categoria: responseArmas.data[i].categoria,
             descricao: responseArmas.data[i].descricao,
+            municao: responseArmas.data[i].municao,
             imagem: responseArmas.data[i].imagem,
           };
 
