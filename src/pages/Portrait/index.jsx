@@ -249,7 +249,7 @@ export function Portrait() {
 
             <h3>{peA}</h3>
 
-            <Municao active={municaoAtiva}>
+            <Municao active={true}>
               <img src={municaoImg} />
               <h5>x {municao}</h5>
             </Municao>

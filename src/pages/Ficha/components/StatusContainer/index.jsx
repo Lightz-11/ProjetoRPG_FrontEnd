@@ -38,8 +38,6 @@ export function StatusContainer({ status, defesas, portrait }) {
   const [sanMax, setSanMax] = useState(0)
   const [peA, setPeA] = useState(0)
   const [peMax, setPeMax] = useState(0)
-  const [municao, setMunicao] = useState(0)
-  const [municaoMax, setMunicaoMax] = useState(0)
 
   async function handleEditAll(combate, insano, danoMassivo, inconsciente) {
 

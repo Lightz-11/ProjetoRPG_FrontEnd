@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
@@ -8,6 +9,8 @@ import { api } from '../../services/api';
 import { Container, Header, Body, Principal, Atributos, Footer, Span } from './styles';
 
 export function CriarFicha() {
+
+  const [disabled, setDisabled] = useState(false)
 
   const [nome, setNome] = useState(null)
   const [idade, setIdade] = useState(0)
@@ -33,9 +36,24 @@ export function CriarFicha() {
 
   const navigate = useNavigate()
 
+  useEffect(() => {
+
+    async function fetchData() {
+
+      const conviteResponse = await api.get(`/sessoes/convite/id/${id}`)
+
+      if (conviteResponse.data == null || conviteResponse.data == undefined) {
+        navigate('/')
+      }
+    }
+    fetchData()
+
+  }, [])
+
   async function handleCreate() {
 
-    navigate(`/`)
+    setDisabled(true)
+
     const conviteResponse = await api.get(`/sessoes/convite/id/${id}`)
 
     if (nex > 4 && classe == 'Mundano') {
@@ -181,9 +199,11 @@ export function CriarFicha() {
         peMax: arrayStatus.pe,
       })
 
+      navigate(`/`)
       await api.delete(`/sessoes/convite/${id}`)
 
     } catch (erro) {
+      setDisabled(false)
       toast.error(erro.response.data.mensagem)
     }
 
@@ -267,7 +287,7 @@ export function CriarFicha() {
         </Atributos>
 
         <Footer>
-          <button onClick={handleCreate}>Criar Personagem</button>
+          <button disabled={disabled} onClick={handleCreate}>Criar Personagem</button>
         </Footer>
 
       </Body>

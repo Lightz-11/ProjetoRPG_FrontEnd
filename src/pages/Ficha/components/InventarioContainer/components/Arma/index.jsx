@@ -38,6 +38,7 @@ export function Arma({ data, atualizar, armas, setPesoAtual }) {
   const { id } = useParams()
 
   const [municaoA, setMunicaoA] = useState(null)
+  const [podeMostrar, setPodeMostrar] = useState(false)
 
   useEffect(() => {
 
@@ -54,6 +55,9 @@ export function Arma({ data, atualizar, armas, setPesoAtual }) {
         }
 
       } catch (error) { console.log(error) }
+      finally {
+        setPodeMostrar(true)
+      }
     }
     fetchData();
 
@@ -64,7 +68,7 @@ export function Arma({ data, atualizar, armas, setPesoAtual }) {
     async function update() {
       try {
 
-        const response = await api.put(`/fichas/arma/${data.id}`, {
+        await api.put(`/fichas/arma/${data.id}`, {
           nome: data.nome,
           tipo: data.tipo,
           alcance: data.alcance,
@@ -90,7 +94,9 @@ export function Arma({ data, atualizar, armas, setPesoAtual }) {
       update()
     }
 
-    socket.emit("status.municao", { fichaId: id, municao: municaoA });
+    if (podeMostrar == true) {
+      socket.emit("status.municao", { fichaId: id, municao: municaoA });
+    }
 
   }, [municaoA])
 

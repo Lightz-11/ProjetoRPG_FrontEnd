@@ -91,6 +91,8 @@ export const Municao = styled('div', {
 
   img: {
     width: '100px',
+    filter: 'drop-shadow(#00ff7b90 0 0 7px)',
+    opacity: 0.7,
     marginRight: '-2rem'
   },
 
