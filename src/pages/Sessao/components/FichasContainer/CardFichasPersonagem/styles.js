@@ -1,4 +1,5 @@
-import { styled } from "../../stitches.config";
+import { Link } from "react-router-dom";
+import { styled } from "../../../../../stitches.config";
 
 export const Container = styled("div", {
     maxWidth: "100%",
@@ -67,12 +68,13 @@ export const Button = styled("button", {
 
 });
 
-export const LinkButton = styled('button', {
+export const LinkButton = styled(Link, {
     background: 'none',
     border: "none",
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    marginLeft: '1rem',
 
     svg: {
         transition: '0.2s',
@@ -83,4 +85,32 @@ export const LinkButton = styled('button', {
             filter: 'brightness(2)'
         }
     }
+})
+
+export const ButtonIcon = styled(Link, {
+    background: "none",
+    border: "none",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    transition: '0.2s',
+    padding: '.2rem',
+    marginLeft: '1rem',
+
+    variants: {
+        color: {
+            red: {
+                border: '1px solid transparent',
+                '&:hover': {
+                    border: '1px solid #ae0808ff',
+                }
+            },
+            aqua: {
+                border: '1px solid transparent',
+                '&:hover': {
+                    border: '1px solid #03d9ffff',
+                }
+            }
+        }
+    },
 })

@@ -1,10 +1,8 @@
 import { Container, Header, Desc, Part, Footer } from './styles'
 import { BsGear } from 'react-icons/bs'
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export function Sessao({ id, nome, desc, participantes, editar }) {
-
-    const navigate = useNavigate()
 
     return (
         <Container>
@@ -22,7 +20,7 @@ export function Sessao({ id, nome, desc, participantes, editar }) {
             </Part>
             <hr />
             <Footer>
-                <button onClick={() => navigate(`/sessao/mestre/${id}`)}>Acessar Painel</button>
+                <Link to={`/sessao/mestre/${id}`}>Acessar Painel</Link>
             </Footer>
         </Container>
     )

@@ -10,15 +10,15 @@ import {
   Body,
 } from "./styles";
 import { Modal } from "../../components/Modals/Modal";
-import { Sessao } from "../../components/Sessao";
+import { Sessao } from "./components/Sessao";
 import { ModalAddSessao } from "../../components/Modals/ModalAddSessao/ModalAddSessao.jsx";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { api } from "../../services/api";
 import { AddSessao } from "../../components/AddSessao";
 import { ModalEditSessao } from "../../components/Modals/ModalEditSessao/ModalEditSessao";
-import { Convite } from "../../components/Convite";
-import { Ficha } from "../../components/Ficha";
+import { Convite } from "./components/Convite";
+import { Ficha } from "./components/Ficha";
 import { io } from 'socket.io-client';
 
 const socket = io(api.defaults.baseURL);

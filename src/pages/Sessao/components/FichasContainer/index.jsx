@@ -1,5 +1,5 @@
 import { BodyContainer, Container, HeaderContainer } from './styles';
-import { CardFichasPersonagem } from "../../../../components/CardFichasPersonagem";
+import { CardFichasPersonagem } from "./CardFichasPersonagem";
 import { MdOutlineAddBox } from "react-icons/md";
 import { useState } from 'react';
 import { useFichas } from '../../../../hooks/useFichas';

@@ -13,22 +13,23 @@ export const Botoes = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  padding: '0rem 2rem',
+  padding: '.5rem 2rem',
+  fontFamily: 'Special Elite',
 
   span: {
     color: 'white',
     fontSize: '1.8rem',
-    padding: '1rem .5rem',
+    marginBottom: '-.5rem',
     fontWeight: 100
   },
 
   button: {
-    padding: '0rem .7rem',
+    padding: '.9rem .8rem',
+    fontFamily: 'Special Elite',
     margin: '0rem .5rem',
     height: '3.5rem',
     background: 'none',
     display: 'flex',
-    alignItems: 'center',
     justifyContent: 'center',
     gap: '.5rem',
     transition: '.3s',

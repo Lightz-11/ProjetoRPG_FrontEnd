@@ -1,4 +1,5 @@
-import { styled } from "../../stitches.config";
+import { Link } from "react-router-dom";
+import { styled } from "../../../../stitches.config";
 
 export const Container = styled('div', {
     width: '100%',
@@ -90,8 +91,10 @@ export const Footer = styled('div', {
     alignItems: 'center',
     marginTop: '1rem',
 
-    button: {
+    a: {
         width: '100%',
+        textDecoration: 'none',
+        textAlign: 'center',
         fontFamily: 'Crimson Text',
         color: 'crimson',
         fontSize: '2rem',
@@ -101,7 +104,7 @@ export const Footer = styled('div', {
         borderRadius: '1rem',
         transition: 'ease 0.3s'
     },
-    'button:hover': {
+    'a:hover': {
         backgroundColor: 'rgb(47,47,47,0.5)'
     }
 })

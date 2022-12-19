@@ -14,6 +14,7 @@ export const Botoes = styled('div', {
   alignItems: 'center',
   justifyContent: 'space-between',
   padding: '0rem 2rem',
+  fontFamily: 'Special Elite',
 
   span: {
     color: 'white',
@@ -25,6 +26,7 @@ export const Botoes = styled('div', {
   button: {
     padding: '0rem .7rem',
     margin: '0rem .5rem',
+    fontFamily: 'Special Elite',
     height: '3.5rem',
     background: 'none',
     display: 'flex',

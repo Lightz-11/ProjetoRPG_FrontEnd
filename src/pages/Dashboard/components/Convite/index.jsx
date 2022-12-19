@@ -1,15 +1,13 @@
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Container, Header, Desc, Footer } from './styles'
 import { BiTrashAlt } from 'react-icons/bi'
-import { api } from '../../services/api'
+import { api } from '../../../../services/api'
 import { useState } from 'react'
 import { useEffect } from 'react'
 
 export function Convite({ data, lista, atualizar }) {
 
     const [participantes, setParticipantes] = useState('')
-
-    const navigate = useNavigate()
 
     useEffect(() => {
 
@@ -51,7 +49,7 @@ export function Convite({ data, lista, atualizar }) {
             </Desc>
             <hr />
             <Footer>
-                <button onClick={() => navigate(`/criarficha/${data.id}`)}>Entrar e Criar Ficha</button>
+                <Link to={`/criarficha/${data.id}`}>Entrar e Criar Ficha</Link>
             </Footer>
         </Container>
     )

@@ -1,35 +1,27 @@
-import { Container, Header, Body, TopBody, BottomBody, Button, LinkButton } from "./styles";
-import { ButtonIcon } from "../ButtonIcon";
+import { Container, Header, Body, TopBody, BottomBody, Button, LinkButton, ButtonIcon } from "./styles";
 import { IoOpenOutline } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
 import { BiUnlink } from "react-icons/bi";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 export function CardFichasPersonagem({ data }) {
 
     const [buttonActive, setButtonActive] = useState('Status')
-
-    const navigate = useNavigate()
 
     return (
         <Container>
             <Header>
                 <div>
                     <h1>{data.Principal[0].nome}</h1>
-                    <LinkButton>
-                        <IoOpenOutline onClick={() => {
-                            navigate(`/sessao/ficha/${data.id}`)
-                        }} size={22} color="#1f55c2ff" />
+                    <LinkButton to={`/sessao/ficha/${data.id}`}>
+                        <IoOpenOutline size={22} color="#1f55c2ff" />
                     </LinkButton>
                 </div>
                 <div>
-                    <ButtonIcon color={'aqua'}>
-                        <FaUserCircle onClick={() => {
-                            navigate(`/ficha/portrait/${data.id}`)
-                        }} size={20} color="#03d9ffff" />
+                    <ButtonIcon to={`/ficha/portrait/${data.id}`} color={'aqua'}>
+                        <FaUserCircle size={20} color="#03d9ffff" />
                     </ButtonIcon>
-                    <ButtonIcon color={'red'}>
+                    <ButtonIcon to={''} color={'red'}>
                         <BiUnlink size={22} color="#ae0808ff" />
                     </ButtonIcon>
                 </div>

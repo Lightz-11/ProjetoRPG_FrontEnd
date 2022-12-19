@@ -1,16 +1,14 @@
 import { useState } from 'react';
-import { Container, Header, Body, Button, Li } from './styles';
+import { Container, Header, Body, Button, ButtonLink, Li } from './styles';
 import { BiArrowFromLeft, BiArrowFromRight } from 'react-icons/bi'
 import { RiUserLine, RiUserUnfollowLine } from 'react-icons/ri'
 import { BsFillDice6Fill } from 'react-icons/bs'
-import { useNavigate } from 'react-router-dom';
 import { useAuth } from "../../hooks/auth";
 
 export function Menu() {
 
   const [active, setActive] = useState(false)
   const [low, setLow] = useState(false)
-  const navigate = useNavigate()
   const { signOut } = useAuth();
 
   window.addEventListener('resize', function () {
@@ -44,10 +42,10 @@ export function Menu() {
         <ul>
 
           <Li active={active.toString()}>
-            <Button color={'purple'} onClick={() => navigate("/")}> <BsFillDice6Fill size={20} /> {active ? 'Painel' : ''} </Button>
+            <ButtonLink color={'purple'} to={"/"}> <BsFillDice6Fill size={20} /> {active ? 'Painel' : ''} </ButtonLink>
           </Li>
           <Li active={active.toString()}>
-            <Button color={'yellow'} onClick={() => navigate("/conta")} > <RiUserLine size={25} /> {active ? 'Conta' : ''} </Button>
+            <ButtonLink color={'yellow'} to={'/conta'}> <RiUserLine size={25} /> {active ? 'Conta' : ''} </ButtonLink>
           </Li>
           <Li active={active.toString()}>
             <Button color={'crimson'} onClick={() => { signOut() }}> <RiUserUnfollowLine size={25} /> {active ? 'Sair' : ''} </Button>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { styled } from "../../stitches.config";
 
 export const Container = styled("div", {
@@ -47,10 +48,39 @@ export const Body = styled("div", {
 
 });
 
-export const Button = styled("button", {
+export const Button = styled('button', {
     background: "none",
     color: "white",
     border: "none",
+
+    display: "flex",
+    alignContent: "center",
+    justifyContent: "center",
+    fontSize: "2rem",
+    gap: "1rem",
+    fontFamily: 'Neko One',
+
+    variants: {
+        color: {
+            crimson: {
+                color: 'Crimson'
+            },
+            purple: {
+                color: 'Purple'
+            },
+            yellow: {
+                color: 'Yellow'
+            }
+        }
+    }
+});
+
+export const ButtonLink = styled(Link, {
+    background: "none",
+    color: "white",
+    border: "none",
+    textDecoration: 'none',
+    alignItems: 'center',
 
     display: "flex",
     alignContent: "center",

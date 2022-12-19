@@ -16,19 +16,21 @@ export const Botoes = styled('div', {
 
   span: {
     color: 'white',
-    fontSize: '2.5rem',
-    padding: '1rem .5rem',
+    fontFamily: 'Arial',
+    fontSize: '3rem',
+    padding: '0rem .5rem 0.2rem .5rem',
     fontWeight: 100
   },
 
   button: {
-    padding: '0rem .7rem',
-    margin: '0rem .5rem',
+    padding: '.8rem .5rem 0rem .5rem',
+    margin: '.5rem .5rem',
+    fontFamily: 'Special Elite',
     height: '3.5rem',
     background: 'none',
     display: 'flex',
-    alignItems: 'center',
     justifyContent: 'center',
+    whiteSpace: 'nowrap',
     gap: '.5rem',
     transition: '.3s',
     color: 'White',

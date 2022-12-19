@@ -83,7 +83,10 @@ export const Buttons = styled('div', {
   h1: {
     fontSize: '2rem',
     color: 'white',
-    margin: '-1rem'
+    margin: '-1rem',
+    marginTop: '-.5rem',
+    fontFamily: 'Special Elite',
+    letterSpacing: '.1rem',
   }
 
 })
@@ -192,9 +195,12 @@ export const BottomBody = styled('div', {
 
   h1: {
     color: 'White',
+    fontFamily: 'Special Elite',
+    letterSpacing: '.2rem',
     fontWeight: 700,
     fontSize: '2rem',
     marginTop: '2rem',
+    marginBottom: '.5rem',
     marginRight: '1rem'
   },
 

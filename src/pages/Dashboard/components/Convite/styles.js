@@ -1,11 +1,11 @@
-import { styled } from "../../stitches.config";
+import { styled } from "../../../../stitches.config";
 
 export const Container = styled('div', {
     width: '100%',
     minWidth: '3rem',
     background: 'rgb(27,27,27, 0.8)',
     border: '2px solid',
-    borderColor: '#4040ff',
+    borderColor: '#20b2aa',
     padding: '1rem',
     borderRadius: '1rem',
     fontFamily: 'El Messiri',
@@ -20,51 +20,36 @@ export const Header = styled('div', {
 
     display: 'flex',
     justifyContent: 'space-between',
+    alignItems: 'center',
     marginBottom: '0.6rem',
     marginTop: '-0.2rem',
 
-    button: {
-        background: 'none',
-        color: 'White',
-        border: 'none',
-        transition: 'ease 0.3s'
-    },
-
-    'button:hover': {
-        color: '#4040ff'
-    },
-
     h2: {
-        color: "#4040ff",
+        color: "#20b2aa",
         fontSize: '2rem',
         textAlign: 'left',
-        wordBreak: 'break-word',
-        marginRight: '2rem'
     },
-})
 
-export const Desc = styled('div', {
-    height: '6rem',
-    display: 'flex',
-    justifyContent: 'left',
-    marginTop: '1rem',
-    marginBottom: '1rem',
-    overflowY: 'auto',
-    overflowX: 'hidden',
+    button: {
+        color: 'red',
+        background: 'none',
+        border: '1px solid transparent',
+        padding: '.2rem',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        transition: '.3s',
+        borderRadius: '3px',
 
-    h2: {
-        width: 'max-content',
-        height: 'max-content',
-        color: 'white',
-        fontSize: '1.6rem',
-        textAlign: 'left',
-        fontWeight: '100',
-        wordBreak: 'break-word'
+        '&:hover': {
+            border: '1px solid red',
+        }
+
     }
 })
 
-export const Part = styled('div', {
-    height: '3.8rem',
+export const Desc = styled('div', {
+    height: '12.2rem',
     display: 'flex',
     justifyContent: 'left',
     marginTop: '1rem',
@@ -90,18 +75,20 @@ export const Footer = styled('div', {
     alignItems: 'center',
     marginTop: '1rem',
 
-    button: {
+    a: {
         width: '100%',
+        textDecoration: 'none',
+        textAlign: 'center',
+        color: '#20b2aa',
         fontFamily: 'Crimson Text',
-        color: '#4040ff',
-        fontSize: '2rem',
         background: 'none',
-        border: '2px solid #4040ff',
+        fontSize: '2rem',
+        border: '2px solid #20b2aa',
         padding: '.5rem',
         borderRadius: '1rem',
-        transition: 'ease 0.3s'
+        transition: 'ease 0.3s',
     },
-    'button:hover': {
+    'a:hover': {
         backgroundColor: 'rgb(47,47,47,0.5)'
     }
 })

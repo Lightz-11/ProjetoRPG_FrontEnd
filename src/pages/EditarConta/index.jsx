@@ -5,9 +5,9 @@ import "react-toastify/dist/ReactToastify.css";
 import { api } from "../../services/api";
 import { useAuth } from "../../hooks/auth"
 import { Container, Header, Body, Body1, Body2, Footer, Button } from "./styles";
-import { InputCenterConta } from "../../components/Input Center Conta";
+import { InputCenterConta } from "./components/Input Center Conta";
 import { Toggle } from '../../components/Toggle'
-import { InputStopConta } from "../../components/Input Stop Conta";
+import { InputStopConta } from "./components/Input Stop Conta";
 import { BiTrashAlt } from "react-icons/bi";
 import { Card } from "../../components/Card";
 

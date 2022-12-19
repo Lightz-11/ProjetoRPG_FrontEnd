@@ -1,12 +1,10 @@
 import { Container, Header, Desc, Part, Footer } from './styles'
 import { BsGear } from 'react-icons/bs'
-import { useNavigate } from 'react-router-dom'
-import { api } from '../../services/api'
+import { Link } from 'react-router-dom'
+import { api } from '../../../../services/api'
 import { useEffect, useState } from 'react'
 
 export function Ficha({ data }) {
-
-    const navigate = useNavigate()
 
     const [sessao, setSessao] = useState([])
 
@@ -30,7 +28,7 @@ export function Ficha({ data }) {
         <Container>
             <Header>
                 <h2>{data.Principal[0].nome} - {data.sessaoId && sessao.nome}</h2>
-                <button onClick={() => navigate(`/ficha/portrait/${data.id}`)}><BsGear /></button>
+                <Link to={`/ficha/portrait/${data.id}`}><BsGear /></Link>
             </Header>
             <hr />
             <Desc>
@@ -42,13 +40,7 @@ export function Ficha({ data }) {
             </Part>
             <hr />
             <Footer>
-                <button onClick={() => {
-                    if (data.sessaoId != null) {
-                        navigate(`/sessao/ficha/${data.id}`)
-                    } else {
-                        navigate(`/ficha/${data.id}`)
-                    }
-                }}>Acessar Ficha</button>
+                <Link to={data.sessaoId != null ? `/sessao/ficha/${data.id}` : `/ficha/${data.id}`}>Acessar Ficha</Link>
             </Footer>
         </Container>
     )
