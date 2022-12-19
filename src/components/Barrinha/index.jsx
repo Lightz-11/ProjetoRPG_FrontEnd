@@ -23,6 +23,12 @@ export function Barrinha({ valorA, setValorA, setValorMax, valorMax, color, numb
 
   useEffect(() => {
 
+    if (window.innerWidth < 680) {
+      setLow(true)
+    } else {
+      setLow(false)
+    }
+
     async function fetchData() {
       try {
 

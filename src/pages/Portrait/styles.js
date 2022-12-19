@@ -10,6 +10,14 @@ export const Container = styled('div', {
   alignItems: 'center',
   paddingLeft: '3rem',
 
+  variants: {
+    isLoading: {
+      true: {
+        opacity: 0
+      }
+    }
+  }
+
 })
 
 export const Main = styled('main', {

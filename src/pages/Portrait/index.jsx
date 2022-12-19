@@ -135,7 +135,7 @@ export function Portrait() {
 
       } catch (error) { console.log(error) }
       finally {
-        setIsLoading(false)
+        setTimeout(() => { setIsLoading(false) }, 500)
       }
     }
 
@@ -232,37 +232,35 @@ export function Portrait() {
   socket.on("status.portrait", executeUpdatePortrait);
 
   return (
-    <Container>
+    <Container isLoading={isLoading}>
 
-      {!isLoading &&
-        <>
-          <Main>
+      <Main>
 
-            <Status1 combate={combate}>
-              <h1>{pvA}/{pvMax}</h1>
-              <h2>{sanA}/{sanMax}</h2>
-            </Status1>
+        <Status1 combate={combate}>
+          <h1>{pvA}/{pvMax}</h1>
+          <h2>{sanA}/{sanMax}</h2>
+        </Status1>
 
-            <Status2 combate={combate}>
-              <h4>{nomePortrait}</h4>
-            </Status2>
+        <Status2 combate={combate}>
+          <h4>{nomePortrait}</h4>
+        </Status2>
 
-            <h3>{peA}</h3>
+        <h3>{peA}</h3>
 
-            <Municao active={municaoAtiva}>
-              <img src={municaoImg} />
-              <h5>x {municao}</h5>
-            </Municao>
+        <Municao active={municaoAtiva}>
+          <img src={municaoImg} />
+          <h5>x {municao}</h5>
+        </Municao>
 
-            <PortraitImg id='imagem' animation={animation} inconsciente={inconsciente} src={portraitImg} />
-            <img src={FundoPortrait} />
-          </Main>
-          <Dado active={false}>
-            <span>24</span>
-            <FaDiceD20 color='#60eeff' size={160} />
-          </Dado>
-        </>
-      }
+        <PortraitImg id='imagem' animation={animation} inconsciente={inconsciente} src={portraitImg} />
+        <img src={FundoPortrait} />
+      </Main>
+      <Dado active={false}>
+        <span>24</span>
+        <FaDiceD20 color='#60eeff' size={160} />
+      </Dado>
+
+
     </Container>
   );
 }
