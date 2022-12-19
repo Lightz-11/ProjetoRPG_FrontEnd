@@ -4,8 +4,12 @@ import { FaUserCircle } from "react-icons/fa";
 import { BiUnlink } from "react-icons/bi";
 import { useState } from "react";
 import { api } from "../../../../../services/api";
+import { useFichas } from "../../../../../hooks/useFichas";
+import { useParams } from "react-router-dom";
 
 export function CardFichasPersonagem({ data }) {
+
+    const { fichas, setFichas } = useFichas()
 
     const [buttonActive, setButtonActive] = useState('Status')
 
@@ -14,6 +18,10 @@ export function CardFichasPersonagem({ data }) {
         await api.put(`/fichas/${data.id}`, {
             sessaoId: null
         })
+
+        const fichasAtt = fichas.filter(ficha => ficha.id != data.id)
+
+        setFichas(fichasAtt)
 
     }
 
