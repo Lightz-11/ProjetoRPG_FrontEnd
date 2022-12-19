@@ -32,9 +32,9 @@ export function StatusContainer({ status, defesas, portrait }) {
 
   const [portraitImg, setPortraitImg] = useState(null)
 
-  const [pvA, setPvA] = useState(0)
+  const [pvA, setPvA] = useState(null)
   const [pvMax, setPvMax] = useState(0)
-  const [sanA, setSanA] = useState(0)
+  const [sanA, setSanA] = useState(null)
   const [sanMax, setSanMax] = useState(0)
   const [peA, setPeA] = useState(0)
   const [peMax, setPeMax] = useState(0)
