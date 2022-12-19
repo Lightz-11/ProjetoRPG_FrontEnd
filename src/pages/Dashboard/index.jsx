@@ -80,10 +80,32 @@ export function Dashboard() {
     fetchData();
 
     function atualizarConvites(email) {
-      console.log(email, dataUser.email)
       if (email == dataUser.email) {
-        fetchData()
+
+        async function fetchData2() {
+
+          const responseConvite = await api.get(`/sessoes/convite/${dataUser.email}`)
+
+          setSessaoConvite([])
+
+          for (let i = 0; i < responseConvite.data.length; i++) {
+            const responseSessaoConvite = await api.get(`/sessoes/${responseConvite.data[i].sessaoId}`);
+            const donoDaSessao = await api.get(`/usuarios/${responseSessaoConvite.data.userId}`)
+
+            const novaSessaoConvite = {
+              id: responseConvite.data[i].id,
+              sessaoId: responseConvite.data[i].sessaoId,
+              nome: responseSessaoConvite.data.nome,
+              descricao: responseSessaoConvite.data.descricao,
+              participantes: responseSessaoConvite.data.Participantes,
+              owner: donoDaSessao.data.nome
+            }
+
+            setSessaoConvite((prevState) => [...prevState, novaSessaoConvite])
+          }
+        }
       }
+      fetchData2()
     }
     socket.on('enviado.convite', atualizarConvites)
 
