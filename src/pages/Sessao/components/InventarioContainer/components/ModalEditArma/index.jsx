@@ -21,7 +21,6 @@ export function ModalEditArma({ data, setModalEditArmaIsOpenFalse, atualizar, ar
   const [alcance, setAlcance] = useState(data.alcance[0].toUpperCase() + data.alcance.substring(1))
   const [recarga, setRecarga] = useState(data.recarga)
   const [especial, setEspecial] = useState(especialExists)
-  const [ataque, setAtaque] = useState(data.ataque)
   const [dano, setDano] = useState(data.dano)
   const [margemCritico, setMargemCritico] = useState(data.margemCritico)
   const [danoCritico, setDanoCritico] = useState(data.danoCritico)
@@ -43,7 +42,6 @@ export function ModalEditArma({ data, setModalEditArmaIsOpenFalse, atualizar, ar
         alcance,
         recarga,
         especial,
-        ataque,
         dano,
         margemCritico,
         danoCritico,
@@ -62,7 +60,6 @@ export function ModalEditArma({ data, setModalEditArmaIsOpenFalse, atualizar, ar
       arma[0].alcance = data2.data.alcance
       arma[0].recarga = data2.data.recarga
       arma[0].especial = data2.data.especial
-      arma[0].ataque = data2.data.ataque
       arma[0].dano = data2.data.dano
       arma[0].margemCritico = data2.data.margemCritico
       arma[0].danoCritico = data2.data.danoCritico
@@ -123,7 +120,6 @@ export function ModalEditArma({ data, setModalEditArmaIsOpenFalse, atualizar, ar
           <Input labelMenor label={'Alcance'} valor={alcance} setValor={setAlcance} maxLength={10} />
           <Input labelMenor onlyNumber opcional label={'Recarga'} valor={recarga} setValor={setRecarga} maxLength={2} />
           <Input labelMenor opcional label={'Especial'} valor={especial} setValor={setEspecial} maxLength={20} />
-          <Input labelMenor label={'Ataque'} valor={ataque} setValor={setAtaque} maxLength={8} />
           <Input labelMenor label={'Dano'} valor={dano} setValor={setDano} maxLength={20} />
           <Input labelMenor label={'Margem Crítico'} valor={margemCritico} setValor={setMargemCritico} maxLength={2} />
           <Input labelMenor label={'Dano Crítico'} valor={danoCritico} setValor={setDanoCritico} maxLength={20} />

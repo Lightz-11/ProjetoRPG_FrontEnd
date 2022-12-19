@@ -128,13 +128,6 @@ export function Arma({ data, atualizar, armas }) {
 
           <Dados>
 
-            <Button onClick={() => {
-              setDadoData({
-                nome: 'Ataque',
-                valor: data.ataque,
-                isDano: false
-              })
-            }} color={'purple'}> <strong>Ataque:</strong> {data.ataque}</Button>
             <Danos>
               <Button onClick={() => {
                 setDadoData({

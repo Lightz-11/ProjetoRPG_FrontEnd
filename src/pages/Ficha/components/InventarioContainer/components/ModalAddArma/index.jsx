@@ -14,7 +14,6 @@ export function ModalAddArma({ setModalAddArmaIsOpenFalse, atualizar, setPesoAtu
   const [alcance, setAlcance] = useState('')
   const [recarga, setRecarga] = useState(null)
   const [especial, setEspecial] = useState(null)
-  const [ataque, setAtaque] = useState('')
   const [dano, setDano] = useState('')
   const [margemCritico, setMargemCritico] = useState('')
   const [danoCritico, setDanoCritico] = useState('')
@@ -36,7 +35,6 @@ export function ModalAddArma({ setModalAddArmaIsOpenFalse, atualizar, setPesoAtu
         alcance,
         recarga,
         especial,
-        ataque,
         dano,
         margemCritico,
         danoCritico,
@@ -84,7 +82,6 @@ export function ModalAddArma({ setModalAddArmaIsOpenFalse, atualizar, setPesoAtu
           <Input labelMenor label={'Alcance'} valor={alcance} setValor={setAlcance} maxLength={10} />
           <Input labelMenor onlyNumber opcional label={'Recarga'} valor={recarga} setValor={setRecarga} maxLength={2} />
           <Input labelMenor opcional label={'Especial'} valor={especial} setValor={setEspecial} maxLength={20} />
-          <Input labelMenor label={'Ataque'} valor={ataque} setValor={setAtaque} maxLength={8} />
           <Input labelMenor label={'Dano'} valor={dano} setValor={setDano} maxLength={20} />
           <Input labelMenor label={'Margem Crítico'} valor={margemCritico} setValor={setMargemCritico} maxLength={2} />
           <Input labelMenor label={'Dano Crítico'} valor={danoCritico} setValor={setDanoCritico} maxLength={20} />

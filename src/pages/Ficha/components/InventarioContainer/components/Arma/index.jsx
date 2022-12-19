@@ -148,13 +148,6 @@ export function Arma({ data, atualizar, armas, setPesoAtual }) {
 
           <Dados>
 
-            <Button disabled={disabled} onClick={() => {
-              setDadoData({
-                nome: 'Ataque',
-                valor: data.ataque,
-                isDano: false
-              })
-            }} color={'purple'}> <strong>Ataque:</strong> {data.ataque}</Button>
             <Danos>
               <Button disabled={disabled} onClick={() => {
                 setDadoData({
