@@ -42,7 +42,7 @@ export function CriarFicha() {
 
       const conviteResponse = await api.get(`/sessoes/convite/id/${id}`)
 
-      if (conviteResponse.data == null || conviteResponse.data == undefined) {
+      if (conviteResponse.data == null || conviteResponse.data == undefined || conviteResponse.data.userEmail != dataUser.email) {
         navigate('/')
       }
     }
