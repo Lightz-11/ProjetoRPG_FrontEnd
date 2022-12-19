@@ -39,23 +39,11 @@ export function IniciativasContainer() {
 
     async function fetchData() {
 
-      setIniciativas([])
       try {
 
         const response = await api.get(`/sessoes/iniciativa/${id}`);
 
-        for (let i = 0; i < response.data.length; i++) {
-
-          const iniciativa = {
-            id: response.data[i].id,
-            posicao: response.data[i].posicao,
-            nome: response.data[i].nome,
-            iniciativa: response.data[i].iniciativa,
-            dano: response.data[i].dano,
-          };
-
-          setIniciativas((prevState) => [...prevState, iniciativa]);
-        }
+        setIniciativas(response.data)
 
       } catch (erro) {
         console.log(erro.data);

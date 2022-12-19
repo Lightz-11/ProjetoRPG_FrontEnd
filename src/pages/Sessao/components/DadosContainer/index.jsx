@@ -16,10 +16,6 @@ export function DadosContainer() {
   const [dados, setDados] = useState([])
   const [modalAddIsOpen, setModalAddIsOpen] = useState(false)
   const [modalDadoRoladoIsOpen, setModalDadoRoladoIsOpen] = useState(false)
-  const [data, setData] = useState([])
-
-  const [valor, setValor] = useState('')
-  const [isDano, setIsDano] = useState(false)
 
   const { id } = useParams();
 
@@ -27,22 +23,11 @@ export function DadosContainer() {
 
     async function fetchData() {
 
-      setDados([])
       try {
 
         const response = await api.get(`/sessoes/dado/${id}`);
 
-        for (let i = 0; i < response.data.length; i++) {
-
-          const dado = {
-            id: response.data[i].id,
-            nome: response.data[i].nome,
-            valor: response.data[i].valor,
-            isDano: response.data[i].isDano,
-          };
-
-          setDados((prevState) => [...prevState, dado]);
-        }
+        setDados(response.data)
 
       } catch (erro) {
         console.log(erro);
@@ -50,19 +35,6 @@ export function DadosContainer() {
     }
     fetchData()
   }, [])
-
-  function rolarInput() {
-
-    const data = {
-      nome: 'Teste',
-      valor: valor,
-      isDano: isDano
-    }
-
-    setModalDadoRoladoIsOpen(true);
-    setData(data)
-
-  }
 
   return (
     <Container>
@@ -72,7 +44,7 @@ export function DadosContainer() {
       </Modal>
 
       <Modal isOpen={modalDadoRoladoIsOpen} setIsOpen={() => setModalDadoRoladoIsOpen(false)}>
-        <ModalDadoRolado setModalEditIsOpenFalse={() => setModalDadoRoladoIsOpen(false)} data={data} />
+        <ModalDadoRolado setModalEditIsOpenFalse={() => setModalDadoRoladoIsOpen(false)} />
       </Modal>
 
       <HeaderContainer>

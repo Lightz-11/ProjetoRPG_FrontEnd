@@ -24,21 +24,11 @@ export function AnotacoesContainer() {
 
     async function fetchData() {
 
-      setAnotacoes([])
       try {
 
         const response = await api.get(`/sessoes/anotacao/${id}`);
 
-        for (let i = 0; i < response.data.length; i++) {
-
-          const anotacao = {
-            id: response.data[i].id,
-            nome: response.data[i].nome,
-            descricao: response.data[i].descricao,
-          };
-
-          setAnotacoes((prevState) => [...prevState, anotacao]);
-        }
+        setAnotacoes(response.data)
 
       } catch (erro) {
         console.log(erro.data);

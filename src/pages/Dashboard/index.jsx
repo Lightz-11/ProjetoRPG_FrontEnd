@@ -15,7 +15,7 @@ import { ModalAddSessao } from "../../components/Modals/ModalAddSessao/ModalAddS
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { api } from "../../services/api";
-import { AddSessao } from "../../components/AddSessao";
+import { AddSessao } from "./components/AddSessao";
 import { ModalEditSessao } from "../../components/Modals/ModalEditSessao/ModalEditSessao";
 import { Convite } from "./components/Convite";
 import { Ficha } from "./components/Ficha";
