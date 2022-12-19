@@ -27,7 +27,7 @@ export function ModalAddPersonagem({ setModalAddIsOpenFalse }) {
           sessaoId: id
         })
 
-        socket.emit("enviado.convite", { userEmail: email });
+        socket.emit("enviado.convite", email);
 
         toast.success("Convite enviado com sucesso!")
         setModalAddIsOpenFalse()

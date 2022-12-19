@@ -79,9 +79,9 @@ export function Dashboard() {
     }
     fetchData();
 
-    function atualizarConvites({ userEmail }) {
-      console.log(userEmail, dataUser.email)
-      if (userEmail == dataUser.email) {
+    function atualizarConvites(email) {
+      console.log(email, dataUser.email)
+      if (email == dataUser.email) {
         fetchData()
       }
     }
