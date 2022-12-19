@@ -249,7 +249,7 @@ export function Portrait() {
 
             <h3>{peA}</h3>
 
-            <Municao active={true}>
+            <Municao active={municaoAtiva}>
               <img src={municaoImg} />
               <h5>x {municao}</h5>
             </Municao>
@@ -259,7 +259,7 @@ export function Portrait() {
           </Main>
           <Dado active={false}>
             <span>24</span>
-            <FaDiceD20 color='#60eeff90' size={160} />
+            <FaDiceD20 color='#60eeff' size={160} />
           </Dado>
         </>
       }

@@ -243,7 +243,8 @@ export const PortraitImg = styled('img', {
 
 export const Dado = styled('div', {
   position: 'absolute',
-  left: '80rem',
+  left: '34rem',
+  zIndex: 12,
   bottom: '-18rem',
   display: 'flex',
   alignItems: 'center',
@@ -251,12 +252,12 @@ export const Dado = styled('div', {
   transition: 'ease 2s',
 
   svg: {
-    filter: 'drop-shadow(aqua 0 0 10px)'
+    filter: 'drop-shadow(#00e5ff 0 0 10px)',
   },
 
   span: {
     color: '#ffffff',
-    textShadow: '#ff0000 0 0 15px',
+    textShadow: '#ff0000 0 0 20px, #ff0000 0 0 30px',
     fontFamily: 'Special Elite',
     fontWeight: 700,
     fontSize: '10rem',

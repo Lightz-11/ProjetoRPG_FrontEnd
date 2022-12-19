@@ -81,6 +81,7 @@ export function Dashboard() {
 
     function atualizarConvites({ userId }) {
       if (userId == dataUser.id) {
+        console.log('Ele devia estar atualizando ne.')
         fetchData()
       }
     }
