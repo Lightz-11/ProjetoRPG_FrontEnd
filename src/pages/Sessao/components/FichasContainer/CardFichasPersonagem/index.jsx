@@ -1,12 +1,21 @@
-import { Container, Header, Body, TopBody, BottomBody, Button, LinkButton, ButtonIcon } from "./styles";
+import { Container, Header, Body, TopBody, BottomBody, Button, LinkButton, ButtonIcon, LinkIcon } from "./styles";
 import { IoOpenOutline } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
 import { BiUnlink } from "react-icons/bi";
 import { useState } from "react";
+import { api } from "../../../../../services/api";
 
 export function CardFichasPersonagem({ data }) {
 
     const [buttonActive, setButtonActive] = useState('Status')
+
+    async function handleDelete() {
+
+        await api.put(`/fichas/${data.id}`, {
+            sessaoId: null
+        })
+
+    }
 
     return (
         <Container>
@@ -18,10 +27,10 @@ export function CardFichasPersonagem({ data }) {
                     </LinkButton>
                 </div>
                 <div>
-                    <ButtonIcon to={`/ficha/portrait/${data.id}`} color={'aqua'}>
+                    <LinkIcon to={`/ficha/portrait/${data.id}`} color={'aqua'}>
                         <FaUserCircle size={20} color="#03d9ffff" />
-                    </ButtonIcon>
-                    <ButtonIcon to={''} color={'red'}>
+                    </LinkIcon>
+                    <ButtonIcon onClick={handleDelete} color={'red'}>
                         <BiUnlink size={22} color="#ae0808ff" />
                     </ButtonIcon>
                 </div>

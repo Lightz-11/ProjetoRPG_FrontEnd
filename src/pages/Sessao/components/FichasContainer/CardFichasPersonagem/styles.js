@@ -87,12 +87,39 @@ export const LinkButton = styled(Link, {
     }
 })
 
-export const ButtonIcon = styled(Link, {
+export const LinkIcon = styled(Link, {
     background: "none",
     border: "none",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    transition: '0.2s',
+    padding: '.2rem',
+    marginLeft: '1rem',
+
+    variants: {
+        color: {
+            red: {
+                border: '1px solid transparent',
+                '&:hover': {
+                    border: '1px solid #ae0808ff',
+                }
+            },
+            aqua: {
+                border: '1px solid transparent',
+                '&:hover': {
+                    border: '1px solid #03d9ffff',
+                }
+            }
+        }
+    },
+})
+
+export const ButtonIcon = styled('button', {
+    background: "none",
+    border: "none",
+    display: "flex",
+    justifyContent: "center",
     transition: '0.2s',
     padding: '.2rem',
     marginLeft: '1rem',
