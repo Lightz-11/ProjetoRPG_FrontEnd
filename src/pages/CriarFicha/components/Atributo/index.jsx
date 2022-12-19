@@ -1,4 +1,4 @@
-import { InputAtributo } from "../InputAtributo"
+import { InputAtributo } from "../../../../components/InputAtributo"
 import { Container, Top, Bot, Mid, Img } from "./styles"
 
 

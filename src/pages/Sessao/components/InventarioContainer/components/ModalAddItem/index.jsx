@@ -33,6 +33,8 @@ export function ModalAddItem({ setModalAddItemIsOpenFalse, atualizar }) {
         sessaoId: id
       });
 
+      console.log(data.data)
+
       setModalAddItemIsOpenFalse()
       atualizar((prevState) => [...prevState, data.data])
 

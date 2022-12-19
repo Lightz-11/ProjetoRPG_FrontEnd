@@ -58,7 +58,7 @@ export const BodyContainer = styled("div", {
         gridTemplateColumns: "1fr",
 
         "@lg4": {
-          gridTemplateColumns: "1fr 1fr",
+          gridTemplateColumns: "1fr",
         },
 
         "@lg2": {

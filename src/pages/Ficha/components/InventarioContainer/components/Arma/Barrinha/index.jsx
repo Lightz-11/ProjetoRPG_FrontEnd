@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { api } from '../../../../../../../services/api';
 
-export function Barrinha({ valorA, setValorA, valorMax, ...rest }) {
+export function Barrinha({ barrinhaId, valorA, setValorA, valorMax, ...rest }) {
 
   const [disabled, setDisabled] = useState(true)
 
@@ -37,7 +37,7 @@ export function Barrinha({ valorA, setValorA, valorMax, ...rest }) {
 
     const porcent = ((valorA * multiply) / (valorMax * multiply)) * 100
 
-    const progress = document.getElementById(`progress`)
+    const progress = document.getElementById(`progress${barrinhaId}`)
 
     progress.style = `width: ${porcent}%`
 
@@ -63,7 +63,7 @@ export function Barrinha({ valorA, setValorA, valorMax, ...rest }) {
       <BarrinhaDiv>
 
         <ProgressBar>
-          <Progress id='progress' />
+          <Progress id={`progress${barrinhaId}`} />
         </ProgressBar>
 
       </BarrinhaDiv>

@@ -24,8 +24,8 @@ export const Botoes = styled('div', {
   },
 
   button: {
-    padding: '0rem .7rem',
-    margin: '0rem .2rem',
+    padding: '.5rem .7rem .3rem .7rem',
+    margin: '.5rem .2rem',
     fontFamily: 'Special Elite',
     height: '3.5rem',
     background: 'none',
@@ -39,6 +39,12 @@ export const Botoes = styled('div', {
     fontSize: '1.8rem',
     borderRadius: '7px',
     fontWeight: 100,
+
+
+  },
+
+  svg: {
+    marginTop: '-.4rem'
   },
 
   'button:hover': {

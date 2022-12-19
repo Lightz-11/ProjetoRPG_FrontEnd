@@ -121,7 +121,7 @@ export function Arma({ data, atualizar, armas }) {
 
           {data.recarga > 0 &&
 
-            <Barrinha valorA={municaoA} setValorA={setMunicaoA} valorMax={data.recarga} />
+            <Barrinha id={data.id} valorA={municaoA} setValorA={setMunicaoA} valorMax={data.recarga} />
 
           }
 

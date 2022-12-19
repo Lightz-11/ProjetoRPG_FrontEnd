@@ -27,7 +27,7 @@ export function Ficha({ data }) {
     return (
         <Container>
             <Header>
-                <h2>{data.Principal[0].nome} - {data.sessaoId && sessao.nome}</h2>
+                <h2>{data.Principal[0].nome} {data.sessaoId && ' - ' + sessao.nome}</h2>
                 <Link to={`/ficha/portrait/${data.id}`}><BsGear /></Link>
             </Header>
             <hr />

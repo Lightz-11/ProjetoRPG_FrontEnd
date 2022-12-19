@@ -10,8 +10,6 @@ import { ModalAddArma } from './components/ModalAddArma';
 import { ModalAddItem } from './components/ModalAddItem';
 import { useParams } from 'react-router-dom';
 import { api } from '../../../../services/api';
-import { ModalEditArma } from './components/ModalEditArma';
-import { ModalEditItem } from './components/ModalEditItem';
 import { ButtonAdd } from '../../../../components/ButtonAdd';
 import { io } from 'socket.io-client';
 
@@ -52,6 +50,9 @@ export function InventarioContainer({ peso }) {
             espaco: responseItens.data[i].espaco,
             categoria: responseItens.data[i].categoria,
             descricao: responseItens.data[i].descricao,
+            isMunicao: responseItens.data[i].isMunicao,
+            municao: responseItens.data[i].municao,
+            municaoMax: responseItens.data[i].municaoMax,
             imagem: responseItens.data[i].imagem,
           };
 

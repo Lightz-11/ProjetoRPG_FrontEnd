@@ -90,7 +90,7 @@ export function ModalEditItem({ data, setModalEditItemIsOpenFalse, atualizar, it
         </Main2>
 
         <Main3>
-          <Toggle span={'Adicionar como munição?'} classNumber={1} onClick={() => setIsMunicao(!isMunicao)} />
+          <Toggle span={'Adicionar como munição?'} classNumber={1} onClick={() => setIsMunicao(!isMunicao)} defaultChecked={data.isMunicao} />
           <ButtonDelete onClick={handleDelete}> <BiTrashAlt className="icon" /> Deletar Item</ButtonDelete>
         </Main3>
 

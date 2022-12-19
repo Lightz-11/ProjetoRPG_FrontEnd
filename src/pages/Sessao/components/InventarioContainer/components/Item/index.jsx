@@ -1,14 +1,45 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Container, Header, Main, MainTop, MainBottom, Span, ParteImg, ButtonIcon, ImgModal, ParteImgModal } from './styles';
 import { MdOutlineEdit } from 'react-icons/md'
 import { Modal } from '../../../../../../components/Modals/Modal';
 import { ModalEditItem } from '../ModalEditItem';
+import { Barrinha } from './Barrinha';
+import { api } from '../../../../../../services/api';
 
 export function Item({ data, atualizar, itens }) {
 
   const [imgAberta, setImgAberta] = useState(false)
 
   const [modalEditItemIsOpen, setModalEditItemIsOpen] = useState(false)
+
+  const [municao, setMunicao] = useState(data.municao)
+  const [municaoMax, setMunicaoMax] = useState(data.municaoMax)
+
+  useEffect(() => {
+
+    async function update() {
+
+      try {
+
+        await api.put(`/sessoes/item/${data.id}`, {
+          nome: data.nome,
+          espaco: data.espaco,
+          categoria: data.categoria,
+          descricao: data.descricao,
+          isMunicao: data.isMunicao,
+          municao,
+          municaoMax,
+          imagem: data.imagem,
+        });
+
+      } catch (erro) {
+        console.log(erro)
+      }
+
+    }
+    update()
+
+  }, [municao, municaoMax])
 
   return (
     <Container>
@@ -43,6 +74,10 @@ export function Item({ data, atualizar, itens }) {
         <MainBottom>
 
           <Span>{data.descricao ? data.descricao : "Este item não tem uma descrição..."}</Span>
+
+          {data.isMunicao &&
+            <Barrinha id={data.id} valorA={municao} setValorA={setMunicao} valorMax={municaoMax} setValorMax={setMunicaoMax} />
+          }
 
           <ParteImg>
             <img onClick={() => setImgAberta(true)} src={data.imagem} width={"95%"} />

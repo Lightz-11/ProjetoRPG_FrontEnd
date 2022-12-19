@@ -53,6 +53,9 @@ export function InventarioContainer() {
             espaco: responseItens.data[i].espaco,
             categoria: responseItens.data[i].categoria,
             descricao: responseItens.data[i].descricao,
+            isMunicao: responseItens.data[i].isMunicao,
+            municao: responseItens.data[i].municao,
+            municaoMax: responseItens.data[i].municaoMax,
             imagem: responseItens.data[i].imagem,
           };
 

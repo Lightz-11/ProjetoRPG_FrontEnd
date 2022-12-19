@@ -15,13 +15,19 @@ export function CardFichasPersonagem({ data }) {
 
     async function handleDelete() {
 
-        await api.put(`/fichas/${data.id}`, {
-            sessaoId: null
-        })
+        try {
 
-        const fichasAtt = fichas.filter(ficha => ficha.id != data.id)
+            await api.put(`/fichas/${data.id}`, {
+                sessaoId: null
+            })
 
-        setFichas(fichasAtt)
+            const fichasAtt = fichas.filter(ficha => ficha.id != data.id)
+
+            setFichas(fichasAtt)
+
+        } catch (erro) {
+            console.log(erro)
+        }
 
     }
 
@@ -38,7 +44,7 @@ export function CardFichasPersonagem({ data }) {
                     <LinkIcon to={`/ficha/portrait/${data.id}`} color={'aqua'}>
                         <FaUserCircle size={20} color="#03d9ffff" />
                     </LinkIcon>
-                    <ButtonIcon onClick={handleDelete} color={'red'}>
+                    <ButtonIcon onClick={() => handleDelete()} color={'red'}>
                         <BiUnlink size={22} color="#ae0808ff" />
                     </ButtonIcon>
                 </div>

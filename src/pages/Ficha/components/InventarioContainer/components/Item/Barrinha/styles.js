@@ -1,9 +1,10 @@
-import { styled } from '../../stitches.config';
+import { styled } from '../../../../../../../stitches.config';
 
 export const Container = styled('div', {
   width: '100%',
   display: 'flex',
   justifyContent: 'center',
+  marginBottom: '1rem',
   flexDirection: 'column'
 })
 
@@ -11,33 +12,39 @@ export const Botoes = styled('div', {
   width: '100%',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',
+  justifyContent: 'space-between',
   padding: '0rem 2rem',
+  fontFamily: 'Special Elite',
 
   span: {
     color: 'white',
-    fontFamily: 'Arial',
-    fontSize: '3rem',
-    padding: '0rem .5rem 0.2rem .5rem',
+    fontSize: '1.8rem',
+    padding: '1rem .5rem',
     fontWeight: 100
   },
 
   button: {
-    padding: '.9rem .5rem 0rem .5rem',
-    margin: '.5rem .5rem',
+    padding: '.5rem .7rem .3rem .7rem',
+    margin: '.5rem .2rem',
     fontFamily: 'Special Elite',
     height: '3.5rem',
     background: 'none',
-    display: 'flex',
-    justifyContent: 'center',
     whiteSpace: 'nowrap',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     gap: '.5rem',
     transition: '.3s',
     color: 'White',
     border: '1px solid transparent',
-    fontSize: '2rem',
+    fontSize: '1.8rem',
     borderRadius: '7px',
     fontWeight: 100,
+
+  },
+
+  svg: {
+    marginTop: '-.4rem'
   },
 
   'button:hover': {
@@ -82,8 +89,8 @@ export const BarrinhaDiv = styled('div', {
 
 export const ProgressBar = styled('div', {
 
-  width: '100%',
-  height: '3rem',
+  width: '95%',
+  height: '2rem',
   borderRadius: '10px',
   backgroundColor: '#ffffff14',
   display: 'flex',
@@ -92,23 +99,10 @@ export const ProgressBar = styled('div', {
 
 export const Progress = styled('div', {
 
-  height: '3rem',
+  height: '2rem',
   borderRadius: '10px',
   display: 'flex',
   transition: '0.3s',
-
-  variants: {
-    color: {
-      red: {
-        backgroundColor: '#9a0000',
-      },
-      yellow: {
-        backgroundColor: '#ffbf00b5',
-      },
-      aqua: {
-        backgroundColor: '#005795',
-      }
-    }
-  }
+  backgroundColor: '#00c164'
 
 })
