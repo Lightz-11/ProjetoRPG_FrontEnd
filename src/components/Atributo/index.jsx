@@ -12,15 +12,15 @@ export function Atributo({ agi, setAgi, int, setInt, vig, setVig, pre, setPre, f
             </Top>
 
             <Mid>
-                <InputAtributo valor={int} setValor={setInt} />
+                <InputAtributo valor={forca} setValor={setFor} />
 
-                <InputAtributo valor={vig} setValor={setVig} />
+                <InputAtributo valor={int} setValor={setInt} />
             </Mid>
 
             <Bot>
                 <InputAtributo valor={pre} setValor={setPre} />
 
-                <InputAtributo valor={forca} setValor={setFor} />
+                <InputAtributo valor={vig} setValor={setVig} />
             </Bot>
 
             <Img {...rest} src="https://cdn.discordapp.com/attachments/1002043233179807846/1008945292135112755/jamboeditora-ordem-paranormal-v1.0-1_62f83df8a4e82-1_1.png" />

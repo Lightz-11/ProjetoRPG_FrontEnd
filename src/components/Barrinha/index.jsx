@@ -85,6 +85,7 @@ export function Barrinha({ valorA, setValorA, setValorMax, valorMax, color, numb
                 setValorMax(8 + Number(vig))
                 setValorA(8 + Number(vig))
               } else if (classe == "Combatente") {
+                console.log(20, Number(vig), (Math.floor((nex - 5) / 5), (4 + Number(vig))))
                 setValorMax(20 + Number(vig) + (Math.floor((nex - 5) / 5) * (4 + Number(vig))))
                 setValorA(20 + Number(vig) + (Math.floor((nex - 5) / 5) * (4 + Number(vig))))
               } else if (classe == 'Especialista') {
