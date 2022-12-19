@@ -80,6 +80,7 @@ export function Dashboard() {
     fetchData();
 
     function atualizarConvites({ userEmail }) {
+      console.log(userEmail, dataUser.email)
       if (userEmail == dataUser.email) {
         fetchData()
       }
