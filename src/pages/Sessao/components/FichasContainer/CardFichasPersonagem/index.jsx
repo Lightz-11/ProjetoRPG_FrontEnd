@@ -21,6 +21,8 @@ export function CardFichasPersonagem({ data }) {
                 sessaoId: null
             })
 
+            await api.delete(`/sessoes/participante/${data.id}`)
+
             const fichasAtt = fichas.filter(ficha => ficha.id != data.id)
 
             setFichas(fichasAtt)
