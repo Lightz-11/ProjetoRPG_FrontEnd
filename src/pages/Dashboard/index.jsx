@@ -81,7 +81,6 @@ export function Dashboard() {
 
     function atualizarConvites(email) {
       if (email == dataUser.email) {
-
         async function fetchData2() {
 
           const responseConvite = await api.get(`/sessoes/convite/${dataUser.email}`)
@@ -104,8 +103,8 @@ export function Dashboard() {
             setSessaoConvite((prevState) => [...prevState, novaSessaoConvite])
           }
         }
+        fetchData2()
       }
-      fetchData2()
     }
     socket.on('enviado.convite', atualizarConvites)
 
