@@ -40,9 +40,9 @@ export const Main = styled('main', {
     fontWeight: 100,
     bottom: '8rem',
     left: '11rem',
-    color: '#fff000',
+    color: '#ffee00ff',
     transform: 'rotate(-7deg)',
-    textShadow: '0 0 20px',
+    textShadow: '#ffea00 0 0 15px, #ffa600 0 0 20px',
     zIndex: 10
   },
 
@@ -61,11 +61,58 @@ export const Main = styled('main', {
 
 })
 
+const opacityUp = keyframes({
+  '0%': {
+    opacity: 0
+  },
+  '100%': {
+    opacity: 1
+  },
+});
+
+const opacityDown = keyframes({
+  '0%': {
+    opacity: 1
+  },
+  '100%': {
+    opacity: 0
+  },
+});
+
 export const Municao = styled('div', {
   display: 'flex',
-  alignItems: 'center',
+  alignItems: 'flex-end',
   justifyContent: 'center',
-  position: 'absolute'
+  position: 'absolute',
+  top: '8rem',
+  left: '58rem',
+  transform: 'rotate(-10deg)',
+  zIndex: 10,
+
+  img: {
+    width: '100px',
+    marginRight: '-2rem'
+  },
+
+  h5: {
+    fontSize: '6rem',
+    fontFamily: 'Special Elite',
+    fontWeight: 100,
+    color: '#00ff7b90',
+    textShadow: '0 0 10px',
+  },
+
+  variants: {
+    active: {
+      true: {
+        animation: `${opacityUp} .7s`,
+      },
+      false: {
+        animation: `${opacityDown} 1s`,
+        opacity: 0
+      }
+    }
+  }
 })
 
 const opacityUp1 = keyframes({
@@ -158,24 +205,6 @@ export const Status2 = styled('div', {
     }
   }
 })
-
-const opacityDown = keyframes({
-  '0%': {
-    opacity: 1,
-  },
-  '100%': {
-    opacity: 0,
-  },
-});
-
-const opacityUp = keyframes({
-  '0%': {
-    opacity: 0
-  },
-  '100%': {
-    opacity: 1
-  },
-});
 
 export const PortraitImg = styled('img', {
 

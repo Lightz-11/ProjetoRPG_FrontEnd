@@ -249,14 +249,10 @@ export function Portrait() {
 
             <h3>{peA}</h3>
 
-            {municaoAtiva &&
-
-              <Municao>
-                <img src={municaoImg} />
-                <h4>x {municao}</h4>
-              </Municao>
-
-            }
+            <Municao active={municaoAtiva}>
+              <img src={municaoImg} />
+              <h5>x {municao}</h5>
+            </Municao>
 
             <PortraitImg id='imagem' animation={animation} inconsciente={inconsciente} src={portraitImg} />
             <img src={FundoPortrait} />
