@@ -20,7 +20,8 @@ export const Header = styled('div', {
   h1: {
     color: 'purple',
     fontSize: '3rem',
-    wordBreak: 'break-word',
+    whiteSpace: 'nowrap',
+    marginRight: '1.5rem',
     textTransform: 'capitalize',
     fontFamily: 'Permanent Marker',
     fontWeight: 100,

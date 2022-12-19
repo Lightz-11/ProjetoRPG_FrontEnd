@@ -18,6 +18,7 @@ export const SpanContainer = styled('span', {
     fontFamily: "'Arial', sans-serif",
     fontWeight: 100,
     textDecoration: 'underline',
+    whiteSpace: 'nowrap',
     marginRight: '1rem'
 })
 

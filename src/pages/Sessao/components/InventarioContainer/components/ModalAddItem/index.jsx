@@ -5,6 +5,7 @@ import { api } from '../../../../../../services/api';
 import { Container, Header, Main, Button, Footer } from './styles';
 import { toast, ToastContainer } from 'react-toastify'
 import { useParams } from 'react-router-dom';
+import { Toggle } from '../../../../../../components/Toggle';
 
 export function ModalAddItem({ setModalAddItemIsOpenFalse, atualizar }) {
 
@@ -13,6 +14,8 @@ export function ModalAddItem({ setModalAddItemIsOpenFalse, atualizar }) {
   const [categoria, setCategoria] = useState('')
   const [descricao, setDescricao] = useState(null)
   const [imagem, setImagem] = useState(null)
+
+  const [isMunicao, setIsMunicao] = useState(false)
 
   const { id } = useParams()
 
@@ -26,6 +29,7 @@ export function ModalAddItem({ setModalAddItemIsOpenFalse, atualizar }) {
         categoria,
         descricao,
         imagem,
+        isMunicao,
         sessaoId: id
       });
 
@@ -49,10 +53,11 @@ export function ModalAddItem({ setModalAddItemIsOpenFalse, atualizar }) {
       <Main>
 
         <Input label={'Nome'} valor={nome} setValor={setNome} maxLength={20} />
-        <Input label={'Espaços'} onlyNumber valor={espaco} setValor={setEspaco} type='text' maxLength={1} />
-        <Input label={'Categoria'} onlyNumber valor={categoria} setValor={setCategoria} type='text' maxLength={1} />
+        <Input label={'Espaços'} onlyNumber valor={espaco} setValor={setEspaco} maxLength={1} />
+        <Input label={'Categoria'} onlyNumber valor={categoria} setValor={setCategoria} maxLength={1} />
         <Input label={'Imagem'} opcional valor={imagem} setValor={setImagem} />
         <TextArea label={'Descrição'} setValor={setDescricao} maxLength={100} />
+        <Toggle span={'Adicionar como munição?'} classNumber={1} onClick={() => setIsMunicao(!isMunicao)} />
 
       </Main>
 

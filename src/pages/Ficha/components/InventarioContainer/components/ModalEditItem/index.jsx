@@ -2,10 +2,11 @@ import { useState } from 'react';
 import { Input } from '../../../../../../components';
 import { TextArea } from '../../../../../../components/TextArea';
 import { api } from '../../../../../../services/api';
-import { Container, Header, Main, Main1, Main2, Button, Footer, ButtonDelete } from './styles';
+import { Container, Header, Main, Main1, Main2, Main3, Button, Footer, ButtonDelete } from './styles';
 import { toast, ToastContainer } from 'react-toastify'
 import { useParams } from 'react-router-dom';
 import { BiTrashAlt } from 'react-icons/bi';
+import { Toggle } from '../../../../../../components/Toggle';
 
 export function ModalEditItem({ data, setModalEditItemIsOpenFalse, atualizar, itens, setPesoAtual }) {
 
@@ -14,6 +15,8 @@ export function ModalEditItem({ data, setModalEditItemIsOpenFalse, atualizar, it
   const [categoria, setCategoria] = useState(data.categoria)
   const [descricao, setDescricao] = useState(data.descricao)
   const [imagem, setImagem] = useState(data.imagem)
+
+  const [isMunicao, setIsMunicao] = useState(data.isMunicao)
 
   async function handleCreate() {
 
@@ -24,6 +27,7 @@ export function ModalEditItem({ data, setModalEditItemIsOpenFalse, atualizar, it
         espaco,
         categoria,
         descricao,
+        isMunicao,
         imagem,
       });
 
@@ -36,6 +40,7 @@ export function ModalEditItem({ data, setModalEditItemIsOpenFalse, atualizar, it
       item[0].espaco = data2.data.espaco
       item[0].categoria = data2.data.categoria
       item[0].descricao = data2.data.descricao
+      item[0].isMunicao = data2.data.isMunicao
       item[0].imagem = data2.data.imagem
 
     } catch (erro) {
@@ -84,8 +89,12 @@ export function ModalEditItem({ data, setModalEditItemIsOpenFalse, atualizar, it
 
         <Main2>
           <TextArea label={'Descrição'} valor={descricao} setValor={setDescricao} maxLength={100} />
-          <ButtonDelete onClick={handleDelete}> <BiTrashAlt className="icon" /> Deletar Item</ButtonDelete>
         </Main2>
+
+        <Main3>
+          <Toggle span={'Adicionar como munição?'} classNumber={1} onClick={() => setIsMunicao(!isMunicao)} />
+          <ButtonDelete onClick={handleDelete}> <BiTrashAlt className="icon" /> Deletar Item</ButtonDelete>
+        </Main3>
 
       </Main>
 

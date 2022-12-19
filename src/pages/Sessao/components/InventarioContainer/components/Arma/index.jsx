@@ -34,7 +34,6 @@ export function Arma({ data, atualizar, armas }) {
 
   useEffect(() => {
 
-    console.log(data)
     setMunicaoA(data.municao)
 
   }, [])

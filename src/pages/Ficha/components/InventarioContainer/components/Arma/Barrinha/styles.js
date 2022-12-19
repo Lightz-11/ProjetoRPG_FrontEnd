@@ -26,7 +26,7 @@ export const Botoes = styled('div', {
   button: {
     padding: '.9rem .8rem',
     fontFamily: 'Special Elite',
-    margin: '0rem .5rem',
+    margin: '0rem .2rem',
     height: '3.5rem',
     background: 'none',
     display: 'flex',
@@ -43,13 +43,6 @@ export const Botoes = styled('div', {
   'button:hover': {
     border: '1px solid white'
   },
-
-  '@md2': {
-    padding: '0rem',
-    button: {
-      margin: '0rem .2rem',
-    }
-  }
 })
 
 export const Esquerda = styled('div', {

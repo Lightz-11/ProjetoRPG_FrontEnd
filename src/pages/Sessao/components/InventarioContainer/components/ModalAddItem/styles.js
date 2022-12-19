@@ -3,7 +3,7 @@ import { styled } from "../../../../../../stitches.config"
 export const Container = styled('div', {
 
   width: '65rem',
-  height: '80rem',
+  height: '82rem',
   borderRadius: '1.2rem',
   backgroundColor: 'rgb(27,27,27)',
   boxShadow: 'rgba(255, 255, 255, 0.45) 0rem 0.5rem 1.5rem',
@@ -40,7 +40,7 @@ export const Main = styled('div', {
 })
 
 export const Footer = styled('div', {
-  top: '10rem',
+  top: '12.5rem',
   position: 'relative',
   alignItems: 'stretch',
   justifyContent: 'center'

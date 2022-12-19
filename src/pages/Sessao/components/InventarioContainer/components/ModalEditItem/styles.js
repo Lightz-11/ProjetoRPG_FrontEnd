@@ -55,6 +55,13 @@ export const Main2 = styled('div', {
 
 })
 
+export const Main3 = styled('div', {
+
+  display: 'flex',
+  width: '100%',
+
+})
+
 export const Footer = styled('div', {
   top: '12rem',
   position: 'relative',
@@ -99,12 +106,13 @@ export const Button = styled('button', {
 })
 
 export const ButtonDelete = styled('button', {
-  width: '14rem',
+  width: '18rem',
   height: '3rem',
   background: 'none',
   border: '2px solid',
   borderColor: 'Crimson',
   color: 'white',
+  marginTop: '.5rem',
   borderRadius: '8px',
   fontSize: '1.8rem',
   cursor: 'pointer',

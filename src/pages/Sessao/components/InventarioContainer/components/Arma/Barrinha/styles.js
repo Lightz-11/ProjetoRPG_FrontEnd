@@ -25,7 +25,7 @@ export const Botoes = styled('div', {
 
   button: {
     padding: '0rem .7rem',
-    margin: '0rem .5rem',
+    margin: '0rem .2rem',
     fontFamily: 'Special Elite',
     height: '3.5rem',
     background: 'none',
