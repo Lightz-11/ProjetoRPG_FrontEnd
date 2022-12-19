@@ -26,8 +26,7 @@ export const Body = styled("div", {
   overflowY: "auto",
   height: "100%",
   width: '100%',
-  padding: "2rem",
-  paddingBottom: "7rem",
+  padding: "2rem 2rem 0rem 2rem",
 
   hr: {
     borderColor: "#ffffff75",
