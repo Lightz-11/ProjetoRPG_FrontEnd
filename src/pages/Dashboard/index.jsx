@@ -20,6 +20,7 @@ import { ModalEditSessao } from "../../components/Modals/ModalEditSessao/ModalEd
 import { Convite } from "./components/Convite";
 import { Ficha } from "./components/Ficha";
 import { io } from 'socket.io-client';
+import { AddFicha } from "./components/AddFicha";
 
 const socket = io(api.defaults.baseURL);
 
@@ -202,8 +203,11 @@ export function Dashboard() {
                 {fichas.map((ficha) => (
                   <Ficha
                     key={ficha.id}
-                    data={ficha} />
+                    data={ficha}
+                    lista={fichas}
+                    atualizar={setFichas} />
                 ))}
+                <AddFicha />
               </Fichas>
             </FichaContainer>
 

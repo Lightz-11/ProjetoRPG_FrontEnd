@@ -41,9 +41,9 @@ export function Portrait() {
 
         const response = await api.get(`/fichas/${id}`)
 
-        // if (response.data.visible != true) {
-        //   navigate('/')
-        // } 
+        if (response.data.isPublic != true) {
+          navigate('/')
+        }
 
         setNome(response.data.Principal[0].nome)
 

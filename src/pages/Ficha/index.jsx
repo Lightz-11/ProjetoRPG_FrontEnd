@@ -1,5 +1,5 @@
 import { Container, Header, DoubleParteContainer, Body } from './styles';
-import { DadosContainer, InventarioContainer, PrincipalContainer, StatusContainer } from './components'
+import { DadosContainer, PrincipalContainer, StatusContainer, InventarioContainer } from './components'
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -21,9 +21,9 @@ export function Ficha() {
 
         const response = await api.get(`/fichas/${id}`)
 
-        // if (response.data.visible != true) {
-        //   navigate('/')
-        // } 
+        if (response.data.isPublic != true) {
+          navigate('/')
+        }
 
         setFicha(response.data)
 

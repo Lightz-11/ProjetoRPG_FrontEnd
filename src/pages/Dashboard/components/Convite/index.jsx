@@ -49,7 +49,7 @@ export function Convite({ data, lista, atualizar }) {
             </Desc>
             <hr />
             <Footer>
-                <Link to={`/criarficha/${data.id}`}>Entrar e Criar Ficha</Link>
+                <Link to={`/criarficha/convite/${data.id}`}>Entrar e Criar Ficha</Link>
             </Footer>
         </Container>
     )

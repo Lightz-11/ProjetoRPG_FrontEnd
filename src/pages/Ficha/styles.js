@@ -4,6 +4,8 @@ export const Container = styled("div", {
   width: "100%",
   height: "100vh",
   background: "rgb(20,20,20)",
+  display: 'flex',
+  flexDirection: 'column'
 });
 
 export const Header = styled("div", {
@@ -24,7 +26,6 @@ export const Header = styled("div", {
 
 export const Body = styled("div", {
   overflowY: "auto",
-  height: "100%",
   width: '100%',
   padding: "2rem 2rem 0rem 2rem",
 

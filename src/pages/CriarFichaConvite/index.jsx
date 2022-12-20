@@ -8,7 +8,7 @@ import { Select } from '../../components/Select';
 import { api } from '../../services/api';
 import { Container, Header, Body, Principal, Atributos, Footer, Span } from './styles';
 
-export function CriarFicha() {
+export function CriarFichaConvite() {
 
   const [nome, setNome] = useState(null)
   const [idade, setIdade] = useState(0)
@@ -29,11 +29,29 @@ export function CriarFicha() {
   const [ps, setPs] = useState(1)
   const [pe, setPe] = useState(1)
 
+  const { pathname } = useLocation()
+  const { id } = useParams()
   const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
 
   const navigate = useNavigate()
 
+  useEffect(() => {
+
+    async function fetchData() {
+
+      const conviteResponse = await api.get(`/sessoes/convite/id/${id}`)
+
+      if (conviteResponse.data == null || conviteResponse.data == undefined || conviteResponse.data.userEmail != dataUser.email) {
+        navigate('/')
+      }
+    }
+    fetchData()
+
+  }, [])
+
   async function handleCreate() {
+
+    const conviteResponse = await api.get(`/sessoes/convite/id/${id}`)
 
     if (nex > 4 && classe == 'Mundano') {
       toast.error('Você não pode ter a classe Mundano com 5% de NEX ou mais.')
@@ -153,8 +171,9 @@ export function CriarFicha() {
 
     try {
 
-      await api.post(`/fichas`, {
+      const response = await api.post(`/fichas`, {
         userId: dataUser.id,
+        sessaoId: conviteResponse.data.sessaoId,
 
         nome,
         idade: Number(idade),
@@ -178,6 +197,7 @@ export function CriarFicha() {
       })
 
       navigate(`/`)
+      await api.delete(`/sessoes/convite/${id}`)
 
     } catch (erro) {
       toast.error(erro.response.data.mensagem)

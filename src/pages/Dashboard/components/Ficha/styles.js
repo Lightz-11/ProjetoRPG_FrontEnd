@@ -23,22 +23,6 @@ export const Header = styled('div', {
     marginBottom: '0.6rem',
     marginTop: '-0.2rem',
 
-    a: {
-        background: 'none',
-        color: 'White',
-        textDecoration: 'none',
-        paddingBottom: '.2rem',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        border: 'none',
-        transition: 'ease 0.3s'
-    },
-
-    'a:hover': {
-        color: '#4040ff'
-    },
-
     h2: {
         color: "#4040ff",
         fontSize: '2rem',
@@ -46,6 +30,64 @@ export const Header = styled('div', {
         wordBreak: 'break-word',
         marginRight: '2rem'
     },
+})
+
+export const Botoes = styled('div', {
+
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '1rem',
+
+
+    a: {
+        background: 'none',
+        textDecoration: 'none',
+        padding: '.3rem',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        border: 'solid 1px transparent',
+        transition: 'ease 0.3s'
+    },
+
+    'a:hover': {
+        border: 'solid 1px aqua',
+    },
+
+})
+
+export const Button = styled('button', {
+
+    background: 'none',
+    textDecoration: 'none',
+    padding: '.3rem',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    border: 'solid 1px transparent',
+    transition: 'ease 0.3s',
+
+    variants: {
+        color: {
+            green: {
+                '&:hover': {
+                    border: 'solid 1px #13ff72',
+                },
+            },
+            crimson: {
+                '&:hover': {
+                    border: 'solid 1px crimson',
+                },
+            },
+            red: {
+                '&:hover': {
+                    border: 'solid 1px red',
+                },
+            }
+        }
+    }
+
 })
 
 export const Desc = styled('div', {
