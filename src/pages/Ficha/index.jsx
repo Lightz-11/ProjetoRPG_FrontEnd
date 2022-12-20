@@ -15,6 +15,8 @@ export function Ficha() {
 
   const navigate = useNavigate()
 
+  const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -22,9 +24,14 @@ export function Ficha() {
         setIsLoading(true)
 
         const response = await api.get(`/fichas/${id}`)
+        const response2 = await api.get(`/sessoes/${response.data.sessaoId}`)
 
-        if (response.data.isPublic != true) {
-          navigate('/')
+        if (response.data.userId != dataUser.id && response2.data.userId != dataUser.id) {
+
+          if (response.data.isPublic != true) {
+            navigate('/')
+          }
+
         }
 
         setFicha(response.data)

@@ -42,9 +42,14 @@ export function Portrait() {
       try {
 
         const response = await api.get(`/fichas/${id}`)
+        const response2 = await api.get(`/sessoes/${response.data.sessaoId}`)
 
-        if (response.data.isPublic != true) {
-          navigate('/')
+        if (response.data.userId != dataUser.id && response2.data.userId != dataUser.id) {
+
+          if (response.data.isPublic != true) {
+            navigate('/')
+          }
+
         }
 
         setNome(response.data.Principal[0].nome)
