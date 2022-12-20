@@ -68,13 +68,14 @@ export const Main = styled('main', {
   },
 
   h6: {
-    fontSize: '6rem',
+    fontSize: '8rem',
+    whiteSpace: 'nowrap',
     fontFamily: 'Special Elite',
-    fontWeight: 100,
+    fontWeight: 700,
     color: 'red',
-    textShadow: '0 0 15px',
-    top: '42%',
-    left: '13rem',
+    textShadow: '#640000 5px 5px 10px',
+    top: '47%',
+    left: '5rem',
     position: 'absolute'
   },
 
