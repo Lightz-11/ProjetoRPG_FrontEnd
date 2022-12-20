@@ -13,6 +13,8 @@ export function Ficha() {
 
   const [isLoading, setIsLoading] = useState(false)
 
+  const navigate = useNavigate()
+
   useEffect(() => {
     async function fetchData() {
       try {

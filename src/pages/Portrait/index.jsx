@@ -2,7 +2,7 @@ import { Container, Main, PortraitImg, Status1, Status2, Dado, Municao } from '.
 import FundoPortrait from '../../assets/img/FundoPortrait.png'
 import { useState, useEffect } from 'react';
 import { FaDiceD20 } from 'react-icons/fa'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { api } from '../../services/api';
 import { io } from 'socket.io-client';
 import municaoImg from '../../assets/img/municaoImg.png'
@@ -33,6 +33,8 @@ export function Portrait() {
   const [municaoAtiva, setMunicaoAtiva] = useState(false)
 
   const [animation, setAnimation] = useState(false)
+
+  const navigate = useNavigate()
 
   useEffect(() => {
 
