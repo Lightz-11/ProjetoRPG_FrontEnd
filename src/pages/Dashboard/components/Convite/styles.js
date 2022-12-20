@@ -34,12 +34,13 @@ export const Header = styled('div', {
         color: 'red',
         background: 'none',
         border: '1px solid transparent',
-        padding: '.2rem',
+        padding: '.5rem',
         display: 'flex',
+        gap: '.5rem',
         alignItems: 'center',
         justifyContent: 'center',
         transition: '.3s',
-        borderRadius: '3px',
+        borderRadius: '5px',
 
         '&:hover': {
             border: '1px solid red',
@@ -69,10 +70,12 @@ export const Desc = styled('div', {
 })
 
 export const Footer = styled('div', {
-    height: '4rem',
+    height: '10rem',
     display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    gap: '1rem',
     marginTop: '1rem',
 
     a: {
@@ -90,5 +93,37 @@ export const Footer = styled('div', {
     },
     'a:hover': {
         backgroundColor: 'rgb(47,47,47,0.5)'
+    },
+
+    div: {
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '1rem'
+    },
+
+    button: {
+        width: '80%',
+        textDecoration: 'none',
+        textAlign: 'center',
+        color: '#20b2aa',
+        fontFamily: 'Crimson Text',
+        background: 'none',
+        fontSize: '2rem',
+        border: '2px solid #20b2aa',
+        padding: '.5rem',
+        borderRadius: '1rem',
+        transition: 'ease 0.3s',
+    },
+    'button:hover': {
+        backgroundColor: 'rgb(47,47,47,0.5)'
+    },
+
+    select: {
+        width: '20%'
+    },
+
+    option: {
+
     }
 })

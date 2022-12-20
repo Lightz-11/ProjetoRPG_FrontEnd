@@ -1,21 +1,40 @@
 import { Link } from 'react-router-dom'
 import { Container, Header, Desc, Footer } from './styles'
-import { BiTrashAlt } from 'react-icons/bi'
+import { AiOutlineCloseCircle } from 'react-icons/ai'
 import { api } from '../../../../services/api'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { Select } from '../../../../components/Select'
+import { toast, ToastContainer } from 'react-toastify'
 
 export function Convite({ data, lista, atualizar }) {
 
     const [participantes, setParticipantes] = useState('')
 
+    const [fichas, setFichas] = useState([])
+
+    const [fichaSelecionada, setFichaSelecionada] = useState('Indefinida')
+
+    const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
+
     useEffect(() => {
 
-        const listaParticipantes = data.participantes.map(participante => participante.user.nome[0].toUpperCase() + participante.user.nome.substring(1))
+        const listaParticipantes = data.participantes.map(participante => participante.user.nome)
 
         if (data.participantes.length > 0) {
             setParticipantes('E seus participantes são: ' + listaParticipantes.join(', '))
         }
+
+        async function fetchData() {
+
+            const response = await api.get(`/fichas/user/${dataUser.id}`)
+
+            const fichasFilter = response.data.filter(ficha => ficha.sessaoId == null)
+
+            setFichas(fichasFilter)
+
+        }
+        fetchData()
 
     }, [])
 
@@ -37,11 +56,43 @@ export function Convite({ data, lista, atualizar }) {
 
     }
 
+    async function handleEdit() {
+
+        if (fichaSelecionada != 'Indefinida') {
+
+            try {
+
+                await api.put(`/fichas/${fichaSelecionada}`, {
+                    sessaoId: data.sessaoId
+                })
+
+                await api.post(`/sessoes/participante`, {
+                    userId: dataUser.id,
+                    sessaoId: data.sessaoId,
+                    fichaId: fichaSelecionada
+                })
+
+                await api.delete(`/sessoes/convite/${data.id}`)
+
+                const listaAtualizada = lista.filter(convite => data.id != convite.id)
+
+                atualizar(listaAtualizada)
+
+            } catch (erro) {
+                console.log(erro)
+            }
+
+        } else {
+            toast.error('Você não selecionou nenhuma ficha.')
+        }
+
+    }
+
     return (
         <Container>
             <Header>
                 <h2>Convite - {data.nome}</h2>
-                <button onClick={handleDelete}><BiTrashAlt size={18} /></button>
+                <button onClick={handleDelete}>Recusar <AiOutlineCloseCircle size={18} /></button>
             </Header>
             <hr />
             <Desc>
@@ -49,8 +100,16 @@ export function Convite({ data, lista, atualizar }) {
             </Desc>
             <hr />
             <Footer>
+                <div>
+                    <button onClick={handleEdit}>Entrar com a Ficha:</button>
+                    <select onChange={(e) => setFichaSelecionada(e.target.value)}>
+                        <option value={'Indefinida'}>Indefinida</option>
+                        {fichas.map(ficha => <option key={ficha.id} value={ficha.id}>{ficha.Principal[0].nome}</option>)}
+                    </select>
+                </div>
                 <Link to={`/criarficha/convite/${data.id}`}>Entrar e Criar Ficha</Link>
             </Footer>
+            <ToastContainer />
         </Container>
     )
 

@@ -1,4 +1,4 @@
-import { Container, Header, Desc, Part, Footer, Botoes, Button } from './styles'
+import { Container, Header, Desc, Footer, Botoes, Button, Grade } from './styles'
 import { FaUserCircle } from 'react-icons/fa'
 import { BiTrashAlt } from 'react-icons/bi'
 import { BsEye, BsEyeSlash } from 'react-icons/bs'
@@ -56,12 +56,18 @@ export function Ficha({ data, atualizar, lista }) {
             </Header>
             <hr />
             <Desc>
-                <h2><strong>Descrição:</strong></h2>
+                <img src={data.Portrait[0].normal} />
+                <Grade>
+                    <span><strong>Origem:</strong> {data.Principal[0].origem}</span>
+                    <span><strong>NEX:</strong> {data.Principal[0].nex}</span>
+                    <span><strong>Classe:</strong> {data.Principal[0].classe}</span>
+                    {data.Principal[0].trilha != 'Nenhuma' ?
+                        <span><strong>Trilha:</strong> {data.Principal[0].trilha}</span>
+                        :
+                        <span><strong>Idade:</strong> {data.Principal[0].idade}</span>
+                    }
+                </Grade>
             </Desc>
-            <hr />
-            <Part>
-                <h2><strong>Participantes:</strong></h2>
-            </Part>
             <hr />
             <Footer>
                 <Link to={data.sessaoId != null ? `/sessao/ficha/${data.id}` : `/ficha/${data.id}`}>Acessar Ficha</Link>

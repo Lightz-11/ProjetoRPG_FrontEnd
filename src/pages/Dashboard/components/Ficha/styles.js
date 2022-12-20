@@ -91,7 +91,7 @@ export const Button = styled('button', {
 })
 
 export const Desc = styled('div', {
-    height: '6rem',
+    height: '12.5rem',
     display: 'flex',
     justifyContent: 'left',
     marginTop: '1rem',
@@ -107,26 +107,36 @@ export const Desc = styled('div', {
         textAlign: 'left',
         fontWeight: '100',
         wordBreak: 'break-word'
+    },
+
+    img: {
+        border: '1px solid white',
+        borderRadius: '70rem'
     }
 })
 
-export const Part = styled('div', {
-    height: '3.8rem',
-    display: 'flex',
-    justifyContent: 'left',
-    marginTop: '1rem',
-    marginBottom: '1rem',
-    overflowY: 'auto',
-    overflowX: 'hidden',
+export const Grade = styled('div', {
+    display: "grid",
+    width: '100%',
+    alignItems: 'center',
+    justifyItems: 'center',
+    flexDirection: 'column',
+    gridTemplateColumns: '1fr 1fr',
 
-    h2: {
-        width: 'max-content',
-        height: 'max-content',
-        color: 'white',
+    strong: {
+        fontSize: '1.8rem'
+    },
+
+    span: {
+        width: '80%',
         fontSize: '1.6rem',
-        textAlign: 'left',
-        fontWeight: '100',
-        wordBreak: 'break-word',
+        height: '5rem',
+        display: 'flex',
+        alignItems: 'center',
+        color: 'white',
+        paddingLeft: '1rem',
+        gap: '.5rem',
+        border: '1px solid #ffffff90'
     }
 })
 
