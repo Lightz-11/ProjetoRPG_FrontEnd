@@ -36,6 +36,8 @@ export function Portrait() {
 
   const navigate = useNavigate()
 
+  const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
+
   useEffect(() => {
 
     async function fetchData() {
