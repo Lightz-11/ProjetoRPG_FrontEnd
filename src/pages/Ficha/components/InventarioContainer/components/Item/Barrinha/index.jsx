@@ -36,7 +36,7 @@ export function Barrinha({ barrinhaId, valorA, setValorA, setValorMax, valorMax,
 
     const porcent = ((valorA * multiply) / (valorMax * multiply)) * 100
 
-    const progress = document.getElementById(`progress${id}`)
+    const progress = document.getElementById(`progress${barrinhaId}`)
 
     progress.style = `width: ${porcent}%`
 
@@ -66,7 +66,7 @@ export function Barrinha({ barrinhaId, valorA, setValorA, setValorMax, valorMax,
       <BarrinhaDiv>
 
         <ProgressBar>
-          <Progress id={`progress${id}`} />
+          <Progress id={`progress${barrinhaId}`} />
         </ProgressBar>
 
       </BarrinhaDiv>
