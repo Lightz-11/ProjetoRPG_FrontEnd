@@ -269,7 +269,6 @@ export function StatusContainer({ status, defesas, portrait }) {
 
 
 
-
   function executeUpdateCombate({ fichaId, newCombate }) {
     if (fichaId == id) {
       setCombate(newCombate)
