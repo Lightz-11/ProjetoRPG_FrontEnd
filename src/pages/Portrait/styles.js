@@ -67,6 +67,17 @@ export const Main = styled('main', {
     zIndex: 10
   },
 
+  h6: {
+    fontSize: '6rem',
+    fontFamily: 'Special Elite',
+    fontWeight: 100,
+    color: 'red',
+    textShadow: '0 0 15px',
+    top: '42%',
+    left: '13rem',
+    position: 'absolute'
+  },
+
 })
 
 const opacityUp = keyframes({

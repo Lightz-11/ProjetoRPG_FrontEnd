@@ -34,6 +34,8 @@ export function Portrait() {
 
   const [animation, setAnimation] = useState(false)
 
+  const [semPerm, setSemPerm] = useState(false)
+
   const navigate = useNavigate()
 
   const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
@@ -50,12 +52,14 @@ export function Portrait() {
           if (response.data.userId != dataUser.id && response2.data.userId != dataUser.id) {
 
             if (response.data.isPublic != true) {
+              setSemPerm(true)
               return
             }
 
           }
         } else {
           if (response.data.isPublic != true) {
+            setSemPerm(true)
             return
           }
         }
@@ -267,6 +271,7 @@ export function Portrait() {
           <h5>x {municao}</h5>
         </Municao>
 
+        {semPerm && <h6>Portrait Privado</h6>}
         <PortraitImg id='imagem' animation={animation} inconsciente={inconsciente} src={portraitImg} />
         <img src={FundoPortrait} />
       </Main>
