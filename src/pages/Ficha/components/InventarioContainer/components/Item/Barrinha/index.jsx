@@ -12,6 +12,8 @@ export function Barrinha({ barrinhaId, valorA, setValorA, setValorMax, valorMax,
 
   const [disabled, setDisabled] = useState(true)
 
+  const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
+
   useEffect(() => {
 
     async function fetchData() {
