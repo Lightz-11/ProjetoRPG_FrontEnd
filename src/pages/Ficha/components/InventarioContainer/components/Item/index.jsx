@@ -77,7 +77,7 @@ export function Item({ data, atualizar, itens, setPesoAtual }) {
           <Span>{data.descricao ? data.descricao : "Este item não tem uma descrição..."}</Span>
 
           {data.isMunicao &&
-            <Barrinha id={data.id} valorA={municao} setValorA={setMunicao} valorMax={municaoMax} setValorMax={setMunicaoMax} />
+            <Barrinha barrinhaId={data.id} valorA={municao} setValorA={setMunicao} valorMax={municaoMax} setValorMax={setMunicaoMax} />
           }
 
           <ParteImg>

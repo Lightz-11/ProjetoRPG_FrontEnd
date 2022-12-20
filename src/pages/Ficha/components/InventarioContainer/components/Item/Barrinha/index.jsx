@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { api } from '../../../../../../../services/api';
 
-export function Barrinha({ id, valorA, setValorA, setValorMax, valorMax, ...rest }) {
+export function Barrinha({ barrinhaId, valorA, setValorA, setValorMax, valorMax, ...rest }) {
 
   const { id } = useParams()
 
