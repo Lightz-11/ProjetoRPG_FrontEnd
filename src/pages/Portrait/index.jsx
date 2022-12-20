@@ -50,13 +50,15 @@ export function Portrait() {
           if (response.data.userId != dataUser.id && response2.data.userId != dataUser.id) {
 
             if (response.data.isPublic != true) {
-              navigate('/')
+              setIsLoading(true)
+              return
             }
 
           }
         } else {
           if (response.data.isPublic != true) {
-            navigate('/')
+            setIsLoading(true)
+            return
           }
         }
 
