@@ -2,48 +2,21 @@ import { Link } from "react-router-dom";
 import { styled } from "../../stitches.config";
 
 export const Container = styled("div", {
-    minWidth: "4rem",
-    width: "7rem",
-    height: "100%",
+    width: "auto",
+    right: 0,
+    height: "7rem",
+    top: 0,
+    position: 'fixed',
     transition: "ease 0.5s",
-    textAlign: "center",
-    overflow: "hidden",
-
-    variants: {
-        active: {
-            true: {
-                minWidth: "15rem",
-                width: "15rem",
-            },
-        },
-    },
-});
-
-export const Header = styled("div", {
-    marginTop: "1.5rem",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-
-    hr: {
-        width: "100%",
-        marginTop: "1.5rem",
-        borderColor: "White",
-    },
-});
-
-export const Body = styled("div", {
-    height: "100%",
-    overflowY: "auto",
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    paddingRight: '2rem',
 
     ul: {
-        display: "flex",
-        flexDirection: "column",
-    },
-
-    "button:hover": {
-        opacity: "0.5",
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 
 });
@@ -106,17 +79,9 @@ export const ButtonLink = styled(Link, {
 
 export const Li = styled('li', {
 
-    margin: "5rem 0",
+    margin: "0rem 3rem",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
 
-    variants: {
-        active: {
-            true: {
-                justifyContent: 'flex-start',
-                paddingLeft: '3.5rem'
-            },
-        },
-    },
 })

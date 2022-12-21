@@ -14,6 +14,8 @@ export const Container = styled("div", {
 
 export const Header = styled("div", {
 
+    background: 'rgb(15,15,15)',
+
     h1: {
         color: 'Purple',
         textAlign: 'center',

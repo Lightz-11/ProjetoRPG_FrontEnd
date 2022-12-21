@@ -1,59 +1,49 @@
 import { useState } from 'react';
-import { Container, Header, Body, Button, ButtonLink, Li } from './styles';
+import { Container, Button, ButtonLink, Li } from './styles';
 import { BiArrowFromLeft, BiArrowFromRight } from 'react-icons/bi'
 import { RiUserLine, RiUserUnfollowLine } from 'react-icons/ri'
 import { BsFillDice6Fill } from 'react-icons/bs'
 import { useAuth } from "../../hooks/auth";
+import { useEffect } from 'react';
 
 export function Menu() {
 
   const [active, setActive] = useState(false)
-  const [low, setLow] = useState(false)
+
   const { signOut } = useAuth();
 
-  window.addEventListener('resize', function () {
-    if (window.innerWidth < 800) {
-      setLow(true)
+  useEffect(() => {
+    if (window.innerWidth < 680) {
       setActive(false)
     } else {
-      setLow(false)
+      setActive(true)
     }
-  });
+  })
 
-  function abrirMenu() {
-    if (!low) {
-      setActive(!active)
+  window.addEventListener('resize', () => {
+    if (window.innerWidth < 680) {
+      setActive(false)
+    } else {
+      setActive(true)
     }
-  }
+  })
 
   return (
-    <Container active={active.toString()}>
+    <Container>
 
-      <Header>
+      <ul>
 
-        <Button onClick={abrirMenu}> {active == true ? <BiArrowFromRight size={40} /> : <BiArrowFromLeft size={40} />} </Button>
+        <Li>
+          <ButtonLink color={'purple'} to={"/"}> <BsFillDice6Fill size={20} /> {active && 'Painel'}</ButtonLink>
+        </Li>
+        <Li>
+          <ButtonLink color={'yellow'} to={'/conta'}> <RiUserLine size={25} />{active && 'Conta'} </ButtonLink>
+        </Li>
+        <Li>
+          <Button color={'crimson'} onClick={() => { signOut() }}> <RiUserUnfollowLine size={25} /> {active && 'Sair'}</Button>
+        </Li>
 
-        <hr />
-
-      </Header>
-
-      <Body active={active.toString()}>
-
-        <ul>
-
-          <Li active={active.toString()}>
-            <ButtonLink color={'purple'} to={"/"}> <BsFillDice6Fill size={20} /> {active ? 'Painel' : ''} </ButtonLink>
-          </Li>
-          <Li active={active.toString()}>
-            <ButtonLink color={'yellow'} to={'/conta'}> <RiUserLine size={25} /> {active ? 'Conta' : ''} </ButtonLink>
-          </Li>
-          <Li active={active.toString()}>
-            <Button color={'crimson'} onClick={() => { signOut() }}> <RiUserUnfollowLine size={25} /> {active ? 'Sair' : ''} </Button>
-          </Li>
-
-        </ul>
-
-      </Body>
+      </ul>
 
     </Container>
   );

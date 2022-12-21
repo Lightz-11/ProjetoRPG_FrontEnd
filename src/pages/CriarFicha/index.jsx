@@ -251,7 +251,7 @@ export function CriarFicha() {
 
           <h1>Atributos e Status</h1>
 
-          <Atributo agi={agi} setAgi={setAgi} int={int} setInt={setInt} vig={vig} setVig={setVig} pre={pre} setPre={setPre} forca={forca} setFor={setFor} />
+          <AtributoInput agi={agi} setAgi={setAgi} int={int} setInt={setInt} vig={vig} setVig={setVig} pre={pre} setPre={setPre} forca={forca} setFor={setFor} />
 
           <Input onlyNumber maxLength={2} label={'Vida Máxima (PV)'} valor={pv} setValor={setPv} />
           <Span>Deixe o valor em 1 para calcular automaticamente!</Span>
