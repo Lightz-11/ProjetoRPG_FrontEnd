@@ -15,6 +15,7 @@ export const { styled, css, keyframes } = createStitches({
         lg3: "(max-width: 1180px)",
 
         sm4: "(max-width: 750px)",
+        md4: "(max-width: 1300px)",
         lg4: "(max-width: 1440px)",
     }
 });

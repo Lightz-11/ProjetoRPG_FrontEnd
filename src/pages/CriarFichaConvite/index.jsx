@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { Input } from '../../components';
-import { Atributo } from './components/Atributo';
+import { AtributoInput } from '../../components/AtributoInput';
 import { Select } from '../../components/Select';
 import { api } from '../../services/api';
 import { Container, Header, Body, Principal, Atributos, Footer, Span } from './styles';

@@ -1,8 +1,8 @@
-import { InputAtributo } from "../../../../components/InputAtributo"
+import { InputAtributo } from "./InputAtributo"
 import { Container, Top, Bot, Mid, Img } from "./styles"
 
 
-export function Atributo({ agi, setAgi, int, setInt, vig, setVig, pre, setPre, forca, setFor, ...rest }) {
+export function AtributoInput({ agi, setAgi, int, setInt, vig, setVig, pre, setPre, forca, setFor, ...rest }) {
 
     return (
         <Container>

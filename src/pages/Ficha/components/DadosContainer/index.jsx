@@ -8,7 +8,7 @@ import { Modal } from '../../../../components/Modals/Modal';
 import { ToastContainer } from 'react-toastify';
 import { AiOutlineSend } from 'react-icons/ai'
 import { ButtonIcon } from '../../../../components/ButtonIcon';
-import { ModalDadoRolado } from './components/ModalDadoRolado';
+import { ModalDadoRolado } from '../../../../components/ModalDadoRolado';
 import { useParams } from 'react-router-dom'
 import { ButtonAdd } from '../../../../components/ButtonAdd';
 

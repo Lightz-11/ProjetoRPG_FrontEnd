@@ -2,7 +2,7 @@ import { Container, Button, Body } from './styles';
 import { FaDiceD20 } from 'react-icons/fa'
 import { Modal } from '../../../../../../components/Modals/Modal';
 import { useEffect, useState } from 'react';
-import { ModalDadoRolado } from '../ModalDadoRolado';
+import { ModalDadoRolado } from '../../../../../../components/ModalDadoRolado';
 import { MdOutlineEdit } from 'react-icons/md'
 import { ModalEditDado } from '../ModalEditDado';
 import { ButtonEdit } from '../../../../../../components/ButtonEdit';

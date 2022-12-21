@@ -1,5 +1,5 @@
 import { Container, Header, DoubleParteContainer, Body } from './styles';
-import { DadosContainer, PrincipalContainer, StatusContainer, InventarioContainer } from './components'
+import { DadosContainer, PrincipalContainer, StatusContainer, InventarioContainer, AtributoContainer, PericiasContainer } from './components'
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -67,6 +67,12 @@ export function Ficha() {
               <PrincipalContainer data={ficha && ficha.Principal[0]} />
               <StatusContainer status={ficha && ficha.Status[0]} defesas={ficha && ficha.Defesas[0]} portrait={ficha && ficha.Portrait[0]} />
             </DoubleParteContainer>
+
+            <DoubleParteContainer>
+              <AtributoContainer data={ficha && ficha.Atributos[0]} />
+              {/* <PericiasContainer data={ficha && ficha.Pericias[0]} atributos={ficha && ficha.Atributos[0]} /> */}
+            </DoubleParteContainer>
+
             <DadosContainer />
             <InventarioContainer peso={ficha && ficha.Status[0].peso} />
 

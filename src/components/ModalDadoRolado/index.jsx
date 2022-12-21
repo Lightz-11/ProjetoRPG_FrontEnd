@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { RiContactsBookLine } from 'react-icons/ri';
 import { Container, Header, Main, Footer, CloseButton } from './styles';
 
 export function ModalDadoRolado({ setModalEditIsOpenFalse, data }) {

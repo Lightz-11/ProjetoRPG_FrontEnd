@@ -1,4 +1,4 @@
-import { styled } from '../../../../stitches.config';
+import { styled } from '../../stitches.config';
 
 export const Container = styled('div', {
 
@@ -7,7 +7,30 @@ export const Container = styled('div', {
     alignItems: 'center',
     justifyContent: 'center',
     position: 'relative',
-    marginTop: '4rem',
+
+    button: {
+        width: 'fit-content',
+        height: 'fit-content',
+        fontSize: "4rem",
+        padding: '1rem .5rem 0rem .5rem',
+        background: "none",
+        border: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: 'white',
+        zIndex: 1,
+        fontFamily: 'Special Elite',
+        transition: '.3s',
+
+        "@sm": {
+            fontSize: '3rem'
+        }
+    },
+
+    'button:hover': {
+        color: 'Crimson'
+    }
 
 })
 
@@ -15,17 +38,16 @@ export const Top = styled('div', {
     position: 'absolute',
     display: 'flex',
     justifyContent: 'center',
-    top: '11%',
+    top: '10%',
 
     '@sm': {
         top: '9%',
-        marginRight: '-.1rem',
     }
 })
 
 export const Mid = styled('div', {
     position: 'absolute',
-    top: '32%',
+    top: '30%',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
@@ -33,26 +55,24 @@ export const Mid = styled('div', {
     gap: '21.8rem',
 
     '@sm': {
-        top: '30%',
+        top: '29%',
         gap: '15.6rem',
-        marginRight: '-.3rem'
     }
 })
 
 export const Bot = styled('div', {
     position: 'absolute',
-    marginRight: '.3rem',
-    top: '69%',
+    top: '67.5%',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: '14.7rem',
+    gap: '14.5rem',
 
     '@sm': {
-        top: '67.5%',
+        top: '66.5%',
         gap: '10.2rem',
-        marginRight: '0rem'
+        marginRight: '0.7rem'
     }
 })
 

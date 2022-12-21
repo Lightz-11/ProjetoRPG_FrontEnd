@@ -96,8 +96,6 @@ export const Desc = styled('div', {
     justifyContent: 'left',
     marginTop: '1rem',
     marginBottom: '1rem',
-    overflowY: 'auto',
-    overflowX: 'hidden',
 
     h2: {
         width: 'max-content',
@@ -116,28 +114,52 @@ export const Desc = styled('div', {
 })
 
 export const Grade = styled('div', {
-    display: "grid",
+    display: "flex",
     width: '100%',
     alignItems: 'center',
-    justifyItems: 'center',
-    flexDirection: 'column',
-    gridTemplateColumns: '1fr 1fr',
+    justifyContent: 'center',
 
     strong: {
         fontSize: '1.8rem'
     },
 
     span: {
-        width: '80%',
+        width: '45%',
         fontSize: '1.6rem',
-        height: '5rem',
-        display: 'flex',
+        height: 'max-contet',
         alignItems: 'center',
         color: 'white',
+        padding: '.5rem .5rem',
         paddingLeft: '1rem',
         gap: '.5rem',
         border: '1px solid #ffffff90'
-    }
+    },
+
+})
+
+export const MiniGrade = styled('div', {
+    display: "flex",
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
+
+    strong: {
+        fontSize: '1.8rem'
+    },
+
+    span: {
+        width: '45%',
+        fontSize: '1.6rem',
+        height: 'max-contet',
+        alignItems: 'center',
+        color: 'white',
+        padding: '.5rem .5rem',
+        paddingLeft: '1rem',
+        gap: '.5rem',
+        border: '1px solid #ffffff90'
+    },
+
 })
 
 export const Footer = styled('div', {
