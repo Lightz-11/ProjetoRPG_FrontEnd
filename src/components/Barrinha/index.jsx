@@ -12,6 +12,8 @@ export function Barrinha({ valorA, setValorA, setValorMax, valorMax, color, numb
   const [low, setLow] = useState(false)
   const [bigLow, setBigLow] = useState(false)
 
+  const { id } = useParams()
+
   const { disabled } = useDisabled()
 
   const [classe, setClasse] = useState('')
@@ -33,11 +35,19 @@ export function Barrinha({ valorA, setValorA, setValorMax, valorMax, color, numb
       setLow(false)
     }
 
-    setClasse(response.data.Principal[0].classe)
-    setNex(response.data.Principal[0].nex)
+    async function fetchData() {
 
-    setPre(response.data.Atributos[0].pre)
-    setVig(response.data.Atributos[0].vig)
+      const response = await api.get(`/fichas/${id}`)
+
+      setClasse(response.data.Principal[0].classe)
+      setNex(response.data.Principal[0].nex)
+
+      setPre(response.data.Atributos[0].pre)
+      setVig(response.data.Atributos[0].vig)
+
+    }
+
+    fetchData()
 
   }, []);
 
