@@ -6,25 +6,31 @@ import { useAuth } from "../../hooks/auth";
 
 export function Menu() {
 
-  const [active, setActive] = useState(false)
+  const [active, setActive] = useState('fechado')
   const { signOut } = useAuth();
 
   function abrirMenu() {
-    setActive(!active)
+    if (active == 'fechado') {
+      setActive('aberto')
+    } else if (active == 'aberto') {
+      setActive('fechando')
+      setTimeout(() => { setActive('fechado') }, 300)
+    }
   }
 
   window.addEventListener("click", (event) => {
 
-    if (event.screenX > 151) {
-      if (active) {
-        setActive(false)
+    if (event.clientX > 151) {
+      if (active == 'aberto') {
+        setActive('fechando')
+        setTimeout(() => { setActive('fechado') }, 300)
       }
     }
 
   });
 
   return (
-    <Container >
+    <Container active={active} >
 
       <Header>
 

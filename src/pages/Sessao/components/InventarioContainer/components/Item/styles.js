@@ -11,6 +11,7 @@ export const Header = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
+
   padding: '0.5rem 1rem',
 
   div: {
@@ -20,8 +21,7 @@ export const Header = styled('div', {
   h1: {
     color: 'purple',
     fontSize: '3rem',
-    whiteSpace: 'nowrap',
-    marginRight: '1.5rem',
+    textAlign: 'center',
     textTransform: 'capitalize',
     fontFamily: 'Permanent Marker',
     fontWeight: 100,
@@ -48,6 +48,10 @@ export const MainTop = styled('div', {
   alignItems: 'center',
   justifyContent: 'center',
   gap: '2rem',
+
+  '@sm5': {
+    gap: '1.5rem',
+  },
 
   span: {
     color: 'white',

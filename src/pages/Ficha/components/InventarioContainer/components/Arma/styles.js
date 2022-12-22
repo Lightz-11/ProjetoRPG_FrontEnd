@@ -15,7 +15,7 @@ export const Header = styled('div', {
   h1: {
     color: 'crimson',
     fontSize: '3rem',
-    marginRight: '1.5rem',
+    textAlign: 'center',
     whiteSpace: 'nowrap',
     textTransform: 'capitalize',
     fontFamily: 'Permanent Marker',
@@ -164,7 +164,7 @@ export const Dados = styled('div', {
 })
 
 export const Button = styled('button', {
-  width: '100%',
+  width: 'max-content',
   height: '3rem',
   background: 'none',
   padding: '0 1rem',
@@ -179,6 +179,10 @@ export const Button = styled('button', {
     position: 'relative',
     bottom: '.1rem',
     fontSize: '1.8rem',
+  },
+
+  '@md5': {
+    width: '100%'
   },
 
   variants: {
@@ -210,6 +214,10 @@ export const Danos = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+
+  '@md5': {
+    flexDirection: 'column'
+  }
 
 })
 

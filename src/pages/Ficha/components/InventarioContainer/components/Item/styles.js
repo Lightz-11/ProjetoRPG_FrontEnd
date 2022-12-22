@@ -21,7 +21,7 @@ export const Header = styled('div', {
   h1: {
     color: 'purple',
     fontSize: '3rem',
-    marginRight: '1.5rem',
+    textAlign: 'center',
     textTransform: 'capitalize',
     fontFamily: 'Permanent Marker',
     fontWeight: 100,

@@ -13,13 +13,13 @@ export const Botoes = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  padding: '0rem 2rem',
+  padding: '.5rem 2rem',
   fontFamily: 'Special Elite',
 
   span: {
     color: 'white',
     fontSize: '1.8rem',
-    padding: '1rem .5rem',
+    marginBottom: '-.5rem',
     fontWeight: 100
   },
 
@@ -40,7 +40,6 @@ export const Botoes = styled('div', {
     borderRadius: '7px',
     fontWeight: 100,
 
-
   },
 
   svg: {
@@ -50,13 +49,6 @@ export const Botoes = styled('div', {
   'button:hover': {
     border: '1px solid white'
   },
-
-  '@md2': {
-    padding: '0rem',
-    button: {
-      margin: '0rem .2rem',
-    }
-  }
 })
 
 export const Esquerda = styled('div', {

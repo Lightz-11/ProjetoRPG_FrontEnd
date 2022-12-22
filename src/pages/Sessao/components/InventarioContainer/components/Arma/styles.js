@@ -2,8 +2,7 @@ import { styled, keyframes } from '../../../../../../stitches.config';
 
 export const Container = styled('div', {
   border: '2px solid crimson',
-  display: 'flex',
-  flexDirection: 'column'
+  minWidth: '4rem'
 })
 
 export const Header = styled('div', {
@@ -11,12 +10,12 @@ export const Header = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  padding: '0.5rem',
+  padding: '0.5rem 1rem',
 
   h1: {
     color: 'crimson',
     fontSize: '3rem',
-    marginRight: '1.5rem',
+    textAlign: 'center',
     whiteSpace: 'nowrap',
     textTransform: 'capitalize',
     fontFamily: 'Permanent Marker',
@@ -32,7 +31,7 @@ export const Main = styled('div', {
   flexDirection: 'column',
   alignItems: 'center',
   gap: '1rem',
-  flex: 1,
+  justifyContent: 'center',
   padding: '1rem 0'
 
 })
@@ -63,8 +62,7 @@ export const MainBottom = styled('div', {
   width: '100%',
   alignItems: 'center',
   justifyContent: 'center',
-  gap: '2.5rem',
-  flex: 1
+  gap: '2.5rem'
 
 })
 
@@ -166,13 +164,15 @@ export const Dados = styled('div', {
 })
 
 export const Button = styled('button', {
-  width: '100%',
+  width: 'max-content',
   height: '3rem',
   background: 'none',
   padding: '0 1rem',
-  whiteSpace: 'nowrap',
   fontSize: '1.6rem',
   fontFamily: 'Special Elite',
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
 
   strong: {
     fontFamily: 'Cinzel Decorative',
@@ -181,16 +181,12 @@ export const Button = styled('button', {
     fontSize: '1.8rem',
   },
 
+  '@md5': {
+    width: '100%'
+  },
+
   variants: {
     color: {
-      purple: {
-        color: 'purple',
-        border: '2px solid #800080',
-
-        '&:hover': {
-          background: '#80008050',
-        }
-      },
       crimson: {
         color: 'crimson',
         border: '2px solid crimson',
@@ -219,10 +215,14 @@ export const Danos = styled('div', {
   alignItems: 'center',
   justifyContent: 'center',
 
+  '@md5': {
+    flexDirection: 'column'
+  }
+
 })
 
 export const ContainerDadoRolado = styled('div', {
-  paddingTop: '1.5rem',
+  paddingTop: '1rem',
   width: '90%'
 })
 
@@ -233,7 +233,6 @@ export const ParteImg = styled('div', {
   cursor: 'pointer',
   display: 'flex',
   justifyContent: 'center',
-  flex: 1,
 
   img: {
     objectFit: 'contain'
@@ -245,11 +244,11 @@ export const ParteImgModal = styled('div', {
   width: '100%',
   display: 'flex',
   justifyContent: 'center',
+  overflow: 'hidden',
 
   img: {
     objectFit: 'contain'
   }
-
 })
 
 const scaleUp = keyframes({

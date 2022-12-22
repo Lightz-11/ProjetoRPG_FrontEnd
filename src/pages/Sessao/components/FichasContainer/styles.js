@@ -14,6 +14,11 @@ export const HeaderContainer = styled("div", {
   alignItems: "center",
   position: "relative",
 
+  '@md5': {
+    justifyContent: 'left',
+    paddingLeft: '2rem'
+  },
+
   h1: {
     textAlign: "center",
     color: "white",

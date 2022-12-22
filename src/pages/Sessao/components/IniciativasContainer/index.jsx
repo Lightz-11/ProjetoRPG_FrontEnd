@@ -23,14 +23,6 @@ export function IniciativasContainer() {
 
   const { fichas } = useFichas()
 
-  useEffect(() => {
-    if (window.innerWidth < 650) {
-      setLow(true)
-    } else {
-      setLow(false)
-    }
-  }, [])
-
   window.addEventListener('resize', function () {
     if (window.innerWidth < 650) {
       setLow(true)
@@ -41,9 +33,11 @@ export function IniciativasContainer() {
 
   useEffect(() => {
 
-    fichas.forEach(ficha => {
-      setarCombate(ficha.id, false)
-    });
+    if (window.innerWidth < 650) {
+      setLow(true)
+    } else {
+      setLow(false)
+    }
 
     async function fetchData() {
 
@@ -59,6 +53,14 @@ export function IniciativasContainer() {
     }
     fetchData()
   }, [])
+
+  useEffect(() => {
+
+    fichas.forEach(ficha => {
+      setarCombate(ficha.id, false)
+    });
+
+  }, [fichas])
 
   async function handleCreate() {
 
@@ -115,9 +117,18 @@ export function IniciativasContainer() {
     socket.emit("status.combate", { fichaId, newCombate });
   }
 
+  async function handleEdit(ficha) {
+    const response = await api.put(`/fichas/status/${ficha}`, {
+      combate: !combate
+    })
+
+  }
+
   function combateAll() {
     fichas.forEach(ficha => {
       setarCombate(ficha.id, !combate)
+
+      handleEdit(ficha.id)
     });
 
     setCombate(!combate)

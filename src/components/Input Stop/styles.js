@@ -28,6 +28,8 @@ export const InputB = styled('h2', {
     color: 'white',
     fontWeight: '100',
     transition: 'ease 0.5s',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis'
 })
 
 export const LabelContainer = styled('label', {

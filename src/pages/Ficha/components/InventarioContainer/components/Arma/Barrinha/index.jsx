@@ -8,12 +8,19 @@ import { api } from '../../../../../../../services/api';
 export function Barrinha({ barrinhaId, valorA, setValorA, valorMax, ...rest }) {
 
   const [disabled, setDisabled] = useState(true)
+  const [low, setLow] = useState(false)
 
   const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
 
   const { id } = useParams()
 
   useEffect(() => {
+
+    if (window.innerWidth < 420) {
+      setLow(true)
+    } else {
+      setLow(false)
+    }
 
     async function fetchData() {
       try {
@@ -43,19 +50,27 @@ export function Barrinha({ barrinhaId, valorA, setValorA, valorMax, ...rest }) {
 
   }, [valorA, valorMax])
 
+  window.addEventListener('resize', () => {
+    if (window.innerWidth < 420) {
+      setLow(true)
+    } else {
+      setLow(false)
+    }
+  })
+
   return (
     <Container>
 
       <Botoes>
 
         <Esquerda>
-          <button disabled={disabled} onClick={() => { setValorA(0) }}><SlArrowLeft />0</button>
+          {!low && <button disabled={disabled} onClick={() => { setValorA(0) }}><SlArrowLeft />0</button>}
           <button disabled={disabled} onClick={() => { if (valorA > valorMax) { setValorA(valorMax) } else if (valorA > 1) { setValorA(valorA - 1) } else { setValorA(0) } }}><SlArrowLeft />- 1</button>
         </Esquerda>
         <span>{valorA} / {valorMax}</span>
         <Direita>
           <button disabled={disabled} onClick={() => { if (valorA != valorMax && valorA < valorMax) { setValorA(valorA + 1) } else { setValorA(valorMax) } }}>+ 1<SlArrowRight /> </button>
-          <button disabled={disabled} onClick={() => { setValorA(valorMax) }}>{valorMax}<SlArrowRight /></button>
+          {!low && <button disabled={disabled} onClick={() => { setValorA(valorMax) }}>{valorMax}<SlArrowRight /></button>}
         </Direita>
 
       </Botoes>

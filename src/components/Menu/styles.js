@@ -3,11 +3,25 @@ import { styled } from "../../stitches.config";
 
 export const Container = styled("div", {
     position: 'absolute',
-    height: "100%",
-    zIndex: 20,
-    transition: "ease 0.5s",
+    height: "72px",
     textAlign: "center",
     overflow: "hidden",
+
+    variants: {
+        active: {
+            aberto: {
+                height: '100%',
+                zIndex: 10,
+            },
+            fechando: {
+                height: '100%',
+                zIndex: 10,
+            },
+            fechado: {
+                height: '72px',
+            }
+        }
+    }
 });
 
 export const Header = styled("div", {
@@ -29,17 +43,25 @@ export const Header = styled("div", {
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'column',
-        gap: '.7rem'
+        gap: '.7rem',
+        transition: '.3s'
+    },
+
+    '@md5': {
+        button: {
+            transform: 'translateX(-3rem)'
+        }
     }
+
 });
 
 export const Body = styled("div", {
 
     height: "100%",
-    overflowY: "auto",
     background: 'rgb(15,15,15)',
     width: '0px',
     transition: '.5s',
+    overflow: 'hidden',
 
     ul: {
         display: 'flex',
@@ -60,9 +82,10 @@ export const Body = styled("div", {
 
     variants: {
         active: {
-            true: {
+            aberto: {
                 width: "15rem",
-            },
+                transition: '.5s'
+            }
         },
     },
 
@@ -93,7 +116,7 @@ export const Line1 = styled('div', {
 
     variants: {
         active: {
-            true: {
+            aberto: {
                 transform: 'rotate(45deg) translate(8px, 8px)'
             }
         }
@@ -108,7 +131,7 @@ export const Line2 = styled('div', {
 
     variants: {
         active: {
-            true: {
+            aberto: {
                 opacity: 0
             }
         }
@@ -123,7 +146,7 @@ export const Line3 = styled('div', {
 
     variants: {
         active: {
-            true: {
+            aberto: {
                 transform: 'rotate(-45deg) translate(5px, -7px)'
             }
         }

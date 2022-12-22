@@ -61,7 +61,13 @@ export const TopBody = styled('div', {
   width: '100%',
   display: 'flex',
   alignItems: 'center',
-  padding: '2rem'
+  padding: '2rem',
+
+  '@md5': {
+    flexDirection: 'column-reverse',
+    paddingTop: '3rem',
+    gap: '3rem'
+  }
 
 })
 
@@ -87,6 +93,10 @@ export const Buttons = styled('div', {
     marginTop: '-.5rem',
     fontFamily: 'Special Elite',
     letterSpacing: '.1rem',
+  },
+
+  '@md5': {
+    width: '90%'
   }
 
 })
@@ -117,6 +127,12 @@ export const Portrait = styled(Link, {
     height: '150px'
   },
 
+  '@md5': {
+    width: '200px',
+    height: '200px',
+    marginLeft: '3rem'
+  }
+
 })
 
 export const Img = styled('img', {
@@ -136,6 +152,11 @@ export const Img = styled('img', {
   '@md2': {
     width: '150px',
     height: '147px'
+  },
+
+  '@md5': {
+    width: '200px',
+    height: '197px',
   },
 
   variants: {
