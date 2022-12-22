@@ -27,6 +27,7 @@ export const HeaderContainer = styled("div", {
   button: {
     background: "none",
     border: "none",
+    width: 'fit-content',
     color: "Green",
     position: "absolute",
     right: "1.5rem",
@@ -77,6 +78,7 @@ export const Body = styled('div', {
   position: 'relative',
   display: 'flex',
   alignItems: 'center',
+  justifyContent: 'space-between',
   flexDirection: 'column',
   gap: '3rem'
 })
@@ -102,7 +104,7 @@ export const ButtonIcon = styled('button', {
   position: 'relative',
   left: 0,
   textAlign: 'center',
-  paddingLeft: '2rem',
+  marginLeft: '2rem',
   background: 'none',
 
 })

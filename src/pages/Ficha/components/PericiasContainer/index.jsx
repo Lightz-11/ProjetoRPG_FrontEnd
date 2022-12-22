@@ -56,11 +56,19 @@ export function PericiasContainer({ data, atributos }) {
 
   }, [])
 
+  function trocarOlho() {
+    if (active != 'pontuadas') {
+      setActive('pontuadas')
+    } else {
+      setActive('todas')
+    }
+  }
+
   return (
     <Container>
 
       <HeaderContainer>
-        <ButtonIcon onClick={() => { if (active != 'todas') { setActive('todas') } else { setActive('pontuadas') } }}>{active != 'todas' ? <BsEyeSlash color='aqua' size={23} /> : <BsEye color='aqua' size={23} />}</ButtonIcon>
+        <ButtonIcon onClick={trocarOlho}>{active != 'todas' ? <BsEyeSlash color='aqua' size={23} /> : <BsEye color='aqua' size={23} />}</ButtonIcon>
         <h1>Perícias</h1>
         <ButtonEdit />
       </HeaderContainer>

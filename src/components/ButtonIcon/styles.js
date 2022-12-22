@@ -2,6 +2,7 @@ import { styled } from "../../stitches.config";
 
 export const Container = styled("button", {
   background: "none",
+  width: 'fit-content',
   border: "none",
   display: "flex",
   justifyContent: "center",

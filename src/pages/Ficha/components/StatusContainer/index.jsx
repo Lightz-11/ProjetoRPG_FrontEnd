@@ -281,40 +281,6 @@ export function StatusContainer({ status, defesas, portrait }) {
   }
   socket.on("status.inconsciente", executeUpdateInconsciente);
 
-  function executeUpdatePvAtual({ fichaId, newPvAtual }) {
-    if (fichaId == id) {
-      setPvA(newPvAtual)
-    }
-  }
-  socket.on("status.pvA", executeUpdatePvAtual);
-
-  function executeUpdatePvMax({ fichaId, newPvMax }) {
-    if (fichaId == id) {
-      setPvMax(newPvMax)
-    }
-  }
-  socket.on("status.pvMax", executeUpdatePvMax);
-
-  function executeUpdateSanAtual({ fichaId, newSanAtual }) {
-    if (fichaId == id) {
-      setSanA(newSanAtual)
-    }
-  }
-  socket.on("status.sanA", executeUpdateSanAtual);
-
-  function executeUpdateSanMax({ fichaId, newSanMax }) {
-    if (fichaId == id) {
-      setSanMax(newSanMax)
-    }
-  }
-  socket.on("status.sanMax", executeUpdateSanMax);
-
-  function executeUpdatePeAtual({ fichaId, newPeAtual }) {
-    if (fichaId == id) {
-      setPeA(newPeAtual)
-    }
-  }
-  socket.on("status.peA", executeUpdatePeAtual);
 
   return (
     <Container>
