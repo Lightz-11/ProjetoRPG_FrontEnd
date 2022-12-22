@@ -282,7 +282,7 @@ export function Portrait() {
           <h4>{nomePortrait}</h4>
         </Status2>
 
-        <h3>{peA}</h3>
+        {!semPerm && <h3>{peA}</h3>}
 
         <Municao active={municaoAtiva}>
           <img src={municaoImg} />
@@ -290,7 +290,7 @@ export function Portrait() {
         </Municao>
 
         {semPerm && <h6>Portrait Privado</h6>}
-        <PortraitImg id='imagem' animation={animation} inconsciente={inconsciente} src={portraitImg} />
+        <PortraitImg id='imagem' animation={animation} inconsciente={inconsciente} semPerm={semPerm} src={portraitImg} />
         <img src={FundoPortrait} />
       </Main>
       <Dado active={false}>

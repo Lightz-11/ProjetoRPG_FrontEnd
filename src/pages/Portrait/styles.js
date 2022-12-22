@@ -48,9 +48,9 @@ export const Main = styled('main', {
     fontWeight: 100,
     bottom: '10rem',
     left: '9rem',
-    color: '#ffee00ff',
+    color: '#ffd900ff',
     transform: 'rotate(-7deg)',
-    textShadow: '#ffea00 0 0 15px, #ffa600 0 0 20px',
+    textShadow: '#ffa600 0 0 15px, #ffa600 0 0 20px',
     zIndex: 10
   },
 
@@ -74,7 +74,7 @@ export const Main = styled('main', {
     fontWeight: 700,
     color: 'red',
     textShadow: '#640000 5px 5px 10px',
-    top: '47%',
+    top: '45%',
     left: '5rem',
     position: 'absolute'
   },
@@ -255,6 +255,11 @@ export const PortraitImg = styled('img', {
       false: {
         animation: `${opacityUp} .2s`,
         opacity: 1
+      }
+    },
+    semPerm: {
+      true: {
+        width: '0px'
       }
     }
   }
