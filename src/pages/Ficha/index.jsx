@@ -27,16 +27,29 @@ export function Ficha() {
         setIsLoading(true)
 
         const response = await api.get(`/fichas/${id}`)
-        const response2 = await api.get(`/sessoes/${response.data.sessaoId}`)
 
-        if (response.data.userId != dataUser.id && response2.data.userId != dataUser.id) {
+        if (response.data.sessaoId != null) {
+          const response2 = await api.get(`/sessoes/${response.data.sessaoId}`)
 
-          if (response.data.isPublic != true) {
-            navigate('/')
-          } else {
-            setDisabled(true)
+          if (response.data.userId != dataUser.id && response2.data.userId != dataUser.id) {
+
+            if (response.data.isPublic != true) {
+              navigate('/')
+            } else {
+              setDisabled(true)
+            }
+
           }
+        } else {
+          if (response.data.userId != dataUser.id) {
 
+            if (response.data.isPublic != true) {
+              navigate('/')
+            } else {
+              setDisabled(true)
+            }
+
+          }
         }
 
         setFicha(response.data)
