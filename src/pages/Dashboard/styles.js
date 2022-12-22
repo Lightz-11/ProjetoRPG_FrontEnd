@@ -33,6 +33,7 @@ export const Header = styled("div", {
 export const Body = styled('div', {
     padding: '3rem',
     overflowY: 'auto',
+    paddingBottom: '10rem'
 })
 
 export const SessaoContainer = styled("div", {
