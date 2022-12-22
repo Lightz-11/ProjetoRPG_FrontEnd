@@ -1,4 +1,4 @@
-import { Pericias, Container, HeaderContainer, Footer, Button, ButtonIcon } from './styles';
+import { Body, Pericias, Container, HeaderContainer, Footer, Button, ButtonIcon } from './styles';
 import { useState, useEffect } from 'react';
 import { api } from '../../../../services/api';
 import { Modal } from '../../../../components/Modals/Modal';
@@ -67,36 +67,44 @@ export function PericiasContainer({ data, atributos }) {
 
       <hr />
 
-      <Pericias className='todas' active={active}>
-        {pericias.map(pericia => <Pericia key={pericia.nome} nome={pericia.nome} valor={pericia.valor} atributoChave={pericia.atributoChave} />)}
-      </Pericias>
+      <Body>
 
-      <Pericias className='pontuadas' active={active}>
-        {pericias.map(pericia => pericia.valor > 0 && <Pericia key={pericia.nome} nome={pericia.nome} valor={pericia.valor} atributoChave={pericia.atributoChave} />)}
-      </Pericias>
+        <Pericias>
 
-      <Pericias className='nt' active={active}>
-        {pericias.map(pericia => pericia.valor < 5 && <Pericia key={pericia.nome} nome={pericia.nome} valor={pericia.valor} atributoChave={pericia.atributoChave} />)}
-      </Pericias>
+          {active == 'todas' &&
+            pericias.map(pericia => <Pericia key={pericia.nome} nome={pericia.nome} valor={pericia.valor} atributoChave={pericia.atributoChave} />)
+          }
 
-      <Pericias className='t' active={active}>
-        {pericias.map(pericia => pericia.valor >= 5 && pericia.valor < 10 && <Pericia key={pericia.nome} nome={pericia.nome} valor={pericia.valor} atributoChave={pericia.atributoChave} />)}
-      </Pericias>
+          {active == 'pontuadas' &&
+            pericias.map(pericia => pericia.valor > 0 && <Pericia key={pericia.nome} nome={pericia.nome} valor={pericia.valor} atributoChave={pericia.atributoChave} />)
+          }
 
-      <Pericias className='v' active={active}>
-        {pericias.map(pericia => pericia.valor >= 10 && pericia.valor < 15 && <Pericia key={pericia.nome} nome={pericia.nome} valor={pericia.valor} atributoChave={pericia.atributoChave} />)}
-      </Pericias>
+          {active == 'nt' &&
+            pericias.map(pericia => pericia.valor < 5 && <Pericia key={pericia.nome} nome={pericia.nome} valor={pericia.valor} atributoChave={pericia.atributoChave} />)
+          }
 
-      <Pericias className='e' active={active}>
-        {pericias.map(pericia => pericia.valor >= 15 && <Pericia key={pericia.nome} nome={pericia.nome} valor={pericia.valor} atributoChave={pericia.atributoChave} />)}
-      </Pericias>
+          {active == 't' &&
+            pericias.map(pericia => pericia.valor > 4 && pericia.valor < 10 && <Pericia key={pericia.nome} nome={pericia.nome} valor={pericia.valor} atributoChave={pericia.atributoChave} />)
+          }
 
-      <Footer>
-        <Button onClick={() => setActive('nt')} color={'nt'}>Não Treinadas</Button>
-        <Button onClick={() => setActive('t')} color={'t'}>Treinadas</Button>
-        <Button onClick={() => setActive('v')} color={'v'}>Veteranas</Button>
-        <Button onClick={() => setActive('e')} color={'e'}>Expert</Button>
-      </Footer>
+          {active == 'v' &&
+            pericias.map(pericia => pericia.valor < 15 && pericia.valor > 10 && <Pericia key={pericia.nome} nome={pericia.nome} valor={pericia.valor} atributoChave={pericia.atributoChave} />)
+          }
+
+          {active == 'e' &&
+            pericias.map(pericia => pericia.valor > 15 && <Pericia key={pericia.nome} nome={pericia.nome} valor={pericia.valor} atributoChave={pericia.atributoChave} />)
+          }
+
+        </Pericias>
+
+        <Footer>
+          <Button onClick={() => setActive('nt')} color={'nt'}>Não Treinadas</Button>
+          <Button onClick={() => setActive('t')} color={'t'}>Treinadas</Button>
+          <Button onClick={() => setActive('v')} color={'v'}>Veteranas</Button>
+          <Button onClick={() => setActive('e')} color={'e'}>Expert</Button>
+        </Footer>
+
+      </Body>
 
       <ToastContainer />
 

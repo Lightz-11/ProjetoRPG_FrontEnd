@@ -5,6 +5,7 @@ export const Container = styled("div", {
   marginBottom: "2rem",
   borderRadius: "0.5rem",
   width: "100%",
+  position: 'relative'
 });
 
 export const HeaderContainer = styled("div", {
@@ -48,9 +49,6 @@ export const HeaderContainer = styled("div", {
 export const Pericias = styled("div", {
 
   display: 'grid',
-  alignItems: 'center',
-  justifyContent: 'center',
-  height: '0px',
   gap: '2rem 4rem',
   overflow: 'hidden',
   gridTemplateColumns: '1fr 1fr 1fr 1fr',
@@ -71,54 +69,24 @@ export const Pericias = styled("div", {
     gridTemplateColumns: '1fr 1fr',
   },
 
-
-  variants: {
-    active: {
-      todas: {
-        '&.todas': {
-          height: 'auto',
-          padding: '3rem',
-        }
-      },
-      pontuadas: {
-        '&.pontuadas': {
-          height: 'auto',
-          padding: '3rem',
-        }
-      },
-      nt: {
-        '&.nt': {
-          height: 'auto',
-          padding: '3rem',
-        }
-      },
-      t: {
-        '&.t': {
-          height: 'auto',
-          padding: '3rem',
-        }
-      },
-      v: {
-        '&.v': {
-          height: 'auto',
-          padding: '3rem',
-        }
-      },
-      e: {
-        '&.e': {
-          height: 'auto',
-          padding: '3rem',
-        }
-      }
-    }
-  }
-
 });
+
+export const Body = styled('div', {
+  height: 'calc(100% - 44px)',
+  paddingTop: '3rem',
+  position: 'relative',
+  display: 'flex',
+  alignItems: 'center',
+  flexDirection: 'column',
+  gap: '3rem'
+})
 
 export const Footer = styled('div', {
 
   width: '100%',
   display: 'flex',
+  position: 'relative',
+  bottom: 0,
   alignItems: 'center',
   justifyContent: 'center',
   padding: '0 3rem',
