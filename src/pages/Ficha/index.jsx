@@ -70,7 +70,7 @@ export function Ficha() {
 
             <DoubleParteContainer>
               <AtributoContainer data={ficha && ficha.Atributos[0]} />
-              {/* <PericiasContainer data={ficha && ficha.Pericias[0]} atributos={ficha && ficha.Atributos[0]} /> */}
+              <PericiasContainer data={ficha && ficha.Pericias[0]} atributos={ficha && ficha.Atributos[0]} />
             </DoubleParteContainer>
 
             <DadosContainer />

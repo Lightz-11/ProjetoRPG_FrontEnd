@@ -58,7 +58,7 @@ export const BodyContainer = styled("div", {
   '@lg3': {
     gridTemplateColumns: "1fr 1fr",
   },
-  '@md': {
+  '@md2': {
     gridTemplateColumns: '1fr'
   },
 
@@ -106,6 +106,12 @@ export const Column = styled('div', {
     fontWeight: 100,
     textTransform: 'capitalize'
   },
+
+  '@md2': {
+    select: {
+      width: '10rem'
+    }
+  }
 
 })
 

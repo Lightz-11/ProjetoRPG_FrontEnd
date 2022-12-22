@@ -21,6 +21,7 @@ export const Container = styled('div', {
 export const Header = styled('div', {
 
     background: 'rgb(15,15,15)',
+    borderBottom: '2px solid white',
 
     h1: {
         width: 'max-content',

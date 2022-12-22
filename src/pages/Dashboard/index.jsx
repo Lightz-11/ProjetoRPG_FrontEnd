@@ -121,7 +121,6 @@ export function Dashboard() {
             <h1>Carregando...</h1>
           </Header>
 
-          <hr />
         </>
 
         :
@@ -157,8 +156,6 @@ export function Dashboard() {
           <Header>
             <h1>Painel</h1>
           </Header>
-
-          <hr />
 
           <Body>
 

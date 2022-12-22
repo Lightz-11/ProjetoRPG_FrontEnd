@@ -117,8 +117,6 @@ export function EditarConta() {
         <h1>Conta</h1>
       </Header>
 
-      <hr />
-
       <Body>
 
         <Body1>

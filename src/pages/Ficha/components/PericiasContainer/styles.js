@@ -48,12 +48,30 @@ export const HeaderContainer = styled("div", {
 
 export const BodyContainer = styled("div", {
 
-  display: 'flex',
+  display: 'grid',
   alignItems: 'center',
   justifyContent: 'center',
   padding: '3rem',
   gap: '2rem 4rem',
-  flexWrap: 'wrap',
+  overflow: 'hidden',
+  gridTemplateColumns: '1fr 1fr 1fr 1fr',
+
+  '@lg4': {
+    gridTemplateColumns: '1fr 1fr 1fr',
+  },
+
+  '@lg3': {
+    gridTemplateColumns: '1fr 1fr 1fr 1fr',
+  },
+
+  '@sm': {
+    gridTemplateColumns: '1fr 1fr 1fr',
+  },
+
+  '@md2': {
+    gridTemplateColumns: '1fr 1fr',
+  },
+
 
 });
 
@@ -64,7 +82,9 @@ export const Footer = styled('div', {
   alignItems: 'center',
   justifyContent: 'center',
   padding: '0 3rem',
-  gap: '3rem'
+  gap: '3rem',
+  flexWrap: 'wrap'
+
 })
 
 export const Button = styled('button', {
@@ -74,6 +94,7 @@ export const Button = styled('button', {
   padding: '.5rem',
   fontSize: '1.8rem',
   background: 'none',
+  whiteSpace: 'nowrap',
 
   variants: {
     color: {

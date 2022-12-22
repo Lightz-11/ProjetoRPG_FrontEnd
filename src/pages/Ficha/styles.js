@@ -12,7 +12,7 @@ export const Header = styled("div", {
   height: "auto",
   background: "rgb(15,15,15)",
   padding: "1.5rem 0",
-  borderBottom: '2px solid #ffffff90',
+  borderBottom: '2px solid white',
 
   h1: {
     color: 'Purple',
@@ -35,12 +35,14 @@ export const Body = styled("div", {
 });
 
 export const DoubleParteContainer = styled("div", {
-  display: "flex",
-  flexDirection: 'row',
+  display: "grid",
+  paddingRight: '2rem',
   gridColumnGap: "2rem",
+  gridTemplateColumns: '50% 50%',
   width: '100%',
 
   "@lg3": {
-    flexDirection: "column",
+    paddingRight: '0rem',
+    gridTemplateColumns: '100%',
   },
 });

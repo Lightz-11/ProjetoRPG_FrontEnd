@@ -9,6 +9,14 @@ export function LinhaTabela({ data, iniciativas, atualizar, setPrecisaSalvar }) 
 
   const [low, setLow] = useState(false)
 
+  useEffect(() => {
+    if (window.innerWidth < 650) {
+      setLow(true)
+    } else {
+      setLow(false)
+    }
+  }, [])
+
   window.addEventListener('resize', function () {
     if (window.innerWidth < 650) {
       setLow(true)

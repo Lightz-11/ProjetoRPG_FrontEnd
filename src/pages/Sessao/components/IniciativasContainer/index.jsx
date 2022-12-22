@@ -23,6 +23,14 @@ export function IniciativasContainer() {
 
   const { fichas } = useFichas()
 
+  useEffect(() => {
+    if (window.innerWidth < 650) {
+      setLow(true)
+    } else {
+      setLow(false)
+    }
+  }, [])
+
   window.addEventListener('resize', function () {
     if (window.innerWidth < 650) {
       setLow(true)

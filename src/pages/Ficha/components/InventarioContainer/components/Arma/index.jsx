@@ -166,7 +166,7 @@ export function Arma({ data, atualizar, armas, setPesoAtual }) {
                   valor: data.danoCritico,
                   isDano: true
                 })
-              }} color={'red'}><strong>Crítico:</strong> {data.danoCritico} / {data.margemCritico}</Button>
+              }} color={'red'}><strong>Crítico:</strong> {data.margemCritico} / {data.danoCritico}</Button>
             </Danos>
 
           </Dados>

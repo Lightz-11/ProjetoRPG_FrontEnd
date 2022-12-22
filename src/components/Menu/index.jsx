@@ -1,50 +1,59 @@
 import { useState } from 'react';
-import { Container, Button, ButtonLink, Li } from './styles';
-import { BiArrowFromLeft, BiArrowFromRight } from 'react-icons/bi'
+import { Container, Header, Body, Button, ButtonLink, Li, Line1, Line2, Line3 } from './styles';
 import { RiUserLine, RiUserUnfollowLine } from 'react-icons/ri'
 import { BsFillDice6Fill } from 'react-icons/bs'
 import { useAuth } from "../../hooks/auth";
-import { useEffect } from 'react';
 
 export function Menu() {
 
   const [active, setActive] = useState(false)
-
   const { signOut } = useAuth();
 
-  useEffect(() => {
-    if (window.innerWidth < 680) {
-      setActive(false)
-    } else {
-      setActive(true)
-    }
-  })
+  function abrirMenu() {
+    setActive(!active)
+  }
 
-  window.addEventListener('resize', () => {
-    if (window.innerWidth < 680) {
-      setActive(false)
-    } else {
-      setActive(true)
+  window.addEventListener("click", (event) => {
+
+    if (event.screenX > 151) {
+      if (active) {
+        setActive(false)
+      }
     }
-  })
+
+  });
 
   return (
-    <Container>
+    <Container >
 
-      <ul>
+      <Header>
 
-        <Li>
-          <ButtonLink color={'purple'} to={"/"}> <BsFillDice6Fill size={20} /> {active && 'Painel'}</ButtonLink>
-        </Li>
-        <Li>
-          <ButtonLink color={'yellow'} to={'/conta'}> <RiUserLine size={25} />{active && 'Conta'} </ButtonLink>
-        </Li>
-        <Li>
-          <Button color={'crimson'} onClick={() => { signOut() }}> <RiUserUnfollowLine size={25} /> {active && 'Sair'}</Button>
-        </Li>
+        <button onClick={abrirMenu}>
+          <Line1 active={active} />
+          <Line2 active={active} />
+          <Line3 active={active} />
+        </button>
 
-      </ul>
+      </Header>
 
-    </Container>
+      <Body active={active}>
+
+        <ul>
+
+          <Li>
+            <ButtonLink onClick={abrirMenu} color={'purple'} to={"/"}> <BsFillDice6Fill size={25} />Painel</ButtonLink>
+          </Li>
+          <Li>
+            <ButtonLink onClick={abrirMenu} color={'yellow'} to={'/conta'}> <RiUserLine size={30} /> Conta </ButtonLink>
+          </Li>
+          <Li>
+            <Button onClick={() => { signOut(); abrirMenu() }}> <RiUserUnfollowLine size={30} /> Sair </Button>
+          </Li>
+
+        </ul>
+
+      </Body>
+
+    </Container >
   );
 }

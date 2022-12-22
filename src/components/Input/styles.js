@@ -16,6 +16,12 @@ export const Container = styled('div', {
         right: '1.5rem',
         top: '1.8rem',
         fontFamily: 'emoji',
+    },
+
+    '@sm': {
+        span: {
+            fontSize: '1.6rem'
+        }
     }
 
 })

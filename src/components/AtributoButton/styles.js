@@ -25,6 +25,10 @@ export const Container = styled('div', {
 
         "@sm": {
             fontSize: '3rem'
+        },
+
+        '@sm5': {
+            fontSize: '2.2rem'
         }
     },
 
@@ -57,6 +61,11 @@ export const Mid = styled('div', {
     '@sm': {
         top: '29%',
         gap: '15.6rem',
+    },
+
+    '@sm5': {
+        top: '29%',
+        gap: '13.6rem',
     }
 })
 
@@ -73,6 +82,12 @@ export const Bot = styled('div', {
         top: '66.5%',
         gap: '10.2rem',
         marginRight: '0.7rem'
+    },
+
+    '@sm5': {
+        top: '66.5%',
+        gap: '8.8rem',
+        marginLeft: '.6rem'
     }
 })
 
@@ -81,5 +96,9 @@ export const Img = styled('img', {
 
     '@sm': {
         width: '30rem'
+    },
+
+    '@sm5': {
+        width: '25rem'
     }
 })

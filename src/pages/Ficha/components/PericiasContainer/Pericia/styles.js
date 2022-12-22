@@ -7,6 +7,7 @@ export const Container = styled('div', {
   justifyContent: 'center',
   flexDirection: 'column',
   gap: '0.5rem',
+  textOverflow: 'clip',
 
 })
 
@@ -71,6 +72,8 @@ export const Span = styled('span', {
   textTransform: 'capitalize',
   fontWeight: 700,
   fontSize: '2rem',
+  overflow: 'hidden',
+  textOverflow: 'clip',
 
   variants: {
     level: {

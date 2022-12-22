@@ -39,8 +39,10 @@ export const Header = styled('div', {
         color: "crimson",
         fontSize: '2rem',
         textAlign: 'left',
-        wordBreak: 'break-word',
-        marginRight: '2rem'
+        marginRight: '2rem',
+        overflow: 'hidden',
+        whiteSpace: 'nowrap',
+        textOverflow: 'ellipsis',
     },
 })
 

@@ -2,6 +2,7 @@ import { styled, keyframes } from '../../../../../../stitches.config';
 
 export const Container = styled('div', {
   border: '2px solid crimson',
+  minWidth: '4rem'
 })
 
 export const Header = styled('div', {
@@ -167,9 +168,11 @@ export const Button = styled('button', {
   height: '3rem',
   background: 'none',
   padding: '0 1rem',
-  whiteSpace: 'nowrap',
   fontSize: '1.6rem',
   fontFamily: 'Special Elite',
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
 
   strong: {
     fontFamily: 'Cinzel Decorative',
@@ -180,14 +183,6 @@ export const Button = styled('button', {
 
   variants: {
     color: {
-      purple: {
-        color: 'purple',
-        border: '2px solid #800080',
-
-        '&:hover': {
-          background: '#80008050',
-        }
-      },
       crimson: {
         color: 'crimson',
         border: '2px solid crimson',

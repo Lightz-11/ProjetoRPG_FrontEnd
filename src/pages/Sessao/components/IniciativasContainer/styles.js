@@ -66,26 +66,22 @@ export const Table = styled('table', {
 })
 
 export const TH1 = styled('th', {
-  paddingRight: '0.5rem'
 })
 
 export const TH2 = styled('th', {
-  paddingRight: '1rem'
 })
 
 export const TH3 = styled('th', {
-  paddingRight: '17rem',
 })
 
 export const TH4 = styled('th', {
-  paddingRight: '0rem'
 })
 
 export const TH5 = styled('th', {
-  paddingRight: '4rem'
 })
 
 export const TH6 = styled('th', {
+
 })
 
 export const Footer = styled('div', {
@@ -95,6 +91,10 @@ export const Footer = styled('div', {
   justifyContent: 'center',
   gap: '10rem',
   margin: '0.5rem 0',
+
+  '@md5': {
+    gap: '5rem'
+  }
 
 })
 

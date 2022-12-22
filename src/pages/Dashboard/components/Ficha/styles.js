@@ -27,7 +27,9 @@ export const Header = styled('div', {
         color: "#4040ff",
         fontSize: '2rem',
         textAlign: 'left',
-        wordBreak: 'break-word',
+        overflow: 'hidden',
+        whiteSpace: 'nowrap',
+        textOverflow: 'ellipsis',
         marginRight: '2rem'
     },
 })
@@ -110,55 +112,62 @@ export const Desc = styled('div', {
     img: {
         border: '1px solid white',
         borderRadius: '70rem'
+    },
+
+    '@md2': {
+        img: {
+            width: '0px',
+            border: 'none'
+        }
     }
 })
 
 export const Grade = styled('div', {
-    display: "flex",
+
+    padding: '2rem',
+    paddingRight: '1rem',
+    display: "grid",
+    gap: '1rem',
     width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
+    gridTemplateColumns: '1fr 1fr',
+    alignContent: 'center',
+    justifyItems: 'center',
 
-    strong: {
-        fontSize: '1.8rem'
-    },
-
-    span: {
-        width: '45%',
-        fontSize: '1.6rem',
-        height: 'max-contet',
-        alignItems: 'center',
-        color: 'white',
-        padding: '.5rem .5rem',
-        paddingLeft: '1rem',
-        gap: '.5rem',
-        border: '1px solid #ffffff90'
-    },
+    '@md2': {
+        paddingLeft: '1rem'
+    }
 
 })
 
-export const MiniGrade = styled('div', {
-    display: "flex",
+export const ParteGrade = styled('div', {
+
     width: '100%',
-    alignItems: 'center',
+    minWidth: '1rem',
+    height: 'max-contet',
+    display: 'flex',
+    alignItems: 'left',
+    paddingLeft: '1rem',
     justifyContent: 'center',
     flexDirection: 'column',
-
-    strong: {
-        fontSize: '1.8rem'
-    },
+    color: 'white',
+    border: '1px solid #ffffff90',
 
     span: {
-        width: '45%',
-        fontSize: '1.6rem',
-        height: 'max-contet',
-        alignItems: 'center',
-        color: 'white',
-        padding: '.5rem .5rem',
-        paddingLeft: '1rem',
-        gap: '.5rem',
-        border: '1px solid #ffffff90'
+        fontSize: '1.8rem',
+        fontWeight: 700,
+        overflow: 'hidden',
+        textOverflow: 'clip',
+        width: '100%'
     },
+
+    div: {
+        width: '100%',
+        fontSize: '1.6rem',
+        paddingLeft: '1rem',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        paddingRight: '1rem',
+    }
 
 })
 

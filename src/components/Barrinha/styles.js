@@ -47,7 +47,7 @@ export const Botoes = styled('div', {
   '@md2': {
     padding: '0rem',
     button: {
-      margin: '0rem .2rem',
+      margin: '.5rem .2rem',
     }
   }
 })

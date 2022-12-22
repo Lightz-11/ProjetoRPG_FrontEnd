@@ -210,7 +210,7 @@ export function CriarFichaConvite() {
       <Header>
         <h1>Novo Personagem</h1>
       </Header>
-      <hr />
+
       <Body>
 
         <Principal>

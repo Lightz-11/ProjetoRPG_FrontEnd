@@ -53,7 +53,6 @@ export function Sessao() {
                         <h1>Carregando...</h1>
                     </Header>
 
-                    <hr />
                 </>
 
 
@@ -63,8 +62,6 @@ export function Sessao() {
                     <Header>
                         <h1>{nomeSessao}</h1>
                     </Header>
-
-                    <hr />
 
                     <Body>
 

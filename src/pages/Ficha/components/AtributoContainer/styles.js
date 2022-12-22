@@ -50,7 +50,7 @@ export const BodyContainer = styled("div", {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  height: '95%',
+  height: 'calc(100% - 43px)',
   padding: '3rem'
 
 });

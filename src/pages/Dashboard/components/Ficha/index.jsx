@@ -1,4 +1,4 @@
-import { Container, Header, Desc, Footer, Botoes, Button, Grade, MiniGrade } from './styles'
+import { Container, Header, Desc, Footer, Botoes, Button, Grade, ParteGrade } from './styles'
 import { FaUserCircle } from 'react-icons/fa'
 import { BiTrashAlt } from 'react-icons/bi'
 import { BsEye, BsEyeSlash } from 'react-icons/bs'
@@ -57,18 +57,29 @@ export function Ficha({ data, atualizar, lista }) {
             <Desc>
                 <img src={data.Portrait[0].normal} />
                 <Grade>
-                    <MiniGrade>
-                        <span><strong>Origem:</strong> {data.Principal[0].origem}</span>
-                        <span><strong>Classe:</strong> {data.Principal[0].classe}</span>
-                    </MiniGrade>
-                    <MiniGrade>
-                        <span><strong>NEX:</strong> {data.Principal[0].nex}</span>
-                        {data.Principal[0].trilha != 'Nenhuma' ?
-                            <span><strong>Trilha:</strong> {data.Principal[0].trilha}</span>
-                            :
-                            <span><strong>Idade:</strong> {data.Principal[0].idade}</span>
-                        }
-                    </MiniGrade>
+                    <ParteGrade>
+                        <span>Origem:</span>
+                        <div>{data.Principal[0].origem}</div>
+                    </ParteGrade>
+                    <ParteGrade>
+                        <span>Classe:</span>
+                        <div>{data.Principal[0].classe}</div>
+                    </ParteGrade>
+                    <ParteGrade>
+                        <span>NEX:</span>
+                        <div>{data.Principal[0].nex}</div>
+                    </ParteGrade>
+                    {data.Principal[0].trilha != 'Nenhuma' ?
+                        <ParteGrade>
+                            <span>Trilha:</span>
+                            <div>{data.Principal[0].trilha}</div>
+                        </ParteGrade>
+                        :
+                        <ParteGrade>
+                            <span>Idade:</span>
+                            <div>{data.Principal[0].idade}</div>
+                        </ParteGrade>
+                    }
                 </Grade>
             </Desc>
             <hr />

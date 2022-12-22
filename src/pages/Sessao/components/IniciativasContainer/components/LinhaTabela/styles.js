@@ -51,7 +51,8 @@ export const TD3 = styled('td', {
 
   input: {
     width: '100%',
-  }
+  },
+
 })
 
 export const TD4 = styled('td', {
@@ -59,7 +60,7 @@ export const TD4 = styled('td', {
 
   input: {
     width: '5rem'
-  }
+  },
 
 })
 
@@ -72,5 +73,6 @@ export const TD5 = styled('td', {
 })
 
 export const TD6 = styled('td', {
+
 
 })

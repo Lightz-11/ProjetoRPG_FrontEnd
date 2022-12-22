@@ -17,5 +17,8 @@ export const { styled, css, keyframes } = createStitches({
         sm4: "(max-width: 750px)",
         md4: "(max-width: 1300px)",
         lg4: "(max-width: 1440px)",
+
+        sm5: '(max-width: 380px)',
+        md5: '(max-width: 420px)'
     }
 });
