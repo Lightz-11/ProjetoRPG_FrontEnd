@@ -5,22 +5,19 @@ import { SlArrowLeft, SlArrowRight } from 'react-icons/sl'
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { api } from '../../services/api';
+import { useDisabled } from '../../hooks/useDisabled';
 
 export function Barrinha({ valorA, setValorA, setValorMax, valorMax, color, number, ...rest }) {
 
   const [low, setLow] = useState(false)
   const [bigLow, setBigLow] = useState(false)
 
-  const [disabled, setDisabled] = useState(true)
+  const { disabled } = useDisabled()
 
   const [classe, setClasse] = useState('')
   const [pre, setPre] = useState(0)
   const [vig, setVig] = useState(0)
   const [nex, setNex] = useState(0)
-
-  const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
-
-  const { id } = useParams()
 
   useEffect(() => {
 
@@ -36,25 +33,11 @@ export function Barrinha({ valorA, setValorA, setValorMax, valorMax, color, numb
       setLow(false)
     }
 
-    async function fetchData() {
-      try {
+    setClasse(response.data.Principal[0].classe)
+    setNex(response.data.Principal[0].nex)
 
-        const response = await api.get(`/fichas/${id}`)
-        const response2 = await api.get(`/sessoes/${response.data.sessaoId}`)
-
-        if (response.data.userId == dataUser.id || dataUser.id == response2.data.userId) {
-          setDisabled(false)
-        }
-
-        setClasse(response.data.Principal[0].classe)
-        setNex(response.data.Principal[0].nex)
-
-        setPre(response.data.Atributos[0].pre)
-        setVig(response.data.Atributos[0].vig)
-
-      } catch (error) { console.log(error) }
-    }
-    fetchData();
+    setPre(response.data.Atributos[0].pre)
+    setVig(response.data.Atributos[0].vig)
 
   }, []);
 

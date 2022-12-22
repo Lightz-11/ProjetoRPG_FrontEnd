@@ -56,6 +56,7 @@ export const BodyContainer = styled("div", {
   gridTemplateColumns: "1fr 1fr 1fr",
   gridColumnGap: "1rem",
   gridRowGap: "2rem",
+  overflow: 'hidden',
 
   variants: {
     quantidade: {

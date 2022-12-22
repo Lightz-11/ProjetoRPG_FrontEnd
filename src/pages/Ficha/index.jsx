@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { api } from '../../services/api';
+import { useDisabled } from '../../hooks/useDisabled';
 
 export function Ficha() {
 
@@ -12,6 +13,8 @@ export function Ficha() {
   const { id } = useParams()
 
   const [isLoading, setIsLoading] = useState(false)
+
+  const { setDisabled } = useDisabled()
 
   const navigate = useNavigate()
 
@@ -30,6 +33,8 @@ export function Ficha() {
 
           if (response.data.isPublic != true) {
             navigate('/')
+          } else {
+            setDisabled(true)
           }
 
         }

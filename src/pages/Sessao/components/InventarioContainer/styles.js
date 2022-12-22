@@ -81,7 +81,11 @@ export const Row = styled('div', {
   alignItems: 'center',
   justifyContent: 'center',
   flexDirection: 'row',
-  gap: '5rem'
+  gap: '5rem',
+
+  '@md5': {
+    gap: '3rem'
+  }
 })
 
 export const Column = styled('div', {
@@ -107,9 +111,9 @@ export const Column = styled('div', {
     textTransform: 'capitalize'
   },
 
-  '@md2': {
+  '@md5': {
     select: {
-      width: '10rem'
+      width: '12rem'
     }
   }
 

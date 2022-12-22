@@ -32,6 +32,7 @@ export const Body = styled("div", {
   hr: {
     borderColor: "#ffffff75",
   },
+
 });
 
 export const DoubleParteContainer = styled("div", {

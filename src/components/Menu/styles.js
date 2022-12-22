@@ -49,7 +49,7 @@ export const Header = styled("div", {
 
     '@md5': {
         button: {
-            transform: 'translateX(-3rem)'
+            transform: 'translateX(-2.5rem)'
         }
     }
 
@@ -67,7 +67,7 @@ export const Body = styled("div", {
         display: 'flex',
         justifyContent: 'center',
         flexDirection: "column",
-        marginLeft: '-.5rem'
+        marginLeft: '-1rem',
     },
 
     "button:hover": {
@@ -84,7 +84,11 @@ export const Body = styled("div", {
         active: {
             aberto: {
                 width: "15rem",
-                transition: '.5s'
+                transition: '.5s',
+
+                '@md5': {
+                    width: '10rem'
+                }
             }
         },
     },
@@ -104,7 +108,11 @@ export const Button = styled('button', {
     gap: "1rem",
     fontFamily: 'Neko One',
 
-    transition: '.3s'
+    transition: '.3s',
+
+    '@md5': {
+        fontSize: '2rem'
+    }
 
 });
 
@@ -114,10 +122,19 @@ export const Line1 = styled('div', {
     background: 'white',
     transition: '.3s',
 
+    '@md5': {
+        width: '2.5rem',
+        height: '2px',
+    },
+
     variants: {
         active: {
             aberto: {
-                transform: 'rotate(45deg) translate(8px, 8px)'
+                transform: 'rotate(50deg) translate(8px, 8px)',
+
+                '@md5': {
+                    transform: 'rotate(50deg) translate(6px, 7px)',
+                }
             }
         }
     }
@@ -128,6 +145,11 @@ export const Line2 = styled('div', {
     height: '3px',
     background: 'white',
     transition: '.3s',
+
+    '@md5': {
+        width: '2.5rem',
+        height: '2px',
+    },
 
     variants: {
         active: {
@@ -144,10 +166,19 @@ export const Line3 = styled('div', {
     background: 'white',
     transition: '.3s',
 
+    '@md5': {
+        width: '2.5rem',
+        height: '2px',
+    },
+
     variants: {
         active: {
             aberto: {
-                transform: 'rotate(-45deg) translate(5px, -7px)'
+                transform: 'rotate(-50deg) translate(6px, -7px)',
+
+                '@md5': {
+                    transform: 'rotate(-50deg) translate(6px, -7px)',
+                }
             }
         }
     }
@@ -169,6 +200,10 @@ export const ButtonLink = styled(Link, {
     gap: "1rem",
     fontFamily: 'Neko One',
 
+    '@md5': {
+        fontSize: '2rem'
+    },
+
     variants: {
         color: {
             purple: {
@@ -188,4 +223,11 @@ export const Li = styled('li', {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+
+    '@md5': {
+        svg: {
+            scale: '80%'
+        }
+    }
+
 })

@@ -56,12 +56,12 @@ export function CardFichasPersonagem({ data }) {
 
             <Body>
                 <TopBody>
-                    <div>
-                        <Button onClick={() => setButtonActive('Status')} active={buttonActive == 'Status'}>Status</Button>
-                        <Button onClick={() => setButtonActive('Detalhes')} active={buttonActive == 'Detalhes'} >Detalhes</Button>
-                        <Button onClick={() => setButtonActive('Dados')} active={buttonActive == 'Dados'} >Dados</Button>
-                        <Button onClick={() => setButtonActive('Outros')} active={buttonActive == 'Outros'} >Outros</Button>
-                    </div>
+
+                    <Button onClick={() => setButtonActive('Status')} active={buttonActive == 'Status'}>Status</Button>
+                    <Button onClick={() => setButtonActive('Detalhes')} active={buttonActive == 'Detalhes'} >Detalhes</Button>
+                    <Button onClick={() => setButtonActive('Dados')} active={buttonActive == 'Dados'} >Dados</Button>
+                    <Button onClick={() => setButtonActive('Outros')} active={buttonActive == 'Outros'} >Outros</Button>
+
                 </TopBody>
 
                 <hr />

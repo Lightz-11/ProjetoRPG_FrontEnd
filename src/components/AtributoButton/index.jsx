@@ -5,6 +5,7 @@ import { api } from "../../services/api"
 import { Modal } from "../Modals/Modal"
 import { ModalDadoRolado } from "../ModalDadoRolado"
 import { Container, Top, Bot, Mid, Img } from "./styles"
+import { useDisabled } from "../../hooks/useDisabled"
 
 
 export function AtributoButton({ agi, int, vig, pre, forca, ...rest }) {
@@ -17,26 +18,7 @@ export function AtributoButton({ agi, int, vig, pre, forca, ...rest }) {
         isDano: null
     })
 
-    const [disabled, setDisabled] = useState(true)
-
-    const { id } = useParams()
-    const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
-
-    useEffect(() => {
-        async function fetchData() {
-            try {
-
-                const response = await api.get(`/fichas/${id}`)
-                const response2 = await api.get(`/sessoes/${response.data.sessaoId}`)
-
-                if (response.data.userId == dataUser.id || response2.data.userId == dataUser.id) {
-                    setDisabled(false)
-                }
-
-            } catch (error) { console.log(error) }
-        }
-        fetchData();
-    }, []);
+    const { disabled } = useDisabled()
 
     return (
         <Container>

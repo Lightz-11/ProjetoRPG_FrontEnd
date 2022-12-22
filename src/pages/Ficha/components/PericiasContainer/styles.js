@@ -5,7 +5,6 @@ export const Container = styled("div", {
   marginBottom: "2rem",
   borderRadius: "0.5rem",
   width: "100%",
-  paddingBottom: '3rem',
 });
 
 export const HeaderContainer = styled("div", {
@@ -46,12 +45,12 @@ export const HeaderContainer = styled("div", {
   },
 });
 
-export const BodyContainer = styled("div", {
+export const Pericias = styled("div", {
 
   display: 'grid',
   alignItems: 'center',
   justifyContent: 'center',
-  padding: '3rem',
+  height: '0px',
   gap: '2rem 4rem',
   overflow: 'hidden',
   gridTemplateColumns: '1fr 1fr 1fr 1fr',
@@ -73,17 +72,70 @@ export const BodyContainer = styled("div", {
   },
 
 
+  variants: {
+    active: {
+      todas: {
+        '&.todas': {
+          height: 'auto',
+          padding: '3rem',
+        }
+      },
+      pontuadas: {
+        '&.pontuadas': {
+          height: 'auto',
+          padding: '3rem',
+        }
+      },
+      nt: {
+        '&.nt': {
+          height: 'auto',
+          padding: '3rem',
+        }
+      },
+      t: {
+        '&.t': {
+          height: 'auto',
+          padding: '3rem',
+        }
+      },
+      v: {
+        '&.v': {
+          height: 'auto',
+          padding: '3rem',
+        }
+      },
+      e: {
+        '&.e': {
+          height: 'auto',
+          padding: '3rem',
+        }
+      }
+    }
+  }
+
 });
 
 export const Footer = styled('div', {
+
   width: '100%',
-  marginTop: '2rem',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   padding: '0 3rem',
   gap: '3rem',
-  flexWrap: 'wrap'
+  flexWrap: 'wrap',
+  margin: '2rem 0 4rem 0'
+
+})
+
+export const ButtonIcon = styled('button', {
+
+  width: 'fit-content',
+  position: 'relative',
+  left: 0,
+  textAlign: 'center',
+  paddingLeft: '2rem',
+  background: 'none',
 
 })
 

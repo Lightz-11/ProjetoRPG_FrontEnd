@@ -14,6 +14,7 @@ import { useParams } from 'react-router-dom';
 import { api } from '../../../../../../services/api';
 import { Barrinha } from './Barrinha';
 import { io } from 'socket.io-client';
+import { useDisabled } from '../../../../../../hooks/useDisabled';
 
 const socket = io(api.defaults.baseURL);
 
@@ -31,35 +32,15 @@ export function Arma({ data, atualizar, armas, setPesoAtual }) {
 
   const [modalEditArmaIsOpen, setModalEditArmaIsOpen] = useState(false)
 
-  const [disabled, setDisabled] = useState(true)
-
-  const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
+  const { disabled } = useDisabled()
 
   const { id } = useParams()
 
   const [municaoA, setMunicaoA] = useState(null)
-  const [podeMostrar, setPodeMostrar] = useState(false)
 
   useEffect(() => {
 
     setMunicaoA(data.municao)
-
-    async function fetchData() {
-      try {
-
-        const response = await api.get(`/fichas/${id}`)
-        const response2 = await api.get(`/sessoes/${response.data.sessaoId}`)
-
-        if (response.data.userId == dataUser.id || dataUser.id == response2.data.userId) {
-          setDisabled(false)
-        }
-
-      } catch (error) { console.log(error) }
-      finally {
-        setPodeMostrar(true)
-      }
-    }
-    fetchData();
 
   }, []);
 
@@ -94,9 +75,7 @@ export function Arma({ data, atualizar, armas, setPesoAtual }) {
       update()
     }
 
-    if (podeMostrar == true) {
-      socket.emit("status.municao", { fichaId: id, municao: municaoA });
-    }
+    socket.emit("status.municao", { fichaId: id, municao: municaoA });
 
   }, [municaoA])
 

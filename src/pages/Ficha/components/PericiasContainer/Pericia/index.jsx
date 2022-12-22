@@ -5,6 +5,7 @@ import { Modal } from '../../../../../components/Modals/Modal';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { api } from '../../../../../services/api';
+import { useDisabled } from '../../../../../hooks/useDisabled';
 
 export function Pericia({ nome, valor, atributoChave }) {
 
@@ -16,26 +17,7 @@ export function Pericia({ nome, valor, atributoChave }) {
     isValor: false
   })
 
-  const [disabled, setDisabled] = useState(true)
-
-  const { id } = useParams()
-  const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-
-        const response = await api.get(`/fichas/${id}`)
-        const response2 = await api.get(`/sessoes/${response.data.sessaoId}`)
-
-        if (response.data.userId == dataUser.id || response2.data.userId == dataUser.id) {
-          setDisabled(false)
-        }
-
-      } catch (error) { console.log(error) }
-    }
-    fetchData();
-  }, []);
+  const { disabled } = useDisabled()
 
   return (
     <Container>

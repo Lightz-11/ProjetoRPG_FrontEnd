@@ -9,6 +9,7 @@ import { ModalPortrait } from './components/ModalPortrait'
 import noportrait from '../../../../assets/img/noportrait.png'
 import { Container, Header, Body, BottomBody, TopBody, Buttons, AreaPortrait, Portrait, Button, ContainerDeferes, Deferes, Img } from './styles';
 import { io } from 'socket.io-client';
+import { useDisabled } from '../../../../hooks/useDisabled';
 
 const socket = io(api.defaults.baseURL);
 
@@ -19,9 +20,7 @@ export function StatusContainer({ status, defesas, portrait }) {
 
   const [modalPortraitIsOpen, setModalPortraitIsOpen] = useState(false)
 
-  const [disabled, setDisabled] = useState(true)
-
-  const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
+  const { disabled } = useDisabled()
 
   const { id } = useParams()
 
@@ -73,20 +72,6 @@ export function StatusContainer({ status, defesas, portrait }) {
     setarInsano(false)
     setarMassivo(false)
     setarInconsciente(false)
-
-    async function fetchData() {
-      try {
-
-        const response = await api.get(`/fichas/${id}`)
-        const response2 = await api.get(`/sessoes/${response.data.sessaoId}`)
-
-        if (response.data.userId == dataUser.id || dataUser.id == response2.data.userId) {
-          setDisabled(false)
-        }
-
-      } catch (error) { console.log(error) }
-    }
-    fetchData();
 
     return () => {
       handleEdit(false, false, false, false)

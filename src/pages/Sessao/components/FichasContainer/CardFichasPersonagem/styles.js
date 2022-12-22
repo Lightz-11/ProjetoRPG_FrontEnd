@@ -3,7 +3,7 @@ import { styled } from "../../../../../stitches.config";
 
 export const Container = styled("div", {
     maxWidth: "100%",
-    minWidth: "30rem",
+    minWidth: "25rem",
     height: "30rem",
     border: "2px solid #ffffff90",
 });
@@ -31,6 +31,7 @@ export const Header = styled("div", {
 
 export const Body = styled("div", {
     height: "auto",
+    overflow: 'hidden',
 });
 
 export const TopBody = styled("div", {
@@ -38,7 +39,9 @@ export const TopBody = styled("div", {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    overflow: 'hidden',
     padding: "0.2rem",
+    flexWrap: 'nowrap'
 });
 
 export const BottomBody = styled("div", {
@@ -53,6 +56,11 @@ export const Button = styled("button", {
     padding: "0.5rem 1rem",
     border: "1px solid transparent",
     color: "white",
+    fontSize: '1.6rem',
+
+    '@md5': {
+        fontSize: '1.35rem'
+    },
 
     "&:hover": {
         border: "1px solid white",

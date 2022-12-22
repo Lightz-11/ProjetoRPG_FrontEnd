@@ -45,4 +45,9 @@ export const LabelContainer = styled('label', {
     transition: 'ease 0.5s',
     padding: '0px 1rem',
 
+    '@md5': {
+        top: '-26%',
+        fontSize: '2rem'
+    }
+
 })

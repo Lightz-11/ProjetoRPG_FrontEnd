@@ -4,15 +4,12 @@ import { SlArrowLeft, SlArrowRight } from 'react-icons/sl'
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { api } from '../../../../../../../services/api';
+import { useDisabled } from '../../../../../../../hooks/useDisabled';
 
 export function Barrinha({ barrinhaId, valorA, setValorA, valorMax, ...rest }) {
 
-  const [disabled, setDisabled] = useState(true)
+  const { disabled } = useDisabled()
   const [low, setLow] = useState(false)
-
-  const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
-
-  const { id } = useParams()
 
   useEffect(() => {
 
@@ -21,20 +18,6 @@ export function Barrinha({ barrinhaId, valorA, setValorA, valorMax, ...rest }) {
     } else {
       setLow(false)
     }
-
-    async function fetchData() {
-      try {
-
-        const response = await api.get(`/fichas/${id}`)
-        const response2 = await api.get(`/sessoes/${response.data.sessaoId}`)
-
-        if (response.data.userId == dataUser.id || dataUser.id == response2.data.userId) {
-          setDisabled(false)
-        }
-
-      } catch (error) { console.log(error) }
-    }
-    fetchData();
 
   }, []);
 

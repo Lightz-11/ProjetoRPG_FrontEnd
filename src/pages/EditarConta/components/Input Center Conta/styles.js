@@ -58,7 +58,11 @@ export const LabelContainer = styled('label', {
     background: 'rgb(20,20,20)',
     padding: '0px 1rem',
 
-
+    '@md5': {
+        fontSize: '2rem',
+        top: '-25%',
+        padding: '0px 1rem',
+    },
 
     variants: {
         active: {
@@ -66,6 +70,12 @@ export const LabelContainer = styled('label', {
                 fontSize: '2.3rem',
                 transform: 'translateY(-0.6rem)',
                 padding: '0px 1.6rem',
+
+                '@md5': {
+                    fontSize: '1.8rem',
+                    transform: 'translateY(-0.6rem)',
+                    padding: '0px 1.6rem',
+                }
             },
         },
     },
