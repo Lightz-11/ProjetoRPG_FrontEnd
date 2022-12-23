@@ -4,16 +4,19 @@ import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import { api } from "../../services/api";
 import { useAuth } from "../../hooks/auth"
-import { Container, Header, Body, Body1, Body2, Footer, Button } from "./styles";
+import { Container, Body, Body1, Body2, Footer, Button } from "./styles";
 import { InputCenterConta } from "./components/Input Center Conta";
 import { Toggle } from '../../components/Toggle'
 import { InputStopConta } from "./components/Input Stop Conta";
 import { BiTrashAlt } from "react-icons/bi";
 import { Card } from "../../components/Card";
+import { useTitle } from "../../hooks/useTitle";
 
 export function EditarConta() {
 
   const { signOut } = useAuth();
+
+  const { setTitle } = useTitle()
 
   const [nomeAtual, setNomeAtual] = useState('')
   const [usernameAtual, setUsernameAtual] = useState('')
@@ -29,10 +32,14 @@ export function EditarConta() {
   const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
 
   useEffect(() => {
+
     setNomeAtual(dataUser.nome)
     setUsernameAtual(dataUser.username)
     setEmailAtual(dataUser.email)
-  })
+
+    setTitle('Conta')
+
+  }, [])
 
   function switchMostrarSenha1() {
 
@@ -112,10 +119,6 @@ export function EditarConta() {
 
   return (
     <Container>
-
-      <Header>
-        <h1>Conta</h1>
-      </Header>
 
       <Body>
 

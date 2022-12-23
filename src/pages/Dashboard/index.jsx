@@ -2,7 +2,6 @@ import { useAuth } from "../../hooks/auth";
 import React, { useState, useEffect } from "react";
 import {
   Container,
-  Header,
   SessaoContainer,
   FichaContainer,
   Sessoes,
@@ -21,10 +20,13 @@ import { Convite } from "./components/Convite";
 import { Ficha } from "./components/Ficha";
 import { io } from 'socket.io-client';
 import { AddFicha } from "./components/AddFicha";
+import { useTitle } from "../../hooks/useTitle";
 
 const socket = io(api.defaults.baseURL);
 
 export function Dashboard() {
+
+  const { setTitle } = useTitle()
 
   const [isLoading, setIsLoading] = useState(false)
 
@@ -42,11 +44,13 @@ export function Dashboard() {
   const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"));
 
   useEffect(() => {
+
     async function fetchData() {
 
       try {
 
         setIsLoading(true)
+        setTitle('Carregando...')
 
         const response = await api.get(`/sessoes/userid/${dataUser.id}`);
         const fichasResponse = await api.get(`/fichas/user/${dataUser.id}`)
@@ -76,6 +80,7 @@ export function Dashboard() {
       } catch (error) { console.log(error) }
       finally {
         setIsLoading(false)
+        setTitle('Painel')
       }
     }
     fetchData();
@@ -114,16 +119,7 @@ export function Dashboard() {
   return (
     <Container>
 
-      {isLoading ?
-
-        <>
-          <Header>
-            <h1>Carregando...</h1>
-          </Header>
-
-        </>
-
-        :
+      {!isLoading &&
 
         <><Modal
           isOpen={modalCriarSessaoIsOpen}
@@ -152,10 +148,6 @@ export function Dashboard() {
               atualizar={setSessoes}
             />
           </Modal>
-
-          <Header>
-            <h1>Painel</h1>
-          </Header>
 
           <Body>
 

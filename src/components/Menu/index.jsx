@@ -1,13 +1,16 @@
 import { useState } from 'react';
-import { Container, Header, Body, Button, ButtonLink, Li, Line1, Line2, Line3 } from './styles';
+import { Container, Header, Body, Button, ButtonLink, Li, Line1, Line2, Line3, Vazio } from './styles';
 import { RiUserLine, RiUserUnfollowLine } from 'react-icons/ri'
 import { BsFillDice6Fill } from 'react-icons/bs'
 import { useAuth } from "../../hooks/auth";
+import { useTitle } from '../../hooks/useTitle';
 
 export function Menu() {
 
   const [active, setActive] = useState('fechado')
   const { signOut } = useAuth();
+
+  const { title } = useTitle()
 
   function abrirMenu() {
     if (active == 'fechado') {
@@ -20,10 +23,19 @@ export function Menu() {
 
   window.addEventListener("click", (event) => {
 
-    if (event.clientX > 151) {
-      if (active == 'aberto') {
-        setActive('fechando')
-        setTimeout(() => { setActive('fechado') }, 300)
+    if (window.innerWidth > 420) {
+      if (event.clientX > 151) {
+        if (active == 'aberto') {
+          setActive('fechando')
+          setTimeout(() => { setActive('fechado') }, 300)
+        }
+      }
+    } else {
+      if (event.clientX > 100) {
+        if (active == 'aberto') {
+          setActive('fechando')
+          setTimeout(() => { setActive('fechado') }, 300)
+        }
       }
     }
 
@@ -39,6 +51,12 @@ export function Menu() {
           <Line2 active={active} />
           <Line3 active={active} />
         </button>
+
+        <div>
+          <h1>{title}</h1>
+        </div>
+
+        <Vazio />
 
       </Header>
 

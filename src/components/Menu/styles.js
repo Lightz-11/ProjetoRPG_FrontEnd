@@ -4,6 +4,7 @@ import { styled } from "../../stitches.config";
 export const Container = styled("div", {
     position: 'absolute',
     height: "72px",
+    width: '100%',
     textAlign: "center",
     overflow: "hidden",
 
@@ -26,19 +27,20 @@ export const Container = styled("div", {
 
 export const Header = styled("div", {
 
-    width: '15rem',
+    width: '100%',
     height: '7.2rem',
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
+    display: 'flex',
     alignItems: 'center',
+    justifyContent: 'space-between',
+    position: 'relative',
+    background: 'rgb(15,15,15)',
     borderBottom: '2px solid white',
 
     button: {
         color: "white",
         background: 'none',
+        margin: '0 6rem',
         border: "none",
-        width: '3rem',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -47,13 +49,28 @@ export const Header = styled("div", {
         transition: '.3s'
     },
 
+    h1: {
+        color: 'Purple',
+        fontFamily: 'Fredoka One',
+        letterSpacing: '.2rem',
+
+        whiteSpace: 'nowrap',
+        fontSize: '3.3rem',
+        textShadow: "4px 3px 2px black",
+    },
+
     '@md5': {
         button: {
-            transform: 'translateX(-2.5rem)'
-        }
+            transform: 'translateX(-2.5rem)',
+            margin: '0 2rem 0 6rem'
+        },
     }
 
 });
+
+export const Vazio = styled('div', {
+    width: '15rem',
+})
 
 export const Body = styled("div", {
 
@@ -111,7 +128,8 @@ export const Button = styled('button', {
     transition: '.3s',
 
     '@md5': {
-        fontSize: '2rem'
+        fontSize: '1.8rem',
+        alignItems: 'center'
     }
 
 });
@@ -201,7 +219,7 @@ export const ButtonLink = styled(Link, {
     fontFamily: 'Neko One',
 
     '@md5': {
-        fontSize: '2rem'
+        fontSize: '1.8rem'
     },
 
     variants: {
@@ -226,7 +244,7 @@ export const Li = styled('li', {
 
     '@md5': {
         svg: {
-            scale: '80%'
+            scale: '70%'
         }
     }
 

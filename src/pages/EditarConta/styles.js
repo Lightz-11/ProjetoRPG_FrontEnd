@@ -18,33 +18,11 @@ export const Container = styled('div', {
 
 })
 
-export const Header = styled('div', {
-
-    background: 'rgb(15,15,15)',
-    borderBottom: '2px solid white',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-
-    h1: {
-        width: 'max-content',
-        transition: '.5s',
-        color: 'Purple',
-        fontFamily: 'Fredoka One',
-        position: 'relative',
-        letterSpacing: '.2rem',
-        marginTop: '1.4rem',
-        marginBottom: '1.4rem',
-        fontSize: '3.5rem',
-        textShadow: '4px 3px 2px black'
-    },
-
-})
-
 export const Body = styled('div', {
 
     width: '100%',
     padding: '5rem 0',
+    marginTop: '7.3rem',
     display: 'flex',
     flexDirection: 'column',
     overflowY: 'auto',

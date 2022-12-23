@@ -5,10 +5,13 @@ import { toast, ToastContainer } from 'react-toastify';
 import { Input } from '../../components';
 import { AtributoInput } from '../../components/AtributoInput';
 import { Select } from '../../components/Select';
+import { useTitle } from '../../hooks/useTitle';
 import { api } from '../../services/api';
 import { Container, Header, Body, Principal, Atributos, Footer, Span } from './styles';
 
 export function CriarFicha() {
+
+  const { setTitle } = useTitle()
 
   const [nome, setNome] = useState(null)
   const [idade, setIdade] = useState(0)
@@ -32,6 +35,12 @@ export function CriarFicha() {
   const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
 
   const navigate = useNavigate()
+
+  useEffect(() => {
+
+    setTitle('Criar Ficha')
+
+  }, [])
 
   async function handleCreate() {
 

@@ -8,26 +8,11 @@ export const Container = styled("div", {
   flexDirection: 'column'
 });
 
-export const Header = styled("div", {
-  height: "auto",
-  background: "rgb(15,15,15)",
-  padding: "1.5rem 0",
-  borderBottom: '2px solid white',
-
-  h1: {
-    color: 'Purple',
-    textAlign: 'center',
-    fontFamily: 'Fredoka One',
-    letterSpacing: '.2rem',
-    fontSize: '3.3rem',
-    textShadow: "4px 3px 2px black",
-  },
-});
-
 export const Body = styled("div", {
   overflowY: "auto",
+  marginTop: '7.3rem',
   width: '100%',
-  padding: "3rem 2rem 10rem 2rem",
+  padding: "3rem 2rem 7rem 2rem",
 
   hr: {
     borderColor: "#ffffff75",

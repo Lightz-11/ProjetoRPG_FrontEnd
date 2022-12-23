@@ -12,25 +12,8 @@ export const Container = styled("div", {
     overflow: "hidden",
 });
 
-export const Header = styled("div", {
-
-    background: 'rgb(15,15,15)',
-    borderBottom: '2px solid white',
-
-    h1: {
-        color: 'Purple',
-        textAlign: 'center',
-        marginTop: '1.4rem',
-        marginBottom: '1.4rem',
-        fontSize: '3.5rem',
-        textShadow: '4px 3px 2px black',
-        fontFamily: 'Fredoka One',
-        letterSpacing: '.2rem'
-    },
-
-});
-
 export const Body = styled('div', {
+    marginTop: '7.3rem',
     padding: '3rem',
     overflowY: 'auto',
     paddingBottom: '10rem'
