@@ -38,10 +38,6 @@ export const Main = styled("main", {
     color: "#ffffff"
   },
 
-  "@md": {
-    margin: 'auto auto'
-  },
-
   '@md5': {
     paddingBottom: '5rem'
   }
@@ -52,14 +48,11 @@ export const Entrar = styled("button", {
   fontSize: "3.5rem",
   color: "#ffffff",
   border: "none",
-  height: '7rem',
   borderRadius: "2rem",
   fontFamily: 'Concert One',
   fontWeight: 100,
   transition: '0.3s',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
+  padding: '.8rem 0',
 
   backgroundColor: "#78108d",
   '&:hover': {

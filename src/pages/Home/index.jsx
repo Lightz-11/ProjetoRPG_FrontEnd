@@ -16,7 +16,7 @@ export function Home() {
         <h1>RPG</h1>
         <h2>Fichas</h2>
 
-        <Entrar background="roxo" underline="false" size="35" onClick={() => { setModalLoginIsOpen(true) }}>
+        <Entrar onClick={() => { setModalLoginIsOpen(true) }}>
           Entrar
         </Entrar>
         <Criar onClick={() => { setModalCadastroIsOpen(true) }}>Criar conta</Criar>
