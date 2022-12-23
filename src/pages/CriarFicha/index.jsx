@@ -7,7 +7,7 @@ import { AtributoInput } from '../../components/AtributoInput';
 import { Select } from '../../components/Select';
 import { useTitle } from '../../hooks/useTitle';
 import { api } from '../../services/api';
-import { Container, Header, Body, Principal, Atributos, Footer, Span } from './styles';
+import { Container, Body, Principal, Atributos, Footer, Span } from './styles';
 
 export function CriarFicha() {
 
@@ -196,9 +196,6 @@ export function CriarFicha() {
 
   return (
     <Container>
-      <Header>
-        <h1>Novo Personagem</h1>
-      </Header>
 
       <Body>
 

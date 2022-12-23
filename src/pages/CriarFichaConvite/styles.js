@@ -9,21 +9,6 @@ export const Container = styled("div", {
 
 });
 
-export const Header = styled("div", {
-  height: "auto",
-  background: "rgb(15,15,15)",
-  padding: "1.5rem 0",
-  borderBottom: '2px solid white',
-
-  h1: {
-    color: "Purple",
-    textAlign: "center",
-    fontSize: "3.5rem",
-    textShadow: "4px 3px 2px black",
-    fontFamily: 'Fredocka One'
-  },
-});
-
 export const Body = styled("div", {
 
   display: 'grid',
@@ -36,6 +21,7 @@ export const Body = styled("div", {
   padding: "2rem",
   overflowY: 'auto',
   gap: '3rem',
+  marginTop: '7.3rem',
 
   '@md3': {
     gridTemplateColumns: '1fr',
@@ -44,6 +30,10 @@ export const Body = styled("div", {
   'atributos'
   'footer'`,
     gridTemplateRows: 'auto auto auto',
+  },
+
+  '@md2': {
+    paddingBottom: '10rem'
   }
 
 });
