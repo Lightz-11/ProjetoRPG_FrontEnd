@@ -8,7 +8,8 @@ export const Container = styled("div", {
   backgroundImage: `url(${BackgroundImage})`,
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
-  overflowX: "hidden"
+  overflowX: "hidden",
+  overflowY: 'auto',
 });
 
 export const Main = styled("main", {
@@ -42,7 +43,7 @@ export const Main = styled("main", {
   }
 });
 
-export const Button = styled("button", {
+export const Entrar = styled("button", {
   fontSize: "3.5rem",
   width: 'fit-content',
   color: "#ffffff",
@@ -58,24 +59,34 @@ export const Button = styled("button", {
   marginTop: '-3rem',
   transition: '0.3s',
 
-  variants: {
-    background: {
-      default: { background: "none" },
-      roxo: { backgroundColor: "#78108d", '&:hover': { backgroundColor: '#620d73' } }
-    },
-    size: {
-      25: { fontSize: "2.5rem", padding: "1rem 0rem", },
-      35: { fontSize: "3.5rem" }
-    },
-    underline: {
-      default: { '&:hover': { textDecoration: 'underline' } },
-      false: {}
-    }
-  },
-
-  defaultVariants: {
-    background: "default",
-    size: 25,
-    underline: 'default'
+  backgroundColor: "#78108d",
+  '&:hover': {
+    backgroundColor: '#620d73'
   }
+
 });
+
+export const Criar = styled('button', {
+
+  fontSize: "3.5rem",
+  width: 'fit-content',
+  color: "#ffffff",
+  border: "none",
+  borderRadius: "2rem",
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: "1rem 7rem",
+  fontFamily: 'Concert One',
+  fontWeight: 100,
+  marginBottom: '3rem',
+  marginTop: '-3rem',
+  transition: '0.3s',
+  background: "none",
+  fontSize: "2.5rem",
+
+  '&:hover': {
+    textDecoration: 'underline'
+  }
+
+})
