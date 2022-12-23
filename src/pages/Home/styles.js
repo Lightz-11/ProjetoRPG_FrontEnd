@@ -46,12 +46,11 @@ export const Main = styled("main", {
 export const Entrar = styled("button", {
 
   fontSize: "3.5rem",
-  width: 'fit-content',
+  minWidth: '25rem',
   minHeight: '6rem',
   color: "#ffffff",
   border: "none",
   borderRadius: "2rem",
-  padding: "1rem 7rem",
   fontFamily: 'Concert One',
   fontWeight: 100,
   transition: '0.3s',
