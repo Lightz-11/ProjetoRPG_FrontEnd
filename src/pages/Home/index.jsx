@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ModalLogin } from "../../components/Modals/ModalLogin/ModalLogin.jsx";
 import { Modal } from "../../components/Modals/Modal";
-import { Entrar, Criar, Container, Main } from "./styles";
+import { Roxo, Entrar, Criar, Container, Main } from "./styles";
 import { ModalCadastro } from "../../components/Modals/ModalCadastro/ModalCadastro.jsx";
 import { ToastContainer } from "react-toastify";
 
@@ -16,9 +16,11 @@ export function Home() {
         <h1>RPG</h1>
         <h2>Fichas</h2>
 
-        <Entrar onClick={() => { setModalLoginIsOpen(true) }}>
-          Entrar
-        </Entrar>
+        <Roxo>
+          <Entrar onClick={() => { setModalLoginIsOpen(true) }}>
+            Entrar
+          </Entrar>
+        </Roxo>
         <Criar onClick={() => { setModalCadastroIsOpen(true) }}>Criar conta</Criar>
 
         <Modal isOpen={modalLoginIsOpen} setIsOpen={() => { setModalLoginIsOpen(false); setModalCadastroIsOpen(false) }}>

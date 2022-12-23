@@ -43,21 +43,31 @@ export const Main = styled("main", {
   }
 });
 
+export const Roxo = styled('div', {
+  backgroundColor: "#78108d",
+  height: '6rem',
+  width: '20rem',
+  borderRadius: "3rem",
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+
+  '&:hover': {
+    backgroundColor: '#620d73'
+  }
+})
+
 export const Entrar = styled("button", {
 
+  background: 'none',
   fontSize: "3.5rem",
   color: "#ffffff",
   border: "none",
-  borderRadius: "2rem",
+
   fontFamily: 'Concert One',
   fontWeight: 100,
   transition: '0.3s',
   padding: '.8rem 0',
-
-  backgroundColor: "#78108d",
-  '&:hover': {
-    backgroundColor: '#620d73'
-  }
 
 });
 
