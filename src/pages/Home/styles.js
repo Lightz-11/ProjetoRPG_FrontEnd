@@ -22,7 +22,7 @@ export const Main = styled("main", {
   h1: {
     fontSize: "18rem",
     fontFamily: 'Gagalin',
-    marginLeft: '3rem',
+    marginLeft: '2rem',
     fontWeight: 100,
     color: "#ffffff59",
     letterSpacing: "1rem",
@@ -44,8 +44,10 @@ export const Main = styled("main", {
 });
 
 export const Entrar = styled("button", {
+
   fontSize: "3.5rem",
   width: 'fit-content',
+  minHeight: '6rem',
   color: "#ffffff",
   border: "none",
   borderRadius: "2rem",
@@ -55,8 +57,6 @@ export const Entrar = styled("button", {
   padding: "1rem 7rem",
   fontFamily: 'Concert One',
   fontWeight: 100,
-  marginBottom: '3rem',
-  marginTop: '-3rem',
   transition: '0.3s',
 
   backgroundColor: "#78108d",
@@ -79,8 +79,6 @@ export const Criar = styled('button', {
   padding: "1rem 7rem",
   fontFamily: 'Concert One',
   fontWeight: 100,
-  marginBottom: '3rem',
-  marginTop: '-3rem',
   transition: '0.3s',
   background: "none",
   fontSize: "2.5rem",
