@@ -61,13 +61,19 @@ export const Roxo = styled('div', {
 
 export const Entrar = styled("button", {
 
+  height: '6rem',
+  width: '20rem',
+  borderRadius: "3rem",
   background: 'none',
-  fontSize: "3.5rem",
-  color: "#ffffff",
   border: "none",
 
-  fontFamily: 'Concert One',
-  fontWeight: 100,
+  span: {
+    fontSize: "3.5rem",
+    color: "#ffffff",
+    fontFamily: 'Concert One',
+    fontWeight: 100,
+  }
+
 
 });
 

@@ -18,7 +18,7 @@ export function Home() {
 
         <Roxo>
           <Entrar onClick={() => { setModalLoginIsOpen(true) }}>
-            Entrar
+            <span>Entrar</span>
           </Entrar>
         </Roxo>
         {/* <Criar onClick={() => { setModalCadastroIsOpen(true) }}>Criar conta</Criar> */}
