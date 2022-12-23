@@ -51,6 +51,8 @@ export const Roxo = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  cursor: 'pointer',
+  transition: '0.3s',
 
   '&:hover': {
     backgroundColor: '#620d73'
@@ -66,8 +68,6 @@ export const Entrar = styled("button", {
 
   fontFamily: 'Concert One',
   fontWeight: 100,
-  transition: '0.3s',
-  padding: '.8rem 0',
 
 });
 

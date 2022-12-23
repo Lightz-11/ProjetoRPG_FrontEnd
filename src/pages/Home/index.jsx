@@ -21,7 +21,7 @@ export function Home() {
             Entrar
           </Entrar>
         </Roxo>
-        <Criar onClick={() => { setModalCadastroIsOpen(true) }}>Criar conta</Criar>
+        {/* <Criar onClick={() => { setModalCadastroIsOpen(true) }}>Criar conta</Criar> */}
 
         <Modal isOpen={modalLoginIsOpen} setIsOpen={() => { setModalLoginIsOpen(false); setModalCadastroIsOpen(false) }}>
           <ModalLogin setModalLoginClose={() => { setModalLoginIsOpen(false) }} />
