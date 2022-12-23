@@ -69,6 +69,8 @@ export const Entrar = styled("button", {
 
   span: {
     fontSize: "3.5rem",
+    position: 'relative',
+    bottom: '.2rem',
     color: "#ffffff",
     fontFamily: 'Concert One',
     fontWeight: 100,
