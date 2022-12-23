@@ -40,6 +40,10 @@ export const Main = styled("main", {
 
   "@md": {
     margin: 'auto auto'
+  },
+
+  '@md5': {
+    paddingBottom: '5rem'
   }
 });
 
@@ -54,6 +58,7 @@ export const Entrar = styled("button", {
   fontFamily: 'Concert One',
   fontWeight: 100,
   transition: '0.3s',
+  paddingBottom: '3rem',
 
   backgroundColor: "#78108d",
   '&:hover': {
