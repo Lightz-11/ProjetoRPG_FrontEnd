@@ -39,7 +39,7 @@ export const Main = styled("main", {
   },
 
   '@md5': {
-    paddingBottom: '5rem'
+    paddingBottom: '7rem'
   }
 });
 
@@ -89,7 +89,7 @@ export const Criar = styled('button', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  padding: "1rem 7rem",
+  marginTop: '1rem',
   fontFamily: 'Concert One',
   fontWeight: 100,
   transition: '0.3s',
