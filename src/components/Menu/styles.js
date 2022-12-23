@@ -62,7 +62,7 @@ export const Header = styled("div", {
     '@md5': {
         button: {
             transform: 'translateX(-2.5rem)',
-            margin: '0 2rem 0 6rem'
+            margin: '0 2rem 0 7rem'
         },
     }
 
@@ -72,7 +72,7 @@ export const Vazio = styled('div', {
     width: '15rem',
 
     '@md5': {
-        width: '10.5rem'
+        width: '11.5rem'
     }
 })
 
@@ -108,7 +108,7 @@ export const Body = styled("div", {
                 transition: '.5s',
 
                 '@md5': {
-                    width: '10rem'
+                    width: '11rem'
                 }
             }
         },
