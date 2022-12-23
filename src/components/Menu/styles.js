@@ -69,10 +69,10 @@ export const Header = styled("div", {
 });
 
 export const Vazio = styled('div', {
-    width: '15rem',
+    width: '16rem',
 
     '@md5': {
-        width: '11.5rem'
+        width: '12rem'
     }
 })
 
