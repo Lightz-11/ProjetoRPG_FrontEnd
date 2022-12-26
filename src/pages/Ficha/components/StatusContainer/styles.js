@@ -112,7 +112,7 @@ export const AreaPortrait = styled('div', {
 
 export const Portrait = styled(Link, {
 
-  border: '2px solid white',
+  border: '2px solid transparent',
   marginLeft: '6rem',
   borderRadius: '20rem',
   display: 'flex',
@@ -120,7 +120,7 @@ export const Portrait = styled(Link, {
   justifyContent: 'center',
   width: '220px',
   height: '220px',
-  zIndex: 1,
+  zIndex: 2,
 
   '@md2': {
     width: '150px',
@@ -137,26 +137,25 @@ export const Portrait = styled(Link, {
 
 export const Img = styled('img', {
 
-  objectFit: 'contain',
-  zIndex: 0,
+  border: '2px solid white',
+  objectFit: 'cover',
   cursor: 'pointer',
   borderRadius: '72rem',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  position: 'relative',
   width: '220px',
-  height: '217px',
+  height: '220px',
   transition: 'filter 1s',
 
   '@md2': {
     width: '150px',
-    height: '147px'
+    height: '150px'
   },
 
   '@md5': {
     width: '200px',
-    height: '197px',
+    height: '200px',
   },
 
   variants: {

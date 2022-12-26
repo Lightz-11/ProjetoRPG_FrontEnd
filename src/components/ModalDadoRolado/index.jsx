@@ -1,7 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Container, Header, Main, Footer, CloseButton } from './styles';
+import { io } from 'socket.io-client';
+import { api } from '../../services/api';
+import { useParams } from 'react-router-dom';
+
+const socket = io(api.defaults.baseURL);
 
 export function ModalDadoRolado({ setModalEditIsOpenFalse, data }) {
+
+  const { id } = useParams()
 
   const [dados, setDados] = useState({
     valorTotal: 0,
@@ -93,6 +100,8 @@ export function ModalDadoRolado({ setModalEditIsOpenFalse, data }) {
           ]
         });
 
+        socket.emit('dado.rolado', { fichaId: id, valorTotal: eval(contaTotal.join("+")) })
+
       } else {
 
         let soma = []
@@ -168,6 +177,8 @@ export function ModalDadoRolado({ setModalEditIsOpenFalse, data }) {
             ]
           });
         }
+
+        socket.emit('dado.rolado', { fichaId: id, valorTotal: eval(contaTotal.join("+")) })
 
 
       };

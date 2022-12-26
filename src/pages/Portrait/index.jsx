@@ -36,7 +36,8 @@ export function Portrait() {
 
   const [semPerm, setSemPerm] = useState(false)
 
-  const navigate = useNavigate()
+  const [valorDado, setValorDado] = useState(0)
+  const [dadoActive, setDadoActive] = useState(false)
 
   const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
 
@@ -103,15 +104,50 @@ export function Portrait() {
         if (portrait) {
 
           if (status.danoMassivo == true) {
-            if (portrait.morrendo != null) {
+
+            if (status.insano == true || status.ps == 0) {
+              if (portrait.insanoemorrendo != null) {
+                setPortraitImg(portrait.insanoemorrendo)
+              } else if (portrait.insanoeferido != null) {
+                setPortraitImg(portrait.insanoeferido)
+              } else if (portrait.morrendo != null) {
+                setPortraitImg(portrait.morrendo)
+              } else if (portrait.ferido != null) {
+                setPortraitImg(portrait.ferido)
+              } else if (portrait.insano != null) {
+                setPortraitImg(portrait.insano)
+              } else {
+                setPortraitImg(portrait.normal)
+              }
+            }
+
+            else if (portrait.morrendo != null) {
               setPortraitImg(portrait.morrendo)
             } else if (portrait.ferido != null) {
               setPortraitImg(portrait.ferido)
             } else {
               setPortraitImg(portrait.normal)
             }
+
           } else if (status.insano == true) {
-            if (status.pv < (status.pvMax / 2)) {
+
+            if (status.massivo == true || status.pv == 0) {
+              if (portrait.insanoemorrendo != null) {
+                setPortraitImg(portrait.insanoemorrendo)
+              } else if (portrait.insanoeferido != null) {
+                setPortraitImg(portrait.insanoeferido)
+              } else if (portrait.insano != null) {
+                setPortraitImg(portrait.insano)
+              } else if (portrait.morrendo != null) {
+                setPortraitImg(portrait.morrendo)
+              } else if (portrait.ferido != null) {
+                setPortraitImg(portrait.ferido)
+              } else {
+                setPortraitImg(portrait.normal)
+              }
+            }
+
+            else if (status.pv < (status.pvMax / 2)) {
               if (portrait.insanoeferido != null) {
                 setPortraitImg(portrait.insanoeferido)
               } else if (portrait.insano != null) {
@@ -121,16 +157,34 @@ export function Portrait() {
               } else {
                 setPortraitImg(portrait.normal)
               }
+            }
+
+            else if (portrait.insano != null) {
+              setPortraitImg(portrait.insano)
             } else {
-              if (portrait.insano != null) {
+              setPortraitImg(portrait.normal)
+            }
+
+
+          } else if (status.pv == 0) {
+
+            if (status.insano == true || status.ps == 0) {
+              if (portrait.insanoemorrendo != null) {
+                setPortraitImg(portrait.insanoemorrendo)
+              } else if (portrait.insanoeferido != null) {
+                setPortraitImg(portrait.insanoeferido)
+              } else if (portrait.morrendo != null) {
+                setPortraitImg(portrait.morrendo)
+              } else if (portrait.ferido != null) {
+                setPortraitImg(portrait.ferido)
+              } else if (portrait.insano != null) {
                 setPortraitImg(portrait.insano)
               } else {
                 setPortraitImg(portrait.normal)
               }
             }
-          } else if (status.pv == 0) {
 
-            if (portrait.morrendo != null) {
+            else if (portrait.morrendo != null) {
               setPortraitImg(portrait.morrendo)
             } else if (portrait.ferido != null) {
               setPortraitImg(portrait.ferido)
@@ -139,7 +193,24 @@ export function Portrait() {
             }
 
           } else if (status.ps == 0) {
-            if (status.pv < (status.pvMax / 2)) {
+
+            if (status.massivo == true || status.pv == 0) {
+              if (portrait.insanoemorrendo != null) {
+                setPortraitImg(portrait.insanoemorrendo)
+              } else if (portrait.insanoeferido != null) {
+                setPortraitImg(portrait.insanoeferido)
+              } else if (portrait.insano != null) {
+                setPortraitImg(portrait.insano)
+              } else if (portrait.morrendo != null) {
+                setPortraitImg(portrait.morrendo)
+              } else if (portrait.ferido != null) {
+                setPortraitImg(portrait.ferido)
+              } else {
+                setPortraitImg(portrait.normal)
+              }
+            }
+
+            else if (status.pv < (status.pvMax / 2)) {
               if (portrait.insanoeferido != null) {
                 setPortraitImg(portrait.insanoeferido)
               } else if (portrait.insano != null) {
@@ -254,6 +325,20 @@ export function Portrait() {
   }
   socket.on("status.municao", executeUpdateMunicao);
 
+  function executeDado({ fichaId, valorTotal }) {
+    if (fichaId == id) {
+
+      setDadoActive(true)
+      setValorDado(valorTotal)
+
+      setTimeout(() => {
+        setDadoActive(false)
+      }, 5000)
+
+    }
+  }
+  socket.on('dado.rolado', executeDado)
+
   function executeUpdatePortrait({ fichaId, newPortrait }) {
     if (fichaId == id) {
       const portraitAtual = document.getElementById('imagem')
@@ -293,8 +378,8 @@ export function Portrait() {
         <PortraitImg id='imagem' animation={animation} inconsciente={inconsciente} semPerm={semPerm} src={portraitImg} />
         <img src={FundoPortrait} />
       </Main>
-      <Dado active={false}>
-        <span>24</span>
+      <Dado active={dadoActive}>
+        <span>{valorDado}</span>
         <FaDiceD20 color='#60eeff' size={160} />
       </Dado>
 

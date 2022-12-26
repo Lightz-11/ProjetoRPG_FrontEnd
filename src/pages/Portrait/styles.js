@@ -253,7 +253,7 @@ export const PortraitImg = styled('img', {
         opacity: 0
       },
       false: {
-        animation: `${opacityUp} .2s`,
+        animation: `${opacityUp} .3s`,
         opacity: 1
       }
     },
@@ -267,10 +267,10 @@ export const PortraitImg = styled('img', {
 })
 
 export const Dado = styled('div', {
-  position: 'absolute',
-  left: '34rem',
+  position: 'relative',
+  right: '5rem',
   zIndex: 12,
-  bottom: '-18rem',
+  top: '60rem',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -294,8 +294,8 @@ export const Dado = styled('div', {
   variants: {
     active: {
       true: {
-        bottom: '10rem',
-      }
+        top: '28rem',
+      },
     }
   }
 })

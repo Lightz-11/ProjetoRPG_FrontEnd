@@ -13,7 +13,7 @@ import { useDisabled } from '../../../../hooks/useDisabled';
 
 const socket = io(api.defaults.baseURL);
 
-export function StatusContainer({ status, defesas, portrait }) {
+export function StatusContainer({ status, defesas, portraitData }) {
 
   const [dataDefesas, setDataDefesas] = useState([])
   const [dataRes, setDataRes] = useState([])
@@ -28,6 +28,8 @@ export function StatusContainer({ status, defesas, portrait }) {
   const [insano, setInsano] = useState(false)
   const [massivo, setMassivo] = useState(false)
   const [inconsciente, setInconsciente] = useState(false)
+
+  const [portrait, setPortrait] = useState(portraitData)
 
   const [portraitImg, setPortraitImg] = useState(null)
 
@@ -121,15 +123,50 @@ export function StatusContainer({ status, defesas, portrait }) {
     if (portrait) {
 
       if (massivo == true) {
-        if (portrait.morrendo != null) {
+
+        if (insano == true || sanA == 0) {
+          if (portrait.insanoemorrendo != null) {
+            setarPortrait(portrait.insanoemorrendo)
+          } else if (portrait.insanoeferido != null) {
+            setarPortrait(portrait.insanoeferido)
+          } else if (portrait.morrendo != null) {
+            setarPortrait(portrait.morrendo)
+          } else if (portrait.ferido != null) {
+            setarPortrait(portrait.ferido)
+          } else {
+            setarPortrait(portrait.normal)
+          }
+        }
+
+        else if (portrait.morrendo != null) {
           setarPortrait(portrait.morrendo)
         } else if (portrait.ferido != null) {
           setarPortrait(portrait.ferido)
         } else {
           setarPortrait(portrait.normal)
         }
+
+
+
       } else if (insano == true) {
-        if (pvA < (pvMax / 2)) {
+
+        if (massivo == true || pvA == 0) {
+          if (portrait.insanoemorrendo != null) {
+            setarPortrait(portrait.insanoemorrendo)
+          } else if (portrait.insanoeferido != null) {
+            setarPortrait(portrait.insanoeferido)
+          } else if (portrait.insano != null) {
+            setarPortrait(portrait.insano)
+          } else if (portrait.morrendo != null) {
+            setarPortrait(portrait.morrendo)
+          } else if (portrait.ferido != null) {
+            setarPortrait(portrait.ferido)
+          } else {
+            setarPortrait(portrait.normal)
+          }
+        }
+
+        else if (pvA < (pvMax / 2)) {
           if (portrait.insanoeferido != null) {
             setarPortrait(portrait.insanoeferido)
           } else if (portrait.insano != null) {
@@ -148,7 +185,23 @@ export function StatusContainer({ status, defesas, portrait }) {
         }
       } else if (pvA == 0) {
 
-        if (portrait.morrendo != null) {
+        if (insano == true || sanA == 0) {
+          if (portrait.insanoemorrendo != null) {
+            setarPortrait(portrait.insanoemorrendo)
+          } else if (portrait.insanoeferido != null) {
+            setarPortrait(portrait.insanoeferido)
+          } else if (portrait.morrendo != null) {
+            setarPortrait(portrait.morrendo)
+          } else if (portrait.ferido != null) {
+            setarPortrait(portrait.ferido)
+          } else if (portrait.insano != null) {
+            setarPortrait(portrait.insano)
+          } else {
+            setarPortrait(portrait.normal)
+          }
+        }
+
+        else if (portrait.morrendo != null) {
           setarPortrait(portrait.morrendo)
         } else if (portrait.ferido != null) {
           setarPortrait(portrait.ferido)
@@ -157,7 +210,24 @@ export function StatusContainer({ status, defesas, portrait }) {
         }
 
       } else if (sanA == 0) {
-        if (pvA < (pvMax / 2)) {
+
+        if (massivo == true || pvA == 0) {
+          if (portrait.insanoemorrendo != null) {
+            setarPortrait(portrait.insanoemorrendo)
+          } else if (portrait.insanoeferido != null) {
+            setarPortrait(portrait.insanoeferido)
+          } else if (portrait.insano != null) {
+            setarPortrait(portrait.insano)
+          } else if (portrait.morrendo != null) {
+            setarPortrait(portrait.morrendo)
+          } else if (portrait.ferido != null) {
+            setarPortrait(portrait.ferido)
+          } else {
+            setarPortrait(portrait.normal)
+          }
+        }
+
+        else if (pvA < (pvMax / 2)) {
           if (portrait.insanoeferido != null) {
             setarPortrait(portrait.insanoeferido)
           } else if (portrait.insano != null) {
@@ -188,7 +258,7 @@ export function StatusContainer({ status, defesas, portrait }) {
 
     }
 
-  }, [pvA, sanA, insano, massivo])
+  }, [pvA, sanA, insano, massivo, portrait])
 
   useEffect(() => {
 
@@ -286,7 +356,7 @@ export function StatusContainer({ status, defesas, portrait }) {
     <Container>
 
       <Modal isOpen={modalPortraitIsOpen} setIsOpen={() => setModalPortraitIsOpen(false)}>
-        <ModalPortrait data={portrait} setModalPortraitIsOpenFalse={() => setModalPortraitIsOpen(false)} />
+        <ModalPortrait atualizar={setPortrait} data={portrait} setModalPortraitIsOpenFalse={() => setModalPortraitIsOpen(false)} />
       </Modal>
 
       <Header>
