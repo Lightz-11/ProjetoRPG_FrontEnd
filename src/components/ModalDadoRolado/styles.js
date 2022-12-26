@@ -48,7 +48,7 @@ export const Main = styled('div', {
 
   display: 'flex',
   justifyContent: 'left',
-  alignItems: 'baseline',
+  alignItems: 'flex-end',
   paddingLeft: '2rem',
   color: 'white',
   marginRight: '2rem',
@@ -58,6 +58,8 @@ export const Main = styled('div', {
     fontSize: '2.5rem',
     fontWeight: 100,
     marginRight: '1rem',
+    width: 'min-content',
+    textAlign: 'left',
     textTransform: 'capitalize',
     fontFamily: 'Rye'
   },

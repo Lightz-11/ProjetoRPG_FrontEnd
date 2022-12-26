@@ -328,12 +328,31 @@ export function Portrait() {
   function executeDado({ fichaId, valorTotal }) {
     if (fichaId == id) {
 
-      setDadoActive(true)
-      setValorDado(valorTotal)
+      setDadoActive(false)
+
+      const dado = document.getElementById('dado')
 
       setTimeout(() => {
-        setDadoActive(false)
-      }, 5000)
+
+        if (dado.getBoundingClientRect().bottom == 828.5) {
+
+          setDadoActive(false)
+
+          setTimeout(() => {
+
+            setDadoActive(true)
+            setValorDado(valorTotal)
+
+          }, 50)
+
+        } else if (dado.getBoundingClientRect().bottom == 1148.5) {
+
+          setDadoActive(true)
+          setValorDado(valorTotal)
+
+        }
+
+      }, 50)
 
     }
   }
@@ -378,7 +397,7 @@ export function Portrait() {
         <PortraitImg id='imagem' animation={animation} inconsciente={inconsciente} semPerm={semPerm} src={portraitImg} />
         <img src={FundoPortrait} />
       </Main>
-      <Dado active={dadoActive}>
+      <Dado id='dado' active={dadoActive}>
         <span>{valorDado}</span>
         <FaDiceD20 color='#60eeff' size={160} />
       </Dado>

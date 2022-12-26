@@ -13,6 +13,7 @@ import { Barrinha } from './Barrinha';
 import { useEffect } from 'react';
 import { api } from '../../../../../../services/api';
 import { useParams } from 'react-router';
+import { ModalDadoRolado } from '../../../../../../components/ModalDadoRolado';
 
 export function Arma({ data, atualizar, armas }) {
 

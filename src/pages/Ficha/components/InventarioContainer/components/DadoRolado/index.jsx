@@ -1,8 +1,15 @@
 import { useEffect, useState } from 'react';
 import { RiContactsBookLine } from 'react-icons/ri';
 import { Container, Header, Main, Footer, CloseButton } from './styles';
+import { io } from 'socket.io-client';
+import { api } from '../../../../../../services/api';
+import { useParams } from 'react-router-dom';
+
+const socket = io(api.defaults.baseURL);
 
 export function DadoRolado({ data }) {
+
+  const { id } = useParams()
 
   const [dados, setDados] = useState({
     valorTotal: 0,
@@ -83,6 +90,8 @@ export function DadoRolado({ data }) {
           contaTotal.push(soma)
         }
 
+        socket.emit('dado.rolado', { fichaId: id, valorTotal: eval(contaTotal.join("+")) })
+
         setDados({
           valorTotal: eval(contaTotal.join("+")),
           conta: contaTotal.join("+"),
@@ -136,6 +145,8 @@ export function DadoRolado({ data }) {
             contaTotal.push('(' + soma.join('+') + ')')
           }
 
+          socket.emit('dado.rolado', { fichaId: id, valorTotal: eval(contaTotal.join("+")) })
+
           setDados({
             valorTotal: eval(contaTotal.join("+")),
             conta: contaTotal.join("+"),
@@ -158,6 +169,8 @@ export function DadoRolado({ data }) {
             contaTotal.push(valorGerado)
           }
 
+          socket.emit('dado.rolado', { fichaId: id, valorTotal: eval(contaTotal.join("+")) })
+
           setDados({
             valorTotal: eval(contaTotal.join("+")),
             conta: contaTotal.join("+"),
@@ -169,7 +182,6 @@ export function DadoRolado({ data }) {
             ]
           });
         }
-
 
       };
     }

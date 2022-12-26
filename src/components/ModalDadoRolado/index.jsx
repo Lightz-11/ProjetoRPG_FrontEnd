@@ -144,6 +144,8 @@ export function ModalDadoRolado({ setModalEditIsOpenFalse, data }) {
             contaTotal.push('(' + soma.join('+') + ')')
           }
 
+          socket.emit('dado.rolado', { fichaId: id, valorTotal: eval(contaTotal.join("+")) })
+
           setDados({
             valorTotal: eval(contaTotal.join("+")),
             conta: contaTotal.join("+"),
@@ -151,6 +153,8 @@ export function ModalDadoRolado({ setModalEditIsOpenFalse, data }) {
           });
 
         } else {
+
+          console.log('entrei')
 
           let totalValores = []
           let contaTotal = []
@@ -166,6 +170,8 @@ export function ModalDadoRolado({ setModalEditIsOpenFalse, data }) {
             contaTotal.push(valorGerado)
           }
 
+          socket.emit('dado.rolado', { fichaId: id, valorTotal: eval(contaTotal.join("+")) })
+
           setDados({
             valorTotal: eval(contaTotal.join("+")),
             conta: contaTotal.join("+"),
@@ -177,9 +183,6 @@ export function ModalDadoRolado({ setModalEditIsOpenFalse, data }) {
             ]
           });
         }
-
-        socket.emit('dado.rolado', { fichaId: id, valorTotal: eval(contaTotal.join("+")) })
-
 
       };
     }

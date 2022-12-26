@@ -266,6 +266,21 @@ export const PortraitImg = styled('img', {
 
 })
 
+const DadoAnimation = keyframes({
+  '0%': {
+    top: '60rem',
+  },
+  '20%': {
+    top: '28rem',
+  },
+  '70%': {
+    top: '28rem',
+  },
+  '100%': {
+    top: '60rem',
+  },
+});
+
 export const Dado = styled('div', {
   position: 'relative',
   right: '5rem',
@@ -274,7 +289,6 @@ export const Dado = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  transition: 'ease 2s',
 
   svg: {
     filter: 'drop-shadow(#00e5ff 0 0 10px)',
@@ -294,8 +308,8 @@ export const Dado = styled('div', {
   variants: {
     active: {
       true: {
-        top: '28rem',
-      },
+        animation: `${DadoAnimation} 7s`
+      }
     }
   }
 })

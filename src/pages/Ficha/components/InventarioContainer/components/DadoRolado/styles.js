@@ -48,7 +48,7 @@ export const Main = styled('div', {
 
   display: 'flex',
   justifyContent: 'left',
-  alignItems: 'baseline',
+  alignItems: 'flex-end',
   paddingLeft: '2rem',
   color: 'white',
   marginRight: '2rem',
@@ -56,6 +56,8 @@ export const Main = styled('div', {
 
   h1: {
     fontSize: '2.5rem',
+    textAlign: 'left',
+    width: 'min-content',
     marginRight: '1rem',
     fontFamily: 'Rye'
   },

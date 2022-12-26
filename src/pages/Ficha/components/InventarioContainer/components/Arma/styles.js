@@ -158,9 +158,12 @@ export const Dados = styled('div', {
   padding: '0 1rem',
   gap: '1rem',
   width: '100%',
-  flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
+
+  '@md5': {
+    flexDirection: 'column'
+  }
 })
 
 export const Button = styled('button', {
@@ -205,20 +208,6 @@ export const Button = styled('button', {
       }
     }
   }
-})
-
-export const Danos = styled('div', {
-
-  width: '100%',
-  gap: '1rem',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-
-  '@md5': {
-    flexDirection: 'column'
-  }
-
 })
 
 export const ContainerDadoRolado = styled('div', {

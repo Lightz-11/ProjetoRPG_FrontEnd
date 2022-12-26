@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Container, Header, Main, MainTop, MainBottom, Span, ButtonIcon, Infos, DivInfos, ParteImg, ParteImgModal, ImgModal, Icon, Dados, Button, Danos, ContainerDadoRolado } from './styles';
+import { Container, Header, Main, MainTop, MainBottom, Span, ButtonIcon, Infos, DivInfos, ParteImg, ParteImgModal, ImgModal, Icon, Dados, Button, ContainerDadoRolado } from './styles';
 import { BiInfoCircle } from 'react-icons/bi'
 import { MdOutlineEdit } from 'react-icons/md'
 import { IoIosStarOutline } from 'react-icons/io'
@@ -15,6 +15,7 @@ import { api } from '../../../../../../services/api';
 import { Barrinha } from './Barrinha';
 import { io } from 'socket.io-client';
 import { useDisabled } from '../../../../../../hooks/useDisabled';
+import { ModalDadoRolado } from '../../../../../../components/ModalDadoRolado';
 
 const socket = io(api.defaults.baseURL);
 
@@ -139,22 +140,20 @@ export function Arma({ data, atualizar, armas, setPesoAtual }) {
 
           <Dados>
 
-            <Danos>
-              <Button disabled={disabled} onClick={() => {
-                setDadoData({
-                  nome: 'Dano',
-                  valor: data.dano,
-                  isDano: true
-                })
-              }} color={'crimson'}><strong>Dano:</strong> {data.dano}</Button>
-              <Button disabled={disabled} onClick={() => {
-                setDadoData({
-                  nome: 'Dano Crítico',
-                  valor: data.danoCritico,
-                  isDano: true
-                })
-              }} color={'red'}><strong>Crítico:</strong> {data.margemCritico} / {data.danoCritico}</Button>
-            </Danos>
+            <Button disabled={disabled} onClick={() => {
+              setDadoData({
+                nome: 'Dano',
+                valor: data.dano,
+                isDano: true
+              })
+            }} color={'crimson'}><strong>Dano:</strong> {data.dano}</Button>
+            <Button disabled={disabled} onClick={() => {
+              setDadoData({
+                nome: 'Dano Crítico',
+                valor: data.danoCritico,
+                isDano: true
+              })
+            }} color={'red'}><strong>Crítico:</strong> {data.margemCritico} / {data.danoCritico}</Button>
 
           </Dados>
 
