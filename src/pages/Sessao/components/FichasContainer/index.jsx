@@ -11,24 +11,11 @@ import { useParams } from 'react-router-dom';
 
 export function FichaContainer() {
 
-  const { fichas, setFichas } = useFichas()
+  const { fichas } = useFichas()
 
   const { id } = useParams()
 
   const [modalAddPersoagemIsOpen, setModalAddPersoagemIsOpen] = useState(false)
-
-  useEffect(() => {
-
-    async function fetchData() {
-
-      const response = await api.get(`/fichas/sessao/${id}`)
-
-      setFichas(response.data)
-
-    }
-    fetchData()
-
-  }, [])
 
   return (
     <Container>

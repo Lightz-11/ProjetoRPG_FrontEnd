@@ -46,13 +46,32 @@ export const HeaderContainer = styled("div", {
 });
 
 export const BodyContainer = styled("div", {
-  padding: "1rem",
-  display: "grid",
-  gridTemplateColumns: "1fr 1fr",
-  gridColumnGap: "3rem",
-  gridRowGap: "2rem",
 
-  "@lg4": {
-    gridTemplateColumns: "1fr",
+  maxHeight: '38.5rem',
+  overflowY: 'auto',
+  padding: "2rem",
+  display: 'grid',
+  gridTemplateColumns: '1fr 1fr',
+  gap: '2rem',
+
+  '@lg4': {
+    gridTemplateColumns: '1fr',
   },
+
+  '@lg3': {
+    gridTemplateColumns: '1fr 1fr',
+  },
+
+  '@md': {
+    gridTemplateColumns: '1fr',
+  },
+
+  variants: {
+    quantidade: {
+      1: {
+        gridTemplateColumns: '1fr',
+      }
+    }
+  }
+
 });

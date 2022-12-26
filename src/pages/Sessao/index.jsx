@@ -9,10 +9,13 @@ import { AnotacoesContainer, DadosContainer, FichaContainer, IniciativasContaine
 import { ToastContainer } from "react-toastify";
 import { useParams } from "react-router-dom";
 import { useTitle } from "../../hooks/useTitle";
+import { useFichas } from "../../hooks/useFichas";
 
 export function Sessao() {
 
     const { setTitle } = useTitle()
+
+    const { setFichas } = useFichas()
 
     const [isLoading, setIsLoading] = useState(true)
 
@@ -31,6 +34,11 @@ export function Sessao() {
                 if (response.data.userId != dataUser.id) {
                     window.location.href = "/"
                 }
+
+                const response2 = await api.get(`/fichas/sessao/${response.data.id}`)
+
+                setFichas(response2.data)
+
 
                 setTitle(response.data.nome)
 

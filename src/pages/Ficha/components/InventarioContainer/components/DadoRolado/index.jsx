@@ -145,7 +145,10 @@ export function DadoRolado({ data }) {
             contaTotal.push('(' + soma.join('+') + ')')
           }
 
-          socket.emit('dado.rolado', { fichaId: id, valorTotal: eval(contaTotal.join("+")) })
+          socket.emit('dado.rolado', {
+            fichaId: id, nome: data.nome, isDano: data.isDano, conta: contaTotal.join("+"), valorTotal: eval(contaTotal.join("+")),
+            dadosRolados: todosDadosRolados
+          })
 
           setDados({
             valorTotal: eval(contaTotal.join("+")),
@@ -169,7 +172,10 @@ export function DadoRolado({ data }) {
             contaTotal.push(valorGerado)
           }
 
-          socket.emit('dado.rolado', { fichaId: id, valorTotal: eval(contaTotal.join("+")) })
+          socket.emit('dado.rolado', {
+            fichaId: id, nome: data.nome, isDano: data.isDano, conta: contaTotal.join("+"), valorTotal: eval(contaTotal.join("+")),
+            dadosRolados: [{ dado: 'd' + valorMax, valores: totalValores }]
+          })
 
           setDados({
             valorTotal: eval(contaTotal.join("+")),

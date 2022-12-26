@@ -5,7 +5,7 @@ export const Container = styled('div', {
   width: '100%',
   height: '100vh',
   background: 'transparent',
-  overflowY: 'hidden',
+  overflow: 'auto',
   display: 'flex',
   alignItems: 'center',
   paddingLeft: '3rem',
@@ -289,6 +289,7 @@ export const Dado = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  opacity: 0,
 
   svg: {
     filter: 'drop-shadow(#00e5ff 0 0 10px)',
@@ -308,6 +309,7 @@ export const Dado = styled('div', {
   variants: {
     active: {
       true: {
+        opacity: 1,
         animation: `${DadoAnimation} 7s`
       }
     }

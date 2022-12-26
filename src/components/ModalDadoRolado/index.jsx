@@ -89,6 +89,11 @@ export function ModalDadoRolado({ setModalEditIsOpenFalse, data }) {
           contaTotal.push(soma)
         }
 
+        socket.emit('dado.rolado', {
+          fichaId: id, nome: data.nome, isDano: data.isDano, conta: contaTotal.join("+"), valorTotal: eval(contaTotal.join("+")),
+          dadosRolados: [{ dado: 'd' + valorMax, valores: totalValores }]
+        })
+
         setDados({
           valorTotal: eval(contaTotal.join("+")),
           conta: contaTotal.join("+"),
@@ -99,8 +104,6 @@ export function ModalDadoRolado({ setModalEditIsOpenFalse, data }) {
             }
           ]
         });
-
-        socket.emit('dado.rolado', { fichaId: id, valorTotal: eval(contaTotal.join("+")) })
 
       } else {
 
@@ -144,7 +147,7 @@ export function ModalDadoRolado({ setModalEditIsOpenFalse, data }) {
             contaTotal.push('(' + soma.join('+') + ')')
           }
 
-          socket.emit('dado.rolado', { fichaId: id, valorTotal: eval(contaTotal.join("+")) })
+          socket.emit('dado.rolado', { fichaId: id, nome: data.nome, isDano: data.isDano, conta: contaTotal.join("+"), valorTotal: eval(contaTotal.join("+")), dadosRolados: todosDadosRolados })
 
           setDados({
             valorTotal: eval(contaTotal.join("+")),
@@ -153,8 +156,6 @@ export function ModalDadoRolado({ setModalEditIsOpenFalse, data }) {
           });
 
         } else {
-
-          console.log('entrei')
 
           let totalValores = []
           let contaTotal = []
@@ -170,7 +171,9 @@ export function ModalDadoRolado({ setModalEditIsOpenFalse, data }) {
             contaTotal.push(valorGerado)
           }
 
-          socket.emit('dado.rolado', { fichaId: id, valorTotal: eval(contaTotal.join("+")) })
+          socket.emit('dado.rolado', {
+            fichaId: id, nome: data.nome, isDano: data.isDano, conta: contaTotal.join("+"), valorTotal: eval(contaTotal.join("+")), dadosRolados: [{ dado: 'd' + valorMax, valores: totalValores }]
+          })
 
           setDados({
             valorTotal: eval(contaTotal.join("+")),
@@ -209,7 +212,7 @@ export function ModalDadoRolado({ setModalEditIsOpenFalse, data }) {
 
       <Footer>
         {dados.dadosRolados.map((dado) => (
-          <span>
+          <span key={dado.dado}>
             {dado.dado}: {dado.valores.join(', ')}
           </span>
         ))}

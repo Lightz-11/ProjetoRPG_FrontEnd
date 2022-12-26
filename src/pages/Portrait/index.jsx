@@ -248,129 +248,132 @@ export function Portrait() {
     }
 
     fetchData();
-  }, [])
 
-  function executeUpdateCombate({ fichaId, newCombate }) {
-    if (fichaId == id) {
-      setCombate(newCombate)
+
+    function executeUpdateCombate({ fichaId, newCombate }) {
+      if (fichaId == id) {
+        setCombate(newCombate)
+      }
     }
-  }
-  socket.on("status.combate", executeUpdateCombate);
+    socket.on("status.combate", executeUpdateCombate);
 
-  function executeUpdateInsano({ fichaId, newInsano }) {
-    if (fichaId == id) {
-      setInsano(newInsano)
+    function executeUpdateInsano({ fichaId, newInsano }) {
+      if (fichaId == id) {
+        setInsano(newInsano)
+      }
     }
-  }
-  socket.on("status.insano", executeUpdateInsano);
+    socket.on("status.insano", executeUpdateInsano);
 
-  function executeUpdateMassivo({ fichaId, newMassivo }) {
-    if (fichaId == id) {
-      setMassivo(newMassivo)
+    function executeUpdateMassivo({ fichaId, newMassivo }) {
+      if (fichaId == id) {
+        setMassivo(newMassivo)
+      }
     }
-  }
-  socket.on("status.massivo", executeUpdateMassivo);
+    socket.on("status.massivo", executeUpdateMassivo);
 
-  function executeUpdateInconsciente({ fichaId, newInconsciente }) {
-    if (fichaId == id) {
-      setInconsciente(newInconsciente)
+    function executeUpdateInconsciente({ fichaId, newInconsciente }) {
+      if (fichaId == id) {
+        setInconsciente(newInconsciente)
+      }
     }
-  }
-  socket.on("status.inconsciente", executeUpdateInconsciente);
+    socket.on("status.inconsciente", executeUpdateInconsciente);
 
-  function executeUpdatePvAtual({ fichaId, newPvAtual }) {
-    if (fichaId == id) {
-      setPvA(newPvAtual)
+    function executeUpdatePvAtual({ fichaId, newPvAtual }) {
+      if (fichaId == id) {
+        setPvA(newPvAtual)
+      }
     }
-  }
-  socket.on("status.pvA", executeUpdatePvAtual);
+    socket.on("status.pvA", executeUpdatePvAtual);
 
-  function executeUpdatePvMax({ fichaId, newPvMax }) {
-    if (fichaId == id) {
-      setPvMax(newPvMax)
+    function executeUpdatePvMax({ fichaId, newPvMax }) {
+      if (fichaId == id) {
+        setPvMax(newPvMax)
+      }
     }
-  }
-  socket.on("status.pvMax", executeUpdatePvMax);
+    socket.on("status.pvMax", executeUpdatePvMax);
 
-  function executeUpdateSanAtual({ fichaId, newSanAtual }) {
-    if (fichaId == id) {
-      setSanA(newSanAtual)
+    function executeUpdateSanAtual({ fichaId, newSanAtual }) {
+      if (fichaId == id) {
+        setSanA(newSanAtual)
+      }
     }
-  }
-  socket.on("status.sanA", executeUpdateSanAtual);
+    socket.on("status.sanA", executeUpdateSanAtual);
 
-  function executeUpdateSanMax({ fichaId, newSanMax }) {
-    if (fichaId == id) {
-      setSanMax(newSanMax)
+    function executeUpdateSanMax({ fichaId, newSanMax }) {
+      if (fichaId == id) {
+        setSanMax(newSanMax)
+      }
     }
-  }
-  socket.on("status.sanMax", executeUpdateSanMax);
+    socket.on("status.sanMax", executeUpdateSanMax);
 
-  function executeUpdatePeAtual({ fichaId, newPeAtual }) {
-    if (fichaId == id) {
-      setPeA(newPeAtual)
+    function executeUpdatePeAtual({ fichaId, newPeAtual }) {
+      if (fichaId == id) {
+        setPeA(newPeAtual)
+      }
     }
-  }
-  socket.on("status.peA", executeUpdatePeAtual);
+    socket.on("status.peA", executeUpdatePeAtual);
 
-  function executeUpdateMunicao({ fichaId, municao }) {
-    if (fichaId == id) {
-      setMunicao(municao)
-      setMunicaoAtiva(true)
+    function executeUpdateMunicao({ fichaId, municao }) {
+      if (fichaId == id) {
+        setMunicao(municao)
+        setMunicaoAtiva(true)
 
-      setTimeout(() => {
-        setMunicaoAtiva(false)
-      }, 5000)
+        setTimeout(() => {
+          setMunicaoAtiva(false)
+        }, 5000)
+      }
     }
-  }
-  socket.on("status.municao", executeUpdateMunicao);
+    socket.on("status.municao", executeUpdateMunicao);
 
-  function executeDado({ fichaId, valorTotal }) {
-    if (fichaId == id) {
+    function executeDado({ fichaId, valorTotal }) {
+      if (fichaId == id) {
 
-      setDadoActive(false)
+        setDadoActive(false)
 
-      const dado = document.getElementById('dado')
+        const dado = document.getElementById('dado')
 
-      setTimeout(() => {
+        setTimeout(() => {
 
-        if (dado.getBoundingClientRect().bottom == 828.5) {
+          if (dado.getBoundingClientRect().bottom == 828.5) {
 
-          setDadoActive(false)
+            setDadoActive(false)
 
-          setTimeout(() => {
+            setTimeout(() => {
+
+              setDadoActive(true)
+              setValorDado(valorTotal)
+
+            }, 50)
+
+          } else if (dado.getBoundingClientRect().bottom == 1148.5) {
 
             setDadoActive(true)
             setValorDado(valorTotal)
 
-          }, 50)
+          }
 
-        } else if (dado.getBoundingClientRect().bottom == 1148.5) {
+        }, 50)
 
-          setDadoActive(true)
-          setValorDado(valorTotal)
-
-        }
-
-      }, 50)
-
+      }
     }
-  }
-  socket.on('dado.rolado', executeDado)
+    socket.on('dado.rolado', executeDado)
 
-  function executeUpdatePortrait({ fichaId, newPortrait }) {
-    if (fichaId == id) {
-      const portraitAtual = document.getElementById('imagem')
-      if (portraitAtual != undefined && portraitAtual != null) {
-        if (portraitAtual.src != newPortrait) {
-          setAnimation(true)
-          setTimeout(() => { setAnimation(false) }, 500)
-          setTimeout(() => { setPortraitImg(newPortrait) }, 500)
+    function executeUpdatePortrait({ fichaId, newPortrait }) {
+      if (fichaId == id) {
+        const portraitAtual = document.getElementById('imagem')
+        if (portraitAtual != undefined && portraitAtual != null) {
+          if (portraitAtual.src != newPortrait) {
+            setAnimation(true)
+            setTimeout(() => { setAnimation(false) }, 500)
+            setTimeout(() => { setPortraitImg(newPortrait) }, 500)
+          }
         }
       }
     }
-  }
-  socket.on("status.portrait", executeUpdatePortrait);
+    socket.on("status.portrait", executeUpdatePortrait);
+
+  }, [])
+
 
   return (
     <Container isLoading={isLoading}>

@@ -75,6 +75,34 @@ export function StatusContainer({ status, defesas, portraitData }) {
     setarMassivo(false)
     setarInconsciente(false)
 
+    function executeUpdateCombate({ fichaId, newCombate }) {
+      if (fichaId == id) {
+        setCombate(newCombate)
+      }
+    }
+    socket.on("status.combate", executeUpdateCombate);
+
+    function executeUpdateInsano({ fichaId, newInsano }) {
+      if (fichaId == id) {
+        setInsano(newInsano)
+      }
+    }
+    socket.on("status.insano", executeUpdateInsano);
+
+    function executeUpdateMassivo({ fichaId, newMassivo }) {
+      if (fichaId == id) {
+        setMassivo(newMassivo)
+      }
+    }
+    socket.on("status.massivo", executeUpdateMassivo);
+
+    function executeUpdateInconsciente({ fichaId, newInconsciente }) {
+      if (fichaId == id) {
+        setInconsciente(newInconsciente)
+      }
+    }
+    socket.on("status.inconsciente", executeUpdateInconsciente);
+
     return () => {
       handleEdit(false, false, false, false)
     }
@@ -321,35 +349,6 @@ export function StatusContainer({ status, defesas, portraitData }) {
     socket.emit("status.portrait", { fichaId: id, newPortrait });
     setPortraitImg(newPortrait)
   }
-
-
-  function executeUpdateCombate({ fichaId, newCombate }) {
-    if (fichaId == id) {
-      setCombate(newCombate)
-    }
-  }
-  socket.on("status.combate", executeUpdateCombate);
-
-  function executeUpdateInsano({ fichaId, newInsano }) {
-    if (fichaId == id) {
-      setInsano(newInsano)
-    }
-  }
-  socket.on("status.insano", executeUpdateInsano);
-
-  function executeUpdateMassivo({ fichaId, newMassivo }) {
-    if (fichaId == id) {
-      setMassivo(newMassivo)
-    }
-  }
-  socket.on("status.massivo", executeUpdateMassivo);
-
-  function executeUpdateInconsciente({ fichaId, newInconsciente }) {
-    if (fichaId == id) {
-      setInconsciente(newInconsciente)
-    }
-  }
-  socket.on("status.inconsciente", executeUpdateInconsciente);
 
 
   return (
