@@ -400,11 +400,11 @@ export function Portrait() {
         <PortraitImg id='imagem' animation={animation} inconsciente={inconsciente} semPerm={semPerm} src={portraitImg} />
         <img src={FundoPortrait} />
       </Main>
+
       <Dado id='dado' active={dadoActive}>
         <span>{valorDado}</span>
         <FaDiceD20 color='#60eeff' size={160} />
       </Dado>
-
 
     </Container>
   );
