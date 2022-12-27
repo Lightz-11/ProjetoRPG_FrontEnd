@@ -1,6 +1,13 @@
-import { Container, Footer, Header, Main, Body } from './styles';
+import { useEffect } from 'react';
+import { Container, Footer, Header, Main, Body, Horas } from './styles';
 
 export function Rolagem({ data }) {
+
+  useEffect(() => {
+
+    console.log(data)
+
+  }, [])
 
   return (
     <Container>
@@ -30,6 +37,8 @@ export function Rolagem({ data }) {
         </Footer>
 
       </Main>
+
+      <Horas>{data.horarioAtual}</Horas>
 
     </Container>
   );

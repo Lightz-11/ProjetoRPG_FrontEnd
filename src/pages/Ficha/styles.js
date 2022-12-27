@@ -12,11 +12,15 @@ export const Body = styled("div", {
   overflowY: "auto",
   marginTop: '7.3rem',
   width: '100%',
-  padding: "3rem 2rem 7rem 2rem",
+  padding: "3rem 2rem 1rem 2rem",
 
   hr: {
     borderColor: "#ffffff75",
   },
+
+  '@md5': {
+    padding: "3rem 2rem 7rem 2rem",
+  }
 });
 
 export const DoubleParteContainer = styled("div", {

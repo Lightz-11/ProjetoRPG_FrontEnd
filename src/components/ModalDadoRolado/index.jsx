@@ -3,6 +3,7 @@ import { Container, Header, Main, Footer, CloseButton } from './styles';
 import { io } from 'socket.io-client';
 import { api } from '../../services/api';
 import { useParams } from 'react-router-dom';
+import pericias from '../../pages/Ficha/components/PericiasContainer/pericias';
 
 const socket = io(api.defaults.baseURL);
 
@@ -204,7 +205,7 @@ export function ModalDadoRolado({ setModalEditIsOpenFalse, data }) {
       </Header>
 
       <Main isDano={data.isDano}>
-        <h1>{data.nome}:</h1>
+        <h1>{pericias(data.nome) != null ? pericias(data.nome) : data.nome}:</h1>
         <span>
           {dados.conta} = {dados.valorTotal}
         </span>

@@ -6,7 +6,7 @@ export const { styled, css, keyframes } = createStitches({
         md: "(max-width: 840px)",
         lg: "(max-width: 1024px)",
 
-        sm2: "(max-width: 280px)",
+        sm2: "(max-width: 540px)",
         md2: "(max-width: 680px)",
         lg2: "(max-width: 980px)",
 

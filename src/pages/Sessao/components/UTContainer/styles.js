@@ -47,31 +47,27 @@ export const HeaderContainer = styled("div", {
 
 export const BodyContainer = styled("div", {
 
-  maxHeight: '38.5rem',
+  maxHeight: '42rem',
   overflowY: 'auto',
   padding: "2rem",
   display: 'grid',
-  gridTemplateColumns: '1fr 1fr',
+  gridTemplateColumns: '1fr 1fr 1fr',
   gap: '2rem',
 
   '@lg4': {
-    gridTemplateColumns: '1fr',
-  },
-
-  '@lg3': {
     gridTemplateColumns: '1fr 1fr',
   },
 
-  '@md': {
-    gridTemplateColumns: '1fr',
+  '@lg3': {
+    gridTemplateColumns: '1fr 1fr 1fr',
   },
 
-  variants: {
-    quantidade: {
-      1: {
-        gridTemplateColumns: '1fr',
-      }
-    }
+  '@md': {
+    gridTemplateColumns: '1fr 1fr',
+  },
+
+  '@sm2': {
+    gridTemplateColumns: '1fr',
   }
 
 });

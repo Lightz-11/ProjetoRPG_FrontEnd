@@ -50,7 +50,7 @@ export function Sessao() {
         };
 
         fetchData();
-    });
+    }, []);
 
     return (
         <Container>

@@ -25,19 +25,36 @@ export function UTContainer() {
 
       if (fichaId == id) {
 
-        setRolagens((prev) => [...prev, { valorTotal, dadosRolados, nome, isDano, conta, nomeFicha: 'Mestre', portrait: noportrait }])
+        const horas = new Date().getHours().toString().padStart(2, '0')
+        const minutos = new Date().getMinutes().toString().padStart(2, '0')
+        const segundos = new Date().getSeconds().toString().padStart(2, '0')
+
+        const horarioAtual = horas + ':' + minutos + ':' + segundos
+
+        setRolagens((prev) => [...prev, { valorTotal, dadosRolados, nome, isDano, conta, nomeFicha: 'Mestre', portrait: noportrait, horarioAtual }])
 
       } else {
 
         fichas.forEach(ficha => {
           if (ficha.id == fichaId && nome.length > 0) {
-            setRolagens((prev) => [...prev, { valorTotal, dadosRolados, nome, isDano, conta, nomeFicha: ficha.Principal[0].nome, portrait: ficha.Portrait[0].normal }])
+
+            const horas = new Date().getHours().toString().padStart(2, '0')
+            const minutos = new Date().getMinutes().toString().padStart(2, '0')
+            const segundos = new Date().getSeconds().toString().padStart(2, '0')
+
+            const horarioAtual = horas + ':' + minutos + ':' + segundos
+
+            setRolagens((prev) => [...prev, {
+              valorTotal, dadosRolados, nome, isDano, conta, nomeFicha: ficha.Principal[0].nome,
+              portrait: ficha.Portrait[0].normal, horarioAtual
+            }])
           }
         });
 
       }
 
     }
+
     socket.on("dado.rolado", updateRolagens);
 
   }, [])
@@ -51,10 +68,10 @@ export function UTContainer() {
 
       <hr />
 
-      <BodyContainer quantidade={rolagens.length}>
+      <BodyContainer>
 
         {
-          rolagens.map((rolagem, index) => <Rolagem key={index} data={rolagem} />)
+          rolagens.map((rolagem, index) => <Rolagem key={index} data={rolagem} />).reverse()
         }
 
       </BodyContainer>

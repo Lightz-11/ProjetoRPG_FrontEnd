@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { api } from '../../../../../services/api';
 import { useDisabled } from '../../../../../hooks/useDisabled';
+import pericias from '../pericias';
 
 export function Pericia({ nome, valor, atributoChave }) {
 
@@ -30,7 +31,7 @@ export function Pericia({ nome, valor, atributoChave }) {
         <FaDiceD20 color='#cccccc' size={40} />{valor == null ? '+0' : '+' + valor}
       </Button>
 
-      <Span level={valor > 14 && 'e' || valor > 9 && 'v' || valor > 4 && 't' || valor < 5 && 'nt'}>{nome}</Span>
+      <Span level={valor > 14 && 'e' || valor > 9 && 'v' || valor > 4 && 't' || valor < 5 && 'nt'}>{pericias(nome)}</Span>
 
     </Container>
   );

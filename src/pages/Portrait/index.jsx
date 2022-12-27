@@ -330,27 +330,10 @@ export function Portrait() {
 
         setDadoActive(false)
 
-        const dado = document.getElementById('dado')
-
         setTimeout(() => {
 
-          if (dado.getBoundingClientRect().bottom == 828.5) {
-
-            setDadoActive(false)
-
-            setTimeout(() => {
-
-              setDadoActive(true)
-              setValorDado(valorTotal)
-
-            }, 50)
-
-          } else if (dado.getBoundingClientRect().bottom == 1148.5) {
-
-            setDadoActive(true)
-            setValorDado(valorTotal)
-
-          }
+          setDadoActive(true)
+          setValorDado(valorTotal)
 
         }, 50)
 

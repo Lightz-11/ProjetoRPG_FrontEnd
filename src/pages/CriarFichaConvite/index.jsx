@@ -225,6 +225,7 @@ export function CriarFichaConvite() {
           <Input list={'listaOrigens'} maxLength={22} label={'Origem'} valor={origem} setValor={setOrigem} />
           <datalist id="listaOrigens"><option value="Academico" /><option value="Agente de saúde" /><option value="Amnésico" /><option value="Artista" /><option value="Atleta" /><option value="Chef" /><option value="Crimisoso" /><option value="Cultusta Arrependido" /><option value="Desgarrado" /><option value="Engenheiro" /><option value="Executivo" /><option value="Investigador" /><option value="Lutador" /><option value="Magnata" /><option value="Mercenário" /><option value="Militar" /><option value="Operário" /><option value="Policial" /><option value="Religioso" /><option value="Sevidor público" /><option value="Teórico da conspiração" /><option value="TI" /><option value="Trabalhador rural" /><option value="Trambiqueiro" /><option value="Universitário" /><option value="Vítima" />
           </datalist>
+          <Span>Caso use o modo manual, sem automatização de perícias e habilidades.</Span>
           <Input onlyNumber maxLength={2} label={'NEX'} valor={nex} setValor={setNex} />
           <Select label={'Classe'} valor={classe} setValor={setClasse} >
             <option value="Mundano">Mundano</option><option value="Combatente">Combatente</option><option value="Especialista">Especialista</option><option value="Ocultista">Ocultista</option>

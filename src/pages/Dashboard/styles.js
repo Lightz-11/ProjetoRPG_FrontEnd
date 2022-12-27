@@ -16,7 +16,10 @@ export const Body = styled('div', {
     marginTop: '7.3rem',
     padding: '3rem',
     overflowY: 'auto',
-    paddingBottom: '10rem'
+
+    '@md5': {
+        paddingBottom: '10rem'
+    }
 })
 
 export const SessaoContainer = styled("div", {
