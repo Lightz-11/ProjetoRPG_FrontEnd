@@ -9,11 +9,13 @@ export function PrincipalContainer({ data }) {
 
   const [modalEditIsOpen, setModalEditIsOpen] = useState(false)
 
+  const [principal, setPrincipal] = useState(data)
+
   return (
     <Container>
 
       <Modal isOpen={modalEditIsOpen} setIsOpen={() => setModalEditIsOpen(false)}>
-        <ModalEdit data={data && data} setModalClose={() => setModalEditIsOpen(false)} />
+        <ModalEdit data={principal && principal} atualizar={setPrincipal} setModalClose={() => setModalEditIsOpen(false)} />
       </Modal>
 
       <Header>
@@ -25,18 +27,18 @@ export function PrincipalContainer({ data }) {
 
       <Body>
 
-        <InputStop label={'Nome'} valor={data && data.nome} />
-        <InputStop label={'Jogador'} valor={data && data.jogador} />
-        <InputStop label={'Idade'} valor={data && data.idade} />
-        {data && data.idadeAdicional && <InputStop label={'Idade Adicional'} valor={data && data.idadeAdicional} />}
-        <InputStop label={'Nacionalidade'} valor={data && data.nacionalidade} />
-        <InputStop label={'Origem'} valor={data && data.origem} />
-        <InputStop label={'NEX'} valor={data && data.nex} />
-        <InputStop label={'Classe'} valor={data && data.classe} />
-        {data && data.trilha != 'Nenhuma' && <InputStop label={'Trilha'} valor={data && data.trilha} />}
-        {data && data.patente != 'Nenhuma' && <InputStop label={'Patente'} valor={data && data.patente} />}
-        <InputStop label={'PE / Rodada'} valor={data && data.peprod} />
-        <InputStop label={'Deslocamento'} valor={data && data.deslocamento} />
+        <InputStop label={'Nome'} valor={principal && principal.nome} />
+        <InputStop label={'Jogador'} valor={principal && principal.jogador} />
+        <InputStop label={'Idade'} valor={principal && principal.idade} />
+        {principal && principal.idadeAdicional && <InputStop label={'Idade Adicional'} valor={principal && principal.idadeAdicional} />}
+        <InputStop label={'Nacionalidade'} valor={principal && principal.nacionalidade} />
+        <InputStop label={'Origem'} valor={principal && principal.origem} />
+        <InputStop label={'NEX'} valor={principal && principal.nex} />
+        <InputStop label={'Classe'} valor={principal && principal.classe} />
+        {principal && principal.trilha != 'Nenhuma' && <InputStop label={'Trilha'} valor={principal && principal.trilha} />}
+        {principal && principal.patente != 'Nenhuma' && <InputStop label={'Patente'} valor={principal && principal.patente} />}
+        <InputStop label={'PE / Rodada'} valor={principal && principal.peprod} />
+        <InputStop label={'Deslocamento'} valor={principal && principal.deslocamento} />
 
       </Body>
 

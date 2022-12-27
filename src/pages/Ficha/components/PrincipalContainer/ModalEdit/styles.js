@@ -2,7 +2,7 @@ import { styled } from "../../../../../stitches.config";
 
 export const Container = styled('div', {
 
-    width: '65rem',
+    width: '70rem',
     borderRadius: '1.2rem',
     backgroundColor: 'rgb(27,27,27)',
     boxShadow: 'rgba(255, 255, 255, 0.45) 0rem 0.5rem 1.5rem',
@@ -12,7 +12,7 @@ export const Container = styled('div', {
     flexDirection: 'column',
 
     '@sm': {
-        width: '45rem'
+        width: '45rem',
     },
 
     h1: {
@@ -34,6 +34,19 @@ export const Body = styled('div', {
 export const Header = styled('div', {
     width: '100%',
     fontFamily: 'Arvo'
+})
+
+export const DualParte = styled('div', {
+
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    gap: '2rem',
+
+    '@sm': {
+        gridTemplateColumns: '1fr',
+        gap: '0rem',
+    }
+
 })
 
 export const Button = styled('button', {

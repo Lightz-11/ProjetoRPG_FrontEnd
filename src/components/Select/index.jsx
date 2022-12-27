@@ -2,10 +2,16 @@ import { useEffect, useState } from "react"
 import { Container, ContainerSel, InputB, LabelContainer, LabelContainerMenor } from "./styles"
 
 
-export function Select({ label, labelMenor = false, setValor, valor, children, ...rest }) {
+export function Select({ label, labelMenor = false, setValor, defaultValor, valor, children, ...rest }) {
 
     useEffect(() => {
-        setValor(children[0].props.value)
+
+        if (defaultValor == null) {
+            setValor(children[0].props.value)
+        } else {
+            setValor(defaultValor)
+        }
+
     }, [])
 
     return (
