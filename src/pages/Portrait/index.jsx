@@ -103,140 +103,26 @@ export function Portrait() {
 
         if (portrait) {
 
-          if (status.danoMassivo == true) {
-
-            if (status.insano == true || status.ps == 0) {
-              if (portrait.insanoemorrendo != null) {
-                setPortraitImg(portrait.insanoemorrendo)
-              } else if (portrait.insanoeferido != null) {
-                setPortraitImg(portrait.insanoeferido)
-              } else if (portrait.morrendo != null) {
-                setPortraitImg(portrait.morrendo)
-              } else if (portrait.ferido != null) {
-                setPortraitImg(portrait.ferido)
-              } else if (portrait.insano != null) {
-                setPortraitImg(portrait.insano)
-              } else {
-                setPortraitImg(portrait.normal)
-              }
-            }
-
-            else if (portrait.morrendo != null) {
-              setPortraitImg(portrait.morrendo)
-            } else if (portrait.ferido != null) {
-              setPortraitImg(portrait.ferido)
-            } else {
-              setPortraitImg(portrait.normal)
-            }
-
-          } else if (status.insano == true) {
-
-            if (status.massivo == true || status.pv == 0) {
-              if (portrait.insanoemorrendo != null) {
-                setPortraitImg(portrait.insanoemorrendo)
-              } else if (portrait.insanoeferido != null) {
-                setPortraitImg(portrait.insanoeferido)
-              } else if (portrait.insano != null) {
-                setPortraitImg(portrait.insano)
-              } else if (portrait.morrendo != null) {
-                setPortraitImg(portrait.morrendo)
-              } else if (portrait.ferido != null) {
-                setPortraitImg(portrait.ferido)
-              } else {
-                setPortraitImg(portrait.normal)
-              }
-            }
-
-            else if (status.pv < (status.pvMax / 2)) {
-              if (portrait.insanoeferido != null) {
-                setPortraitImg(portrait.insanoeferido)
-              } else if (portrait.insano != null) {
-                setPortraitImg(portrait.insano)
-              } else if (portrait.ferido != null) {
-                setPortraitImg(portrait.ferido)
-              } else {
-                setPortraitImg(portrait.normal)
-              }
-            }
-
-            else if (portrait.insano != null) {
-              setPortraitImg(portrait.insano)
-            } else {
-              setPortraitImg(portrait.normal)
-            }
-
-
-          } else if (status.pv == 0) {
-
-            if (status.insano == true || status.ps == 0) {
-              if (portrait.insanoemorrendo != null) {
-                setPortraitImg(portrait.insanoemorrendo)
-              } else if (portrait.insanoeferido != null) {
-                setPortraitImg(portrait.insanoeferido)
-              } else if (portrait.morrendo != null) {
-                setPortraitImg(portrait.morrendo)
-              } else if (portrait.ferido != null) {
-                setPortraitImg(portrait.ferido)
-              } else if (portrait.insano != null) {
-                setPortraitImg(portrait.insano)
-              } else {
-                setPortraitImg(portrait.normal)
-              }
-            }
-
-            else if (portrait.morrendo != null) {
-              setPortraitImg(portrait.morrendo)
-            } else if (portrait.ferido != null) {
-              setPortraitImg(portrait.ferido)
-            } else {
-              setPortraitImg(portrait.normal)
-            }
-
-          } else if (status.ps == 0) {
-
-            if (status.massivo == true || status.pv == 0) {
-              if (portrait.insanoemorrendo != null) {
-                setPortraitImg(portrait.insanoemorrendo)
-              } else if (portrait.insanoeferido != null) {
-                setPortraitImg(portrait.insanoeferido)
-              } else if (portrait.insano != null) {
-                setPortraitImg(portrait.insano)
-              } else if (portrait.morrendo != null) {
-                setPortraitImg(portrait.morrendo)
-              } else if (portrait.ferido != null) {
-                setPortraitImg(portrait.ferido)
-              } else {
-                setPortraitImg(portrait.normal)
-              }
-            }
-
-            else if (status.pv < (status.pvMax / 2)) {
-              if (portrait.insanoeferido != null) {
-                setPortraitImg(portrait.insanoeferido)
-              } else if (portrait.insano != null) {
-                setPortraitImg(portrait.insano)
-              } else if (portrait.ferido != null) {
-                setPortraitImg(portrait.ferido)
-              } else {
-                setPortraitImg(portrait.normal)
-              }
-            } else {
-              if (portrait.insano != null) {
-                setPortraitImg(portrait.insano)
-              } else {
-                setPortraitImg(portrait.normal)
-              }
-            }
-          } else if (status.pv < (status.pvMax / 2)) {
-            if (portrait.ferido != null) {
-              setPortraitImg(portrait.ferido)
-            } else {
-              setPortraitImg(portrait.normal)
-            }
+          if (portrait.insanoemorrendo != null &&
+            (
+              status.insano == true && status.danoMassivo == true
+              || status.insano == true && status.pv == 0
+              || status.danoMassivo == true && status.ps == 0
+              || status.pv == 0 && status.ps == 0
+            )) {
+            setPortraitImg(portrait.insanoemorrendo);
+          } else if (portrait.insanoeferido != null && (
+            status.insano == true && status.pv < (status.pvMax / 2)
+            || status.ps == 0 && status.pv < (status.pvMax / 2))) {
+            setPortraitImg(portrait.insanoeferido);
+          } else if (portrait.morrendo != null && (status.danoMassivo == true || status.pv == 0)) {
+            setPortraitImg(portrait.morrendo);
+          } else if (portrait.ferido != null && (status.danoMassivo == true || status.pv < (status.pvMax / 2))) {
+            setPortraitImg(portrait.ferido);
+          } else if (portrait.insano != null && status.insano == true || status.ps == 0) {
+            setPortraitImg(portrait.insano);
           } else {
-            if (portrait.normal != null) {
-              setPortraitImg(portrait.normal)
-            }
+            setPortraitImg(portrait.normal);
           }
 
         }

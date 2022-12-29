@@ -13,7 +13,8 @@ export function Routes() {
       {user ?
         <UserRoutes />
         :
-        <AuthRoutes />}
+        <AuthRoutes />
+      }
     </BrowserRouter>
   );
 }

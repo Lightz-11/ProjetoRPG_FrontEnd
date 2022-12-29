@@ -12,7 +12,7 @@ export const Container = styled('div', {
     flexDirection: 'column',
 
     '@sm': {
-        width: '45rem',
+        width: '100%',
     },
 
     h1: {

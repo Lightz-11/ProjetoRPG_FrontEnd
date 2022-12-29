@@ -32,7 +32,6 @@ export function CriarFichaConvite() {
   const [ps, setPs] = useState(1)
   const [pe, setPe] = useState(1)
 
-  const { pathname } = useLocation()
   const { id } = useParams()
   const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
 

@@ -23,28 +23,37 @@ export function PericiasContainer({ data, atributos }) {
 
         let atributoChave = ''
 
-        if (key == 'adestramento' || key == 'arte' || key == 'diplomacia' || key == 'enganacao' || key == 'intimidacao' ||
-          key == 'percepcao' || key == 'religiao' || key == 'vontade') {
-          atributoChave = atributos.pre
+        const mapeamento = {
+          adestramento: atributos.pre,
+          arte: atributos.pre,
+          diplomacia: atributos.pre,
+          enganacao: atributos.pre,
+          intimidacao: atributos.pre,
+          percepcao: atributos.pre,
+          religiao: atributos.pre,
+          vontade: atributos.pre,
+          acrobacia: atributos.agi,
+          crime: atributos.agi,
+          furtividade: atributos.agi,
+          pilotagem: atributos.agi,
+          pontaria: atributos.agi,
+          reflexo: atributos.agi,
+          atletismo: atributos.for,
+          luta: atributos.for,
+          atualidade: atributos.int,
+          ciencia: atributos.int,
+          intuicao: atributos.int,
+          investigacao: atributos.int,
+          medicina: atributos.int,
+          ocultismo: atributos.int,
+          profissao: atributos.int,
+          sobrevivencia: atributos.int,
+          tatica: atributos.int,
+          tecnologia: atributos.int,
+          fortitude: atributos.vig
         }
 
-        if (key == 'acrobacia' || key == 'crime' || key == 'furtividade' || key == 'pilotagem' || key == 'pontaria' ||
-          key == 'reflexo') {
-          atributoChave = atributos.agi
-        }
-
-        if (key == 'atletismo' || key == 'luta') {
-          atributoChave = atributos.for
-        }
-
-        if (key == 'atualidade' || key == 'ciencia' || key == 'intuicao' || key == 'investigacao' || key == 'medicina' ||
-          key == 'ocultismo' || key == 'profissao' || key == 'sobrevivencia' || key == 'tatica' || key == 'tecnologia') {
-          atributoChave = atributos.int
-        }
-
-        if (key == 'fortitude') {
-          atributoChave = atributos.vig
-        }
+        atributoChave = mapeamento[key]
 
         if (key != 'id' && key != 'fichaId') {
           const novaPericia = { nome: key, atributoChave, valor: value }
