@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 import { Input } from "../../../../../components";
 import { Select } from "../../../../../components/Select";
 import { api } from "../../../../../services/api";
@@ -38,6 +39,7 @@ export function ModalEdit({ setModalClose, data, atualizar }) {
 
       atualizar(response.data)
       setModalClose()
+      toast.success('Atualizado com sucesso!')
 
     } catch (erro) {
       console.log(erro)
@@ -132,6 +134,8 @@ export function ModalEdit({ setModalClose, data, atualizar }) {
         <Button color='purple' onClick={handleEdit}>Salvar</Button>
 
       </Footer>
+
+      <ToastContainer />
 
     </Container>
   );

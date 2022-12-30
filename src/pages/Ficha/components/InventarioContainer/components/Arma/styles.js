@@ -2,7 +2,8 @@ import { styled, keyframes } from '../../../../../../stitches.config';
 
 export const Container = styled('div', {
   border: '2px solid crimson',
-  minWidth: '4rem'
+  minWidth: '4rem',
+  minHeight: '60rem'
 })
 
 export const Header = styled('div', {

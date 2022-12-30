@@ -6,22 +6,31 @@ import { ToastContainer } from 'react-toastify';
 import { useParams } from 'react-router-dom'
 import { ButtonEdit } from '../../../../components/ButtonEdit';
 import { AtributoButton } from '../../../../components/AtributoButton';
+import { ModalAtributo } from './ModalAtributo';
 
 export function AtributoContainer({ data }) {
+
+  const [dataA, setData] = useState(data)
+
+  const [modalAtributoIsOpen, setModalAtributoIsOpen] = useState(false)
 
   return (
     <Container>
 
+      <Modal isOpen={modalAtributoIsOpen} setIsOpen={() => setModalAtributoIsOpen(false)}>
+        <ModalAtributo data={dataA} atualizar={setData} setModalAtributoIsOpenFalse={() => setModalAtributoIsOpen(false)} />
+      </Modal>
+
       <HeaderContainer>
         <h1>Atributos</h1>
-        <ButtonEdit />
+        <ButtonEdit onClick={() => setModalAtributoIsOpen(true)} />
       </HeaderContainer>
 
       <hr />
 
       <BodyContainer>
 
-        <AtributoButton agi={data && data.agi} forca={data && data.for} int={data && data.int} pre={data && data.pre} vig={data && data.vig} />
+        <AtributoButton agi={dataA && dataA.agi} forca={dataA && dataA.for} int={dataA && dataA.int} pre={dataA && dataA.pre} vig={dataA && dataA.vig} />
 
       </BodyContainer>
 

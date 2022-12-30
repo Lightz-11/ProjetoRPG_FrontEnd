@@ -10,15 +10,17 @@ import noportrait from '../../../../assets/img/noportrait.png'
 import { Container, Header, Body, BottomBody, TopBody, Buttons, AreaPortrait, Portrait, Button, ContainerDeferes, Deferes, Img } from './styles';
 import { io } from 'socket.io-client';
 import { useDisabled } from '../../../../hooks/useDisabled';
+import { ModalStatus } from './components/ModalStatus';
 
 const socket = io(api.defaults.baseURL);
 
-export function StatusContainer({ status, defesas, portraitData }) {
+export function StatusContainer({ status, defesasData, portraitData }) {
 
   const [dataDefesas, setDataDefesas] = useState([])
   const [dataRes, setDataRes] = useState([])
 
   const [modalPortraitIsOpen, setModalPortraitIsOpen] = useState(false)
+  const [modalStatusIsOpen, setModalStatusIsOpen] = useState(false)
 
   const { disabled } = useDisabled()
 
@@ -29,6 +31,7 @@ export function StatusContainer({ status, defesas, portraitData }) {
   const [massivo, setMassivo] = useState(false)
   const [inconsciente, setInconsciente] = useState(false)
 
+  const [defesas, setDefesas] = useState(defesasData)
   const [portrait, setPortrait] = useState(portraitData)
 
   const [portraitImg, setPortraitImg] = useState(null)
@@ -144,7 +147,7 @@ export function StatusContainer({ status, defesas, portraitData }) {
       setDataRes(varRes)
     }
 
-  }, [status])
+  }, [status, defesas])
 
   useEffect(() => {
 
@@ -152,23 +155,23 @@ export function StatusContainer({ status, defesas, portraitData }) {
 
       if (portrait.insanoemorrendo != null &&
         (
-          status.insano == true && status.danoMassivo == true
-          || status.insano == true && status.pv == 0
-          || status.danoMassivo == true && status.ps == 0
-          || status.pv == 0 && status.ps == 0
+          insano == true && massivo == true
+          || insano == true && pvA == 0
+          || massivo == true && sanA == 0
+          || pvA == 0 && sanA == 0
         )) {
         setarPortrait(portrait.insanoemorrendo);
       } else if (portrait.insanoeferido != null && (
-        status.insano == true && status.pv < (status.pvMax / 2)
-        || status.ps == 0 && status.pv < (status.pvMax / 2))) {
+        insano == true && pvA < (pvMax / 2)
+        || sanA == 0 && pvA < (pvMax / 2))) {
         setarPortrait(portrait.insanoeferido);
-      } else if (portrait.morrendo != null && (status.danoMassivo == true || status.pv == 0)) {
+      } else if (portrait.morrendo != null && (massivo == true || pvA == 0)) {
         setarPortrait(portrait.morrendo);
-      } else if (portrait.ferido != null && (status.danoMassivo == true || status.pv < (status.pvMax / 2))) {
+      } else if (portrait.ferido != null && (massivo == true || pvA < (pvMax / 2))) {
         setarPortrait(portrait.ferido);
-      } else if (portrait.insano != null && status.insano == true || status.ps == 0) {
+      } else if (portrait.insano != null && (insano == true || sanA == 0)) {
         setarPortrait(portrait.insano);
-      } else {
+      } else if (portrait.normal != null) {
         setarPortrait(portrait.normal);
       }
 
@@ -246,9 +249,13 @@ export function StatusContainer({ status, defesas, portraitData }) {
         <ModalPortrait atualizar={setPortrait} data={portrait} setModalPortraitIsOpenFalse={() => setModalPortraitIsOpen(false)} />
       </Modal>
 
+      <Modal isOpen={modalStatusIsOpen} setIsOpen={() => setModalStatusIsOpen(false)}>
+        <ModalStatus atualizar={setDefesas} data={defesas} setModalStatusIsOpenFalse={() => setModalStatusIsOpen(false)} />
+      </Modal>
+
       <Header>
         <h1>Status</h1>
-        <ButtonEdit size={22} />
+        <ButtonEdit onClick={() => setModalStatusIsOpen(true)} size={22} />
       </Header>
 
       <hr />

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import { Container, ContainerInput, InputB, LabelContainer, LabelContainerMenor } from "./styles"
+import { Container, ContainerInput, InputB, LabelContainer, LabelContainerMenor, LabelContainerMenorEPadding } from "./styles"
 
 
-export function Input({ label, labelMenor = false, setValor, valor, onlyNumber = false, opcional = false, ...rest }) {
+export function Input({ label, labelMenor = false, setValor, valor, onlyNumber = false, opcional = false, padding, ...rest }) {
 
     const [focus, setFocus] = useState(false)
 
@@ -18,19 +18,29 @@ export function Input({ label, labelMenor = false, setValor, valor, onlyNumber =
     }
 
     return (
-        <Container>
-            {labelMenor
-                ?
+        <Container padding={padding}>
+            {padding == 'low' &&
+
+                <LabelContainerMenorEPadding>
+                    {label}
+                </LabelContainerMenorEPadding>
+
+            }
+
+            {labelMenor && padding != 'low'
+                &&
                 <LabelContainerMenor active={focus}>
                     {label}
                 </LabelContainerMenor>
-                :
+            }
+            {!labelMenor && padding != 'low' &&
                 <LabelContainer active={focus}>
                     {label}
                 </LabelContainer>
             }
+
             <ContainerInput>
-                <InputB autoComplete="off" value={valor} type="text" {...rest}
+                <InputB autoComplete="off" value={valor} padding={padding} type="text" {...rest}
                     onChange={(event) => {
                         if (onlyNumber) {
                             onlyNumbers(event.target.value)

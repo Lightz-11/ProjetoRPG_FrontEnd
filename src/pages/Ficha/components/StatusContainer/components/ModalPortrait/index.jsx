@@ -28,6 +28,7 @@ export function ModalPortrait({ data, atualizar, setModalPortraitIsOpenFalse }) 
 
       setModalPortraitIsOpenFalse()
 
+      toast.success('Atualizado com sucesso!')
       atualizar(response.data)
 
     } catch (erro) {

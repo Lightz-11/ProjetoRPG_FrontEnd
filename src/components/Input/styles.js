@@ -22,6 +22,14 @@ export const Container = styled('div', {
         span: {
             fontSize: '1.6rem'
         }
+    },
+
+    variants: {
+        padding: {
+            low: {
+                marginTop: '2rem'
+            }
+        }
     }
 
 })
@@ -40,7 +48,6 @@ export const InputB = styled('input', {
     width: '100%',
     height: 'auto',
     wordWrap: 'break-word',
-    marginTop: "0px",
     fontSize: "2rem",
     padding: "1.5rem",
     background: "transparent",
@@ -49,6 +56,14 @@ export const InputB = styled('input', {
     outline: 'solid 0.2rem white',
     color: 'transparent',
     caretColor: 'white',
+
+    variants: {
+        padding: {
+            low: {
+                padding: '.5rem 1rem'
+            }
+        }
+    }
 })
 
 export const LabelContainer = styled('label', {
@@ -101,5 +116,20 @@ export const LabelContainerMenor = styled('label', {
             }
         },
     },
+
+})
+
+export const LabelContainerMenorEPadding = styled('label', {
+
+    position: 'absolute',
+    width: 'fit-content',
+    bottom: '80%',
+    padding: '0 1rem',
+    left: 15,
+    zIndex: 4,
+    fontSize: '1.6rem',
+    backgroundColor: 'rgb(27, 27, 27)',
+    color: 'rgb(208, 147, 226)',
+    transition: '0.3s',
 
 })

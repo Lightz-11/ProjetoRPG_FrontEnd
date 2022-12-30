@@ -7,12 +7,15 @@ import { useParams } from 'react-router-dom'
 import { ButtonEdit } from '../../../../components/ButtonEdit';
 import { BsEye, BsEyeSlash } from 'react-icons/bs'
 import { Pericia } from './Pericia';
+import { ModalPericias } from './ModalPericias';
 
 export function PericiasContainer({ data, atributos }) {
 
   const [pericias, setPericias] = useState([])
 
   const [active, setActive] = useState('pontuadas')
+
+  const [modalPericiasIsOpen, setModalPericiasIsOpen] = useState(false)
 
   useEffect(() => {
 
@@ -50,7 +53,8 @@ export function PericiasContainer({ data, atributos }) {
           sobrevivencia: atributos.int,
           tatica: atributos.int,
           tecnologia: atributos.int,
-          fortitude: atributos.vig
+          fortitude: atributos.vig,
+          iniciativa: atributos.agi
         }
 
         atributoChave = mapeamento[key]
@@ -76,10 +80,14 @@ export function PericiasContainer({ data, atributos }) {
   return (
     <Container>
 
+      <Modal isOpen={modalPericiasIsOpen} setIsOpen={() => setModalPericiasIsOpen(false)}>
+        <ModalPericias atualizar={setPericias} atributos={atributos} data={data} pericias={pericias} setModalPericiasIsOpenFalse={() => setModalPericiasIsOpen(false)} />
+      </Modal>
+
       <HeaderContainer>
         <ButtonIcon onClick={trocarOlho}>{active != 'todas' ? <BsEyeSlash color='aqua' size={23} /> : <BsEye color='aqua' size={23} />}</ButtonIcon>
         <h1>Perícias</h1>
-        <ButtonEdit />
+        <ButtonEdit onClick={() => setModalPericiasIsOpen(true)} />
       </HeaderContainer>
 
       <hr />

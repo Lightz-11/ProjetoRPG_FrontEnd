@@ -1,5 +1,6 @@
 import { InputAtributo } from "./InputAtributo"
 import { Container, Top, Bot, Mid, Img } from "./styles"
+import AtributosImg from '../../assets/img/AtributosImg.png'
 
 
 export function AtributoInput({ agi, setAgi, int, setInt, vig, setVig, pre, setPre, forca, setFor, ...rest }) {
@@ -23,7 +24,7 @@ export function AtributoInput({ agi, setAgi, int, setInt, vig, setVig, pre, setP
                 <InputAtributo valor={vig} setValor={setVig} />
             </Bot>
 
-            <Img {...rest} src="https://cdn.discordapp.com/attachments/1002043233179807846/1008945292135112755/jamboeditora-ordem-paranormal-v1.0-1_62f83df8a4e82-1_1.png" />
+            <Img {...rest} src={AtributosImg} />
 
         </Container>
     )

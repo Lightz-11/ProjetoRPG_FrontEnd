@@ -48,7 +48,7 @@ export const Main = styled('div', {
 
   display: 'flex',
   justifyContent: 'left',
-  alignItems: 'flex-end',
+  alignItems: 'baseline',
   paddingLeft: '2rem',
   color: 'white',
   marginRight: '2rem',

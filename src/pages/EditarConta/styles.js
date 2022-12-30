@@ -21,11 +21,15 @@ export const Container = styled('div', {
 export const Body = styled('div', {
 
     width: '100%',
-    padding: '5rem 0',
+    padding: '5rem 0rem 0rem 0rem',
     marginTop: '7.3rem',
     display: 'flex',
     flexDirection: 'column',
     overflowY: 'auto',
+
+    '@md5': {
+        padding: '5rem 0rem 5rem 0rem',
+    }
 
 })
 

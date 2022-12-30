@@ -76,7 +76,7 @@ export function Ficha() {
 
           <DoubleParteContainer>
             <PrincipalContainer data={ficha && ficha.Principal[0]} />
-            <StatusContainer status={ficha && ficha.Status[0]} defesas={ficha && ficha.Defesas[0]} portraitData={ficha && ficha.Portrait[0]} />
+            <StatusContainer status={ficha && ficha.Status[0]} defesasData={ficha && ficha.Defesas[0]} portraitData={ficha && ficha.Portrait[0]} />
           </DoubleParteContainer>
 
           <DoubleParteContainer>

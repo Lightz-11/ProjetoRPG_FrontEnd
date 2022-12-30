@@ -6,7 +6,7 @@ import { Modal } from "../Modals/Modal"
 import { ModalDadoRolado } from "../ModalDadoRolado"
 import { Container, Top, Bot, Mid, Img } from "./styles"
 import { useDisabled } from "../../hooks/useDisabled"
-
+import AtributosImg from '../../assets/img/AtributosImg.png'
 
 export function AtributoButton({ agi, int, vig, pre, forca, ...rest }) {
 
@@ -83,7 +83,7 @@ export function AtributoButton({ agi, int, vig, pre, forca, ...rest }) {
                 }}>{vig}</button>
             </Bot>
 
-            <Img {...rest} src="https://cdn.discordapp.com/attachments/1002043233179807846/1008945292135112755/jamboeditora-ordem-paranormal-v1.0-1_62f83df8a4e82-1_1.png" />
+            <Img {...rest} src={AtributosImg} />
 
         </Container>
     )

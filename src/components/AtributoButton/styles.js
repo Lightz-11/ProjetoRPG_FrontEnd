@@ -42,52 +42,56 @@ export const Top = styled('div', {
     position: 'absolute',
     display: 'flex',
     justifyContent: 'center',
-    top: '10%',
+    top: '10.5%',
 
     '@sm': {
-        top: '9%',
-    }
+        top: '9.5%',
+    },
 })
 
 export const Mid = styled('div', {
     position: 'absolute',
-    top: '30%',
+    top: '30.5%',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: '21.8rem',
+    gap: '21rem',
+    marginRight: '.4rem',
 
     '@sm': {
-        top: '29%',
-        gap: '15.6rem',
+        top: '29.5%',
+        gap: '15.4rem',
+        marginRight: '0rem',
     },
 
     '@sm5': {
-        top: '29%',
-        gap: '13.6rem',
+        top: '29.5%',
+        gap: '12.8rem',
     }
 })
 
 export const Bot = styled('div', {
+
+    marginRight: '.3rem',
     position: 'absolute',
-    top: '67.5%',
+    top: '66.5%',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: '14.5rem',
+    gap: '13.8rem',
 
     '@sm': {
-        top: '66.5%',
+        top: '65.5%',
         gap: '10.2rem',
-        marginRight: '0.7rem'
+        marginRight: '0rem'
     },
 
     '@sm5': {
-        top: '66.5%',
-        gap: '8.8rem',
-        marginLeft: '.6rem'
+        top: '65.5%',
+        gap: '8.5rem',
+        marginRight: '0rem'
     }
 })
 
