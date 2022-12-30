@@ -40,6 +40,7 @@ export function CriarFichaConvite() {
   useEffect(() => {
 
     setTitle('Criar Ficha')
+    document.title = `Fichas RPG - Criando Ficha`
 
     async function fetchData() {
 

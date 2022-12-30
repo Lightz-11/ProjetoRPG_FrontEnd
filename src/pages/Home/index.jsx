@@ -4,11 +4,16 @@ import { Modal } from "../../components/Modals/Modal";
 import { Roxo, Entrar, Criar, Container, Main } from "./styles";
 import { ModalCadastro } from "../../components/Modals/ModalCadastro/ModalCadastro.jsx";
 import { ToastContainer } from "react-toastify";
+import { useEffect } from "react";
 
 export function Home() {
 
   const [modalLoginIsOpen, setModalLoginIsOpen] = useState(false)
   const [modalCadastroIsOpen, setModalCadastroIsOpen] = useState(false)
+
+  useEffect(() => {
+    document.title = 'Fichas RPG - Home'
+  }, [])
 
   return (
     <Container>

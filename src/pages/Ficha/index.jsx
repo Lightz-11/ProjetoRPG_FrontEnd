@@ -25,6 +25,7 @@ export function Ficha() {
   const { setTitle } = useTitle()
 
   useEffect(() => {
+
     async function fetchData() {
       try {
 
@@ -59,6 +60,7 @@ export function Ficha() {
 
         setFicha(response.data)
         setTitle(response.data.Principal[0].nome)
+        document.title = `Fichas RPG - ${response.data.Principal[0].nome}`
 
       } catch (error) { console.log(error) }
       finally {

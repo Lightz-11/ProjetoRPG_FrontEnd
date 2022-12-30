@@ -38,6 +38,7 @@ export function EditarConta() {
     setEmailAtual(dataUser.email)
 
     setTitle('Conta')
+    document.title = `Fichas RPG - Conta`
 
   }, [])
 

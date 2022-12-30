@@ -38,8 +38,8 @@ export function Sessao() {
                 const response2 = await api.get(`/fichas/sessao/${response.data.id}`)
 
                 setFichas(response2.data)
-
                 setTitle(response.data.nome)
+                document.title = `Fichas RPG - ${response.data.nome}`
 
             } catch (erro) {
                 console.log(erro.data);

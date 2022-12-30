@@ -84,6 +84,7 @@ export function Portrait() {
         }
 
         setNome(response.data.Principal[0].nome)
+        document.title = `Fichas RPG - Portrait ${response.data.Principal[0].nome}`
 
         const status = response.data.Status[0]
 

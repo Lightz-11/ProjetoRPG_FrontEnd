@@ -81,6 +81,7 @@ export function Dashboard() {
       finally {
         setIsLoading(false)
         setTitle('Painel')
+        document.title = `Fichas RPG - Painel`
       }
     }
     fetchData();
