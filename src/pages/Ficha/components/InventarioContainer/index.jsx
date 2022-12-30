@@ -15,7 +15,7 @@ import { io } from 'socket.io-client';
 
 const socket = io(api.defaults.baseURL);
 
-export function InventarioContainer({ peso }) {
+export function InventarioContainer({ armasData, itensData, peso }) {
 
   const [itens, setItens] = useState([])
 
@@ -31,66 +31,17 @@ export function InventarioContainer({ peso }) {
 
   useEffect(() => {
 
-    async function fetchData() {
+    setPesoAtual(0)
 
-      setPesoAtual(0)
+    if (itensData && armasData) {
 
-      setItens([])
-      setArmas([])
+      itensData.map(item => setPesoAtual((prev) => prev + item.espaco))
+      armasData.map(arma => setPesoAtual((prev) => prev + arma.espaco))
 
-      try {
+      setItens(itensData);
+      setArmas(armasData);
 
-        const responseItens = await api.get(`/fichas/item/${id}`);
-
-        for (let i = 0; i < responseItens.data.length; i++) {
-
-          const item = {
-            id: responseItens.data[i].id,
-            nome: responseItens.data[i].nome,
-            espaco: responseItens.data[i].espaco,
-            categoria: responseItens.data[i].categoria,
-            descricao: responseItens.data[i].descricao,
-            isMunicao: responseItens.data[i].isMunicao,
-            municao: responseItens.data[i].municao,
-            municaoMax: responseItens.data[i].municaoMax,
-            imagem: responseItens.data[i].imagem,
-          };
-
-          setPesoAtual((prevState) => prevState + item.espaco)
-          setItens((prevState) => [...prevState, item]);
-        }
-
-        const responseArmas = await api.get(`/fichas/arma/${id}`);
-
-        for (let i = 0; i < responseArmas.data.length; i++) {
-
-          const arma = {
-            id: responseArmas.data[i].id,
-            nome: responseArmas.data[i].nome,
-            tipo: responseArmas.data[i].tipo,
-            alcance: responseArmas.data[i].alcance,
-            recarga: responseArmas.data[i].recarga,
-            especial: responseArmas.data[i].especial,
-            ataque: responseArmas.data[i].ataque,
-            dano: responseArmas.data[i].dano,
-            margemCritico: responseArmas.data[i].margemCritico,
-            danoCritico: responseArmas.data[i].danoCritico,
-            espaco: responseArmas.data[i].espaco,
-            categoria: responseArmas.data[i].categoria,
-            descricao: responseArmas.data[i].descricao,
-            municao: responseArmas.data[i].municao,
-            imagem: responseArmas.data[i].imagem,
-          };
-
-          setPesoAtual((prevState) => prevState + arma.espaco)
-          setArmas((prevState) => [...prevState, arma]);
-        }
-
-      } catch (erro) {
-        console.log(erro);
-      }
     }
-    fetchData()
 
     function atualizarInv({ fichaId }) {
       if (fichaId == id) {

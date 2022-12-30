@@ -39,7 +39,6 @@ export function Sessao() {
 
                 setFichas(response2.data)
 
-
                 setTitle(response.data.nome)
 
             } catch (erro) {

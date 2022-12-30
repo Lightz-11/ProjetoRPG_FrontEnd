@@ -13,7 +13,7 @@ export function ButtonAdd({ onClick }) {
   return (
     <Container>
       <button disabled={disabled} onClick={onClick}>
-        <MdOutlineAddBox size={25} />
+        <MdOutlineAddBox color='green' size={25} />
       </button>
     </Container>
   );

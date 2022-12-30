@@ -1,11 +1,12 @@
 import { Container, DoubleParteContainer, Body } from './styles';
-import { DadosContainer, PrincipalContainer, StatusContainer, InventarioContainer, AtributoContainer, PericiasContainer } from './components'
+import { DadosContainer, PrincipalContainer, StatusContainer, InventarioContainer, AtributoContainer, PericiasContainer, HabilidadesContainer } from './components'
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { api } from '../../services/api';
 import { useDisabled } from '../../hooks/useDisabled';
 import { useTitle } from '../../hooks/useTitle';
+import { ToastContainer } from 'react-toastify';
 
 export function Ficha() {
 
@@ -84,11 +85,17 @@ export function Ficha() {
             <PericiasContainer data={ficha && ficha.Pericias[0]} atributos={ficha && ficha.Atributos[0]} />
           </DoubleParteContainer>
 
-          <DadosContainer />
-          <InventarioContainer peso={ficha && ficha.Status[0].peso} />
+          <DoubleParteContainer>
+            <HabilidadesContainer poderesData={ficha && ficha.Poderes} proficienciasData={ficha && ficha.Proficiencias} habilidadesData={ficha && ficha.Habilidades} />
+            <DadosContainer />
+          </DoubleParteContainer>
+
+          <InventarioContainer armasData={ficha && ficha.Armas} itensData={ficha && ficha.Itens} peso={ficha && ficha.Status[0].peso} />
 
         </Body>
       }
+
+      <ToastContainer />
 
     </Container>
   );
