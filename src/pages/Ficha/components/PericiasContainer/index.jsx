@@ -8,6 +8,7 @@ import { ButtonEdit } from '../../../../components/ButtonEdit';
 import { BsEye, BsEyeSlash } from 'react-icons/bs'
 import { Pericia } from './Pericia';
 import { ModalPericias } from './ModalPericias';
+import { useRef } from 'react';
 
 export function PericiasContainer({ data, atributos }) {
 

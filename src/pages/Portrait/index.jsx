@@ -213,7 +213,7 @@ export function Portrait() {
     socket.on("status.municao", executeUpdateMunicao);
 
     function executeDado({ fichaId, valorTotal }) {
-      if (fichaId == id) {
+      if (fichaId == id && valorTotal != undefined) {
 
         setDadoActive(false)
 

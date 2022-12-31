@@ -17,6 +17,8 @@ export const Input = styled('input', {
   fontFamily: 'Special Elite',
 
   "@sm": {
-    fontSize: '3rem'
+    fontSize: '3rem',
+    height: '3rem',
+    width: '2.6rem'
   }
 })

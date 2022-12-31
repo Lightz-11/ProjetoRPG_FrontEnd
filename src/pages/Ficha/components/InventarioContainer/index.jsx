@@ -43,9 +43,25 @@ export function InventarioContainer({ armasData, itensData, peso }) {
 
     }
 
+    async function fetchData() {
+
+      const responseItens = await api.get(`/fichas/item/${id}`)
+
+      const responseArmas = await api.get(`/fichas/arma/${id}`)
+
+      responseItens.data.map(item => setPesoAtual((prev) => prev + item.espaco))
+      responseArmas.data.map(arma => setPesoAtual((prev) => prev + arma.espaco))
+
+      setItens(responseItens.data)
+      setArmas(responseArmas.data)
+
+    }
+
     function atualizarInv({ fichaId }) {
       if (fichaId == id) {
+
         fetchData()
+
       }
     }
     socket.on('enviado.inv', atualizarInv)

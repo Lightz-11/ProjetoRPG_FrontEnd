@@ -18,8 +18,8 @@ export const Top = styled('div', {
     top: '11%',
 
     '@sm': {
-        top: '9%',
-        marginRight: '-.1rem',
+        top: '10%',
+        marginRight: '.2rem',
     }
 })
 
@@ -34,8 +34,8 @@ export const Mid = styled('div', {
 
     '@sm': {
         top: '30%',
-        gap: '15.6rem',
-        marginRight: '-.3rem'
+        gap: '16.2rem',
+        marginRight: '.1rem'
     }
 })
 
@@ -51,8 +51,8 @@ export const Bot = styled('div', {
 
     '@sm': {
         top: '67.5%',
-        gap: '10.2rem',
-        marginRight: '0rem'
+        gap: '10.6rem',
+        marginRight: '.4rem'
     }
 })
 

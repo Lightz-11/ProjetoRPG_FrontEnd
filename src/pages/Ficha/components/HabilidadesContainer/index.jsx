@@ -18,7 +18,7 @@ import { ModalEditHabilidade } from './ModalEditHabilidade';
 
 export function HabilidadesContainer({ habilidadesData, poderesData, proficienciasData }) {
 
-  const [body, setBody] = useState('habilidades')
+  const [body, setBody] = useState('')
 
   const [habilidades, setHabilidades] = useState(habilidadesData)
   const [poderes, setPoderes] = useState(poderesData)
@@ -50,9 +50,9 @@ export function HabilidadesContainer({ habilidadesData, poderesData, proficienci
       </Modal>
 
       <HeaderContainer>
-        <Button active={body == 'habilidades'} onClick={() => setBody('habilidades')}>Habilidades</Button>
-        <Button active={body == 'poderes'} onClick={() => setBody('poderes')}>Poderes</Button>
-        <Button active={body == 'proficiencias'} onClick={() => setBody('proficiencias')}>Proficiências</Button>
+        <Button active={body == 'habilidades'} onClick={() => { if (body != 'habilidades') { setBody('habilidades') } else { setBody('') } }}>Habilidades</Button>
+        <Button active={body == 'poderes'} onClick={() => { if (body != 'poderes') { setBody('poderes') } else { setBody('') } }}>Poderes</Button>
+        <Button active={body == 'proficiencias'} onClick={() => { if (body != 'proficiencias') { setBody('proficiencias') } else { setBody('') } }}>Proficiências</Button>
         <ButtonAdd onClick={() => setModalGeralIsOpen(true)} />
       </HeaderContainer>
 

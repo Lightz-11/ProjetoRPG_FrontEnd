@@ -8,6 +8,7 @@ import { Select } from '../../components/Select';
 import { useTitle } from '../../hooks/useTitle';
 import { api } from '../../services/api';
 import { Container, Body, Principal, Atributos, Footer, Span } from './styles';
+import origens from './origens';
 
 export function CriarFichaConvite() {
 
@@ -201,8 +202,25 @@ export function CriarFichaConvite() {
         peMax: arrayStatus.pe,
       })
 
-      navigate(`/`)
+      const origemAutomatico = origens(origem)
+
+      if (origemAutomatico != undefined) {
+
+        await api.put(`/fichas/pericias/${response.data.ficha.id}`, {
+          [origemAutomatico.pericia1]: 5,
+          [origemAutomatico.pericia2]: 5
+        })
+
+        await api.post(`/fichas/habilidade`, {
+          nome: origemAutomatico.nome,
+          descricao: origemAutomatico.desc,
+          fichaId: response.data.ficha.id
+        })
+
+      }
+
       await api.delete(`/sessoes/convite/${id}`)
+      navigate(`/`)
 
     } catch (erro) {
       toast.error(erro.response.data.mensagem)
@@ -223,7 +241,7 @@ export function CriarFichaConvite() {
           <Input onlyNumber maxLength={2} label={'Idade'} valor={idade} setValor={setIdade} />
           <Input maxLength={20} label={'Local de Nascimento'} valor={nacionalidade} setValor={setNacionalidade} />
           <Input list={'listaOrigens'} maxLength={22} label={'Origem'} valor={origem} setValor={setOrigem} />
-          <datalist id="listaOrigens"><option value="Academico" /><option value="Agente de saúde" /><option value="Amnésico" /><option value="Artista" /><option value="Atleta" /><option value="Chef" /><option value="Crimisoso" /><option value="Cultusta Arrependido" /><option value="Desgarrado" /><option value="Engenheiro" /><option value="Executivo" /><option value="Investigador" /><option value="Lutador" /><option value="Magnata" /><option value="Mercenário" /><option value="Militar" /><option value="Operário" /><option value="Policial" /><option value="Religioso" /><option value="Sevidor público" /><option value="Teórico da conspiração" /><option value="TI" /><option value="Trabalhador rural" /><option value="Trambiqueiro" /><option value="Universitário" /><option value="Vítima" />
+          <datalist id="listaOrigens"><option value="Acadêmico" /><option value="Agente de Saúde" /><option value="Amnésico" /><option value="Artista" /><option value="Atleta" /><option value="Chef" /><option value="Crimisoso" /><option value="Cultusta Arrependido" /><option value="Desgarrado" /><option value="Engenheiro" /><option value="Executivo" /><option value="Investigador" /><option value="Lutador" /><option value="Magnata" /><option value="Mercenário" /><option value="Militar" /><option value="Operário" /><option value="Policial" /><option value="Religioso" /><option value="Sevidor Público" /><option value="Teórico da Conspiração" /><option value="T.I." /><option value="Trabalhador Rural" /><option value="Trambiqueiro" /><option value="Universitário" /><option value="Vítima" />
           </datalist>
           <Span>Caso use o modo manual: sem automatização de perícias e habilidades.</Span>
           <Input onlyNumber maxLength={2} label={'NEX'} valor={nex} setValor={setNex} />

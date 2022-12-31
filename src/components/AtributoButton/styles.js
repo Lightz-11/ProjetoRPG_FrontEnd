@@ -28,7 +28,7 @@ export const Container = styled('div', {
         },
 
         '@sm5': {
-            fontSize: '2.2rem'
+            fontSize: '2.5rem'
         }
     },
 
@@ -42,11 +42,15 @@ export const Top = styled('div', {
     position: 'absolute',
     display: 'flex',
     justifyContent: 'center',
-    top: '10.5%',
+    top: '9.5%',
 
     '@sm': {
-        top: '9.5%',
+        top: '8.5%',
     },
+
+    '@sm5': {
+        top: '7.5%'
+    }
 })
 
 export const Mid = styled('div', {
@@ -56,18 +60,18 @@ export const Mid = styled('div', {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: '21rem',
-    marginRight: '.4rem',
+    gap: '21.7rem',
+    marginRight: '.3rem',
 
     '@sm': {
         top: '29.5%',
-        gap: '15.4rem',
-        marginRight: '0rem',
+        gap: '15.9rem',
+        marginRight: '.1rem',
     },
 
     '@sm5': {
-        top: '29.5%',
-        gap: '12.8rem',
+        top: '28.5%',
+        gap: '13.2rem',
     }
 })
 
@@ -75,23 +79,23 @@ export const Bot = styled('div', {
 
     marginRight: '.3rem',
     position: 'absolute',
-    top: '66.5%',
+    top: '67.5%',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: '13.8rem',
+    gap: '14.5rem',
 
     '@sm': {
-        top: '65.5%',
-        gap: '10.2rem',
-        marginRight: '0rem'
+        top: '66.5%',
+        gap: '10.5rem',
+        marginRight: '.2rem'
     },
 
     '@sm5': {
         top: '65.5%',
-        gap: '8.5rem',
-        marginRight: '0rem'
+        gap: '8.6rem',
+        marginRight: '.2rem'
     }
 })
 

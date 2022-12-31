@@ -3,7 +3,6 @@ import { Input } from '../../../../../components';
 import { api } from '../../../../../services/api';
 import { Container, Header, Main, Button, Footer } from './styles';
 import { toast, ToastContainer } from 'react-toastify'
-import { AtributoInput } from '../../../../../components/AtributoInput';
 
 export function ModalPericias({ data, atualizar, setModalPericiasIsOpenFalse, atributos, pericias }) {
 
@@ -63,12 +62,11 @@ export function ModalPericias({ data, atualizar, setModalPericiasIsOpenFalse, at
 
   const [vontade, setVontade] = useState(pericias[27].valor != null ? pericias[27].valor : 0)
 
-
   async function handleCreate() {
 
     try {
 
-      const response = await api.put(`/fichas/pericias/${data.id}`, {
+      const response = await api.put(`/fichas/pericias/${data.fichaId}`, {
         adestramento: Number(adestramento),
         arte: Number(arte),
         diplomacia: Number(diplomacia),
