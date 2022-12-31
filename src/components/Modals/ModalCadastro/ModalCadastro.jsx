@@ -74,7 +74,7 @@ export function ModalCadastro({ setModalCadastroClose }) {
 
       <div className="footer">
 
-        <Button onClick={setModalCadastroClose} autoFocus>Fechar</Button>
+        <Button onClick={setModalCadastroClose} >Fechar</Button>
         <Button color='purple' onClick={handleLogin}>Criar Conta</Button>
 
       </div>

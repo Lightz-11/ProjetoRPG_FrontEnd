@@ -69,7 +69,7 @@ export function ModalLogin({ setModalLoginClose }) {
 
       <div className="footer">
 
-        <Button onClick={setModalLoginClose} autoFocus>Fechar</Button>
+        <Button onClick={setModalLoginClose} >Fechar</Button>
         <Button color='purple' onClick={handleLogin}>Entrar</Button>
 
       </div>

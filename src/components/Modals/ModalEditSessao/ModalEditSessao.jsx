@@ -82,7 +82,7 @@ export function ModalEditSessao({ id, name, desc, setModalClose, sessoes, atuali
 
       <div className="footer">
 
-        <Button onClick={setModalClose} autoFocus>Fechar</Button>
+        <Button onClick={setModalClose} >Fechar</Button>
         <Button color='purple' onClick={handleEdit}>Editar Sessão</Button>
 
       </div>

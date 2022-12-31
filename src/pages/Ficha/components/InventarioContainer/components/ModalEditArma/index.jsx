@@ -137,7 +137,7 @@ export function ModalEditArma({ data, setModalEditArmaIsOpenFalse, atualizar, ar
 
       <Footer>
 
-        <Button autoFocus onClick={setModalEditArmaIsOpenFalse}>Fechar</Button>
+        <Button onClick={setModalEditArmaIsOpenFalse}>Fechar</Button>
         <Button onClick={handleCreate} color={'purple'}>Salvar</Button>
 
       </Footer>

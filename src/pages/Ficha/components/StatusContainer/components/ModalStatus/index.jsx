@@ -114,7 +114,7 @@ export function ModalStatus({ data, atualizar, setModalStatusIsOpenFalse }) {
 
       <Footer>
 
-        <Button autoFocus onClick={setModalStatusIsOpenFalse}>Fechar</Button>
+        <Button onClick={setModalStatusIsOpenFalse}>Fechar</Button>
         <Button onClick={handleCreate} color={'purple'}>Salvar</Button>
 
       </Footer>

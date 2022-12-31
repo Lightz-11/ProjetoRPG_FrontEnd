@@ -130,7 +130,7 @@ export function ModalEdit({ setModalClose, data, atualizar }) {
 
       <Footer>
 
-        <Button onClick={setModalClose} autoFocus>Fechar</Button>
+        <Button onClick={setModalClose} >Fechar</Button>
         <Button color='purple' onClick={handleEdit}>Salvar</Button>
 
       </Footer>

@@ -45,7 +45,7 @@ export function ModalProficiencia({ setModalProficienciaIsOpenFalse, atualizar }
 
       <Footer>
 
-        <Button onClick={setModalProficienciaIsOpenFalse} autoFocus>Fechar</Button>
+        <Button onClick={setModalProficienciaIsOpenFalse} >Fechar</Button>
         <Button color={'purple'} onClick={handleCreate}>Criar</Button>
 
       </Footer>

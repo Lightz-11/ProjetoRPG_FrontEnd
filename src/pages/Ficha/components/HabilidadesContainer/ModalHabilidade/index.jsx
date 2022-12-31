@@ -48,7 +48,7 @@ export function ModalHabilidade({ setModalHabilidadeIsOpenFalse, atualizar }) {
 
       <Footer>
 
-        <Button onClick={setModalHabilidadeIsOpenFalse} autoFocus>Fechar</Button>
+        <Button onClick={setModalHabilidadeIsOpenFalse} >Fechar</Button>
         <Button color={'purple'} onClick={handleCreate}>Criar</Button>
 
       </Footer>

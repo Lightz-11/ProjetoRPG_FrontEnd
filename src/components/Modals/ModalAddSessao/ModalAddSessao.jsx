@@ -46,7 +46,7 @@ export function ModalAddSessao({ setModalClose, atualizar }) {
 
       <div className="footer">
 
-        <Button onClick={setModalClose} autoFocus>Fechar</Button>
+        <Button onClick={setModalClose} >Fechar</Button>
         <Button color='purple' onClick={handleCreate}>Criar Sessão</Button>
 
       </div>

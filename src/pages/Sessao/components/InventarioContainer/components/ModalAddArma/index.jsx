@@ -96,7 +96,7 @@ export function ModalAddArma({ setModalAddArmaIsOpenFalse, atualizar }) {
 
       <Footer>
 
-        <Button autoFocus onClick={setModalAddArmaIsOpenFalse}>Fechar</Button>
+        <Button onClick={setModalAddArmaIsOpenFalse}>Fechar</Button>
         <Button onClick={handleCreate} color={'purple'}>Criar</Button>
 
       </Footer>

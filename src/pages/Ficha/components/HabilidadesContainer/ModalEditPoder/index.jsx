@@ -49,7 +49,7 @@ export function ModalEditPoder({ setModalEditPoderIsOpenFalse, lista, data }) {
 
       <Footer>
 
-        <Button onClick={setModalEditPoderIsOpenFalse} autoFocus>Fechar</Button>
+        <Button onClick={setModalEditPoderIsOpenFalse} >Fechar</Button>
         <Button color={'purple'} onClick={handleCreate}>Salvar</Button>
 
       </Footer>

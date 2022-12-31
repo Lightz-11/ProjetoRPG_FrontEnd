@@ -68,7 +68,7 @@ export function ModalEditDado({ setModalEditIsOpenFalse, data, atualizar, dados 
 
       <Footer>
 
-        <Button onClick={setModalEditIsOpenFalse} autoFocus>Fechar</Button>
+        <Button onClick={setModalEditIsOpenFalse} >Fechar</Button>
         <Button color='purple' onClick={handleCreate}>Salvar</Button>
 
       </Footer>

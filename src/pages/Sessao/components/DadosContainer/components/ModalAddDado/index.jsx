@@ -46,7 +46,7 @@ export function ModalAddDado({ setModalAddIsOpenFalse, atualizar }) {
 
       <Footer>
 
-        <Button onClick={setModalAddIsOpenFalse} autoFocus>Fechar</Button>
+        <Button onClick={setModalAddIsOpenFalse} >Fechar</Button>
         <Button color='purple' onClick={handleCreate}>Criar</Button>
 
       </Footer>

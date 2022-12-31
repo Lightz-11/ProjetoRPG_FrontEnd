@@ -45,7 +45,7 @@ export function ModalEditProficiencia({ setModalEditProficienciaIsOpenFalse, lis
 
       <Footer>
 
-        <Button onClick={setModalEditProficienciaIsOpenFalse} autoFocus>Fechar</Button>
+        <Button onClick={setModalEditProficienciaIsOpenFalse} >Fechar</Button>
         <Button color={'purple'} onClick={handleCreate}>Salvar</Button>
 
       </Footer>

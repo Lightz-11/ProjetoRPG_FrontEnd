@@ -56,7 +56,7 @@ export function ModalAtributo({ data, atualizar, setModalAtributoIsOpenFalse }) 
 
       <Footer>
 
-        <Button autoFocus onClick={setModalAtributoIsOpenFalse}>Fechar</Button>
+        <Button onClick={setModalAtributoIsOpenFalse}>Fechar</Button>
         <Button onClick={handleCreate} color={'purple'}>Salvar</Button>
 
       </Footer>

@@ -58,7 +58,7 @@ export function ModalAddPersonagem({ setModalAddIsOpenFalse }) {
 
       <Footer>
 
-        <Button autoFocus onClick={setModalAddIsOpenFalse}>Fechar</Button>
+        <Button onClick={setModalAddIsOpenFalse}>Fechar</Button>
         <Button onClick={handleCreate} color={'purple'}>Enviar</Button>
 
       </Footer>

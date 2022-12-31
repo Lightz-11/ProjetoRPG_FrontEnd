@@ -197,7 +197,7 @@ export function ModalPericias({ data, atualizar, setModalPericiasIsOpenFalse, at
 
       <Footer>
 
-        <Button autoFocus onClick={setModalPericiasIsOpenFalse}>Fechar</Button>
+        <Button onClick={setModalPericiasIsOpenFalse}>Fechar</Button>
         <Button onClick={handleCreate} color={'purple'}>Salvar</Button>
 
       </Footer>

@@ -49,7 +49,7 @@ export function ModalEditHabilidade({ setModalEditHabilidadeIsOpenFalse, lista, 
 
       <Footer>
 
-        <Button onClick={setModalEditHabilidadeIsOpenFalse} autoFocus>Fechar</Button>
+        <Button onClick={setModalEditHabilidadeIsOpenFalse} >Fechar</Button>
         <Button color={'purple'} onClick={handleCreate}>Salvar</Button>
 
       </Footer>

@@ -49,7 +49,7 @@ export function ModalPoder({ setModalPoderIsOpenFalse, atualizar }) {
 
       <Footer>
 
-        <Button onClick={setModalPoderIsOpenFalse} autoFocus>Fechar</Button>
+        <Button onClick={setModalPoderIsOpenFalse} >Fechar</Button>
         <Button color={'purple'} onClick={handleCreate}>Criar</Button>
 
       </Footer>

@@ -62,7 +62,7 @@ export function ModalPortrait({ data, atualizar, setModalPortraitIsOpenFalse }) 
 
       <Footer>
 
-        <Button autoFocus onClick={setModalPortraitIsOpenFalse}>Fechar</Button>
+        <Button onClick={setModalPortraitIsOpenFalse}>Fechar</Button>
         <Button onClick={handleCreate} color={'purple'}>Salvar</Button>
 
       </Footer>

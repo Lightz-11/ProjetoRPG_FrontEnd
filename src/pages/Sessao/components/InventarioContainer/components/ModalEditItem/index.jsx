@@ -100,7 +100,7 @@ export function ModalEditItem({ data, setModalEditItemIsOpenFalse, atualizar, it
 
       <Footer>
 
-        <Button autoFocus onClick={setModalEditItemIsOpenFalse}>Fechar</Button>
+        <Button onClick={setModalEditItemIsOpenFalse}>Fechar</Button>
         <Button onClick={handleCreate} color={'purple'}>Salvar</Button>
 
       </Footer>

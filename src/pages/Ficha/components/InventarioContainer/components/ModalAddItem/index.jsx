@@ -64,7 +64,7 @@ export function ModalAddItem({ setModalAddItemIsOpenFalse, atualizar, setPesoAtu
 
       <Footer>
 
-        <Button autoFocus onClick={setModalAddItemIsOpenFalse}>Fechar</Button>
+        <Button onClick={setModalAddItemIsOpenFalse}>Fechar</Button>
         <Button onClick={handleCreate} color={'purple'}>Criar</Button>
 
       </Footer>
