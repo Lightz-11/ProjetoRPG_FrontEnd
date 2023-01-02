@@ -12,30 +12,13 @@ import { ModalDadoRolado } from '../../../../components/ModalDadoRolado';
 import { useParams } from 'react-router-dom'
 import { ButtonAdd } from '../../../../components/ButtonAdd';
 
-export function DadosContainer() {
+export function DadosContainer({ data }) {
 
-  const [dados, setDados] = useState([])
+  const [dados, setDados] = useState(data)
   const [modalAddIsOpen, setModalAddIsOpen] = useState(false)
   const [modalDadoRoladoIsOpen, setModalDadoRoladoIsOpen] = useState(false)
 
   const { id } = useParams();
-
-  useEffect(() => {
-
-    async function fetchData() {
-
-      try {
-
-        const response = await api.get(`/fichas/dado/${id}`);
-
-        setDados(response.data)
-
-      } catch (erro) {
-        console.log(erro);
-      }
-    }
-    fetchData()
-  }, [])
 
   return (
     <Container>

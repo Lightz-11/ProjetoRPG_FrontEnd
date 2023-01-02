@@ -5,6 +5,7 @@ import { api } from '../../../../../services/api';
 import { useState } from 'react';
 import { Modal } from '../../../../../components/Modals/Modal';
 import { ModalEditPoder } from '../ModalEditPoder';
+import { ButtonDelete } from '../../../../../components/ButtonDelete';
 
 export function Poder({ data, lista, atualizar }) {
 
@@ -41,7 +42,7 @@ export function Poder({ data, lista, atualizar }) {
       <Buttons>
 
         <ButtonEdit onClick={() => setModalEditPoderIsOpen(true)} />
-        <Button onClick={handleDelete}><BiTrashAlt size={20} color='red' /></Button>
+        <ButtonDelete onClick={handleDelete} />
 
       </Buttons>
 

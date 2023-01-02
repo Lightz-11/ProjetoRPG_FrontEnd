@@ -55,4 +55,5 @@ export const BodyContainer = styled("div", {
   "@lg4": {
     gridTemplateColumns: "1fr",
   },
+
 });

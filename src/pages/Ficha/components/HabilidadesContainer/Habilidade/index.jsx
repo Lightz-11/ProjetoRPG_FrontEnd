@@ -5,6 +5,7 @@ import { ModalEditHabilidade } from '../ModalEditHabilidade';
 import { BiTrashAlt } from 'react-icons/bi';
 import { ButtonEdit } from '../../../../../components/ButtonEdit';
 import { Button, Buttons, Container } from './styles'
+import { ButtonDelete } from '../../../../../components/ButtonDelete';
 
 export function Habilidade({ data, lista, atualizar }) {
 
@@ -41,7 +42,7 @@ export function Habilidade({ data, lista, atualizar }) {
       <Buttons>
 
         <ButtonEdit onClick={() => setModalEditHabilidadeIsOpen(true)} />
-        <Button onClick={handleDelete}><BiTrashAlt size={20} color='red' /></Button>
+        <ButtonDelete onClick={handleDelete} />
 
       </Buttons>
 

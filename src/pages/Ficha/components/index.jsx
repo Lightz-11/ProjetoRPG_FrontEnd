@@ -5,3 +5,4 @@ export { InventarioContainer } from "./InventarioContainer"
 export { AtributoContainer } from "./AtributoContainer"
 export { PericiasContainer } from "./PericiasContainer"
 export { HabilidadesContainer } from './HabilidadesContainer'
+export { RituaisContainer } from './RituaisContainer'

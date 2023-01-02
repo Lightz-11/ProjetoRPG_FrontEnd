@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Container, ContainerInput, InputB, LabelContainer, LabelContainerMenor, LabelContainerMenorEPadding } from "./styles"
 
 
-export function Input({ label, labelMenor = false, setValor, valor, onlyNumber = false, opcional = false, padding, ...rest }) {
+export function Input({ label, labelMenor = false, setValor, valor, onlyNumber = false, opcional = false, valorMax = null, padding, ...rest }) {
 
     const [focus, setFocus] = useState(false)
 
@@ -13,8 +13,10 @@ export function Input({ label, labelMenor = false, setValor, valor, onlyNumber =
     })
 
     function onlyNumbers(v) {
-        v = v.replace(/[^0-9]/g, "")
-        setValor(v)
+        if (valorMax != null && valorMax >= v || valorMax == null) {
+            v = v.replace(/[^0-9]/g, "")
+            setValor(v)
+        }
     }
 
     return (

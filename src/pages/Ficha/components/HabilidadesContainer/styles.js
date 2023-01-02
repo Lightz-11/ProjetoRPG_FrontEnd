@@ -85,6 +85,14 @@ export const BodyContainer = styled("div", {
 
   '@md2': {
     height: 'calc(100% - 145px)'
+  },
+
+  variants: {
+    nulo: {
+      true: {
+        padding: 0
+      }
+    }
   }
 
 });

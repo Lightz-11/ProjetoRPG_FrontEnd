@@ -5,6 +5,7 @@ import { api } from '../../../../../services/api';
 import { ModalEditProficiencia } from '../ModalEditProficiencia';
 import { Modal } from '../../../../../components/Modals/Modal';
 import { useState } from 'react';
+import { ButtonDelete } from '../../../../../components/ButtonDelete';
 
 export function Proficiencia({ data, lista, atualizar }) {
 
@@ -40,7 +41,7 @@ export function Proficiencia({ data, lista, atualizar }) {
       <Buttons>
 
         <ButtonEdit onClick={() => setModalEditProficienciaIsOpen(true)} />
-        <Button onClick={handleDelete}><BiTrashAlt size={20} color='red' /></Button>
+        <ButtonDelete onClick={handleDelete} />
 
       </Buttons>
 
