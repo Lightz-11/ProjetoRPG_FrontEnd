@@ -18,7 +18,7 @@ export function Rolagem({ data }) {
       <Main>
 
         <Body isDano={data.isDano}>
-          <h1>{pericias(data.nome)}:</h1>
+          <h1>{pericias(data.nome) != null ? pericias(data.nome) : data.nome}:</h1>
           <span>
             {data.conta} = {data.valorTotal}
           </span>
