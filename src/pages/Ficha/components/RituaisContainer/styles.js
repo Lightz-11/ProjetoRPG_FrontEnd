@@ -56,14 +56,17 @@ export const BodyContainer = styled("div", {
   gridTemplateColumns: '1fr',
   padding: '2rem',
   gap: '2rem',
-  transition: 'height .5s',
+  transition: '.5s',
   overflow: 'hidden',
 
   variants: {
     nulo: {
       true: {
-        padding: 0,
+        padding: '0',
         height: 0
+      },
+      false: {
+        height: 'auto'
       }
     }
   }
