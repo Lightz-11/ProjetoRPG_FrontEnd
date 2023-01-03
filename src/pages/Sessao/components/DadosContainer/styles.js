@@ -117,6 +117,14 @@ export const BodyDados = styled('div', {
   flexWrap: 'wrap',
   justifyContent: 'center',
   alignItems: 'center',
-  gap: '3rem'
+  gap: '3rem',
+
+  variants: {
+    nulo: {
+      true: {
+        padding: 0
+      }
+    }
+  }
 
 })

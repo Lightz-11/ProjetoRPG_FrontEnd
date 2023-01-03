@@ -76,22 +76,19 @@ export function ModalEditArma({ data, setModalEditArmaIsOpenFalse, atualizar, ar
 
   async function handleDelete() {
 
-    if (window.confirm("Tem certeza que deseja excluir esta arma? Uma vez deletada jamais poderá ser recuperada.")) {
+    try {
 
-      try {
+      await api.delete(`/sessoes/arma/${data.id}`);
 
-        await api.delete(`/sessoes/arma/${data.id}`);
+      const armasAtualizadas = armas.filter(arma => arma.id != data.id)
 
-        const armasAtualizadas = armas.filter(arma => arma.id != data.id)
+      atualizar(armasAtualizadas)
+      setPesoAtual((prevState) => prevState - data.espaco)
 
-        atualizar(armasAtualizadas)
-        setPesoAtual((prevState) => prevState - data.espaco)
-
-      } catch (error) {
-        console.log(error);
-      }
-
+    } catch (error) {
+      console.log(error);
     }
+
   }
 
   return (

@@ -29,10 +29,16 @@ export function Ficha({ data, atualizar, lista }) {
     }, [])
 
     async function handleDelete() {
-        await api.delete(`/fichas/${data.id}`)
 
-        const fichasAtt = lista.filter(ficha => ficha.id != data.id)
-        atualizar(fichasAtt)
+        if (window.confirm("Tem certeza que deseja excluir esta ficha? Uma vez deletada jamais poderá ser recuperada")) {
+
+            await api.delete(`/fichas/${data.id}`)
+
+            const fichasAtt = lista.filter(ficha => ficha.id != data.id)
+            atualizar(fichasAtt)
+
+        }
+
     }
 
     async function handleEdit() {

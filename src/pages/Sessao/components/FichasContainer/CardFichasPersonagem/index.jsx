@@ -15,20 +15,24 @@ export function CardFichasPersonagem({ data }) {
 
     async function handleDelete() {
 
-        try {
+        if (window.confirm("Tem certeza que deseja desvincular esta ficha de sua sessão?")) {
 
-            await api.put(`/fichas/${data.id}`, {
-                sessaoId: null
-            })
+            try {
 
-            await api.delete(`/sessoes/participante/${data.id}`)
+                await api.put(`/fichas/${data.id}`, {
+                    sessaoId: null
+                })
 
-            const fichasAtt = fichas.filter(ficha => ficha.id != data.id)
+                await api.delete(`/sessoes/participante/${data.id}`)
 
-            setFichas(fichasAtt)
+                const fichasAtt = fichas.filter(ficha => ficha.id != data.id)
 
-        } catch (erro) {
-            console.log(erro)
+                setFichas(fichasAtt)
+
+            } catch (erro) {
+                console.log(erro)
+            }
+
         }
 
     }

@@ -21,17 +21,21 @@ export function Ritual({ data, atualizar, rituais, setRitualAtivo }) {
 
   async function handleDelete() {
 
-    try {
+    if (window.confirm("Tem certeza que deseja excluir este ritual? Uma vez deletado jamais poderá ser recuperado")) {
 
-      await api.delete(`/fichas/ritual/${data.id}`)
+      try {
 
-      const listaAtualizada = rituais.filter(ritual => ritual.id != data.id)
+        await api.delete(`/fichas/ritual/${data.id}`)
 
-      atualizar(listaAtualizada)
-      setRitualAtivo(null)
+        const listaAtualizada = rituais.filter(ritual => ritual.id != data.id)
 
-    } catch (erro) {
-      console.log(erro)
+        atualizar(listaAtualizada)
+        setRitualAtivo(null)
+
+      } catch (erro) {
+        console.log(erro)
+      }
+
     }
 
   }

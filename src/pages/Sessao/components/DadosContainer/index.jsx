@@ -60,7 +60,7 @@ export function DadosContainer() {
 
         <Body>
 
-          <BodyDados>
+          <BodyDados nulo={dados.length == 0}>
             {dados &&
 
               dados.map(dado => <Dado key={dado.id} data={dado} atualizar={setDados} dados={dados} />)

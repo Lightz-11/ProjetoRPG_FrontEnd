@@ -62,6 +62,14 @@ export const BodyContainer = styled("div", {
     gridTemplateColumns: '1fr'
   },
 
+  variants: {
+    nulo: {
+      true: {
+        padding: 0
+      }
+    }
+  }
+
 });
 
 export const Footer = styled('div', {

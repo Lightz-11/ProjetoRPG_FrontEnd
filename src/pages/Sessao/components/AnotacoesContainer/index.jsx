@@ -79,18 +79,22 @@ export function AnotacoesContainer() {
 
   async function handleDelete(id) {
 
-    try {
+    if (window.confirm("Tem certeza que deseja excluir esta anotação? Uma vez deletada jamais poderá ser recuperada")) {
 
-      await api.delete(`/sessoes/anotacao/${id}`)
+      try {
 
-      const anotacoesAtt = anotacoes.filter(anotacao => anotacao.id != id)
+        await api.delete(`/sessoes/anotacao/${id}`)
 
-      setAnotacoes(anotacoesAtt)
+        const anotacoesAtt = anotacoes.filter(anotacao => anotacao.id != id)
 
-      setAberto(false)
+        setAnotacoes(anotacoesAtt)
 
-    } catch (erro) {
-      console.log(erro)
+        setAberto(false)
+
+      } catch (erro) {
+        console.log(erro)
+      }
+
     }
 
   }

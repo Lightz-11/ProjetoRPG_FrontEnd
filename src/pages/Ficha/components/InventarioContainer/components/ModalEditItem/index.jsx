@@ -51,19 +51,17 @@ export function ModalEditItem({ data, setModalEditItemIsOpenFalse, atualizar, it
 
   async function handleDelete() {
 
-    if (window.confirm("Tem certeza que deseja excluir este item? Uma vez deletado jamais poderá ser recuperado.")) {
-      try {
+    try {
 
-        await api.delete(`/sessoes/item/${data.id}`);
+      await api.delete(`/sessoes/item/${data.id}`);
 
-        const itensAtualizados = itens.filter(item => item.id != data.id)
+      const itensAtualizados = itens.filter(item => item.id != data.id)
 
-        atualizar(itensAtualizados)
-        setPesoAtual((prevState) => prevState - data.espaco)
+      atualizar(itensAtualizados)
+      setPesoAtual((prevState) => prevState - data.espaco)
 
-      } catch (error) {
-        console.log(error);
-      }
+    } catch (error) {
+      console.log(error);
     }
 
   }

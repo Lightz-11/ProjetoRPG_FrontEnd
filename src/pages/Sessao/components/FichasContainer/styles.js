@@ -60,6 +60,9 @@ export const BodyContainer = styled("div", {
 
   variants: {
     quantidade: {
+      0: {
+        padding: 0
+      },
       1: {
         gridTemplateColumns: "1fr",
 

@@ -27,9 +27,9 @@ export function RituaisContainer({ data }) {
         <ButtonAdd onClick={() => setModalAddIsOpen(true)} />
       </HeaderContainer>
 
-      <hr />
+      {rituais && rituais.length > 0 && <hr />}
 
-      <Select>
+      <Select nulo={rituais && rituais.length == 0}>
         {rituais &&
 
           rituais.map((ritual) => <Button onClick={() => {

@@ -81,6 +81,14 @@ export const Select = styled('div', {
   justifyContent: 'left',
   gap: '2rem',
 
+  variants: {
+    nulo: {
+      true: {
+        padding: 0
+      }
+    }
+  }
+
 })
 
 export const Button = styled('button', {

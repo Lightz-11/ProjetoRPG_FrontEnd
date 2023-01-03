@@ -188,41 +188,42 @@ export function InventarioContainer() {
 
       <hr />
 
-      <BodyContainer>
+      <BodyContainer nulo={armas.length == 0 && itens.length == 0}>
 
         {armas.map(arma => <Arma key={arma.id} data={arma} atualizar={setArmas} armas={armas} />)}
         {itens.map(item => <Item key={item.id} data={item} atualizar={setItens} itens={itens} />)}
 
       </BodyContainer>
 
-      <hr />
+      {itens.length > 0 || armas.length > 0 && <hr />}
 
-      <Footer>
+      {itens.length > 0 || armas.length > 0 &&
+        <Footer>
 
-        <Row>
+          <Row>
 
-          <Column>
-            <span>Item</span>
-            <select onChange={(e) => setItemAEnviar(e.target.value)}>
-              <Option value={null}>Nenhum</Option>
-              {armas.map(arma => <Option key={arma.id} value={arma.id}>{arma.nome}</Option>)}
-              {itens.map(item => <Option key={item.id} value={item.id}>{item.nome}</Option>)}
-            </select>
-          </Column>
+            <Column>
+              <span>Item</span>
+              <select onChange={(e) => setItemAEnviar(e.target.value)}>
+                <Option value={null}>Nenhum</Option>
+                {armas.map(arma => <Option key={arma.id} value={arma.id}>{arma.nome}</Option>)}
+                {itens.map(item => <Option key={item.id} value={item.id}>{item.nome}</Option>)}
+              </select>
+            </Column>
 
-          <Column>
-            <span>Ficha</span>
-            <select onChange={(e) => setFichaAEnviar(e.target.value)}>
-              <Option value={null}>Nenhuma</Option>
-              {fichas.map(ficha => <Option key={ficha.id} value={ficha.id}>{ficha.Principal[0].nome}</Option>)}
-            </select>
-          </Column>
+            <Column>
+              <span>Ficha</span>
+              <select onChange={(e) => setFichaAEnviar(e.target.value)}>
+                <Option value={null}>Nenhuma</Option>
+                {fichas.map(ficha => <Option key={ficha.id} value={ficha.id}>{ficha.Principal[0].nome}</Option>)}
+              </select>
+            </Column>
 
-        </Row>
+          </Row>
 
-        <Button onClick={enviarInventario}>Enviar</Button>
+          <Button onClick={enviarInventario}>Enviar</Button>
 
-      </Footer>
+        </Footer>}
 
       <ToastContainer />
 
