@@ -164,7 +164,17 @@ export const Dados = styled('div', {
 
   '@md5': {
     flexDirection: 'column'
+  },
+
+  variants: {
+    recarga: {
+      false: {
+        marginTop: '5rem',
+        marginBottom: '4rem'
+      }
+    }
   }
+
 })
 
 export const Button = styled('button', {

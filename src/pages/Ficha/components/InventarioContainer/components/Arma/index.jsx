@@ -138,7 +138,7 @@ export function Arma({ data, atualizar, armas, setPesoAtual }) {
             <Barrinha barrinhaId={data.id} valorA={municaoA} setValorA={setMunicaoA} valorMax={data.recarga} />
           }
 
-          <Dados>
+          <Dados recarga={data.recarga > 0}>
 
             <Button disabled={disabled} onClick={() => {
               setDadoData({
