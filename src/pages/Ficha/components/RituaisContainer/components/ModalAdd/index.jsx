@@ -100,7 +100,7 @@ export function ModalAdd({ setModalAddIsOpenFalse, atualizar }) {
 
         <Main2>
           <Input labelMenor opcional label={'Imagem'} valor={imagem} setValor={setImagem} />
-          <TextArea label={'Descrição'} setValor={setDescricao} />
+          <TextArea label={'Descrição'} valor={descricao} setValor={setDescricao} />
         </Main2>
 
       </Main>
