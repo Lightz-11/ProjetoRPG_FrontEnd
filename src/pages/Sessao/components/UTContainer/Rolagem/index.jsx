@@ -1,13 +1,8 @@
 import { useEffect } from 'react';
 import { Container, Footer, Header, Main, Body, Horas } from './styles';
+import pericias from '../pericias';
 
 export function Rolagem({ data }) {
-
-  useEffect(() => {
-
-    console.log(data)
-
-  }, [])
 
   return (
     <Container>
@@ -22,7 +17,7 @@ export function Rolagem({ data }) {
       <Main>
 
         <Body isDano={data.isDano}>
-          <h1>{data.nome}:</h1>
+          <h1>{pericias(data.nome)}:</h1>
           <span>
             {data.conta} = {data.valorTotal}
           </span>
