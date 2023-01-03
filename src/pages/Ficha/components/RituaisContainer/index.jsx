@@ -32,7 +32,7 @@ export function RituaisContainer({ data }) {
       <Select nulo={rituais && rituais.length == 0}>
         {rituais &&
 
-          rituais.map((ritual) => <Button onClick={() => {
+          rituais.map((ritual) => <Button key={ritual.id} onClick={() => {
 
             if (ritualEscolhido != null && ritual.id == ritualEscolhido.id) {
 

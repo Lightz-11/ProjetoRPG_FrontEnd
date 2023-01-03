@@ -59,7 +59,7 @@ export function ModalEditDado({ setModalEditIsOpenFalse, data, atualizar, dados 
 
       <hr />
 
-      <Input label={'Nome'} maxLength={10} value={nome} setValor={setNome} valor={nome} />
+      <Input label={'Nome'} maxLength={30} value={nome} setValor={setNome} valor={nome} />
       <Input label={'Valor'} defaultValue={valor} setValor={setValor} valor={valor} />
       <MiniFooter>
         <Toggle span={'Rolar Como Dano?'} classNumber={'1'} onClick={() => setIsDano(!isDano)} defaultChecked={isDano} />

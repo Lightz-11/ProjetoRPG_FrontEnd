@@ -40,7 +40,7 @@ export function ModalAddDado({ setModalAddIsOpenFalse, atualizar }) {
 
       <hr />
 
-      <Input label={'Nome'} maxLength={10} setValor={setNome} valor={nome} />
+      <Input label={'Nome'} maxLength={30} setValor={setNome} valor={nome} />
       <Input label={'Valor'} campo={'Valor'} setValor={setValor} valor={valor} />
       <Toggle span={'Rolar Como Dano?'} classNumber={'1'} onClick={() => setIsDano(!isDano)} />
 

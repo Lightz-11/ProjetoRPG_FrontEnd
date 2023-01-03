@@ -195,9 +195,9 @@ export function InventarioContainer() {
 
       </BodyContainer>
 
-      {itens.length > 0 || armas.length > 0 && <hr />}
+      {(itens.length > 0 || armas.length > 0) && <hr />}
 
-      {itens.length > 0 || armas.length > 0 &&
+      {(itens.length > 0 || armas.length > 0) &&
         <Footer>
 
           <Row>

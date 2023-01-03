@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { TextArea } from '../../../../components/TextArea';
+import { useDisabled } from '../../../../hooks/useDisabled';
 import { api } from '../../../../services/api';
 import { Container, Header, Select, Main, Button } from './styles';
+import { TextAreaPersonagem } from './TextAreaPersonagem';
 
 export function PersonagemContainer({ data }) {
+
+  const { disabled } = useDisabled()
 
   const [body, setBody] = useState('principal')
 
@@ -40,8 +43,6 @@ export function PersonagemContainer({ data }) {
 
       })
 
-      console.log(response)
-
     } catch (e) { console.log(e) }
 
   }
@@ -70,13 +71,13 @@ export function PersonagemContainer({ data }) {
 
 
           <span>História</span>
-          <TextArea valor={historia} setValor={setHistoria} onBlurCapture={() => handleEdit()} />
+          <TextAreaPersonagem valor={historia} setValor={setHistoria} onBlurCapture={() => handleEdit()} />
 
           <span>Aparência</span>
-          <TextArea valor={aparencia} setValor={setAparencia} onBlurCapture={() => handleEdit()} />
+          <TextAreaPersonagem valor={aparencia} setValor={setAparencia} onBlurCapture={() => handleEdit()} />
 
           <span>Primeiro Encontro Paranormal</span>
-          <TextArea valor={pep} setValor={setPep} onBlurCapture={() => handleEdit()} />
+          <TextAreaPersonagem valor={pep} setValor={setPep} onBlurCapture={() => handleEdit()} />
 
         </>}
 
@@ -84,13 +85,13 @@ export function PersonagemContainer({ data }) {
 
 
           <span>Doenças, Fobias e Manias</span>
-          <TextArea valor={dfm} setValor={setDfm} onBlurCapture={() => handleEdit()} />
+          <TextAreaPersonagem valor={dfm} setValor={setDfm} onBlurCapture={() => handleEdit()} />
 
           <span>Favoritos</span>
-          <TextArea valor={favoritos} setValor={setFavoritos} onBlurCapture={() => handleEdit()} />
+          <TextAreaPersonagem valor={favoritos} setValor={setFavoritos} onBlurCapture={() => handleEdit()} />
 
           <span>Personalidade</span>
-          <TextArea valor={personalidade} setValor={setPersonalidade} onBlurCapture={() => handleEdit()} />
+          <TextAreaPersonagem valor={personalidade} setValor={setPersonalidade} onBlurCapture={() => handleEdit()} />
 
         </>}
 
@@ -98,13 +99,13 @@ export function PersonagemContainer({ data }) {
 
 
           <span>Pior Pesadelo</span>
-          <TextArea valor={piorPesadelo} setValor={setPiorPesadelo} onBlurCapture={() => handleEdit()} />
+          <TextAreaPersonagem valor={piorPesadelo} setValor={setPiorPesadelo} onBlurCapture={() => handleEdit()} />
 
           <span>Anotações Personagem</span>
-          <TextArea valor={anotacoesPersonagem} setValor={setAnotacoesPersonagem} onBlurCapture={() => handleEdit()} />
+          <TextAreaPersonagem valor={anotacoesPersonagem} setValor={setAnotacoesPersonagem} onBlurCapture={() => handleEdit()} />
 
           <span>Anotações Player</span>
-          <TextArea valor={anotacoesPlayer} setValor={setAnotacoesPlayer} onBlurCapture={() => handleEdit()} />
+          <TextAreaPersonagem valor={anotacoesPlayer} setValor={setAnotacoesPlayer} onBlurCapture={() => handleEdit()} />
 
         </>}
 

@@ -1,4 +1,4 @@
-import { Container, DoubleParteContainer, Body, DoubleParteColumnContainer } from './styles';
+import { ParteImgModal, ImgModal, Container, DoubleParteContainer, Body, DoubleParteColumnContainer } from './styles';
 import { DadosContainer, PrincipalContainer, StatusContainer, InventarioContainer, AtributoContainer, PericiasContainer, HabilidadesContainer, RituaisContainer, PersonagemContainer } from './components'
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -7,6 +7,10 @@ import { api } from '../../services/api';
 import { useDisabled } from '../../hooks/useDisabled';
 import { useTitle } from '../../hooks/useTitle';
 import { ToastContainer } from 'react-toastify';
+import { Modal } from '../../components/Modals/Modal';
+import { io } from 'socket.io-client';
+
+const socket = io(api.defaults.baseURL);
 
 export function Ficha() {
 
@@ -23,6 +27,9 @@ export function Ficha() {
   const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
 
   const { setTitle } = useTitle()
+
+  const [imgAberta, setImgAberta] = useState(false)
+  const [imagem, setImagem] = useState('')
 
   useEffect(() => {
 
@@ -68,10 +75,26 @@ export function Ficha() {
       }
     }
     fetchData();
+
+
+    function executeItemImg({ fichaId, imagem }) {
+      if (fichaId == id) {
+        setImgAberta(true)
+        setImagem(imagem)
+      }
+    }
+    socket.on("enviado.itemImg", executeItemImg);
+
   }, []);
 
   return (
     <Container>
+
+      <Modal isOpen={imgAberta} setIsOpen={() => setImgAberta(false)}>
+        <ParteImgModal>
+          <ImgModal onClick={() => setImgAberta(false)} src={imagem} />
+        </ParteImgModal>
+      </Modal>
 
       {!isLoading &&
 
@@ -98,8 +121,6 @@ export function Ficha() {
             </DoubleParteColumnContainer>
 
           </DoubleParteContainer>
-
-
 
           <InventarioContainer armasData={ficha && ficha.Armas} itensData={ficha && ficha.Itens} peso={ficha && ficha.Status[0].peso} />
           <RituaisContainer data={ficha && ficha.Rituais} />

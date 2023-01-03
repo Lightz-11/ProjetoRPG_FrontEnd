@@ -1,4 +1,4 @@
-import { styled } from "../../stitches.config";
+import { styled, keyframes } from "../../stitches.config";
 
 export const Container = styled("div", {
   width: "100%",
@@ -40,5 +40,36 @@ export const DoubleParteColumnContainer = styled('div', {
 
   display: 'grid',
 
+
+})
+
+export const ParteImgModal = styled('div', {
+  height: '95vh',
+  width: '100%',
+  display: 'flex',
+  justifyContent: 'center',
+  overflow: 'hidden',
+
+  img: {
+    objectFit: 'contain'
+  }
+})
+
+const scaleUpImgModal = keyframes({
+  '0%': {
+    width: '20%',
+    opacity: 0
+  },
+
+  '100%': {
+    width: '100%',
+    opacity: 1
+  },
+});
+
+export const ImgModal = styled('img', {
+
+  animation: `${scaleUpImgModal} 300ms`,
+  width: '100%'
 
 })

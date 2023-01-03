@@ -66,10 +66,17 @@ export function AnotacoesContainer() {
 
     try {
 
-      const response = await api.put(`/sessoes/anotacao/${id}`, {
+      await api.put(`/sessoes/anotacao/${id}`, {
         nome: nome,
         descricao: desc
       })
+
+      const procurando = anotacoes.filter(anotacao => anotacao.id == id)
+      const anotacaoAEditar = procurando[0]
+
+      anotacaoAEditar.nome = nome
+      anotacaoAEditar.descricao = desc
+
 
     } catch (erro) {
       toast.error(erro.response.data.mensagem)
@@ -128,7 +135,7 @@ export function AnotacoesContainer() {
                 setAberto(true)
                 setButtonActive(index)
                 setNome(anotacao.nome);
-                setDesc(anotacao.descricao);
+                setDesc(anotacao.descricao == null ? '' : anotacao.descricao);
               }
             }}>{anotacao.nome}</Button>)}
 

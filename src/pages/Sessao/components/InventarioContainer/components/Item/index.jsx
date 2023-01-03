@@ -1,12 +1,18 @@
 import { useEffect, useState } from 'react';
 import { Container, Header, Main, MainTop, MainBottom, Span, ParteImg, ButtonIcon, ImgModal, ParteImgModal } from './styles';
-import { MdOutlineEdit } from 'react-icons/md'
+import { MdOutlineEdit, MdOutlineSendToMobile } from 'react-icons/md'
 import { Modal } from '../../../../../../components/Modals/Modal';
 import { ModalEditItem } from '../ModalEditItem';
 import { Barrinha } from './Barrinha';
 import { api } from '../../../../../../services/api';
+import { io } from 'socket.io-client';
+import { useFichas } from '../../../../../../hooks/useFichas';
+
+const socket = io(api.defaults.baseURL);
 
 export function Item({ data, atualizar, itens }) {
+
+  const { fichas } = useFichas()
 
   const [imgAberta, setImgAberta] = useState(false)
 
@@ -41,6 +47,15 @@ export function Item({ data, atualizar, itens }) {
 
   }, [municao, municaoMax])
 
+  function handleSend() {
+
+    fichas.forEach(ficha => {
+      socket.emit("enviado.itemImg", { fichaId: ficha.id, imagem: data.imagem });
+      setImgAberta(true)
+    });
+
+  }
+
   return (
     <Container>
 
@@ -55,7 +70,7 @@ export function Item({ data, atualizar, itens }) {
       </Modal>
 
       <Header>
-        <div></div>
+        <ButtonIcon color={'aqua'} onClick={handleSend} ><MdOutlineSendToMobile size={22} color={'aqua'} /></ButtonIcon>
         <h1>{data.nome}</h1>
         <ButtonIcon onClick={() => setModalEditItemIsOpen(true)}><MdOutlineEdit size={22} color={'#42bb4d'} /></ButtonIcon>
       </Header>

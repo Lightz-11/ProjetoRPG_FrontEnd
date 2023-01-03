@@ -105,9 +105,24 @@ export const ButtonIcon = styled('button', {
   position: 'relative',
   margin: '0',
 
-  '&:hover': {
-    border: '2px solid #42bb4d',
+  variants: {
+    color: {
+      green: {
+        '&:hover': {
+          border: '2px solid #42bb4d',
+        },
+      },
+      aqua: {
+        '&:hover': {
+          border: '2px solid aqua',
+        },
+      }
+    }
   },
+
+  defaultVariants: {
+    color: 'green'
+  }
 
 })
 

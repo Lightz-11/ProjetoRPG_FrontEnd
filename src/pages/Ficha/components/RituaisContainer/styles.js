@@ -64,9 +64,6 @@ export const BodyContainer = styled("div", {
       true: {
         padding: 0,
         height: 0
-      },
-      false: {
-        height: '602px'
       }
     }
   }
