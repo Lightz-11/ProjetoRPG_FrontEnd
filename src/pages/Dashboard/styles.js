@@ -4,7 +4,6 @@ import BackgroundImage from "../../assets/img/Home-Background50.jpg";
 export const Container = styled("div", {
     width: "100%",
     height: "100vh",
-    minHeight: '94rem',
     backgroundImage: `url(${BackgroundImage})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
