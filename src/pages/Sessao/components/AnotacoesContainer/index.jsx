@@ -125,13 +125,15 @@ export function AnotacoesContainer() {
           <><TopBody>
 
             {anotacoes.length > 0 && anotacoes.map((anotacao, index) => <Button key={index} active={buttonActive == index} onClick={() => {
-              setInfos(anotacao);
+
               if (buttonActive == index) {
+                setInfos([])
                 setAberto(false);
                 setButtonActive(-1)
                 setNome('');
                 setDesc('');
               } else {
+                setInfos(anotacao);
                 setAberto(true)
                 setButtonActive(index)
                 setNome(anotacao.nome);

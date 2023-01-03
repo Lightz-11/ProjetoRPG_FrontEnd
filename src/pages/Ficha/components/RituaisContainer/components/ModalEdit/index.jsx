@@ -120,7 +120,7 @@ export function ModalEdit({ data, setModalAddIsOpenFalse, lista, setRitualAtivo 
 
         <Main2>
           <Input labelMenor opcional label={'Imagem'} valor={imagem} setValor={setImagem} />
-          <TextArea label={'Descrição'} setValor={setDescricao} maxLength={100} />
+          <TextArea label={'Descrição'} setValor={setDescricao} />
         </Main2>
 
       </Main>
