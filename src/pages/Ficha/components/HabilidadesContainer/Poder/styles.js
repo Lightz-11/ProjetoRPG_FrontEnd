@@ -6,24 +6,46 @@ export const Container = styled('div', {
   display: 'flex',
   alignItems: 'flex-start',
   justifyContent: 'space-between',
+  flexDirection: 'column',
 
   h1: {
     fontSize: '2.2rem',
     fontFamily: 'El Messiri',
     color: 'white',
+    wordBreak: 'break-word',
   },
 
   p: {
     fontSize: '1.8rem',
     fontFamily: 'El Messiri',
+    wordBreak: 'break-word',
     color: 'white'
   }
+
+})
+
+export const Main1 = styled('div', {
+
+  width: '100%',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  columnGap: '2rem'
+
+})
+
+export const Main2 = styled('div', {
+
+  width: '100%',
+  display: 'flex',
+  alignItems: 'center',
 
 })
 
 export const Buttons = styled('div', {
 
   display: 'flex',
+  paddingBottom: '.5rem',
   gap: '1rem'
 
 })

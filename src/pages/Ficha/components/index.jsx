@@ -6,3 +6,4 @@ export { AtributoContainer } from "./AtributoContainer"
 export { PericiasContainer } from "./PericiasContainer"
 export { HabilidadesContainer } from './HabilidadesContainer'
 export { RituaisContainer } from './RituaisContainer'
+export { PersonagemContainer } from './PersonagemContainer'

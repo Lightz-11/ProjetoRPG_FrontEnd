@@ -14,7 +14,18 @@ export const Container = styled('div', {
     fontSize: '2.2rem',
     fontFamily: 'El Messiri',
     color: 'white',
+    wordBreak: 'break-word',
   },
+
+})
+
+export const Main1 = styled('div', {
+
+  width: '100%',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  columnGap: '2rem'
 
 })
 

@@ -35,3 +35,10 @@ export const DoubleParteContainer = styled("div", {
     gridTemplateColumns: '100%',
   },
 });
+
+export const DoubleParteColumnContainer = styled('div', {
+
+  display: 'grid',
+
+
+})

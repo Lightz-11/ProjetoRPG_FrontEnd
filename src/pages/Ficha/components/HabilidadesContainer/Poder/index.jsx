@@ -1,5 +1,5 @@
 import { ButtonEdit } from '../../../../../components/ButtonEdit';
-import { Container, Buttons, Button } from './styles';
+import { Container, Buttons, Main1, Main2 } from './styles';
 import { BiTrashAlt } from 'react-icons/bi'
 import { api } from '../../../../../services/api';
 import { useState } from 'react';
@@ -34,17 +34,22 @@ export function Poder({ data, lista, atualizar }) {
         <ModalEditPoder lista={lista} data={data} setModalEditPoderIsOpenFalse={() => setModalEditPoderIsOpen(false)} />
       </Modal>
 
-      <div>
+      <Main1>
+
         <h1>{data.nome}</h1>
+
+        <Buttons>
+
+          <ButtonEdit onClick={() => setModalEditHabilidadeIsOpen(true)} />
+          <ButtonDelete onClick={handleDelete} />
+
+        </Buttons>
+
+      </Main1>
+
+      <Main2>
         <p>{data.descricao}</p>
-      </div>
-
-      <Buttons>
-
-        <ButtonEdit onClick={() => setModalEditPoderIsOpen(true)} />
-        <ButtonDelete onClick={handleDelete} />
-
-      </Buttons>
+      </Main2>
 
     </Container>
   );

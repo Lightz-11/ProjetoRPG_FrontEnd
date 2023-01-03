@@ -53,6 +53,7 @@ export const Button = styled('button', {
   fontFamily: 'Special Elite',
   letterSpacing: '.1rem',
   transition: '.3s',
+  borderRadius: '5px',
 
   '&:hover': {
     border: '2px solid white'
@@ -62,6 +63,7 @@ export const Button = styled('button', {
     active: {
       true: {
         border: '2px solid purple',
+        cursor: 'default',
 
         '&:hover': {
           border: '2px solid purple'
@@ -76,8 +78,7 @@ export const BodyContainer = styled("div", {
 
   display: 'flex',
   alignItems: 'left',
-  height: 'calc(100% - 43px)',
-  maxHeight: '21.4rem',
+  height: '21.4rem',
   overflowY: 'auto',
   flexDirection: 'column',
   padding: '3rem',
@@ -90,7 +91,10 @@ export const BodyContainer = styled("div", {
   variants: {
     nulo: {
       true: {
-        padding: 0
+        '@lg3': {
+          padding: 0,
+          height: 0
+        }
       }
     }
   }

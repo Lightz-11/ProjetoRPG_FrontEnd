@@ -1,5 +1,5 @@
-import { Container, DoubleParteContainer, Body } from './styles';
-import { DadosContainer, PrincipalContainer, StatusContainer, InventarioContainer, AtributoContainer, PericiasContainer, HabilidadesContainer, RituaisContainer } from './components'
+import { Container, DoubleParteContainer, Body, DoubleParteColumnContainer } from './styles';
+import { DadosContainer, PrincipalContainer, StatusContainer, InventarioContainer, AtributoContainer, PericiasContainer, HabilidadesContainer, RituaisContainer, PersonagemContainer } from './components'
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -84,13 +84,22 @@ export function Ficha() {
 
           <DoubleParteContainer>
             <AtributoContainer data={ficha && ficha.Atributos[0]} />
-            <PericiasContainer data={ficha && ficha.Pericias[0]} atributos={ficha && ficha.Atributos[0]} />
+            <DadosContainer data={ficha && ficha.Dados} />
+
           </DoubleParteContainer>
 
           <DoubleParteContainer>
-            <HabilidadesContainer poderesData={ficha && ficha.Poderes} proficienciasData={ficha && ficha.Proficiencias} habilidadesData={ficha && ficha.Habilidades} />
-            <DadosContainer data={ficha && ficha.Dados} />
+
+            <PericiasContainer data={ficha && ficha.Pericias[0]} atributos={ficha && ficha.Atributos[0]} />
+
+            <DoubleParteColumnContainer>
+              <HabilidadesContainer poderesData={ficha && ficha.Poderes} proficienciasData={ficha && ficha.Proficiencias} habilidadesData={ficha && ficha.Habilidades} />
+              <PersonagemContainer data={ficha && ficha.Personagem[0]} />
+            </DoubleParteColumnContainer>
+
           </DoubleParteContainer>
+
+
 
           <InventarioContainer armasData={ficha && ficha.Armas} itensData={ficha && ficha.Itens} peso={ficha && ficha.Status[0].peso} />
           <RituaisContainer data={ficha && ficha.Rituais} />

@@ -1,5 +1,5 @@
 import { ButtonEdit } from '../../../../../components/ButtonEdit';
-import { Container, Buttons, Button } from './styles';
+import { Container, Buttons, Main1 } from './styles';
 import { BiTrashAlt } from 'react-icons/bi'
 import { api } from '../../../../../services/api';
 import { ModalEditProficiencia } from '../ModalEditProficiencia';
@@ -34,16 +34,18 @@ export function Proficiencia({ data, lista, atualizar }) {
         <ModalEditProficiencia lista={lista} data={data} setModalEditProficienciaIsOpenFalse={() => setModalEditProficienciaIsOpen(false)} />
       </Modal>
 
-      <div>
+      <Main1>
+
         <h1>{data.nome}</h1>
-      </div>
 
-      <Buttons>
+        <Buttons>
 
-        <ButtonEdit onClick={() => setModalEditProficienciaIsOpen(true)} />
-        <ButtonDelete onClick={handleDelete} />
+          <ButtonEdit onClick={() => setModalEditHabilidadeIsOpen(true)} />
+          <ButtonDelete onClick={handleDelete} />
 
-      </Buttons>
+        </Buttons>
+
+      </Main1>
 
     </Container>
   );

@@ -5,7 +5,7 @@ export const Container = styled("div", {
   marginBottom: "2rem",
   borderRadius: "0.5rem",
   width: "100%",
-  position: 'relative'
+  position: 'relative',
 });
 
 export const HeaderContainer = styled("div", {
@@ -60,6 +60,7 @@ export const Pericias = styled("div", {
 });
 
 export const Body = styled('div', {
+  minHeight: '918px',
   height: 'calc(100% - 44px)',
   paddingTop: '3rem',
   position: 'relative',
@@ -67,7 +68,11 @@ export const Body = styled('div', {
   alignItems: 'center',
   justifyContent: 'space-between',
   flexDirection: 'column',
-  gap: '3rem'
+  gap: '3rem',
+
+  '@lg3': {
+    height: 'calc(100% - 44px)',
+  }
 })
 
 export const Footer = styled('div', {
