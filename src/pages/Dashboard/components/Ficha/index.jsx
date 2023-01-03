@@ -5,6 +5,7 @@ import { BsEye, BsEyeSlash } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import { api } from '../../../../services/api'
 import { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
 
 export function Ficha({ data, atualizar, lista }) {
 
@@ -42,11 +43,12 @@ export function Ficha({ data, atualizar, lista }) {
     }
 
     async function handleEdit() {
-        const a = await api.put(`/fichas/${data.id}`, {
+        await api.put(`/fichas/${data.id}`, {
             isPublic: !isPublic,
             sessaoId: data.sessaoId
         })
         setIsPublic(!isPublic)
+        toast.success(`Sua ficha agora está ${!isPublic ? 'pública' : 'privada'}.`)
     }
 
     return (
