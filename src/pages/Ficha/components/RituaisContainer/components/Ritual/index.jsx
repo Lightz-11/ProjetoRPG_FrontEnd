@@ -8,6 +8,7 @@ import { api } from '../../../../../../services/api';
 import { DadoRolado } from '../DadoRolado';
 import { ModalEdit } from '../ModalEdit';
 import { Container, Header, Body, Img, Main, Footer, Card, Span, Desc, Botoes, Buttons } from './styles';
+import NoRitual from '../../../../../../assets/img/NoRitual.png'
 
 export function Ritual({ data, atualizar, rituais, setRitualAtivo }) {
 
@@ -58,7 +59,7 @@ export function Ritual({ data, atualizar, rituais, setRitualAtivo }) {
       <Body>
 
         <Img>
-          <img src={data.imagem} />
+          <img src={data.imagem ? data.imagem : NoRitual} />
         </Img>
 
         <Main>
