@@ -40,7 +40,7 @@ export function ModalEditProficiencia({ setModalEditProficienciaIsOpenFalse, lis
       <hr />
 
       <Main>
-        <Input label={'Nome'} valor={nome} setValor={setNome} minLength={3} maxLength={20} />
+        <Input label={'Nome'} valor={nome} setValor={setNome} />
       </Main>
 
       <Footer>

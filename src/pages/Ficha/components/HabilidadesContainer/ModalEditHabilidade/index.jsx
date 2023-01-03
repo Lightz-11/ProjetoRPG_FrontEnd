@@ -43,8 +43,8 @@ export function ModalEditHabilidade({ setModalEditHabilidadeIsOpenFalse, lista, 
       <hr />
 
       <Main>
-        <Input label={'Nome'} valor={nome} setValor={setNome} minLength={3} maxLength={20} />
-        <TextArea label={'Descrição'} valor={desc} setValor={setDesc} minLength={10} maxLength={300} />
+        <Input label={'Nome'} valor={nome} setValor={setNome} />
+        <TextArea label={'Descrição'} valor={desc} setValor={setDesc} />
       </Main>
 
       <Footer>
