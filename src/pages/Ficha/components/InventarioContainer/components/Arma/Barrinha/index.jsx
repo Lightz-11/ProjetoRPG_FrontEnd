@@ -50,7 +50,7 @@ export function Barrinha({ barrinhaId, valorA, setValorA, valorMax, ...rest }) {
           {!low && <button disabled={disabled} onClick={() => { setValorA(0) }}><SlArrowLeft />0</button>}
           <button disabled={disabled} onClick={() => { if (valorA > valorMax) { setValorA(valorMax) } else if (valorA > 1) { setValorA(valorA - 1) } else { setValorA(0) } }}><SlArrowLeft />- 1</button>
         </Esquerda>
-        <span>{valorA} / {valorMax}</span>
+        <span>{valorA ? valorA : 0} / {valorMax}</span>
         <Direita>
           <button disabled={disabled} onClick={() => { if (valorA != valorMax && valorA < valorMax) { setValorA(valorA + 1) } else { setValorA(valorMax) } }}>+ 1<SlArrowRight /> </button>
           {!low && <button disabled={disabled} onClick={() => { setValorA(valorMax) }}>{valorMax}<SlArrowRight /></button>}
