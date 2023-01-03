@@ -104,9 +104,9 @@ export function ModalEditArma({ data, setModalEditArmaIsOpenFalse, atualizar, ar
 
         <Main1>
 
-          <Input labelMenor label={'Nome'} valor={nome} setValor={setNome} maxLength={20} />
+          <Input labelMenor label={'Nome'} valor={nome} setValor={setNome} />
           <Input labelMenor label={'Espaços'} onlyNumber valor={espaco} setValor={setEspaco} maxLength={1} />
-          <Input labelMenor label={'Categoria'} onlyNumber valor={categoria} setValor={setCategoria} maxLength={1} />
+          <Input labelMenor label={'Categoria'} onlyNumber valor={categoria} setValor={setCategoria} maxLength={1} valorMax={4} />
           <Input labelMenor opcional label={'Imagem'} valor={imagem} setValor={setImagem} />
 
         </Main1>
@@ -114,13 +114,13 @@ export function ModalEditArma({ data, setModalEditArmaIsOpenFalse, atualizar, ar
         <hr />
 
         <Main2>
-          <Input labelMenor label={'Tipo'} valor={tipo} setValor={setTipo} maxLength={10} />
-          <Input labelMenor label={'Alcance'} valor={alcance} setValor={setAlcance} maxLength={10} />
+          <Input labelMenor label={'Tipo'} valor={tipo} setValor={setTipo} />
+          <Input labelMenor label={'Alcance'} valor={alcance} setValor={setAlcance} />
           <Input labelMenor onlyNumber opcional label={'Recarga'} valor={recarga} setValor={setRecarga} maxLength={2} />
-          <Input labelMenor opcional label={'Especial'} valor={especial} setValor={setEspecial} maxLength={20} />
-          <Input labelMenor label={'Dano'} valor={dano} setValor={setDano} maxLength={20} />
+          <Input labelMenor opcional label={'Especial'} valor={especial} setValor={setEspecial} />
+          <Input labelMenor label={'Dano'} valor={dano} setValor={setDano} />
           <Input labelMenor label={'Margem Crítico'} valor={margemCritico} setValor={setMargemCritico} maxLength={2} />
-          <Input labelMenor label={'Dano Crítico'} valor={danoCritico} setValor={setDanoCritico} maxLength={20} />
+          <Input labelMenor label={'Dano Crítico'} valor={danoCritico} setValor={setDanoCritico} />
         </Main2>
 
         <hr />

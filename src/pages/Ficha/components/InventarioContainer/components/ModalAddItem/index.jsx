@@ -53,11 +53,11 @@ export function ModalAddItem({ setModalAddItemIsOpenFalse, atualizar, setPesoAtu
 
       <Main>
 
-        <Input label={'Nome'} valor={nome} setValor={setNome} maxLength={20} />
+        <Input label={'Nome'} valor={nome} setValor={setNome} />
         <Input label={'Espaços'} onlyNumber valor={espaco} setValor={setEspaco} maxLength={1} />
-        <Input label={'Categoria'} onlyNumber valor={categoria} setValor={setCategoria} maxLength={1} />
+        <Input label={'Categoria'} onlyNumber valor={categoria} setValor={setCategoria} maxLength={1} valorMax={4} />
         <Input label={'Imagem'} opcional valor={imagem} setValor={setImagem} />
-        <TextArea label={'Descrição'} setValor={setDescricao} maxLength={100} />
+        <TextArea label={'Descrição'} setValor={setDescricao} valor={descricao} />
         <Toggle span={'Adicionar como munição?'} classNumber={1} onClick={() => setIsMunicao(!isMunicao)} />
 
       </Main>
