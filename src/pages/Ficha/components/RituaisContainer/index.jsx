@@ -65,10 +65,11 @@ export function RituaisContainer({ data }) {
 
       <BodyContainer nulo={aberto}>
 
+        {ritualEscolhido &&
 
-        <Ritual data={ritualEscolhido} atualizar={setRituais} rituais={rituais} setRitualAtivo={setRitual} />
+          < Ritual data={ritualEscolhido && ritualEscolhido} atualizar={setRituais} rituais={rituais} setRitualAtivo={setRitual} />
 
-
+        }
 
       </BodyContainer>
 

@@ -12,6 +12,8 @@ import NoRitual from '../../../../../../assets/img/NoRitual.png'
 
 export function Ritual({ data, atualizar, rituais, setRitualAtivo }) {
 
+  console.log(data)
+
   const [modalEditIsOpen, setModalEditIsOpen] = useState(false)
   const [dadoData, setDadoData] = useState({
     nome: '',
