@@ -96,7 +96,7 @@ export function InventarioContainer({ armasData, itensData, peso }) {
 
         await api.delete(`/fichas/item/${itemAEnviar}`)
 
-        const listaAtualizada = itens.filter(item => item.id != fichaIdAEnviar)
+        const listaAtualizada = itens.filter(item => item.id != itemAEnviar)
         setItens(listaAtualizada)
 
         socket.emit("enviado.inv", { fichaId: fichaIdAEnviar });
@@ -130,7 +130,7 @@ export function InventarioContainer({ armasData, itensData, peso }) {
 
         await api.delete(`/fichas/arma/${itemAEnviar}`)
 
-        const listaAtualizada = armas.filter(arma => arma.id != fichaIdAEnviar)
+        const listaAtualizada = armas.filter(arma => arma.id != itemAEnviar)
         setArmas(listaAtualizada)
 
         socket.emit("enviado.inv", { fichaId: fichaIdAEnviar });
