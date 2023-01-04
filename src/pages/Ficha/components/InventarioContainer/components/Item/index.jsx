@@ -1,20 +1,29 @@
 import { useEffect, useState } from 'react';
 import { Container, Header, Main, MainTop, MainBottom, Span, ParteImg, ButtonIcon, ImgModal, ParteImgModal } from './styles';
-import { MdOutlineEdit } from 'react-icons/md'
+import { MdOutlineSendToMobile } from 'react-icons/md'
 import { Modal } from '../../../../../../components/Modals/Modal';
 import { ModalEditItem } from '../ModalEditItem';
 import { ButtonEdit } from '../../../../../../components/ButtonEdit';
 import { Barrinha } from './Barrinha';
 import { api } from '../../../../../../services/api';
+import { io } from 'socket.io-client';
+import { useDisabled } from '../../../../../../hooks/useDisabled';
+import { useFichas } from '../../../../../../hooks/useFichas';
+
+const socket = io(api.defaults.baseURL);
 
 export function Item({ data, atualizar, itens, setPesoAtual }) {
 
   const [imgAberta, setImgAberta] = useState(false)
 
+  const { disabled } = useDisabled()
+
   const [modalEditItemIsOpen, setModalEditItemIsOpen] = useState(false)
 
   const [municao, setMunicao] = useState(data.municao)
   const [municaoMax, setMunicaoMax] = useState(data.municaoMax)
+
+  const { fichas } = useFichas()
 
   useEffect(() => {
 
@@ -42,6 +51,15 @@ export function Item({ data, atualizar, itens, setPesoAtual }) {
 
   }, [municao, municaoMax])
 
+  function handleSend() {
+
+    fichas.forEach(ficha => {
+      socket.emit("enviado.itemImg", { fichaId: ficha.id, imagem: data.imagem });
+      setImgAberta(true)
+    });
+
+  }
+
   return (
     <Container>
 
@@ -56,7 +74,7 @@ export function Item({ data, atualizar, itens, setPesoAtual }) {
       </Modal>
 
       <Header>
-        <div></div>
+        <ButtonIcon disabled={disabled} color={'aqua'} onClick={handleSend} ><MdOutlineSendToMobile size={22} color={'aqua'} /></ButtonIcon>
         <h1>{data.nome}</h1>
         <ButtonEdit onClick={() => setModalEditItemIsOpen(true)} />
       </Header>

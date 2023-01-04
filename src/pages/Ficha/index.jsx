@@ -9,6 +9,7 @@ import { useTitle } from '../../hooks/useTitle';
 import { ToastContainer } from 'react-toastify';
 import { Modal } from '../../components/Modals/Modal';
 import { io } from 'socket.io-client';
+import { useFichas } from '../../hooks/useFichas';
 
 const socket = io(api.defaults.baseURL);
 
@@ -27,6 +28,8 @@ export function Ficha() {
   const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
 
   const { setTitle } = useTitle()
+
+  const { setFichas } = useFichas()
 
   const [imgAberta, setImgAberta] = useState(false)
   const [imagem, setImagem] = useState('')
@@ -53,6 +56,10 @@ export function Ficha() {
             }
 
           }
+
+          const response3 = await api.get(`/fichas/sessao/${response2.data.id}`)
+          setFichas(response3.data)
+
         } else {
           if (response.data.userId != dataUser.id) {
 
