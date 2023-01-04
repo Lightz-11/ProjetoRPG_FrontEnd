@@ -51,11 +51,11 @@ export function InventarioContainer({ armasData, itensData, peso }) {
 
     async function fetchData() {
 
-      setPesoAtual(0)
-
       const responseItens = await api.get(`/fichas/item/${id}`)
 
       const responseArmas = await api.get(`/fichas/arma/${id}`)
+
+      setPesoAtual(0)
 
       responseItens.data.map(item => setPesoAtual((prev) => prev + item.espaco))
       responseArmas.data.map(arma => setPesoAtual((prev) => prev + arma.espaco))
