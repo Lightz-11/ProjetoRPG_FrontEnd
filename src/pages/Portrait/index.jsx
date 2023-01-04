@@ -273,7 +273,7 @@ export function Portrait() {
 
       <Dado id='dado' active={dadoActive}>
         <span>{valorDado}</span>
-        <FaDiceD20 color='#60eeff' size={160} />
+        <FaDiceD20 color='#60eeff' size={200} />
       </Dado>
 
     </Container>

@@ -13,6 +13,8 @@ export function RituaisContainer({ data }) {
   const [rituais, setRituais] = useState(data)
   const [modalAddIsOpen, setModalAddIsOpen] = useState(false)
 
+  const [aberto, setAberto] = useState(false)
+
   const [ritualEscolhido, setRitual] = useState(null)
 
   return (
@@ -34,29 +36,39 @@ export function RituaisContainer({ data }) {
 
           rituais.map((ritual) => <Button key={ritual.id} onClick={() => {
 
-            if (ritualEscolhido != null && ritual.id == ritualEscolhido.id) {
+            if (aberto == true && ritual.id == ritualEscolhido.id) {
 
-              setRitual(null)
+              setAberto(false)
+
+            } else if (aberto == true && ritual.id != ritualEscolhido.id) {
+
+              setAberto(false)
+
+              setTimeout(() => {
+
+                setAberto(true)
+                setRitual(ritual)
+
+              }, 1000)
 
             } else {
-
+              setAberto(true)
               setRitual(ritual)
             }
 
-          }} elemento={ritual.elemento} active={ritualEscolhido != null && ritualEscolhido.id == ritual.id && ritual.elemento} >{ritual.nome} - {ritual.circulo}º</Button>)
+          }} elemento={ritual.elemento} active={ritualEscolhido != null && aberto == true && ritualEscolhido.id == ritual.id && ritual.elemento} >{ritual.nome} - {ritual.circulo}º</Button>)
 
         }
       </Select>
 
       <hr />
 
-      <BodyContainer nulo={ritualEscolhido == null}>
+      <BodyContainer nulo={aberto}>
 
-        {ritualEscolhido &&
 
-          <Ritual data={ritualEscolhido} atualizar={setRituais} rituais={rituais} setRitualAtivo={setRitual} />
+        <Ritual data={ritualEscolhido} atualizar={setRituais} rituais={rituais} setRitualAtivo={setRitual} />
 
-        }
+
 
       </BodyContainer>
 

@@ -43,7 +43,7 @@ export const Main = styled('main', {
   },
 
   h3: {
-    fontSize: '14rem',
+    fontSize: '15rem',
     fontFamily: 'Special Elite',
     position: 'absolute',
     fontWeight: 100,
@@ -184,7 +184,7 @@ export const Status1 = styled('div', {
 
   left: '90%',
   zIndex: 10,
-  top: '53%',
+  top: '51%',
   transform: 'translateY(-50%) rotate(-10deg)',
   opacity: 0,
 
@@ -210,7 +210,7 @@ export const Status2 = styled('div', {
   justifyContent: 'center',
   flexDirection: 'column',
   left: '90%',
-  top: '50%',
+  top: '46%',
   zIndex: 10,
   transform: 'translateY(-50%) rotate(-10deg)',
   opacity: 0,
@@ -300,8 +300,8 @@ export const Dado = styled('div', {
     textShadow: '#ff0000 0 0 20px, #ff0000 0 0 30px',
     fontFamily: 'Special Elite',
     fontWeight: 700,
-    fontSize: '10rem',
-    top: '5rem',
+    fontSize: '12rem',
+    top: '6.5rem',
     position: 'absolute',
     zIndex: 3
   },

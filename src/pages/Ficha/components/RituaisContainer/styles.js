@@ -1,4 +1,4 @@
-import { styled } from '../../../../stitches.config';
+import { styled, keyframes } from '../../../../stitches.config';
 
 export const Container = styled("div", {
   border: "2px solid #ffffff75",
@@ -50,23 +50,105 @@ export const HeaderContainer = styled("div", {
   },
 });
 
+const Abrir = keyframes({
+  '0%': {
+    height: 0,
+  },
+  '100%': {
+    height: '652px'
+  },
+});
+
+const Fechar = keyframes({
+  '0%': {
+    height: '652px'
+  },
+  '100%': {
+    height: 0,
+  },
+});
+
+const Abrir2 = keyframes({
+  '0%': {
+    height: 0,
+  },
+  '100%': {
+    height: '822px'
+  },
+});
+
+const Fechar2 = keyframes({
+  '0%': {
+    height: '822px'
+  },
+  '100%': {
+    height: 0,
+  },
+});
+
+const Abrir3 = keyframes({
+  '0%': {
+    height: 0,
+  },
+  '100%': {
+    height: '1033px'
+  },
+});
+
+const Fechar3 = keyframes({
+  '0%': {
+    height: '1033px'
+  },
+  '100%': {
+    height: 0,
+  },
+});
+
+const Abrir4 = keyframes({
+  '0%': {
+    height: 0,
+  },
+  '100%': {
+    height: '1143px'
+  },
+});
+
+const Fechar4 = keyframes({
+  '0%': {
+    height: '1143px'
+  },
+  '100%': {
+    height: 0,
+  },
+});
+
 export const BodyContainer = styled("div", {
 
   display: 'grid',
   gridTemplateColumns: '1fr',
-  padding: '2rem',
+  padding: '0rem 2rem',
   gap: '2rem',
-  transition: '.5s',
   overflow: 'hidden',
 
   variants: {
     nulo: {
       true: {
-        padding: '0',
-        height: 0
+        animation: `${Abrir} 1s`,
+
+        '@lg2': {
+          animation: `${Abrir2} 1s`,
+        },
+
       },
       false: {
-        height: 'auto'
+        animation: `${Fechar} 1s`,
+        animationFillMode: 'forwards',
+
+        '@lg2': {
+          animation: `${Fechar2} 1s`,
+          animationFillMode: 'forwards',
+        },
+
       }
     }
   }

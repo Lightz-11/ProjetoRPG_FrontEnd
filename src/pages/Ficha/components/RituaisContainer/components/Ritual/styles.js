@@ -4,6 +4,7 @@ export const Container = styled('div', {
 
   fontFamily: 'El Messiri',
   position: 'relative',
+  margin: '2rem 0',
 
   hr: {
     color: '#ffffff90'
@@ -226,7 +227,7 @@ export const Footer = styled('div', {
 export const Desc = styled('span', {
 
   border: '2px solid white',
-  minHeight: '15rem',
+  height: '20rem',
   fontSize: '1.8rem',
   overflowY: 'auto',
   padding: '1rem 2rem',
