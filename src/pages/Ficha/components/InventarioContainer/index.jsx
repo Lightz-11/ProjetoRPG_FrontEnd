@@ -51,6 +51,8 @@ export function InventarioContainer({ armasData, itensData, peso }) {
 
     async function fetchData() {
 
+      setPesoAtual(0)
+
       const responseItens = await api.get(`/fichas/item/${id}`)
 
       const responseArmas = await api.get(`/fichas/arma/${id}`)
@@ -99,6 +101,8 @@ export function InventarioContainer({ armasData, itensData, peso }) {
         const listaAtualizada = itens.filter(item => item.id != itemAEnviar)
         setItens(listaAtualizada)
 
+        setPesoAtual((prev) => prev - item[0].espaco)
+
         socket.emit("enviado.inv", { fichaId: fichaIdAEnviar });
 
         toast.success(`Item enviado com sucesso para a ficha de ${ficha[0].Principal[0].nome}.`)
@@ -132,6 +136,8 @@ export function InventarioContainer({ armasData, itensData, peso }) {
 
         const listaAtualizada = armas.filter(arma => arma.id != itemAEnviar)
         setArmas(listaAtualizada)
+
+        setPesoAtual((prev) => prev - arma[0].espaco)
 
         socket.emit("enviado.inv", { fichaId: fichaIdAEnviar });
 
