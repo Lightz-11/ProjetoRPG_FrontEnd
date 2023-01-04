@@ -1,5 +1,9 @@
+import { useDisabled } from "../../hooks/useDisabled";
 import { Container } from "./styles";
 
 export function ButtonIcon({ children, color }) {
-  return <Container color={color}>{children}</Container>;
+
+  const { disabled } = useDisabled()
+
+  return <Container disabled={disabled} color={color}>{children}</Container>;
 }

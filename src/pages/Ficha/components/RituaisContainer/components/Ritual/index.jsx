@@ -21,7 +21,7 @@ export function Ritual({ data, atualizar, rituais, setRitualAtivo }) {
 
   async function handleDelete() {
 
-    if (window.confirm("Tem certeza que deseja excluir este ritual? Uma vez deletado jamais poderá ser recuperado")) {
+    if (window.confirm("Tem certeza que deseja excluir este ritual? Uma vez deletado jamais poderá ser recuperado.")) {
 
       try {
 

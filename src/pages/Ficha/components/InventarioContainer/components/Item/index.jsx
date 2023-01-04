@@ -55,7 +55,6 @@ export function Item({ data, atualizar, itens, setPesoAtual }) {
 
     fichas.forEach(ficha => {
       socket.emit("enviado.itemImg", { fichaId: ficha.id, imagem: data.imagem });
-      setImgAberta(true)
     });
 
   }

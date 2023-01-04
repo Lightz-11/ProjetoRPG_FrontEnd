@@ -12,6 +12,7 @@ import { useParams } from 'react-router-dom';
 import { api } from '../../../../services/api';
 import { ButtonAdd } from '../../../../components/ButtonAdd';
 import { io } from 'socket.io-client';
+import { toast } from 'react-toastify';
 
 const socket = io(api.defaults.baseURL);
 
@@ -26,6 +27,11 @@ export function InventarioContainer({ armasData, itensData, peso }) {
   const [modalAddIsOpen, setModalAddIsOpen] = useState(false)
   const [modalAddItemIsOpen, setModalAddItemIsOpen] = useState(false)
   const [modalAddArmaIsOpen, setModalAddArmaIsOpen] = useState(false)
+
+  const [itemAEnviar, setItemAEnviar] = useState('')
+  const [fichaIdAEnviar, setFichaAEnviar] = useState('')
+
+  const { fichas } = useFichas()
 
   const { id } = useParams()
 
@@ -68,6 +74,79 @@ export function InventarioContainer({ armasData, itensData, peso }) {
 
   }, [])
 
+  async function enviarInventario() {
+
+    const item = itens.filter(item => item.id == itemAEnviar)
+    const arma = armas.filter(arma => arma.id == itemAEnviar)
+
+    const ficha = fichas.filter(ficha => ficha.id == fichaIdAEnviar)
+
+    if (item.length > 0) {
+
+      try {
+
+        const data = await api.post(`/fichas/item/enviar`, {
+          nome: item[0].nome,
+          espaco: item[0].espaco,
+          categoria: item[0].categoria,
+          descricao: item[0].descricao,
+          imagem: item[0].imagem,
+          fichaId: fichaIdAEnviar
+        });
+
+        await api.delete(`/fichas/item/${itemAEnviar}`)
+
+        const listaAtualizada = itens.filter(item => item.id != fichaIdAEnviar)
+        setItens(listaAtualizada)
+
+        socket.emit("enviado.inv", { fichaId: fichaIdAEnviar });
+
+        toast.success(`Item enviado com sucesso para a ficha de ${ficha[0].Principal[0].nome}.`)
+
+      } catch (erro) {
+        toast.error(erro.response.data.mensagem)
+      }
+
+    } else if (arma.length > 0) {
+
+      try {
+
+        const data = await api.post(`/fichas/arma/enviar`, {
+          nome: arma[0].nome,
+          tipo: arma[0].tipo,
+          alcance: arma[0].alcance,
+          recarga: arma[0].recarga,
+          especial: arma[0].especial,
+          ataque: arma[0].ataque,
+          dano: arma[0].dano,
+          margemCritico: arma[0].margemCritico,
+          danoCritico: arma[0].danoCritico,
+          espaco: arma[0].espaco,
+          categoria: arma[0].categoria,
+          descricao: arma[0].descricao,
+          imagem: arma[0].imagem,
+          fichaId: fichaIdAEnviar
+        });
+
+        await api.delete(`/fichas/arma/${itemAEnviar}`)
+
+        const listaAtualizada = armas.filter(arma => arma.id != fichaIdAEnviar)
+        setArmas(listaAtualizada)
+
+        socket.emit("enviado.inv", { fichaId: fichaIdAEnviar });
+
+        toast.success(`Arma enviada com sucesso para a ficha de ${ficha[0].Principal[0].nome}.`)
+
+      } catch (erro) {
+        toast.error(erro.response.data.mensagem)
+      }
+
+    } else {
+      toast.error('Ocorreu algum erro no envio. Recomendado o recarregamento da página.')
+    }
+
+  }
+
   return (
     <Container>
 
@@ -106,6 +185,36 @@ export function InventarioContainer({ armasData, itensData, peso }) {
           </BodyContainer></>
 
       }
+
+      {(itens.length > 0 || armas.length > 0) && <hr />}
+
+      {(itens.length > 0 || armas.length > 0) &&
+        <Footer>
+
+          <Row>
+
+            <Column>
+              <span>Item</span>
+              <select onChange={(e) => setItemAEnviar(e.target.value)}>
+                <Option value={null}>Nenhum</Option>
+                {armas.map(arma => <Option key={arma.id} value={arma.id}>{arma.nome}</Option>)}
+                {itens.map(item => <Option key={item.id} value={item.id}>{item.nome}</Option>)}
+              </select>
+            </Column>
+
+            <Column>
+              <span>Ficha</span>
+              <select onChange={(e) => setFichaAEnviar(e.target.value)}>
+                <Option value={null}>Nenhuma</Option>
+                {fichas.map(ficha => <Option key={ficha.id} value={ficha.id}>{ficha.Principal[0].nome}</Option>)}
+              </select>
+            </Column>
+
+          </Row>
+
+          <Button onClick={enviarInventario}>Enviar</Button>
+
+        </Footer>}
 
     </Container>
   );

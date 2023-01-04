@@ -1,4 +1,4 @@
-import { styled } from '../../../../../../stitches.config';
+import { styled, keyframes } from '../../../../../../stitches.config';
 
 export const Container = styled('div', {
 

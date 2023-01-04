@@ -40,9 +40,7 @@ export function RituaisContainer({ data }) {
 
             } else {
 
-              const ritualClicado = rituais.filter(rituais => ritual.id == rituais.id)
-
-              setRitual(ritualClicado[0])
+              setRitual(ritual)
             }
 
           }} elemento={ritual.elemento} active={ritualEscolhido != null && ritualEscolhido.id == ritual.id && ritual.elemento} >{ritual.nome} - {ritual.circulo}º</Button>)

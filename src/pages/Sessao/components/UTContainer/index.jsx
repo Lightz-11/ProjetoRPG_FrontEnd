@@ -1,5 +1,5 @@
-import { BodyContainer, Container, HeaderContainer } from './styles';
-import { MdOutlineAddBox } from "react-icons/md";
+import { BodyContainer, Container, HeaderContainer, ButtonIcon } from './styles';
+import { MdOutlineAddBox, MdOutlineCleaningServices } from "react-icons/md";
 import { useState } from 'react';
 import { api } from '../../../../services/api';
 import { io } from 'socket.io-client';
@@ -8,6 +8,8 @@ import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { Rolagem } from './Rolagem';
 import noportrait from '../../../../assets/img/noportrait.png'
+import { BiTrashAlt } from 'react-icons/bi';
+import { BsArrowDownUp } from 'react-icons/bs';
 
 const socket = io(api.defaults.baseURL);
 
@@ -18,6 +20,8 @@ export function UTContainer() {
   const { fichas } = useFichas()
 
   const [rolagens, setRolagens] = useState([])
+
+  const [noReverse, setNoReverse] = useState(false)
 
   useEffect(() => {
 
@@ -63,14 +67,18 @@ export function UTContainer() {
   return (
     <Container>
       <HeaderContainer>
+        <ButtonIcon onClick={() => { if (!noReverse) { setNoReverse(true) } else { setNoReverse(false) } }}> <BsArrowDownUp size={21} color={'green'} /> </ButtonIcon>
         <h1>Últimos Testes</h1>
+        <ButtonIcon onClick={() => setRolagens([])}> <MdOutlineCleaningServices size={22} color={'green'} /> </ButtonIcon>
       </HeaderContainer>
 
       <hr />
 
       <BodyContainer>
 
-        {
+        {noReverse ?
+          rolagens.map((rolagem, index) => <Rolagem key={index} data={rolagem} />)
+          :
           rolagens.map((rolagem, index) => <Rolagem key={index} data={rolagem} />).reverse()
         }
 
