@@ -43,7 +43,6 @@ export const Main = styled('div', {
 
   display: 'flex',
   alignItems: 'left',
-  justifyContent: 'center',
   flexDirection: 'column',
   padding: '2rem',
   minHeight: '563px',

@@ -131,10 +131,12 @@ export const ParteImg = styled('div', {
   cursor: 'pointer',
   display: 'flex',
   justifyContent: 'center',
+  alignItems: 'center',
   flex: 1,
 
   img: {
-    objectFit: 'contain'
+    objectFit: 'contain',
+    maxHeight: '40rem'
   }
 })
 

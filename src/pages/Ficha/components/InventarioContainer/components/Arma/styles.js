@@ -233,9 +233,11 @@ export const ParteImg = styled('div', {
   cursor: 'pointer',
   display: 'flex',
   justifyContent: 'center',
+  alignItems: 'center',
 
   img: {
-    objectFit: 'contain'
+    objectFit: 'contain',
+    maxHeight: '40rem'
   }
 })
 

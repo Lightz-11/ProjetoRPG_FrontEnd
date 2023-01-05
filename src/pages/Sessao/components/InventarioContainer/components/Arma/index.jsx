@@ -170,7 +170,7 @@ export function Arma({ data, atualizar, armas }) {
 
             <ParteImg>
 
-              <img onClick={() => setImgAberta(true)} src={data.imagem} width={"95%"} height={'400px'} />
+              <img onClick={() => setImgAberta(true)} src={data.imagem} width={"95%"} />
 
             </ParteImg>
 

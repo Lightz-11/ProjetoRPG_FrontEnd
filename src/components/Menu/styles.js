@@ -20,6 +20,10 @@ export const Container = styled("div", {
         }
     },
 
+    img: {
+        objectFit: 'contain'
+    },
+
     variants: {
         active: {
             aberto: {
