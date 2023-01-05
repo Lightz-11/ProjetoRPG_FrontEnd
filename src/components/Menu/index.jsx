@@ -4,13 +4,25 @@ import { RiUserLine, RiUserUnfollowLine } from 'react-icons/ri'
 import { BsFillDice6Fill } from 'react-icons/bs'
 import { useAuth } from "../../hooks/auth";
 import { useTitle } from '../../hooks/useTitle';
+import { Link } from 'react-router-dom';
+import icon from '../../assets/img/Calamidade.png'
+import { useEffect } from 'react';
 
 export function Menu() {
 
   const [active, setActive] = useState('fechado')
+  const [low, setLow] = useState(false)
   const { signOut } = useAuth();
 
   const { title } = useTitle()
+
+  useEffect(() => {
+
+    if (window.innerWidth < 680) {
+      setLow(true)
+    }
+
+  }, [])
 
   function abrirMenu() {
     if (active == 'fechado') {
@@ -41,6 +53,16 @@ export function Menu() {
 
   });
 
+  window.addEventListener('resize', () => {
+
+    if (window.innerWidth < 680) {
+      setLow(true)
+    } else {
+      setLow(false)
+    }
+
+  })
+
   return (
     <Container active={active} >
 
@@ -52,11 +74,13 @@ export function Menu() {
           <Line3 active={active} />
         </button>
 
-        <div>
-          <h1>{title}</h1>
-        </div>
+        {!low &&
+          <div>
+            <h1>{title}</h1>
+          </div>
+        }
 
-        <Vazio />
+        <Link to={'/'} ><img src={icon} width={'60px'} /></Link>
 
       </Header>
 

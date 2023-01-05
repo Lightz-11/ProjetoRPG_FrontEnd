@@ -8,6 +8,18 @@ export const Container = styled("div", {
     textAlign: "center",
     overflow: "hidden",
 
+    a: {
+        width: '16rem',
+        paddingLeft: '2rem',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+
+        '@md5': {
+            width: '12rem'
+        }
+    },
+
     variants: {
         active: {
             aberto: {
@@ -69,11 +81,7 @@ export const Header = styled("div", {
 });
 
 export const Vazio = styled('div', {
-    width: '16rem',
 
-    '@md5': {
-        width: '12rem'
-    }
 })
 
 export const Body = styled("div", {

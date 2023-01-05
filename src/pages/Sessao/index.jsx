@@ -24,6 +24,8 @@ export function Sessao() {
 
     useEffect(() => {
 
+        setTitle('Carregando...')
+
         async function fetchData() {
             try {
 

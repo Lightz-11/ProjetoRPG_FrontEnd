@@ -98,7 +98,7 @@ export function Item({ data, atualizar, itens, setPesoAtual }) {
           }
 
           <ParteImg>
-            <img onClick={() => setImgAberta(true)} src={data.imagem} width={"95%"} />
+            <img onClick={() => setImgAberta(true)} src={data.imagem} width={"95%"} height={"400px"} />
           </ParteImg>
 
         </MainBottom>

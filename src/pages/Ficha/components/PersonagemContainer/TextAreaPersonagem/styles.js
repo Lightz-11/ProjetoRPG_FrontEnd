@@ -15,7 +15,6 @@ export const InputB = styled('textarea', {
 
     width: '100%',
     minHeight: '10rem',
-    maxHeight: '17rem',
     resize: 'vertical',
     marginTop: "0px",
     fontSize: "2rem",
