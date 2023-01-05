@@ -8,6 +8,7 @@ import { EditarConta } from "../pages/EditarConta";
 import { Ficha } from "../pages/Ficha";
 import { Portrait } from "../pages/Portrait";
 import { Sessao } from "../pages/Sessao";
+import { Documentos } from "../pages/Documentos";
 
 export function UserRoutes() {
 
@@ -23,6 +24,7 @@ export function UserRoutes() {
         <Route path="/ficha/:id" element={<Ficha />} />
       </Route>
       <Route path="/ficha/portrait/:id" element={<Portrait />} />
+      <Route path="/sessao/documentos/:id" element={<Documentos />} />
     </Routes>
   );
 }

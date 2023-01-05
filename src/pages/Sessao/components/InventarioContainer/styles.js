@@ -8,9 +8,9 @@ export const Container = styled("div", {
 });
 
 export const HeaderContainer = styled("div", {
-  padding: "1rem 0",
+  padding: "1rem 1.5rem",
   display: "flex",
-  justifyContent: "center",
+  justifyContent: 'space-between',
   alignItems: "center",
   position: "relative",
 
@@ -27,7 +27,6 @@ export const HeaderContainer = styled("div", {
     background: "none",
     border: "none",
     color: "Green",
-    position: "absolute",
     right: "1.5rem",
     display: "flex",
     alignItems: "center",

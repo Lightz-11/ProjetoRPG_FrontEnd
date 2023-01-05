@@ -1,5 +1,5 @@
 import { BodyContainer, Container, HeaderContainer, Footer, Row, Column, Button, Option } from './styles';
-import { MdOutlineAddBox } from "react-icons/md";
+import { MdOutlineAddBox, MdOutlineCleaningServices } from "react-icons/md";
 import { useEffect, useState } from 'react';
 import { Item } from './components/Item';
 import { Arma } from './components/Arma';
@@ -180,6 +180,11 @@ export function InventarioContainer() {
       </Modal>
 
       <HeaderContainer>
+        <button onClick={() => {
+
+          socket.emit("enviado.itemImg", { sessaoId: id, imagem: 'fechar' })
+
+        }}> <MdOutlineCleaningServices size={22} color={'green'} /> </button>
         <h1>Inventário</h1>
         <button>
           <MdOutlineAddBox onClick={() => setModalAddIsOpen(true)} size={25} />

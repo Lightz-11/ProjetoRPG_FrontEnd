@@ -54,7 +54,7 @@ export function Item({ data, atualizar, itens, setPesoAtual }) {
   function handleSend() {
 
     fichas.forEach(ficha => {
-      socket.emit("enviado.itemImg", { fichaId: ficha.id, imagem: data.imagem });
+      socket.emit("enviado.itemImg", { fichaId: ficha.id, imagem: data.imagem, sessaoId: ficha.sessaoId });
     });
 
   }
