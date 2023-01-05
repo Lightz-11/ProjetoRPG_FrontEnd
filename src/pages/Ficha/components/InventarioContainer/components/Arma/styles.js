@@ -228,8 +228,6 @@ export const ContainerDadoRolado = styled('div', {
 
 
 export const ParteImg = styled('div', {
-  height: '30rem',
-  overflowY: 'auto',
   cursor: 'pointer',
   display: 'flex',
   justifyContent: 'center',
