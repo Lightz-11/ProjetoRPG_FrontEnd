@@ -9,19 +9,21 @@ export const Container = styled("div", {
     overflow: "hidden",
 
     a: {
-        width: '16rem',
+        margin: '0 3.5rem',
         paddingLeft: '2rem',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-
-        '@md5': {
-            width: '12rem'
-        }
     },
 
     img: {
         objectFit: 'contain'
+    },
+
+    '@sm': {
+        img: {
+            width: '50px'
+        }
     },
 
     variants: {
