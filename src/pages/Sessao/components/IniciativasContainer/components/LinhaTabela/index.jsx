@@ -29,9 +29,15 @@ export function LinhaTabela({ data, iniciativas, atualizar, setPrecisaSalvar }) 
 
     try {
 
-      await api.delete(`/sessoes/iniciativa/${data.id}`);
-
       const iniciativasAtualizadas = iniciativas.filter(iniciativa => iniciativa.id != data.id)
+
+      for (let i = data.posicao - 1; i < iniciativasAtualizadas.length; i++) {
+
+        iniciativasAtualizadas[i].posicao = iniciativasAtualizadas[i].posicao - 1
+
+      }
+
+      atualizar(iniciativasAtualizadas)
 
       for (let i = data.posicao - 1; i < iniciativasAtualizadas.length; i++) {
 
@@ -39,10 +45,9 @@ export function LinhaTabela({ data, iniciativas, atualizar, setPrecisaSalvar }) 
           posicao: (iniciativasAtualizadas[i].posicao - 1),
         });
 
-        iniciativasAtualizadas[i].posicao = iniciativasAtualizadas[i].posicao - 1
       }
 
-      atualizar(iniciativasAtualizadas)
+      await api.delete(`/sessoes/iniciativa/${data.id}`);
 
     } catch (error) {
       console.log(error);

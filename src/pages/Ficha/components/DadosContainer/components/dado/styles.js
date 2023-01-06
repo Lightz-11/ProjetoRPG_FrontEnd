@@ -13,11 +13,13 @@ export const Body = styled('div', {
 export const Button = styled('button', {
 
   h1: {
+    width: 'min-content',
     fontSize: '2rem',
     marginTop: '.5rem',
     color: 'white',
     fontWeight: 100,
     textTransform: 'capitalize',
+    whiteSpace: 'normal',
     fontFamily: 'Rye'
   },
 

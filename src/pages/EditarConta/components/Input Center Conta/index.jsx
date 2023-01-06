@@ -10,7 +10,7 @@ export function InputCenterConta({ label, valor, setValor, opcional = false, mar
             <LabelContainer active={focus}>
                 {label}
             </LabelContainer>
-            <InputB value={valor} type="text" {...rest}
+            <InputB value={valor} autoComplete="off" type="text" {...rest}
                 onChange={(event) => {
                     setValor(event.target.value)
                 }}

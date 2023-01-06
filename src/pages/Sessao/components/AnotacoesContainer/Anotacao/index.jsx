@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { BiTrashAlt } from 'react-icons/bi';
+import { toast } from 'react-toastify';
 import { ButtonIcon } from '../../../../../components/ButtonIcon';
 import { api } from '../../../../../services/api';
 import { Container } from './styles';
@@ -12,7 +13,8 @@ export function Anotacao({ data, lista, atualizar, setFechado }) {
   useEffect(() => {
 
     setNome(data.nome)
-    setDesc(data.descricao)
+
+    setDesc(data.descricao != null ? data.descricao : '')
 
   }, [data])
 

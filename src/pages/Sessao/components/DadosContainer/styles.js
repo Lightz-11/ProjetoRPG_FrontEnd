@@ -116,7 +116,7 @@ export const BodyDados = styled('div', {
   flexDirection: 'row',
   flexWrap: 'wrap',
   justifyContent: 'center',
-  alignItems: 'center',
+  alignItems: 'flex-start',
   gap: '3rem',
 
   variants: {

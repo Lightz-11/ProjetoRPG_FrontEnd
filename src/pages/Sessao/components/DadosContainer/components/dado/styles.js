@@ -34,6 +34,7 @@ export const ButtonEdit = styled('button', {
 export const Button = styled('button', {
 
   h1: {
+    width: 'min-content',
     fontSize: '2rem',
     marginTop: '.5rem',
     color: 'white',

@@ -42,7 +42,7 @@ export function Input({ label, labelMenor = false, setValor, valor, onlyNumber =
             }
 
             <ContainerInput>
-                <InputB autoComplete="off" value={valor} padding={padding} type="text" {...rest}
+                <InputB autoComplete="on" value={valor} padding={padding} type="text" {...rest}
                     onChange={(event) => {
                         if (onlyNumber) {
                             onlyNumbers(event.target.value)

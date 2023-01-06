@@ -66,9 +66,7 @@ export function IniciativasContainer() {
 
     try {
 
-      const response = await api.get(`/sessoes/iniciativa/${id}`);
-
-      const ultimaPosicao = (response.data.length + 1)
+      const ultimaPosicao = (iniciativas.length + 1)
 
       const data = await api.post(`/sessoes/iniciativa`, {
         posicao: ultimaPosicao,
