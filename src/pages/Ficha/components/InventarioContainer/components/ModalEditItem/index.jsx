@@ -79,7 +79,7 @@ export function ModalEditItem({ data, setModalEditItemIsOpenFalse, atualizar, it
         <Main1>
 
           <Input label={'Nome'} valor={nome} setValor={setNome} />
-          <Input label={'Espaços'} onlyNumber valor={espaco} setValor={setEspaco} type='text' maxLength={1} />
+          <Input label={'Espaços'} onlyNumberAndNegative valor={espaco} setValor={setEspaco} type='text' maxLength={2} />
           <Input label={'Categoria'} onlyNumber valor={categoria} setValor={setCategoria} type='text' maxLength={1} valorMax={4} />
           <Input opcional label={'Imagem'} valor={imagem} setValor={setImagem} />
 

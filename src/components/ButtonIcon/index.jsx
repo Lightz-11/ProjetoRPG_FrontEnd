@@ -5,5 +5,5 @@ export function ButtonIcon({ children, color }) {
 
   const { disabled } = useDisabled()
 
-  return <Container disabled={disabled} color={color}>{children}</Container>;
+  return <Container aria-hidden='true' disabled={disabled} color={color}>{children}</Container>;
 }

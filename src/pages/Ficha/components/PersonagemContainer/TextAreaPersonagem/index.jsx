@@ -8,7 +8,7 @@ export function TextAreaPersonagem({ valor, setValor, ...rest }) {
 
     return (
         <Container>
-            <InputB value={valor} type="text" {...rest}
+            <InputB value={valor != null ? valor : ''} type="text" {...rest}
                 onChange={(event) => {
                     if (!disabled) {
                         setValor(event.target.value)

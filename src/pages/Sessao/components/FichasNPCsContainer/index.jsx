@@ -1,22 +1,33 @@
 import { BodyContainer, Container, HeaderContainer } from './styles';
 import { MdOutlineAddBox } from "react-icons/md";
+import { useState } from 'react';
+import { Modal } from '../../../../components/Modals/Modal';
+import { ModalAdd } from './components/ModalAdd';
 
 export function FichasNPCsContainer() {
+
+  const [modalAddIsOpen, setModalAddIsOpen] = useState(false)
+
   return (
-  <Container>
-    <HeaderContainer>
-      <h1>Fichas NPCs</h1>
-      <button>
-        <MdOutlineAddBox size={25} />
-      </button>
-    </HeaderContainer>
+    <Container>
 
-    <hr />
+      <Modal isOpen={modalAddIsOpen} setIsOpen={() => setModalAddIsOpen(false)}>
+        <ModalAdd setModalAddIsOpenFalse={() => setModalAddIsOpen(false)} />
+      </Modal>
 
-    <BodyContainer>
+      <HeaderContainer>
+        <h1>Fichas NPCs</h1>
+        <button onClick={() => setModalAddIsOpen(true)}>
+          <MdOutlineAddBox size={25} />
+        </button>
+      </HeaderContainer>
 
-    </BodyContainer>
+      <hr />
 
-  </Container>
+      <BodyContainer>
+
+      </BodyContainer>
+
+    </Container>
   );
 }

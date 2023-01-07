@@ -54,7 +54,7 @@ export function ModalAddItem({ setModalAddItemIsOpenFalse, atualizar, setPesoAtu
       <Main>
 
         <Input label={'Nome'} valor={nome} setValor={setNome} />
-        <Input label={'Espaços'} onlyNumber valor={espaco} setValor={setEspaco} maxLength={1} />
+        <Input label={'Espaços'} onlyNumberAndNegative valor={espaco} setValor={setEspaco} maxLength={2} />
         <Input label={'Categoria'} onlyNumber valor={categoria} setValor={setCategoria} maxLength={1} valorMax={4} />
         <Input label={'Imagem'} opcional valor={imagem} setValor={setImagem} />
         <TextArea label={'Descrição'} setValor={setDescricao} valor={descricao} />
