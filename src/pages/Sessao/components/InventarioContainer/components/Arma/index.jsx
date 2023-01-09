@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Container, Header, Main, MainTop, MainBottom, Span, ButtonIcon, Infos, DivInfos, ParteImg, ParteImgModal, ImgModal, Icon, Dados, Button, Danos, ContainerDadoRolado } from './styles';
 import { BiInfoCircle } from 'react-icons/bi'
-import { MdOutlineEdit } from 'react-icons/md'
+import { MdOutlineEdit, MdOutlineSendToMobile } from 'react-icons/md'
 import { IoIosStarOutline } from 'react-icons/io'
 import { GiPistolGun } from 'react-icons/gi'
 import { IoIosShuffle } from 'react-icons/io'
@@ -14,8 +14,14 @@ import { useEffect } from 'react';
 import { api } from '../../../../../../services/api';
 import { useParams } from 'react-router';
 import { ModalDadoRolado } from '../../../../../../components/ModalDadoRolado';
+import { io } from 'socket.io-client';
+import { useFichas } from '../../../../../../hooks/useFichas';
+
+const socket = io(api.defaults.baseURL);
 
 export function Arma({ data, atualizar, armas }) {
+
+  const { fichas } = useFichas()
 
   const [mostrarComoItem, setMostrarComoItem] = useState(false)
 
@@ -74,6 +80,17 @@ export function Arma({ data, atualizar, armas }) {
 
   }, [municaoA])
 
+  function handleSend() {
+
+    fichas.forEach(ficha => {
+      socket.emit("enviado.itemImg", { fichaId: ficha.id, imagem: data.imagem, sessaoId: ficha.sessaoId });
+      setImgAberta(true)
+    });
+
+    setImgAberta(true)
+
+  }
+
   return (
     <Container>
 
@@ -90,7 +107,11 @@ export function Arma({ data, atualizar, armas }) {
       <Header>
         <ButtonIcon onClick={() => setMostrarComoItem(!mostrarComoItem)} color={'aqua'}><BiInfoCircle size={22} color={'aqua'} /></ButtonIcon>
         <h1>{data.nome}</h1>
-        <ButtonIcon onClick={() => setModalEditArmaIsOpen(true)}><MdOutlineEdit size={22} color={'#42bb4d'} /></ButtonIcon>
+        {!mostrarComoItem ?
+          <ButtonIcon onClick={() => setModalEditArmaIsOpen(true)}><MdOutlineEdit size={22} color={'#42bb4d'} /></ButtonIcon>
+          :
+          <ButtonIcon color={'aqua'} onClick={handleSend} ><MdOutlineSendToMobile size={22} color={'aqua'} /></ButtonIcon>
+        }
       </Header>
 
       <hr />

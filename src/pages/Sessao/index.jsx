@@ -17,6 +17,8 @@ export function Sessao() {
 
     const { setFichas } = useFichas()
 
+    const [fichasNPC, setFichasNPC] = useState([])
+
     const [isLoading, setIsLoading] = useState(true)
 
     const { id } = useParams()
@@ -37,9 +39,11 @@ export function Sessao() {
                     window.location.href = "/"
                 }
 
-                const response2 = await api.get(`/fichas/sessao/${response.data.id}`)
+                const fichasPlayer = response.data.Fichas.filter(ficha => ficha.userId != dataUser.id)
+                const fichasNPCS = response.data.Fichas.filter(ficha => ficha.userId == dataUser.id)
 
-                setFichas(response2.data)
+                setFichas(fichasPlayer)
+                setFichasNPC(fichasNPCS)
                 setTitle(response.data.nome)
                 document.title = `Fichas RPG - ${response.data.nome}`
 
@@ -72,7 +76,7 @@ export function Sessao() {
                         <DadosContainer />
                     </DoubleParteContainer>
 
-                    <FichasNPCsContainer />
+                    <FichasNPCsContainer data={fichasNPC} />
 
                     <InventarioContainer />
 

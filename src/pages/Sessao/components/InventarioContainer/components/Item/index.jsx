@@ -54,6 +54,8 @@ export function Item({ data, atualizar, itens }) {
       setImgAberta(true)
     });
 
+    setImgAberta(true)
+
   }
 
   return (

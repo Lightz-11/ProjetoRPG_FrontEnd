@@ -7,8 +7,9 @@ import { api } from '../../../../../../services/api';
 import { useParams } from 'react-router-dom';
 import { AtributoInput } from '../../../../../../components/AtributoInput';
 import { TextArea } from '../../../../../../components/TextArea';
+import { Toggle } from '../../../../../../components/Toggle';
 
-export function ModalAdd({ setModalAddIsOpenFalse }) {
+export function ModalAdd({ setModalAddIsOpenFalse, setFichasNPC, setFichasNPCMonstro, setFichasNPCPrincipal }) {
 
   const [body, setBody] = useState('principal')
 
@@ -84,6 +85,9 @@ export function ModalAdd({ setModalAddIsOpenFalse }) {
   const [habilidades, setHabilidades] = useState('')
   const [detalhes, setDetalhes] = useState('')
 
+  const [monstro, setMonstro] = useState(false)
+  const [principal, setPrincipal] = useState(false)
+
   const dataUser = JSON.parse(localStorage.getItem("@rpgfichas:user"))
 
   const { id } = useParams()
@@ -93,8 +97,12 @@ export function ModalAdd({ setModalAddIsOpenFalse }) {
     try {
 
       const response = await api.post(`/fichas`, {
+        npc: true,
         userId: dataUser.id,
         sessaoId: id,
+
+        npcmonstro: monstro,
+        npcprincipal: principal,
 
         nome,
         idade: Number(idade),
@@ -117,63 +125,154 @@ export function ModalAdd({ setModalAddIsOpenFalse }) {
         peMax: Number(pe),
       })
 
-      const response2 = await api.put(`/fichas/pericias/${response.data.id}`, {
-        acrobacia,
-        adestramento,
-        arte,
-        atletismo,
-        atualidade,
-        ciencia,
-        crime,
-        diplomacia,
-        enganacao,
-        fortitude,
-        furtividade,
-        iniciativa,
-        intimidacao,
-        intuicao,
-        investigacao,
-        luta,
-        medicina,
-        ocultismo,
-        percepcao,
-        pilotagem,
-        pontaria,
-        profissao,
-        reflexo,
-        religiao,
-        sobrevivencia,
-        tatica,
-        tecnologia,
-        vontade,
+      const response2 = await api.put(`/fichas/pericias/${response.data.ficha.id}`, {
+        acrobacia: Number(acrobacia),
+        adestramento: Number(adestramento),
+        arte: Number(arte),
+        atletismo: Number(atletismo),
+        atualidade: Number(atualidade),
+        ciencia: Number(ciencia),
+        crime: Number(crime),
+        diplomacia: Number(diplomacia),
+        enganacao: Number(enganacao),
+        fortitude: Number(fortitude),
+        furtividade: Number(furtividade),
+        iniciativa: Number(iniciativa),
+        intimidacao: Number(intimidacao),
+        intuicao: Number(intuicao),
+        investigacao: Number(investigacao),
+        luta: Number(luta),
+        medicina: Number(medicina),
+        ocultismo: Number(ocultismo),
+        percepcao: Number(percepcao),
+        pilotagem: Number(pilotagem),
+        pontaria: Number(pontaria),
+        profissao: Number(profissao),
+        reflexo: Number(reflexo),
+        religiao: Number(religiao),
+        sobrevivencia: Number(sobrevivencia),
+        tatica: Number(tatica),
+        tecnologia: Number(tecnologia),
+        vontade: Number(vontade),
       })
 
-      const response3 = await api.put(`/fichas/defesas/${response.data.id}`, {
-        passiva: passiva,
-        bloqueio: bloqueio,
-        esquiva: esquiva,
-        fisica: fisica,
-        balistica: balistica,
-        corte: corte,
-        impacto: impacto,
-        perfuracao: perfuracao,
-        eletricidade: eletricidade,
-        fogo: fogo,
-        frio: frio,
-        quimica: quimica,
-        mental: mental,
-        morte: morte,
-        conhecimento: conhecimento,
-        sangue: sangue,
-        energia: energia
+      const response3 = await api.put(`/fichas/defesas/${response.data.defesas.id}`, {
+        passiva: Number(passiva),
+        bloqueio: Number(bloqueio),
+        esquiva: Number(esquiva),
+        fisica: Number(fisica),
+        balistica: Number(balistica),
+        corte: Number(corte),
+        impacto: Number(impacto),
+        perfuracao: Number(perfuracao),
+        eletricidade: Number(eletricidade),
+        fogo: Number(fogo),
+        frio: Number(frio),
+        quimica: Number(quimica),
+        mental: Number(mental),
+        morte: Number(morte),
+        conhecimento: Number(conhecimento),
+        sangue: Number(sangue),
+        energia: Number(energia),
       });
 
       const response4 = await api.post(`/fichas/outros`, {
         inventario,
         habilidades,
         detalhes,
-        fichaId: response.data.id
+        fichaId: response.data.ficha.id
       })
+
+      if (!monstro && !principal) {
+        setFichasNPC((prev) => [...prev, {
+          id: response.data.ficha.id,
+          sessaoId: response.data.ficha.sessaoId,
+          userId: response.data.ficha.userId,
+          npc: response.data.ficha.npc,
+          npcmonstro: response.data.ficha.npcmonstro,
+          npcprincipal: response.data.ficha.npcprincipal,
+
+          Atributos: [
+            response.data.atributos
+          ],
+
+          Defesas: [
+            response3.data
+          ],
+
+          Pericias: [
+            response2.data
+          ],
+
+          Principal: [
+            response.data.principal
+          ],
+
+          Status: [
+            response.data.status
+          ]
+        }])
+      } else if (monstro) {
+        setFichasNPCMonstro((prev) => [...prev, {
+          id: response.data.ficha.id,
+          sessaoId: response.data.ficha.sessaoId,
+          userId: response.data.ficha.userId,
+          npc: response.data.ficha.npc,
+          npcmonstro: response.data.ficha.npcmonstro,
+          npcprincipal: response.data.ficha.npcprincipal,
+
+          Atributos: [
+            response.data.atributos
+          ],
+
+          Defesas: [
+            response3.data
+          ],
+
+          Pericias: [
+            response2.data
+          ],
+
+          Principal: [
+            response.data.principal
+          ],
+
+          Status: [
+            response.data.status
+          ]
+        }])
+      } else if (principal) {
+        setFichasNPCPrincipal((prev) => [...prev, {
+          id: response.data.ficha.id,
+          sessaoId: response.data.ficha.sessaoId,
+          userId: response.data.ficha.userId,
+          npc: response.data.ficha.npc,
+          npcmonstro: response.data.ficha.npcmonstro,
+          npcprincipal: response.data.ficha.npcprincipal,
+
+          Atributos: [
+            response.data.atributos
+          ],
+
+          Defesas: [
+            response3.data
+          ],
+
+          Pericias: [
+            response2.data
+          ],
+
+          Principal: [
+            response.data.principal
+          ],
+
+          Status: [
+            response.data.status
+          ]
+        }])
+      }
+
+      setModalAddIsOpenFalse()
 
     } catch (erro) {
       toast.error(erro.response.data.mensagem)
@@ -205,51 +304,55 @@ export function ModalAdd({ setModalAddIsOpenFalse }) {
         <Grid>
 
           <Input maxLength={30} label={'Nome'} valor={nome} setValor={setNome} />
-          <Input onlyNumber maxLength={2} label={'Idade'} valor={idade} setValor={setIdade} />
-          <Input maxLength={20} label={'Local de Nascimento'} valor={nacionalidade} setValor={setNacionalidade} />
-          <Input list={'listaOrigens'} maxLength={22} label={'Origem'} valor={origem} setValor={setOrigem} />
-          <datalist id="listaOrigens"><option value="Acadêmico" /><option value="Agente de Saúde" /><option value="Amnésico" /><option value="Artista" /><option value="Atleta" /><option value="Chef" /><option value="Crimisoso" /><option value="Cultusta Arrependido" /><option value="Desgarrado" /><option value="Engenheiro" /><option value="Executivo" /><option value="Investigador" /><option value="Lutador" /><option value="Magnata" /><option value="Mercenário" /><option value="Militar" /><option value="Operário" /><option value="Policial" /><option value="Religioso" /><option value="Sevidor Público" /><option value="Teórico da Conspiração" /><option value="T.I." /><option value="Trabalhador Rural" /><option value="Trambiqueiro" /><option value="Universitário" /><option value="Vítima" />
-          </datalist>
-          <Input onlyNumber maxLength={2} label={'NEX'} valor={nex} setValor={setNex} />
-          <Select label={'Classe'} valor={classe} setValor={setClasse} >
-            <option value="Mundano">Mundano</option><option value="Combatente">Combatente</option><option value="Especialista">Especialista</option><option value="Ocultista">Ocultista</option>
-          </Select>
-          <Input list={'listaTrilhas'} maxLength={20} label={'Trilhas'} valor={trilha} setValor={setTrilha} />
-          <datalist id="listaTrilhas">
+          {monstro && <Input onlyNumber maxLength={2} label={'NEX'} valor={nex} setValor={setNex} />}
+          {!monstro && <>
+            <Input onlyNumber maxLength={2} label={'Idade'} valor={idade} setValor={setIdade} />
+            <Input maxLength={20} label={'Local de Nascimento'} valor={nacionalidade} setValor={setNacionalidade} />
+            <Input list={'listaOrigens'} maxLength={22} label={'Origem'} valor={origem} setValor={setOrigem} />
+            <datalist id="listaOrigens"><option value="Acadêmico" /><option value="Agente de Saúde" /><option value="Amnésico" /><option value="Artista" /><option value="Atleta" /><option value="Chef" /><option value="Crimisoso" /><option value="Cultusta Arrependido" /><option value="Desgarrado" /><option value="Engenheiro" /><option value="Executivo" /><option value="Investigador" /><option value="Lutador" /><option value="Magnata" /><option value="Mercenário" /><option value="Militar" /><option value="Operário" /><option value="Policial" /><option value="Religioso" /><option value="Sevidor Público" /><option value="Teórico da Conspiração" /><option value="T.I." /><option value="Trabalhador Rural" /><option value="Trambiqueiro" /><option value="Universitário" /><option value="Vítima" />
+            </datalist>
+            <Input onlyNumber maxLength={2} label={'NEX'} valor={nex} setValor={setNex} />
+            <Select label={'Classe'} valor={classe} setValor={setClasse} >
+              <option value="Mundano">Mundano</option><option value="Combatente">Combatente</option><option value="Especialista">Especialista</option><option value="Ocultista">Ocultista</option>
+            </Select>
+            <Input list={'listaTrilhas'} maxLength={20} label={'Trilhas'} valor={trilha} setValor={setTrilha} />
+            <datalist id="listaTrilhas">
 
-            {classe == 'Combatente' &&
+              {classe == 'Combatente' &&
 
-              <><option value="Aniquilador" />
-                <option value="Comandate de campo" />
-                <option value="Guerreiro" />
-                <option value="Operaçaões especiais" />
-                <option value="Tropa de choque" /></>
+                <><option value="Aniquilador" />
+                  <option value="Comandate de campo" />
+                  <option value="Guerreiro" />
+                  <option value="Operaçaões especiais" />
+                  <option value="Tropa de choque" /></>
 
-            }
+              }
 
-            {classe == 'Especialista' &&
+              {classe == 'Especialista' &&
 
-              <><option value="Atirador de elite" />
-                <option value="Infiltrador" />
-                <option value="Médico de Campo" />
-                <option value="Negociador" />
-                <option value="Técnico" /></>
+                <><option value="Atirador de elite" />
+                  <option value="Infiltrador" />
+                  <option value="Médico de Campo" />
+                  <option value="Negociador" />
+                  <option value="Técnico" /></>
 
-            }
+              }
 
-            {classe == 'Ocultista' &&
+              {classe == 'Ocultista' &&
 
-              <><option value="Conduíte" />
-                <option value="Flagelador" />
-                <option value="Graduado" />
-                <option value="Intuitivo" />
-                <option value="Lâmina Paranormal" /></>
+                <><option value="Conduíte" />
+                  <option value="Flagelador" />
+                  <option value="Graduado" />
+                  <option value="Intuitivo" />
+                  <option value="Lâmina Paranormal" /></>
 
-            }
+              }
 
-          </datalist>
-          <Select label={'Patente'} valor={patente} setValor={setPatente} ><option value="Nenhuma">Nenhuma</option><option value="Recruta">Recruta</option><option value="Operador" >Operador</option><option value="Agente Especial" >Agente Especial</option><option value="Oficial de Operações" >Oficial de Operações</option><option value="Agente de Elite" >Agente de Elite</option>
-          </Select>
+            </datalist>
+            <Select label={'Patente'} valor={patente} setValor={setPatente} ><option value="Nenhuma">Nenhuma</option><option value="Recruta">Recruta</option><option value="Operador" >Operador</option><option value="Agente Especial" >Agente Especial</option><option value="Oficial de Operações" >Oficial de Operações</option><option value="Agente de Elite" >Agente de Elite</option>
+            </Select>
+
+          </>}
 
         </Grid>
 
@@ -258,6 +361,10 @@ export function ModalAdd({ setModalAddIsOpenFalse }) {
           <Input onlyNumber maxLength={2} label={'Vida Máxima (PV)'} valor={pv} setValor={setPv} />
           <Input onlyNumber maxLength={2} label={'Sanidade Máxima (SAN)'} valor={ps} setValor={setPs} />
           <Input onlyNumber maxLength={2} label={'Pontos de Esforço (PE)'} valor={pe} setValor={setPe} />
+          <Grid>
+            <Toggle classNumber={1} span={'Adicionar como Monstro?'} checked={monstro} onClick={() => { setPrincipal(false); setMonstro(!monstro) }} />
+            <Toggle classNumber={2} span={'Adicionar como Principal?'} checked={principal} onClick={() => { setMonstro(false); setPrincipal(!principal) }} />
+          </Grid>
 
         </Normal>
 

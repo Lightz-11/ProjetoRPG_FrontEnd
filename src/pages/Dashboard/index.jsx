@@ -75,7 +75,16 @@ export function Dashboard() {
         }
 
         setSessoes(response.data)
-        setFichas(fichasResponse.data)
+
+        let fichasReal = []
+
+        fichasResponse.data.forEach(ficha => {
+          if (ficha.npc != true) {
+            fichasReal.push(ficha)
+          }
+        });
+
+        setFichas(fichasReal)
 
       } catch (error) { console.log(error) }
       finally {

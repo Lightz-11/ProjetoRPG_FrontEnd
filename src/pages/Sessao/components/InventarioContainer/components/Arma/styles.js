@@ -212,6 +212,7 @@ export const Danos = styled('div', {
 
   width: '100%',
   gap: '1rem',
+  marginTop: '1rem',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',

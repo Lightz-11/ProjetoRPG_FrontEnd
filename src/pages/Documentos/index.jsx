@@ -12,17 +12,15 @@ export function Documentos() {
   const { id } = useParams()
 
   const [imagem, setImagem] = useState('')
-  const [imgAberta, setImgAberta] = useState(false)
 
   useEffect(() => {
 
     function executeItemImg({ sessaoId, imagem }) {
+      console.log(imagem)
       if (sessaoId == id) {
         if (imagem == 'fechar') {
-          setImgAberta(false)
           setImagem('')
         } else {
-          setImgAberta(true)
           setImagem(imagem)
         }
       }

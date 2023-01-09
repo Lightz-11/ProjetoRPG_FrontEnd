@@ -45,6 +45,42 @@ export const HeaderContainer = styled("div", {
   },
 });
 
+export const Select = styled('div', {
+
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: '1rem',
+  gap: '2rem',
+  flexWrap: 'wrap',
+})
+
+export const Button = styled('button', {
+
+  background: 'none',
+  fontFamily: 'Special Elite',
+  color: '#b65bcd',
+  border: '2px solid #490f57',
+  padding: '.7rem 1rem .3rem 1rem',
+  fontSize: '2.2rem',
+
+  '&:hover': {
+
+    background: '#490f5780'
+
+  },
+
+  variants: {
+    active: {
+      true: {
+        background: '#490f5780',
+        cursor: 'default'
+      }
+    }
+  }
+
+})
+
 export const BodyContainer = styled("div", {
   padding: "1rem",
   display: "grid",
@@ -55,5 +91,13 @@ export const BodyContainer = styled("div", {
   "@lg4": {
     gridTemplateColumns: "1fr",
   },
+
+  variants: {
+    nulo: {
+      true: {
+        padding: 0
+      }
+    }
+  }
 
 });

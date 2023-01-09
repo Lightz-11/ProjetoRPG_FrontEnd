@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Container, Header, Main, MainTop, MainBottom, Span, ButtonIcon, Infos, DivInfos, ParteImg, ParteImgModal, ImgModal, Icon, Dados, Button, ContainerDadoRolado } from './styles';
+import { Container, Header, Main, MainTop, MainBottom, Span, Infos, DivInfos, ParteImg, ParteImgModal, ImgModal, Icon, Dados, Button, ContainerDadoRolado } from './styles';
 import { BiInfoCircle } from 'react-icons/bi'
 import { MdOutlineEdit } from 'react-icons/md'
 import { IoIosStarOutline } from 'react-icons/io'
@@ -16,6 +16,7 @@ import { Barrinha } from './Barrinha';
 import { io } from 'socket.io-client';
 import { useDisabled } from '../../../../../../hooks/useDisabled';
 import { ModalDadoRolado } from '../../../../../../components/ModalDadoRolado';
+import { ButtonIcon } from '../../../../../../components/ButtonIcon';
 
 const socket = io(api.defaults.baseURL);
 
@@ -88,6 +89,14 @@ export function Arma({ data, atualizar, armas, setPesoAtual }) {
 
   }, [municaoA])
 
+  function handleSend() {
+
+    fichas.forEach(ficha => {
+      socket.emit("enviado.itemImg", { fichaId: ficha.id, imagem: data.imagem, sessaoId: ficha.sessaoId });
+    });
+
+  }
+
   return (
     <Container>
 
@@ -104,7 +113,11 @@ export function Arma({ data, atualizar, armas, setPesoAtual }) {
       <Header>
         <ButtonIcon onClick={() => setMostrarComoItem(!mostrarComoItem)} color={'aqua'}><BiInfoCircle size={22} color={'aqua'} /></ButtonIcon>
         <h1>{data.nome}</h1>
-        <ButtonEdit onClick={() => setModalEditArmaIsOpen(true)} />
+        {!mostrarComoItem ?
+          <ButtonEdit onClick={() => setModalEditArmaIsOpen(true)} />
+          :
+          <ButtonIcon color={'aqua'} onClick={handleSend} ><MdOutlineSendToMobile size={22} color={'aqua'} /></ButtonIcon>
+        }
       </Header>
 
       <hr />
