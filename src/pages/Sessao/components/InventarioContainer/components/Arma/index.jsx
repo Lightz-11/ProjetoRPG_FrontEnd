@@ -92,8 +92,6 @@ export function Arma({ data, atualizar, armas }) {
       socket.emit("enviado.itemImg", { imagem: data.imagem, sessaoId: id });
     }
 
-    setImgAberta(true)
-
   }
 
   return (

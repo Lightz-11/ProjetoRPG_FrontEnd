@@ -62,8 +62,6 @@ export function Item({ data, atualizar, itens }) {
       socket.emit("enviado.itemImg", { imagem: data.imagem, sessaoId: id });
     }
 
-    setImgAberta(true)
-
   }
 
   return (

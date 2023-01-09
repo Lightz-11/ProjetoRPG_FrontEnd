@@ -162,8 +162,10 @@ export function InventarioContainer() {
   useEffect(() => {
     function executeItemImg({ sessaoId, imagem }) {
       if (sessaoId == id) {
-        setImgAberta(true)
-        setImagem(imagem)
+        if (imagem != 'fechar') {
+          setImgAberta(true)
+          setImagem(imagem)
+        }
       }
     }
     socket.on("enviado.itemImg", executeItemImg);
