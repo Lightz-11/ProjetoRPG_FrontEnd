@@ -91,7 +91,7 @@ export function ModalDadoRolado({ setModalEditIsOpenFalse, data }) {
         }
 
         socket.emit('dado.rolado', {
-          fichaId: id, nome: data.nome, isDano: data.isDano, conta: contaTotal.join("+"), valorTotal: eval(contaTotal.join("+")),
+          fichaId: id, nomeNPC: data.nomeNPC, nome: data.nome, isDano: data.isDano, conta: contaTotal.join("+"), valorTotal: eval(contaTotal.join("+")),
           dadosRolados: [{ dado: 'd' + valorMax, valores: totalValores }]
         })
 
@@ -148,7 +148,7 @@ export function ModalDadoRolado({ setModalEditIsOpenFalse, data }) {
             contaTotal.push('(' + soma.join('+') + ')')
           }
 
-          socket.emit('dado.rolado', { fichaId: id, nome: data.nome, isDano: data.isDano, conta: contaTotal.join("+"), valorTotal: eval(contaTotal.join("+")), dadosRolados: todosDadosRolados })
+          socket.emit('dado.rolado', { fichaId: id, nomeNPC: data.nomeNPC, nome: data.nome, isDano: data.isDano, conta: contaTotal.join("+"), valorTotal: eval(contaTotal.join("+")), dadosRolados: todosDadosRolados })
 
           setDados({
             valorTotal: eval(contaTotal.join("+")),
@@ -173,7 +173,7 @@ export function ModalDadoRolado({ setModalEditIsOpenFalse, data }) {
           }
 
           socket.emit('dado.rolado', {
-            fichaId: id, nome: data.nome, isDano: data.isDano, conta: contaTotal.join("+"), valorTotal: eval(contaTotal.join("+")), dadosRolados: [{ dado: 'd' + valorMax, valores: totalValores }]
+            fichaId: id, nomeNPC: data.nomeNPC, nome: data.nome, isDano: data.isDano, conta: contaTotal.join("+"), valorTotal: eval(contaTotal.join("+")), dadosRolados: [{ dado: 'd' + valorMax, valores: totalValores }]
           })
 
           setDados({

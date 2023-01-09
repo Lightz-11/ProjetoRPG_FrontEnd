@@ -11,6 +11,7 @@ import { Container, Header, Body, BottomBody, TopBody, Buttons, AreaPortrait, Po
 import { io } from 'socket.io-client';
 import { useDisabled } from '../../../../hooks/useDisabled';
 import { ModalStatus } from './components/ModalStatus';
+import resistenciasmapper from './components/resistenciasmapper';
 
 const socket = io(api.defaults.baseURL);
 
@@ -326,7 +327,7 @@ export function StatusContainer({ status, defesasData, portraitData }) {
 
               <ContainerDeferes>
 
-                {dataRes.map(res => <Deferes key={res.nome}>{res.nome + ': ' + res.valor}</Deferes>)}
+                {dataRes.map(res => <Deferes key={res.nome}>{resistenciasmapper(res.nome) + ': ' + res.valor}</Deferes>)}
 
               </ContainerDeferes></>
 

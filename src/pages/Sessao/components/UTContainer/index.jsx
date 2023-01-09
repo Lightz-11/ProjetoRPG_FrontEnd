@@ -25,7 +25,7 @@ export function UTContainer() {
 
   useEffect(() => {
 
-    function updateRolagens({ fichaId, valorTotal, dadosRolados, nome, isDano, conta }) {
+    function updateRolagens({ fichaId, nomeNPC, valorTotal, dadosRolados, nome, isDano, conta }) {
 
       if (fichaId == id) {
 
@@ -35,7 +35,11 @@ export function UTContainer() {
 
         const horarioAtual = horas + ':' + minutos + ':' + segundos
 
-        setRolagens((prev) => [...prev, { valorTotal, dadosRolados, nome, isDano, conta, nomeFicha: 'Mestre', portrait: noportrait, horarioAtual }])
+        if (nomeNPC != null) {
+          setRolagens((prev) => [...prev, { valorTotal, dadosRolados, nome, isDano, conta, nomeFicha: nomeNPC, portrait: noportrait, horarioAtual }])
+        } else {
+          setRolagens((prev) => [...prev, { valorTotal, dadosRolados, nome, isDano, conta, nomeFicha: 'Mestre', portrait: noportrait, horarioAtual }])
+        }
 
       } else {
 
