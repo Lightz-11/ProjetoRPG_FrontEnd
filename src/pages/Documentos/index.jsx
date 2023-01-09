@@ -16,7 +16,6 @@ export function Documentos() {
   useEffect(() => {
 
     function executeItemImg({ sessaoId, imagem }) {
-      console.log(imagem)
       if (sessaoId == id) {
         if (imagem == 'fechar') {
           setImagem('')

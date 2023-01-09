@@ -7,12 +7,15 @@ import { Barrinha } from './Barrinha';
 import { api } from '../../../../../../services/api';
 import { io } from 'socket.io-client';
 import { useFichas } from '../../../../../../hooks/useFichas';
+import { useParams } from 'react-router-dom';
 
 const socket = io(api.defaults.baseURL);
 
 export function Item({ data, atualizar, itens }) {
 
   const { fichas } = useFichas()
+
+  const { id } = useParams()
 
   const [imgAberta, setImgAberta] = useState(false)
 
@@ -50,7 +53,7 @@ export function Item({ data, atualizar, itens }) {
   function handleSend() {
 
     fichas.forEach(ficha => {
-      socket.emit("enviado.itemImg", { fichaId: ficha.id, imagem: data.imagem, sessaoId: ficha.sessaoId });
+      socket.emit("enviado.itemImg", { fichaId: ficha.id, imagem: data.imagem, sessaoId: id });
       setImgAberta(true)
     });
 

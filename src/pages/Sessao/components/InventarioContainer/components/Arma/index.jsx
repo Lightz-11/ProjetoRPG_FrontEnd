@@ -83,7 +83,7 @@ export function Arma({ data, atualizar, armas }) {
   function handleSend() {
 
     fichas.forEach(ficha => {
-      socket.emit("enviado.itemImg", { fichaId: ficha.id, imagem: data.imagem, sessaoId: ficha.sessaoId });
+      socket.emit("enviado.itemImg", { fichaId: ficha.id, imagem: data.imagem, sessaoId: id });
       setImgAberta(true)
     });
 
