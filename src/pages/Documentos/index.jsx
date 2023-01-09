@@ -16,6 +16,7 @@ export function Documentos() {
   useEffect(() => {
 
     function executeItemImg({ sessaoId, imagem }) {
+
       if (sessaoId == id) {
         if (imagem == 'fechar') {
           setImagem('')
@@ -27,7 +28,6 @@ export function Documentos() {
     socket.on("enviado.itemImg", executeItemImg);
 
   }, [])
-
 
   return (
     <Container>

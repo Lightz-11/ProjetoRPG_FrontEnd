@@ -145,3 +145,33 @@ export const Button = styled('button', {
     background: '#80008050',
   }
 })
+
+export const ParteImgModal = styled('div', {
+  height: '95vh',
+  width: '100%',
+  display: 'flex',
+  justifyContent: 'center',
+  overflow: 'hidden',
+
+  img: {
+    objectFit: 'contain'
+  }
+})
+
+const scaleUp = keyframes({
+  '0%': {
+    scale: '20%',
+    opacity: 0
+  },
+  '100%': {
+    scale: '100%',
+    opacity: 1
+  },
+});
+
+export const ImgModal = styled('img', {
+
+  animation: `${scaleUp} 300ms`,
+  maxWidth: '100%'
+
+})

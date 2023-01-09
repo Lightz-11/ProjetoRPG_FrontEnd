@@ -1,4 +1,4 @@
-import { BodyContainer, Container, HeaderContainer, Footer, Row, Column, Button, Option } from './styles';
+import { BodyContainer, Container, HeaderContainer, Footer, Row, Column, Button, Option, ImgModal, ParteImgModal } from './styles';
 import { MdOutlineAddBox, MdOutlineCleaningServices } from "react-icons/md";
 import { useEffect, useState } from 'react';
 import { Item } from './components/Item';
@@ -10,8 +10,6 @@ import { ModalAddArma } from './components/ModalAddArma';
 import { ModalAddItem } from './components/ModalAddItem';
 import { useParams } from 'react-router-dom';
 import { api } from '../../../../services/api';
-import { ModalEditArma } from './components/ModalEditArma';
-import { ModalEditItem } from './components/ModalEditItem';
 import { toast, ToastContainer } from 'react-toastify';
 import { io } from 'socket.io-client';
 
@@ -31,6 +29,9 @@ export function InventarioContainer() {
 
   const [itemAEnviar, setItemAEnviar] = useState('')
   const [fichaIdAEnviar, setFichaAEnviar] = useState('')
+
+  const [imgAberta, setImgAberta] = useState(false)
+  const [imagem, setImagem] = useState('')
 
   const { id } = useParams()
 
@@ -158,6 +159,16 @@ export function InventarioContainer() {
 
   }
 
+  useEffect(() => {
+    function executeItemImg({ sessaoId, imagem }) {
+      if (sessaoId == id) {
+        setImgAberta(true)
+        setImagem(imagem)
+      }
+    }
+    socket.on("enviado.itemImg", executeItemImg);
+  }, [])
+
   return (
     <Container>
 
@@ -177,6 +188,12 @@ export function InventarioContainer() {
 
       <Modal isOpen={modalAddItemIsOpen} setIsOpen={() => setModalAddItemIsOpen(false)}>
         <ModalAddItem atualizar={setItens} setModalAddItemIsOpenFalse={() => setModalAddItemIsOpen(false)} />
+      </Modal>
+
+      <Modal isOpen={imgAberta} setIsOpen={() => setImgAberta(false)}>
+        <ParteImgModal>
+          <ImgModal onClick={() => setImgAberta(false)} src={imagem} />
+        </ParteImgModal>
       </Modal>
 
       <HeaderContainer>
