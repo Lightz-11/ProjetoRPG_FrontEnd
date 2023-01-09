@@ -84,12 +84,16 @@ export const Button = styled('button', {
 export const BodyContainer = styled("div", {
   padding: "1rem",
   display: "grid",
-  gridTemplateColumns: "1fr 1fr",
+  gridTemplateColumns: "1fr 1fr 1fr",
   gridColumnGap: "3rem",
   gridRowGap: "2rem",
 
-  "@lg4": {
-    gridTemplateColumns: "1fr",
+  "@lg2": {
+    gridTemplateColumns: "1fr 1fr",
+  },
+
+  '@sm': {
+    gridTemplateColumns: '1fr'
   },
 
   variants: {

@@ -18,6 +18,7 @@ export function Sessao() {
     const { setFichas } = useFichas()
 
     const [fichasNPC, setFichasNPC] = useState([])
+    const [fichasNPCMonstros, setFichasNPCMonstros] = useState([])
 
     const [isLoading, setIsLoading] = useState(true)
 
@@ -39,11 +40,9 @@ export function Sessao() {
                     window.location.href = "/"
                 }
 
-                const fichasPlayer = response.data.Fichas.filter(ficha => ficha.userId != dataUser.id)
-                const fichasNPCS = response.data.Fichas.filter(ficha => ficha.userId == dataUser.id)
-
-                setFichas(fichasPlayer)
-                setFichasNPC(fichasNPCS)
+                setFichas(response.data.Fichas)
+                setFichasNPC(response.data.FichasNPC)
+                setFichasNPCMonstros(response.data.Monstros)
                 setTitle(response.data.nome)
                 document.title = `Fichas RPG - ${response.data.nome}`
 
@@ -76,7 +75,7 @@ export function Sessao() {
                         <DadosContainer />
                     </DoubleParteContainer>
 
-                    <FichasNPCsContainer data={fichasNPC} />
+                    <FichasNPCsContainer npcs={fichasNPC} npcsmonstros={fichasNPCMonstros} />
 
                     <InventarioContainer />
 

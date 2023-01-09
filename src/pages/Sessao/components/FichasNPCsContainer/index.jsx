@@ -6,29 +6,17 @@ import { ModalAdd } from './components/ModalAdd';
 import { useEffect } from 'react';
 import { api } from '../../../../services/api';
 import { useParams } from 'react-router-dom';
+import { NPC } from './components/NPC';
 
-export function FichasNPCsContainer({ data }) {
+export function FichasNPCsContainer({ npcs, npcsmonstros }) {
 
   const [modalAddIsOpen, setModalAddIsOpen] = useState(false)
 
   const [body, setBody] = useState('npcs')
 
-  const [fichasNPC, setFichasNPC] = useState(data)
-  const [fichasNPCMonstro, setFichasNPCMonstro] = useState(data)
-  const [fichasNPCPrincipal, setFichasNPCPrincipal] = useState(data)
-
-  useEffect(() => {
-
-    const fichas1 = data.filter(ficha => ficha.npcmonstro != true && ficha.npcprincipal != true)
-    setFichasNPC(fichas1)
-
-    const fichas2 = data.filter(ficha => ficha.npcmonstro == true)
-    setFichasNPCMonstro(fichas2)
-
-    const fichas3 = data.filter(ficha => ficha.npcprincipal == true)
-    setFichasNPCPrincipal(fichas3)
-
-  }, [])
+  const [fichasNPC, setFichasNPC] = useState(npcs)
+  const [fichasNPCMonstro, setFichasNPCMonstro] = useState(npcsmonstros)
+  const [fichasNPCPrincipal, setFichasNPCPrincipal] = useState([])
 
   return (
     <Container>
@@ -56,7 +44,7 @@ export function FichasNPCsContainer({ data }) {
 
       <BodyContainer nulo={body == 'npcsprincipais' && fichasNPCPrincipal.length == 0 || body == 'npcs' && fichasNPC.length == 0 || body == 'monstros' && fichasNPCMonstro.length == 0}>
 
-        {body == 'npcs' && fichasNPC && fichasNPC.map(ficha => ficha.id)}
+        {body == 'npcs' && fichasNPC && fichasNPC.map(ficha => <NPC key={ficha.id} data={ficha} />)}
 
         {body == 'monstros' && fichasNPCMonstro && fichasNPCMonstro.map(ficha => ficha.id)}
 

@@ -96,185 +96,159 @@ export function ModalAdd({ setModalAddIsOpenFalse, setFichasNPC, setFichasNPCMon
 
     try {
 
-      const response = await api.post(`/fichas`, {
-        npc: true,
-        userId: dataUser.id,
-        sessaoId: id,
-
-        npcmonstro: monstro,
-        npcprincipal: principal,
-
-        nome,
-        idade: Number(idade),
-        jogador: 'Mestre',
-        nacionalidade,
-        origem,
-        nex: Number(nex),
-        classe,
-        trilha,
-        patente,
-
-        agi: Number(agi),
-        int: Number(int),
-        vig: Number(vig),
-        pre: Number(pre),
-        forca: Number(forca),
-
-        pvMax: Number(pv),
-        sanMax: Number(ps),
-        peMax: Number(pe),
-      })
-
-      const response2 = await api.put(`/fichas/pericias/${response.data.ficha.id}`, {
-        acrobacia: Number(acrobacia),
-        adestramento: Number(adestramento),
-        arte: Number(arte),
-        atletismo: Number(atletismo),
-        atualidade: Number(atualidade),
-        ciencia: Number(ciencia),
-        crime: Number(crime),
-        diplomacia: Number(diplomacia),
-        enganacao: Number(enganacao),
-        fortitude: Number(fortitude),
-        furtividade: Number(furtividade),
-        iniciativa: Number(iniciativa),
-        intimidacao: Number(intimidacao),
-        intuicao: Number(intuicao),
-        investigacao: Number(investigacao),
-        luta: Number(luta),
-        medicina: Number(medicina),
-        ocultismo: Number(ocultismo),
-        percepcao: Number(percepcao),
-        pilotagem: Number(pilotagem),
-        pontaria: Number(pontaria),
-        profissao: Number(profissao),
-        reflexo: Number(reflexo),
-        religiao: Number(religiao),
-        sobrevivencia: Number(sobrevivencia),
-        tatica: Number(tatica),
-        tecnologia: Number(tecnologia),
-        vontade: Number(vontade),
-      })
-
-      const response3 = await api.put(`/fichas/defesas/${response.data.defesas.id}`, {
-        passiva: Number(passiva),
-        bloqueio: Number(bloqueio),
-        esquiva: Number(esquiva),
-        fisica: Number(fisica),
-        balistica: Number(balistica),
-        corte: Number(corte),
-        impacto: Number(impacto),
-        perfuracao: Number(perfuracao),
-        eletricidade: Number(eletricidade),
-        fogo: Number(fogo),
-        frio: Number(frio),
-        quimica: Number(quimica),
-        mental: Number(mental),
-        morte: Number(morte),
-        conhecimento: Number(conhecimento),
-        sangue: Number(sangue),
-        energia: Number(energia),
-      });
-
-      const response4 = await api.post(`/fichas/outros`, {
-        inventario,
-        habilidades,
-        detalhes,
-        fichaId: response.data.ficha.id
-      })
-
       if (!monstro && !principal) {
-        setFichasNPC((prev) => [...prev, {
-          id: response.data.ficha.id,
-          sessaoId: response.data.ficha.sessaoId,
-          userId: response.data.ficha.userId,
-          npc: response.data.ficha.npc,
-          npcmonstro: response.data.ficha.npcmonstro,
-          npcprincipal: response.data.ficha.npcprincipal,
 
-          Atributos: [
-            response.data.atributos
-          ],
+        const response = await api.post(`fichas/npc/`, {
 
-          Defesas: [
-            response3.data
-          ],
+          nome,
+          idade: Number(idade),
+          nacionalidade,
+          origem,
+          nex: Number(nex),
+          classe,
+          trilha,
+          patente,
 
-          Pericias: [
-            response2.data
-          ],
+          pvMax: Number(pv),
+          psMax: Number(ps),
+          peMax: Number(pe),
 
-          Principal: [
-            response.data.principal
-          ],
+          agi: Number(agi),
+          int: Number(int),
+          vig: Number(vig),
+          pre: Number(pre),
+          forca: Number(forca),
 
-          Status: [
-            response.data.status
-          ]
-        }])
+          acrobacia: Number(acrobacia),
+          adestramento: Number(adestramento),
+          arte: Number(arte),
+          atletismo: Number(atletismo),
+          atualidade: Number(atualidade),
+          ciencia: Number(ciencia),
+          crime: Number(crime),
+          diplomacia: Number(diplomacia),
+          enganacao: Number(enganacao),
+          fortitude: Number(fortitude),
+          furtividade: Number(furtividade),
+          iniciativa: Number(iniciativa),
+          intimidacao: Number(intimidacao),
+          intuicao: Number(intuicao),
+          investigacao: Number(investigacao),
+          luta: Number(luta),
+          medicina: Number(medicina),
+          ocultismo: Number(ocultismo),
+          percepcao: Number(percepcao),
+          pilotagem: Number(pilotagem),
+          pontaria: Number(pontaria),
+          profissao: Number(profissao),
+          reflexo: Number(reflexo),
+          religiao: Number(religiao),
+          sobrevivencia: Number(sobrevivencia),
+          tatica: Number(tatica),
+          tecnologia: Number(tecnologia),
+          vontade: Number(vontade),
+
+          passiva: Number(passiva),
+          bloqueio: Number(bloqueio),
+          esquiva: Number(esquiva),
+          fisica: Number(fisica),
+          balistica: Number(balistica),
+          corte: Number(corte),
+          impacto: Number(impacto),
+          perfuracao: Number(perfuracao),
+          eletricidade: Number(eletricidade),
+          fogo: Number(fogo),
+          frio: Number(frio),
+          quimica: Number(quimica),
+          mental: Number(mental),
+          morte: Number(morte),
+          conhecimento: Number(conhecimento),
+          sangue: Number(sangue),
+          energia: Number(energia),
+
+          inventario,
+          habilidades,
+          detalhes,
+          sessaoId: id
+
+        })
+
       } else if (monstro) {
-        setFichasNPCMonstro((prev) => [...prev, {
-          id: response.data.ficha.id,
-          sessaoId: response.data.ficha.sessaoId,
-          userId: response.data.ficha.userId,
-          npc: response.data.ficha.npc,
-          npcmonstro: response.data.ficha.npcmonstro,
-          npcprincipal: response.data.ficha.npcprincipal,
 
-          Atributos: [
-            response.data.atributos
-          ],
+        const response = await api.post(`fichas/npcmonstro/`, {
 
-          Defesas: [
-            response3.data
-          ],
+          nome,
+          nex: Number(nex),
 
-          Pericias: [
-            response2.data
-          ],
+          pvMax: Number(pv),
+          psMax: Number(ps),
+          peMax: Number(pe),
 
-          Principal: [
-            response.data.principal
-          ],
+          agi: Number(agi),
+          int: Number(int),
+          vig: Number(vig),
+          pre: Number(pre),
+          forca: Number(forca),
 
-          Status: [
-            response.data.status
-          ]
-        }])
-      } else if (principal) {
-        setFichasNPCPrincipal((prev) => [...prev, {
-          id: response.data.ficha.id,
-          sessaoId: response.data.ficha.sessaoId,
-          userId: response.data.ficha.userId,
-          npc: response.data.ficha.npc,
-          npcmonstro: response.data.ficha.npcmonstro,
-          npcprincipal: response.data.ficha.npcprincipal,
+          acrobacia: Number(acrobacia),
+          adestramento: Number(adestramento),
+          arte: Number(arte),
+          atletismo: Number(atletismo),
+          atualidade: Number(atualidade),
+          ciencia: Number(ciencia),
+          crime: Number(crime),
+          diplomacia: Number(diplomacia),
+          enganacao: Number(enganacao),
+          fortitude: Number(fortitude),
+          furtividade: Number(furtividade),
+          iniciativa: Number(iniciativa),
+          intimidacao: Number(intimidacao),
+          intuicao: Number(intuicao),
+          investigacao: Number(investigacao),
+          luta: Number(luta),
+          medicina: Number(medicina),
+          ocultismo: Number(ocultismo),
+          percepcao: Number(percepcao),
+          pilotagem: Number(pilotagem),
+          pontaria: Number(pontaria),
+          profissao: Number(profissao),
+          reflexo: Number(reflexo),
+          religiao: Number(religiao),
+          sobrevivencia: Number(sobrevivencia),
+          tatica: Number(tatica),
+          tecnologia: Number(tecnologia),
+          vontade: Number(vontade),
 
-          Atributos: [
-            response.data.atributos
-          ],
+          passiva: Number(passiva),
+          bloqueio: Number(bloqueio),
+          esquiva: Number(esquiva),
+          fisica: Number(fisica),
+          balistica: Number(balistica),
+          corte: Number(corte),
+          impacto: Number(impacto),
+          perfuracao: Number(perfuracao),
+          eletricidade: Number(eletricidade),
+          fogo: Number(fogo),
+          frio: Number(frio),
+          quimica: Number(quimica),
+          mental: Number(mental),
+          morte: Number(morte),
+          conhecimento: Number(conhecimento),
+          sangue: Number(sangue),
+          energia: Number(energia),
 
-          Defesas: [
-            response3.data
-          ],
+          inventario,
+          habilidades,
+          detalhes,
+          sessaoId: id
 
-          Pericias: [
-            response2.data
-          ],
-
-          Principal: [
-            response.data.principal
-          ],
-
-          Status: [
-            response.data.status
-          ]
-        }])
+        })
       }
 
       setModalAddIsOpenFalse()
 
     } catch (erro) {
+      console.log(erro)
       toast.error(erro.response.data.mensagem)
     }
 
@@ -359,11 +333,13 @@ export function ModalAdd({ setModalAddIsOpenFalse, setFichasNPC, setFichasNPCMon
         <Normal>
 
           <Input onlyNumber maxLength={2} label={'Vida Máxima (PV)'} valor={pv} setValor={setPv} />
-          <Input onlyNumber maxLength={2} label={'Sanidade Máxima (SAN)'} valor={ps} setValor={setPs} />
-          <Input onlyNumber maxLength={2} label={'Pontos de Esforço (PE)'} valor={pe} setValor={setPe} />
+          {!monstro && <>
+            <Input onlyNumber maxLength={2} label={'Sanidade Máxima (SAN)'} valor={ps} setValor={setPs} />
+            <Input onlyNumber maxLength={2} label={'Pontos de Esforço (PE)'} valor={pe} setValor={setPe} />
+          </>}
           <Grid>
             <Toggle classNumber={1} span={'Adicionar como Monstro?'} checked={monstro} onClick={() => { setPrincipal(false); setMonstro(!monstro) }} />
-            <Toggle classNumber={2} span={'Adicionar como Principal?'} checked={principal} onClick={() => { setMonstro(false); setPrincipal(!principal) }} />
+            {/* <Toggle classNumber={2} span={'Adicionar como Principal?'} checked={principal} onClick={() => { setMonstro(false); setPrincipal(!principal) }} /> */}
           </Grid>
 
         </Normal>
