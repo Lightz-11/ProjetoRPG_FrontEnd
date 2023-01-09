@@ -52,10 +52,15 @@ export function Item({ data, atualizar, itens }) {
 
   function handleSend() {
 
-    fichas.forEach(ficha => {
-      socket.emit("enviado.itemImg", { fichaId: ficha.id, imagem: data.imagem, sessaoId: id });
-      setImgAberta(true)
-    });
+    if (fichas.length > 0) {
+
+      fichas.forEach(ficha => {
+        socket.emit("enviado.itemImg", { fichaId: ficha.id, imagem: data.imagem, sessaoId: id });
+      });
+
+    } else {
+      socket.emit("enviado.itemImg", { imagem: data.imagem, sessaoId: id });
+    }
 
     setImgAberta(true)
 
