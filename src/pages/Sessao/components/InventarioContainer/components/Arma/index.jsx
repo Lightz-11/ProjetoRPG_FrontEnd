@@ -12,7 +12,7 @@ import { ModalEditArma } from '../ModalEditArma';
 import { Barrinha } from './Barrinha';
 import { useEffect } from 'react';
 import { api } from '../../../../../../services/api';
-import { useParams } from 'react-router';
+import { useParams } from 'react-router-dom';
 import { ModalDadoRolado } from '../../../../../../components/ModalDadoRolado';
 import { io } from 'socket.io-client';
 import { useFichas } from '../../../../../../hooks/useFichas';
