@@ -9,19 +9,20 @@ export const Container = styled("button", {
   alignItems: "center",
   transition: '0.2s',
   padding: '.2rem',
+  borderRadius: '5px',
 
   variants: {
     color: {
       red: {
-        border: '1px solid transparent',
+        border: '2px solid transparent',
         '&:hover': {
-          border: '1px solid #ae0808ff',
+          border: '2px solid #ae0808ff',
         }
       },
       aqua: {
-        border: '1px solid transparent',
+        border: '2px solid transparent',
         '&:hover': {
-          border: '1px solid #03d9ffff',
+          border: '2px solid #03d9ffff',
         }
       }
     }
