@@ -72,7 +72,7 @@ export function ModalEdit({ setModalClose, data, atualizar }) {
           <Input onlyNumber maxLength={2} label={'NEX'} valor={nex} setValor={setNex} />
         </DualParte>
         <DualParte>
-          <Select label={'Classe'} valor={classe} setValor={setClasse} defaultValor={data.classe} defaultValue={data.classe} >
+          <Select label={'Classe'} valor={classe} setValor={setClasse} defaultValor={classe} defaultValue={classe} >
             <option value="Mundano">Mundano</option>
             <option value="Combatente">Combatente</option>
             <option value="Especialista">Especialista</option>
@@ -115,7 +115,7 @@ export function ModalEdit({ setModalClose, data, atualizar }) {
         </DualParte>
 
         <DualParte>
-          <Select label={'Patente'} valor={patente} setValor={setPatente} defaultValue={data.patente} ><option value="Nenhuma">Nenhuma</option><option value="Recruta">Recruta</option><option value="Operador" >Operador</option><option value="Agente Especial" >Agente Especial</option><option value="Oficial de Operações" >Oficial de Operações</option><option value="Agente de Elite" >Agente de Elite</option>
+          <Select label={'Patente'} valor={patente} setValor={setPatente} defaultValor={patente} defaultValue={patente} ><option value="Nenhuma">Nenhuma</option><option value="Recruta">Recruta</option><option value="Operador" >Operador</option><option value="Agente Especial" >Agente Especial</option><option value="Oficial de Operações" >Oficial de Operações</option><option value="Agente de Elite" >Agente de Elite</option>
           </Select>
 
           <Input onlyNumber label={'PE / Rodada'} maxLength={2} valor={peprod} setValor={setPeprod} />

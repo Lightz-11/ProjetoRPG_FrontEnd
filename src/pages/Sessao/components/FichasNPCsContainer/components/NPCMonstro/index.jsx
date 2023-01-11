@@ -5,14 +5,14 @@ import { ModalDadoRolado } from '../../../../../../components/ModalDadoRolado';
 import { Modal } from '../../../../../../components/Modals/Modal';
 import { api } from '../../../../../../services/api';
 import { Barrinha } from '../Barrinha';
-import { ModalEditNPC } from '../ModalEditNPC';
+import { ModalEditMonstro } from '../ModalEditMonstro';
 import periciasmapper from '../periciasmapper';
 import resistenciasmapper from '../resistenciasmapper';
 import { Container, Header, Select, Button, BodyContainerPrincipal, BodyContainerOutros, Card, TextArea, BodyContainerStatus, FlexStatus, Status, BodyContainerDados, Pericia } from './styles';
 
-export function NPC({ data }) {
+export function NPCMonstro({ data }) {
 
-  const [body, setBody] = useState('status')
+  const [body, setBody] = useState('principal')
 
   const [modalDadoRoladoIsOpen, setModalDadoRoladoIsOpen] = useState(false)
   const [modalEditIsOpen, setModalEditIsOpen] = useState(false)
@@ -26,12 +26,6 @@ export function NPC({ data }) {
   const [pv, setPv] = useState(data.pv)
   const [pvMax, setPvMax] = useState(data.pvMax)
 
-  const [ps, setPs] = useState(data.ps)
-  const [psMax, setPsMax] = useState(data.psMax)
-
-  const [pe, setPe] = useState(data.pe)
-  const [peMax, setPeMax] = useState(data.peMax)
-
   const [defesas, setDefesas] = useState([])
   const [res, setRes] = useState([])
   const [pericias, setPericias] = useState([])
@@ -40,16 +34,10 @@ export function NPC({ data }) {
 
     try {
 
-      const response = await api.put(`/fichas/npc/status/${data.id}`, {
+      const response = await api.put(`/fichas/npcmonstro/status/${data.id}`, {
         pv,
-        ps,
-        pe,
         pvMax,
-        psMax,
-        peMax
       })
-
-      console.log(response)
 
     } catch (e) { console.log(e) }
 
@@ -57,19 +45,15 @@ export function NPC({ data }) {
 
   useEffect(() => {
 
-    if (pv == data.pv && ps == data.ps && pe == data.pe && pvMax == data.pvMax && psMax == data.psMax && peMax == data.peMax) {
+    if (pv == data.pv && pvMax == data.pvMax) {
 
     } else {
 
-      if (pvMax != 1 && psMax != 1 && peMax != 1) {
-
-        handleEdit()
-
-      }
+      handleEdit()
 
     }
 
-  }, [pv, pvMax, ps, psMax, pe, peMax])
+  }, [pv, pvMax])
 
   useEffect(() => {
 
@@ -155,7 +139,7 @@ export function NPC({ data }) {
       </Modal>
 
       <Modal isOpen={modalEditIsOpen} setIsOpen={() => setModalEditIsOpen(false)}>
-        <ModalEditNPC setModalEditNPCOpenIsFalse={() => setModalEditIsOpen(false)} data={data} />
+        <ModalEditMonstro setModalEditNPCOpenIsFalse={() => setModalEditIsOpen(false)} data={data} />
       </Modal>
 
       <Header>
@@ -169,7 +153,6 @@ export function NPC({ data }) {
 
       <Select>
         <Button onClick={() => setBody('principal')} active={body == 'principal'}>Principal</Button>
-        <Button onClick={() => setBody('status')} active={body == 'status'}>Status</Button>
         <Button onClick={() => setBody('dados')} active={body == 'dados'}>Dados</Button>
         <Button onClick={() => setBody('outros')} active={body == 'outros'}>Outros</Button>
       </Select>
@@ -178,37 +161,9 @@ export function NPC({ data }) {
 
 
 
-      {body == 'principal' &&
+      {body == 'principal' && <>
 
         <BodyContainerPrincipal>
-
-          <Card>
-
-            <label>Nacionalidade:</label>
-            <span>{data.nacionalidade}</span>
-
-          </Card>
-
-          <Card>
-
-            <label>Idade:</label>
-            <span>{data.idade}</span>
-
-          </Card>
-
-          <Card>
-
-            <label>Origem:</label>
-            <span>{data.origem}</span>
-
-          </Card>
-
-          <Card>
-
-            <label>Deslocamento:</label>
-            <span>{data.deslocamento}</span>
-
-          </Card>
 
           <Card>
 
@@ -219,48 +174,18 @@ export function NPC({ data }) {
 
           <Card>
 
-            <label>Classe:</label>
-            <span>{data.classe}</span>
+            <label>Deslocamento:</label>
+            <span>{data.deslocamento}</span>
 
           </Card>
 
-          {(data.trilha != 'Nenhuma' || data.patente != 'Nenhuma') && <>
-
-            <Card>
-
-              <label>Trilha:</label>
-              <span>{data.trilha}</span>
-
-            </Card>
-
-            <Card>
-
-              <label>Patente:</label>
-              <span>{data.patente}</span>
-
-            </Card>
-
-          </>}
-
         </BodyContainerPrincipal>
-
-      }
-
-      {body == 'status' &&
 
         <BodyContainerStatus>
 
           <h3>Vida</h3>
 
           <Barrinha data={data} number={1} color={'red'} valorA={pv} setValorA={setPv} valorMax={pvMax} setValorMax={setPvMax} />
-
-          <h3>Sanidade</h3>
-
-          <Barrinha data={data} number={2} color={'aqua'} valorA={ps} setValorA={setPs} valorMax={psMax} setValorMax={setPsMax} />
-
-          <h3>Esforço</h3>
-
-          <Barrinha data={data} number={3} color={'yellow'} valorA={pe} setValorA={setPe} valorMax={peMax} setValorMax={setPeMax} />
 
           {defesas.length > 0 && <>
 
@@ -282,7 +207,7 @@ export function NPC({ data }) {
 
         </BodyContainerStatus>
 
-      }
+      </>}
 
       {body == 'dados' &&
 
@@ -326,8 +251,6 @@ export function NPC({ data }) {
           <h2>Detalhes</h2>
 
           <TextArea disabled={true} defaultValue={data.detalhes} />
-
-          <h3>Peso: {data.peso}</h3>
 
         </BodyContainerOutros>
 

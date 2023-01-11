@@ -338,8 +338,8 @@ export function ModalAdd({ setModalAddIsOpenFalse, setFichasNPC, setFichasNPCMon
             <Input onlyNumber maxLength={2} label={'Pontos de Esforço (PE)'} valor={pe} setValor={setPe} />
           </>}
           <Grid>
-            <Toggle classNumber={1} span={'Adicionar como Monstro?'} checked={monstro} onClick={() => { setPrincipal(false); setMonstro(!monstro) }} />
-            {/* <Toggle classNumber={2} span={'Adicionar como Principal?'} checked={principal} onClick={() => { setMonstro(false); setPrincipal(!principal) }} /> */}
+            <Toggle classNumber={1} span={'Adicionar como Monstro?'} checked={monstro} onChange={() => { setPrincipal(false); setMonstro(!monstro) }} />
+            {/* <Toggle classNumber={2} span={'Adicionar como Principal?'} checked={principal} onChange={() => { setMonstro(false); setPrincipal(!principal) }} /> */}
           </Grid>
 
         </Normal>

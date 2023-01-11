@@ -4,7 +4,7 @@ export const Container = styled('div', {
 
   border: '2px solid #ffffff90',
   borderRadius: '7px',
-  minHeight: '53rem'
+  minHeight: '50rem'
 
 })
 
@@ -150,13 +150,6 @@ export const BodyContainerOutros = styled('div', {
     marginBottom: '-1rem',
     marginTop: '1rem'
   },
-
-  h3: {
-    color: '#ffffff90',
-    fontSize: '1.8rem',
-    marginBottom: '.4rem',
-    marginTop: '.2rem'
-  }
 
 })
 
