@@ -121,12 +121,12 @@ export const Select = styled('div', {
 
 export const BodyContainerPrincipal = styled('div', {
 
-  display: 'grid',
   padding: '1rem',
   gap: '1rem',
-  alignContent: 'center',
-  justifyItems: 'center',
-  gridTemplateColumns: '1fr 1fr'
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexDirection: 'column'
 
 })
 
