@@ -4,7 +4,9 @@ export const Container = styled('div', {
 
   border: '2px solid #ffffff90',
   borderRadius: '7px',
-  minHeight: '53rem'
+  minHeight: '55rem',
+  fontFamily: 'El Messiri',
+  letterSpacing: '.1rem'
 
 })
 
@@ -18,7 +20,7 @@ export const Header = styled('div', {
 
   h1: {
 
-    fontSize: '1.8rem',
+    fontSize: '2rem',
     color: 'white',
     textTransform: 'capitalize'
 
@@ -186,13 +188,15 @@ export const Card = styled('div', {
   flexDirection: 'column',
 
   label: {
-    color: '#ffffff90'
+    color: '#ffffff90',
+    paddingLeft: '.5rem',
+    fontSize: '1.8rem'
   },
 
   span: {
     color: 'white',
     fontWeight: 700,
-    paddingLeft: '1rem',
+    paddingLeft: '1.5rem',
     textTransform: 'capitalize'
   }
 
@@ -201,8 +205,9 @@ export const Card = styled('div', {
 export const Button = styled('button', {
 
   background: 'none',
-  padding: '.3rem .5rem',
-  fontSize: '1.6rem',
+  padding: '0rem .5rem',
+  paddingTop: '.2rem',
+  fontSize: '1.8rem',
   border: '2px solid transparent',
   borderRadius: '5px',
   transition: '.3s',
