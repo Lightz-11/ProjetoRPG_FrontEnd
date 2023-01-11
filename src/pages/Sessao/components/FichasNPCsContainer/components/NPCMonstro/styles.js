@@ -4,7 +4,7 @@ export const Container = styled('div', {
 
   border: '2px solid #ffffff90',
   borderRadius: '7px',
-  minHeight: '50rem'
+  minHeight: '53rem'
 
 })
 

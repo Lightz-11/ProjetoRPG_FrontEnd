@@ -82,6 +82,7 @@ export function ModalAdd({ setModalAddIsOpenFalse, setFichasNPC, setFichasNPCMon
   const [energia, setEnergia] = useState(0)
 
   const [inventario, setInventario] = useState('')
+  const [ataques, setAtaques] = useState('')
   const [habilidades, setHabilidades] = useState('')
   const [detalhes, setDetalhes] = useState('')
 
@@ -166,12 +167,15 @@ export function ModalAdd({ setModalAddIsOpenFalse, setFichasNPC, setFichasNPCMon
           sangue: Number(sangue),
           energia: Number(energia),
 
+          ataques,
           inventario,
           habilidades,
           detalhes,
           sessaoId: id
 
         })
+
+        setFichasNPC((prev) => [...prev, response.data])
 
       } else if (monstro) {
 
@@ -235,12 +239,15 @@ export function ModalAdd({ setModalAddIsOpenFalse, setFichasNPC, setFichasNPCMon
           sangue: Number(sangue),
           energia: Number(energia),
 
-          inventario,
+          ataques,
           habilidades,
           detalhes,
           sessaoId: id
 
         })
+
+        setFichasNPCMonstro((prev) => [...prev, response.data])
+
       }
 
       setModalAddIsOpenFalse()
@@ -428,7 +435,8 @@ export function ModalAdd({ setModalAddIsOpenFalse, setFichasNPC, setFichasNPCMon
 
       {body == 'outros' && <>
 
-        <TextArea label={'Inventário'} valor={inventario} setValor={setInventario} />
+        {!monstro && <TextArea label={'Inventário'} valor={inventario} setValor={setInventario} />}
+        <TextArea label={'Ataques'} valor={ataques} setValor={setAtaques} />
         <TextArea label={'Habilidades'} valor={habilidades} setValor={setHabilidades} />
         <TextArea label={'Detalhes'} valor={detalhes} setValor={setDetalhes} />
 
