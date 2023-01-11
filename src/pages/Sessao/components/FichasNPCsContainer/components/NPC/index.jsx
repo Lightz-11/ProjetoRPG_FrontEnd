@@ -39,15 +39,17 @@ export function NPC({ data, lista, atualizar }) {
 
   async function handleDelete() {
 
-    try {
+    if (window.confirm('Tem certeza que deseja excluir este NPC? Uma vez deletado jamais poderá ser recuperado!'))
 
-      const listaAtt = lista.filter(npc => npc.id != data.id)
+      try {
 
-      atualizar(listaAtt)
+        const listaAtt = lista.filter(npc => npc.id != data.id)
 
-      await api.delete(`/fichas/npc/${data.id}`)
+        atualizar(listaAtt)
 
-    } catch (e) { }
+        await api.delete(`/fichas/npc/${data.id}`)
+
+      } catch (e) { }
 
   }
 
