@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { ButtonDelete } from '../../../../../../components/ButtonDelete';
 import { ButtonEdit } from '../../../../../../components/ButtonEdit';
 import { ModalDadoRolado } from '../../../../../../components/ModalDadoRolado';
 import { Modal } from '../../../../../../components/Modals/Modal';
@@ -10,7 +11,7 @@ import periciasmapper from '../periciasmapper';
 import resistenciasmapper from '../resistenciasmapper';
 import { Container, Header, Select, Button, BodyContainerPrincipal, BodyContainerOutros, Card, TextArea, BodyContainerStatus, FlexStatus, Status, BodyContainerDados, Pericia } from './styles';
 
-export function NPC({ data }) {
+export function NPC({ data, lista, atualizar }) {
 
   const [body, setBody] = useState('status')
 
@@ -35,6 +36,20 @@ export function NPC({ data }) {
   const [defesas, setDefesas] = useState([])
   const [res, setRes] = useState([])
   const [pericias, setPericias] = useState([])
+
+  async function handleDelete() {
+
+    try {
+
+      const listaAtt = lista.filter(npc => npc.id != data.id)
+
+      atualizar(listaAtt)
+
+      await api.delete(`/fichas/npc/${data.id}`)
+
+    } catch (e) { }
+
+  }
 
   async function handleEdit() {
 
@@ -160,6 +175,7 @@ export function NPC({ data }) {
 
       <Header>
 
+        <ButtonDelete size={20} onClick={handleDelete} />
         <h1>{data.nome}</h1>
         <ButtonEdit onClick={() => setModalEditIsOpen(true)} />
 
@@ -252,15 +268,15 @@ export function NPC({ data }) {
 
           <h3>Vida</h3>
 
-          <Barrinha data={data} number={1} color={'red'} valorA={pv} setValorA={setPv} valorMax={pvMax} setValorMax={setPvMax} />
+          <Barrinha data={data} barrinhaId={data.id} number={1} color={'red'} valorA={pv} setValorA={setPv} valorMax={pvMax} setValorMax={setPvMax} />
 
           <h3>Sanidade</h3>
 
-          <Barrinha data={data} number={2} color={'aqua'} valorA={ps} setValorA={setPs} valorMax={psMax} setValorMax={setPsMax} />
+          <Barrinha data={data} barrinhaId={data.id} number={2} color={'aqua'} valorA={ps} setValorA={setPs} valorMax={psMax} setValorMax={setPsMax} />
 
           <h3>Esforço</h3>
 
-          <Barrinha data={data} number={3} color={'yellow'} valorA={pe} setValorA={setPe} valorMax={peMax} setValorMax={setPeMax} />
+          <Barrinha data={data} barrinhaId={data.id} number={3} color={'yellow'} valorA={pe} setValorA={setPe} valorMax={peMax} setValorMax={setPeMax} />
 
           {defesas.length > 0 && <>
 

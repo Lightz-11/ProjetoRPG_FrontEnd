@@ -13,7 +13,7 @@ export const Header = styled('div', {
   padding: '.7rem 1rem',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',
+  justifyContent: 'space-between',
   position: 'relative',
 
   h1: {
@@ -23,11 +23,6 @@ export const Header = styled('div', {
     textTransform: 'capitalize'
 
   },
-
-  button: {
-    position: 'absolute',
-    right: 7
-  }
 
 })
 

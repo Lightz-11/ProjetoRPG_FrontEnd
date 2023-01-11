@@ -181,8 +181,6 @@ export function ModalAdd({ setModalAddIsOpenFalse, setFichasNPC, setFichasNPCMon
           nex: Number(nex),
 
           pvMax: Number(pv),
-          psMax: Number(ps),
-          peMax: Number(pe),
 
           agi: Number(agi),
           int: Number(int),

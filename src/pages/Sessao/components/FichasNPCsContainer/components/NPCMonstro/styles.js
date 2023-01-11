@@ -13,7 +13,7 @@ export const Header = styled('div', {
   padding: '.7rem 1rem',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',
+  justifyContent: 'space-between',
   position: 'relative',
 
   h1: {
@@ -23,11 +23,6 @@ export const Header = styled('div', {
     textTransform: 'capitalize'
 
   },
-
-  button: {
-    position: 'absolute',
-    right: 7
-  }
 
 })
 
@@ -238,5 +233,23 @@ export const TextArea = styled('textarea', {
   color: 'white',
   resize: 'vertical',
   fontFamily: 'El Messiri'
+
+})
+
+export const ButtonIcon = styled('button', {
+
+  background: "none",
+  width: 'fit-content',
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  transition: '0.2s',
+  padding: '.2rem',
+  borderRadius: '5px',
+  border: '2px solid transparent',
+
+  '&:hover': {
+    border: '2px solid #03d9ffff',
+  }
 
 })

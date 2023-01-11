@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import { api } from '../../../../../../services/api';
 import { useDisabled } from '../../../../../../hooks/useDisabled';
 
-export function Barrinha({ data, valorA, setValorA, setValorMax, valorMax, color, number, ...rest }) {
+export function Barrinha({ barrinhaId, data, valorA, setValorA, setValorMax, valorMax, color, number, ...rest }) {
 
   const { disabled } = useDisabled()
 
@@ -33,7 +33,7 @@ export function Barrinha({ data, valorA, setValorA, setValorMax, valorMax, color
 
     const porcent = ((valorA * multiply) / (valorMax * multiply)) * 100
 
-    const progress = document.getElementById(`progress${number}`)
+    const progress = document.getElementById(`progress${barrinhaId}${number}`)
 
     progress.style = `width: ${porcent}%`
 
@@ -116,7 +116,7 @@ export function Barrinha({ data, valorA, setValorA, setValorMax, valorMax, color
       <BarrinhaDiv>
 
         <ProgressBar>
-          <Progress id={`progress${number}`} color={color} />
+          <Progress id={`progress${barrinhaId}${number}`} color={color} />
         </ProgressBar>
 
       </BarrinhaDiv>

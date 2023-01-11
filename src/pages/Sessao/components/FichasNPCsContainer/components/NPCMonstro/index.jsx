@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { FaRegCopy } from 'react-icons/fa';
+import { ButtonDelete } from '../../../../../../components/ButtonDelete';
 import { ButtonEdit } from '../../../../../../components/ButtonEdit';
 import { ModalDadoRolado } from '../../../../../../components/ModalDadoRolado';
 import { Modal } from '../../../../../../components/Modals/Modal';
@@ -8,9 +10,9 @@ import { Barrinha } from '../Barrinha';
 import { ModalEditMonstro } from '../ModalEditMonstro';
 import periciasmapper from '../periciasmapper';
 import resistenciasmapper from '../resistenciasmapper';
-import { Container, Header, Select, Button, BodyContainerPrincipal, BodyContainerOutros, Card, TextArea, BodyContainerStatus, FlexStatus, Status, BodyContainerDados, Pericia } from './styles';
+import { Container, Header, Select, Button, BodyContainerPrincipal, BodyContainerOutros, Card, TextArea, BodyContainerStatus, FlexStatus, Status, BodyContainerDados, Pericia, ButtonIcon } from './styles';
 
-export function NPCMonstro({ data }) {
+export function NPCMonstro({ data, lista, atualizar }) {
 
   const [body, setBody] = useState('principal')
 
@@ -30,11 +32,102 @@ export function NPCMonstro({ data }) {
   const [res, setRes] = useState([])
   const [pericias, setPericias] = useState([])
 
+  async function handleDuplicate() {
+
+    try {
+
+      const response = await api.post(`/fichas/npcmonstro`, {
+
+        nome: data.nome,
+        nex: Number(data.nex),
+
+        pvMax: Number(pvMax),
+
+        agi: Number(data.agi),
+        int: Number(data.int),
+        vig: Number(data.vig),
+        pre: Number(data.pre),
+        forca: Number(data.for),
+
+        acrobacia: Number(data.acrobacia),
+        adestramento: Number(data.adestramento),
+        arte: Number(data.arte),
+        atletismo: Number(data.atletismo),
+        atualidade: Number(data.atualidade),
+        ciencia: Number(data.ciencia),
+        crime: Number(data.crime),
+        diplomacia: Number(data.diplomacia),
+        enganacao: Number(data.enganacao),
+        fortitude: Number(data.fortitude),
+        furtividade: Number(data.furtividade),
+        iniciativa: Number(data.iniciativa),
+        intimidacao: Number(data.intimidacao),
+        intuicao: Number(data.intuicao),
+        investigacao: Number(data.investigacao),
+        luta: Number(data.luta),
+        medicina: Number(data.medicina),
+        ocultismo: Number(data.ocultismo),
+        percepcao: Number(data.percepcao),
+        pilotagem: Number(data.pilotagem),
+        pontaria: Number(data.pontaria),
+        profissao: Number(data.profissao),
+        reflexo: Number(data.reflexo),
+        religiao: Number(data.religiao),
+        sobrevivencia: Number(data.sobrevivencia),
+        tatica: Number(data.tatica),
+        tecnologia: Number(data.tecnologia),
+        vontade: Number(data.vontade),
+
+        passiva: Number(data.passiva),
+        bloqueio: Number(data.bloqueio),
+        esquiva: Number(data.esquiva),
+        fisica: Number(data.fisica),
+        balistica: Number(data.balistica),
+        corte: Number(data.corte),
+        impacto: Number(data.impacto),
+        perfuracao: Number(data.perfuracao),
+        eletricidade: Number(data.eletricidade),
+        fogo: Number(data.fogo),
+        frio: Number(data.frio),
+        quimica: Number(data.quimica),
+        mental: Number(data.mental),
+        morte: Number(data.morte),
+        conhecimento: Number(data.conhecimento),
+        sangue: Number(data.sangue),
+        energia: Number(data.energia),
+
+        inventario: data.inventario,
+        habilidades: data.habilidades,
+        detalhes: data.detalhes,
+        sessaoId: data.sessaoId
+
+      })
+
+      atualizar((prev) => [...prev, response.data])
+
+    } catch (e) { console.log(e) }
+
+  }
+
+  async function handleDelete() {
+
+    try {
+
+      const listaAtt = lista.filter(npc => npc.id != data.id)
+
+      atualizar(listaAtt)
+
+      await api.delete(`/fichas/npcmonstro/${data.id}`)
+
+    } catch (e) { }
+
+  }
+
   async function handleEdit() {
 
     try {
 
-      const response = await api.put(`/fichas/npcmonstro/status/${data.id}`, {
+      await api.put(`/fichas/npcmonstro/status/${data.id}`, {
         pv,
         pvMax,
       })
@@ -144,6 +237,8 @@ export function NPCMonstro({ data }) {
 
       <Header>
 
+        {/* <ButtonIcon color={'aqua'} onClick={handleDuplicate} ><FaRegCopy size={20} color={'aqua'} /></ButtonIcon> */}
+        <ButtonDelete size={20} onClick={handleDelete} />
         <h1>{data.nome}</h1>
         <ButtonEdit onClick={() => setModalEditIsOpen(true)} />
 
@@ -185,7 +280,7 @@ export function NPCMonstro({ data }) {
 
           <h3>Vida</h3>
 
-          <Barrinha data={data} number={1} color={'red'} valorA={pv} setValorA={setPv} valorMax={pvMax} setValorMax={setPvMax} />
+          <Barrinha barrinhaId={data.id} data={data} number={1} color={'red'} valorA={pv} setValorA={setPv} valorMax={pvMax} setValorMax={setPvMax} />
 
           {defesas.length > 0 && <>
 

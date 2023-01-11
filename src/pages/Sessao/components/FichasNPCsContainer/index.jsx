@@ -45,9 +45,9 @@ export function FichasNPCsContainer({ npcs, npcsmonstros }) {
 
       <BodyContainer nulo={body == 'npcsprincipais' && fichasNPCPrincipal.length == 0 || body == 'npcs' && fichasNPC.length == 0 || body == 'monstros' && fichasNPCMonstro.length == 0}>
 
-        {body == 'npcs' && fichasNPC && fichasNPC.map(ficha => <NPC key={ficha.id} data={ficha} />)}
+        {body == 'npcs' && fichasNPC && fichasNPC.map(ficha => <NPC key={ficha.id} data={ficha} lista={fichasNPC} atualizar={setFichasNPC} />)}
 
-        {body == 'monstros' && fichasNPCMonstro && fichasNPCMonstro.map(ficha => <NPCMonstro key={ficha.id} data={ficha} />)}
+        {body == 'monstros' && fichasNPCMonstro && fichasNPCMonstro.map(ficha => <NPCMonstro key={ficha.id} data={ficha} lista={fichasNPCMonstro} atualizar={setFichasNPCMonstro} />)}
 
         {body == 'npcsprincipais' && fichasNPCPrincipal && fichasNPCPrincipal.map(ficha => ficha.id)}
 
