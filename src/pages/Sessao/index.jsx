@@ -75,9 +75,9 @@ export function Sessao() {
                         <DadosContainer />
                     </DoubleParteContainer>
 
-                    <FichasNPCsContainer npcs={fichasNPC} npcsmonstros={fichasNPCMonstros} />
-
                     <InventarioContainer />
+
+                    <FichasNPCsContainer npcs={fichasNPC} npcsmonstros={fichasNPCMonstros} />
 
                 </Body>
 
