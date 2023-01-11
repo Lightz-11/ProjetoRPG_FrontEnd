@@ -335,9 +335,9 @@ export function NPCMonstro({ data, lista, atualizar }) {
 
         <BodyContainerOutros>
 
-          <h2>Inventário</h2>
+          <h2>Ataques</h2>
 
-          <TextArea defaultValue={data.inventario} disabled={true} />
+          <TextArea defaultValue={data.ataques} disabled={true} />
 
           <h2>Habilidades</h2>
 

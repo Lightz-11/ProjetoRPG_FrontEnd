@@ -74,7 +74,7 @@ export function ModalEditMonstro({ setModalEditNPCOpenIsFalse, data }) {
   const [sangue, setSangue] = useState(data.sangue)
   const [energia, setEnergia] = useState(data.energia)
 
-  const [inventario, setInventario] = useState(data.inventario)
+  const [ataques, setAtaques] = useState(data.ataques)
   const [habilidades, setHabilidades] = useState(data.habilidades)
   const [detalhes, setDetalhes] = useState(data.detalhes)
 
@@ -144,7 +144,7 @@ export function ModalEditMonstro({ setModalEditNPCOpenIsFalse, data }) {
         sangue: Number(sangue),
         energia: Number(energia),
 
-        inventario,
+        ataques,
         habilidades,
         detalhes,
 
@@ -204,7 +204,7 @@ export function ModalEditMonstro({ setModalEditNPCOpenIsFalse, data }) {
       data.conhecimento = conhecimento
       data.sangue = sangue
       data.energia = energia
-      data.inventario = inventario
+      data.ataques = ataques
       data.habilidades = habilidades
       data.detalhes = detalhes
 
@@ -332,7 +332,7 @@ export function ModalEditMonstro({ setModalEditNPCOpenIsFalse, data }) {
 
       {body == 'outros' && <>
 
-        <TextArea label={'Inventário'} valor={inventario} setValor={setInventario} />
+        <TextArea label={'Ataques'} valor={ataques} setValor={setAtaques} />
         <TextArea label={'Habilidades'} valor={habilidades} setValor={setHabilidades} />
         <TextArea label={'Detalhes'} valor={detalhes} setValor={setDetalhes} />
 

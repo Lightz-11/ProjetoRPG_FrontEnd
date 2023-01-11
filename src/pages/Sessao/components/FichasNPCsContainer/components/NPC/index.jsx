@@ -335,6 +335,10 @@ export function NPC({ data, lista, atualizar }) {
 
           <TextArea defaultValue={data.inventario} disabled={true} />
 
+          <h2>Ataques</h2>
+
+          <TextArea defaultValue={data.ataques} disabled={true} />
+
           <h2>Habilidades</h2>
 
           <TextArea disabled={true} defaultValue={data.habilidades} />
