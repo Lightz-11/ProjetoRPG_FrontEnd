@@ -90,7 +90,7 @@ export function ModalAdd({ setModalAddIsOpenFalse, atualizar }) {
           <Input labelMenor label={'Execução'} valor={execucao} setValor={setExecucao} maxLength={20} />
           <Input labelMenor label={'Duração'} valor={duracao} setValor={setDuracao} maxLength={20} />
           <Input labelMenor label={'Alvo'} valor={alvo} setValor={setAlvo} maxLength={20} />
-          <Input labelMenor opcional label={'Resistência'} valor={resistencia} setValor={setResistencia} maxLength={20} />
+          <Input labelMenor opcional label={'Resistência'} valor={resistencia} setValor={setResistencia} />
           <Input labelMenor opcional label={'Normal'} valor={normal} setValor={setNormal} maxLength={20} />
           <Input labelMenor opcional label={'Discente'} valor={discente} setValor={setDiscente} maxLength={20} />
           <Input labelMenor opcional label={'Verdadeiro'} valor={verdadeiro} setValor={setVerdadeiro} maxLength={20} />
