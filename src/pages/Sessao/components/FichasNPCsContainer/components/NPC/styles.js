@@ -201,7 +201,6 @@ export const Card = styled('div', {
 
   span: {
     color: 'white',
-    fontWeight: 700,
     paddingLeft: '1.5rem',
     textTransform: 'capitalize'
   }
