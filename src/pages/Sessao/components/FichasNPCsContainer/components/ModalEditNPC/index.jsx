@@ -321,14 +321,6 @@ export function ModalEditNPC({ setModalEditNPCOpenIsFalse, data }) {
 
         </Grid>
 
-        <Normal>
-
-          <Input onlyNumber maxLength={2} label={'Vida Máxima (PV)'} valor={pv} setValor={setPv} />
-          <Input onlyNumber maxLength={2} label={'Sanidade Máxima (SAN)'} valor={ps} setValor={setPs} />
-          <Input onlyNumber maxLength={2} label={'Pontos de Esforço (PE)'} valor={pe} setValor={setPe} />
-
-        </Normal>
-
       </>}
 
       {body == 'atributos' && <>

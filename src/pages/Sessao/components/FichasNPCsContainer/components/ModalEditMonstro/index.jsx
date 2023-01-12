@@ -17,7 +17,7 @@ export function ModalEditMonstro({ setModalEditNPCOpenIsFalse, data }) {
   const [nex, setNex] = useState(data.nex)
   const [deslocamento, setDeslocamento] = useState(data.deslocamento)
 
-  const [pv, setPv] = useState(data.pv)
+  const [pv, setPv] = useState(data.pvMax)
 
   const [agi, setAgi] = useState(data.agi)
   const [int, setInt] = useState(data.int)
@@ -85,7 +85,6 @@ export function ModalEditMonstro({ setModalEditNPCOpenIsFalse, data }) {
       const response = await api.put(`/fichas/npcmonstro/${data.id}`, {
 
         nome,
-        idade: Number(idade),
         deslocamento: Number(deslocamento),
         nex: Number(nex),
 
@@ -153,7 +152,7 @@ export function ModalEditMonstro({ setModalEditNPCOpenIsFalse, data }) {
       data.nome = nome
       data.nex = nex
       data.deslocamento = deslocamento
-      data.pv = pv
+      data.pvMax = pv
       data.agi = agi
       data.int = int
       data.vig = vig
@@ -211,6 +210,7 @@ export function ModalEditMonstro({ setModalEditNPCOpenIsFalse, data }) {
       setModalEditNPCOpenIsFalse()
 
     } catch (erro) {
+      console.log(erro)
       toast.error(erro.response.data.mensagem)
     }
 

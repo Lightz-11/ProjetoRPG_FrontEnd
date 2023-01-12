@@ -130,8 +130,8 @@ export function NPCMonstro({ data, lista, atualizar }) {
     try {
 
       await api.put(`/fichas/npcmonstro/status/${data.id}`, {
-        pv,
-        pvMax,
+        pv: Number(pv),
+        pvMax: Number(pvMax),
       })
 
     } catch (e) { console.log(e) }
@@ -149,6 +149,17 @@ export function NPCMonstro({ data, lista, atualizar }) {
     }
 
   }, [pv, pvMax])
+
+  useEffect(() => {
+
+    if (pv > data.pvMax) {
+      setPv(data.pvMax)
+      setPvMax(data.pvMax)
+    } else {
+      setPvMax(data.pvMax)
+    }
+
+  }, [data.pv, data.pvMax])
 
   useEffect(() => {
 
@@ -224,7 +235,7 @@ export function NPCMonstro({ data, lista, atualizar }) {
     setRes(varRes)
     setPericias(varPericias)
 
-  }, [])
+  }, [data.acrobacia, data.adestramento, data.arte, data.atletismo, data.atualidade, data.ciencia, data.crime, data.diplomacia, data.enganacao, data.fortitude, data.furtividade, data.iniciativa, data.intimidacao, data.intuicao, data.investigacao, data.luta, data.medicina, data.ocultismo, data.percepcao, data.pilotagem, data.pontaria, data.profissao, data.reflexo, data.religiao, data.sobrevivencia, data.tatica, data.tecnologia, data.vontade, data.passiva, data.bloqueio, data.esquiva, data.fisica, data.balistica, data.corte, data.impacto, data.perfuracao, data.eletricidade, data.fogo, data.frio, data.quimica, data.mental, data.morte, data.conhecimento, data.sangue, data.energia])
 
   return (
     <Container>

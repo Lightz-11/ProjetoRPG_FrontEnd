@@ -184,7 +184,6 @@ export const Card = styled('div', {
   justifyContent: 'center',
   border: '1px solid white',
   padding: '.5rem',
-  gap: '.5rem',
   flexDirection: 'column',
 
   label: {
@@ -208,6 +207,7 @@ export const Button = styled('button', {
   padding: '0rem .5rem',
   paddingTop: '.2rem',
   fontSize: '1.8rem',
+  fontFamily: 'El Messiri',
   border: '2px solid transparent',
   borderRadius: '5px',
   transition: '.3s',

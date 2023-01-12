@@ -40,6 +40,8 @@ export function Sessao() {
                     window.location.href = "/"
                 }
 
+                response.data.Fichas.sort((a, b) => a.Principal[0].nome.localeCompare(b.Principal[0].nome))
+
                 setFichas(response.data.Fichas)
                 setFichasNPC(response.data.FichasNPC)
                 setFichasNPCMonstros(response.data.Monstros)
