@@ -234,6 +234,7 @@ export function StatusContainer({ status, defesasData, portraitData }) {
   }
 
   function setarPeMax(newPeMax) {
+    socket.emit("status.peMax", { fichaId: id, newPeMax });
     setPeMax(newPeMax)
   }
 

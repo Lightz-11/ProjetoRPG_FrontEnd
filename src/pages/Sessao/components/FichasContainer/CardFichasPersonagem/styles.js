@@ -4,7 +4,7 @@ import { styled } from "../../../../../stitches.config";
 export const Container = styled("div", {
     maxWidth: "100%",
     minWidth: "25rem",
-    height: "30rem",
+    minHeight: "30rem",
     border: "2px solid #ffffff90",
 });
 
@@ -47,7 +47,14 @@ export const TopBody = styled("div", {
 export const BottomBody = styled("div", {
 
     padding: '1rem',
-    color: 'white'
+    color: 'white',
+
+    h2: {
+        width: '100%',
+        textAlign: 'center',
+        fontSize: '1.8rem',
+        fontFamily: 'El Messiri'
+    }
 
 });
 
