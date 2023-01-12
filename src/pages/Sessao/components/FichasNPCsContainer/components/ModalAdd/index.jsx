@@ -222,8 +222,6 @@ export function ModalAdd({ setModalAddIsOpenFalse, setFichasNPC, setFichasNPCMon
           vontade: Number(vontade),
 
           passiva: Number(passiva),
-          bloqueio: Number(bloqueio),
-          esquiva: Number(esquiva),
           fisica: Number(fisica),
           balistica: Number(balistica),
           corte: Number(corte),
@@ -398,8 +396,10 @@ export function ModalAdd({ setModalAddIsOpenFalse, setFichasNPC, setFichasNPCMon
         <Grid2>
 
           <Input maxLength={2} padding={'low'} onlyNumber label={'Passiva'} valor={passiva} setValor={setPassiva} />
-          <Input maxLength={2} padding={'low'} onlyNumber label={'Esquiva'} valor={esquiva} setValor={setEsquiva} />
-          <Input maxLength={2} padding={'low'} onlyNumber label={'Bloqueio'} valor={bloqueio} setValor={setBloqueio} />
+          {!monstro && <>
+            <Input maxLength={2} padding={'low'} onlyNumber label={'Esquiva'} valor={esquiva} setValor={setEsquiva} />
+            <Input maxLength={2} padding={'low'} onlyNumber label={'Bloqueio'} valor={bloqueio} setValor={setBloqueio} />
+          </>}
 
         </Grid2>
 

@@ -55,8 +55,6 @@ export function ModalEditMonstro({ setModalEditNPCOpenIsFalse, data }) {
   const [vontade, setVontade] = useState(data.vontade)
 
   const [passiva, setPassiva] = useState(data.passiva)
-  const [bloqueio, setBloqueio] = useState(data.bloqueio)
-  const [esquiva, setEsquiva] = useState(data.esquiva)
 
   const [fisica, setFisica] = useState(data.fisica)
   const [balistica, setBalistica] = useState(data.balistica)
@@ -126,8 +124,6 @@ export function ModalEditMonstro({ setModalEditNPCOpenIsFalse, data }) {
         vontade: Number(vontade),
 
         passiva: Number(passiva),
-        bloqueio: Number(bloqueio),
-        esquiva: Number(esquiva),
         fisica: Number(fisica),
         balistica: Number(balistica),
         corte: Number(corte),
@@ -187,8 +183,6 @@ export function ModalEditMonstro({ setModalEditNPCOpenIsFalse, data }) {
       data.tecnologia = tecnologia
       data.vontade = vontade
       data.passiva = passiva
-      data.bloqueio = bloqueio
-      data.esquiva = esquiva
       data.fisica = fisica
       data.balistica = balistica
       data.corte = corte
@@ -295,8 +289,6 @@ export function ModalEditMonstro({ setModalEditNPCOpenIsFalse, data }) {
         <Grid2>
 
           <Input maxLength={2} padding={'low'} onlyNumber label={'Passiva'} valor={passiva} setValor={setPassiva} />
-          <Input maxLength={2} padding={'low'} onlyNumber label={'Esquiva'} valor={esquiva} setValor={setEsquiva} />
-          <Input maxLength={2} padding={'low'} onlyNumber label={'Bloqueio'} valor={bloqueio} setValor={setBloqueio} />
 
         </Grid2>
 
