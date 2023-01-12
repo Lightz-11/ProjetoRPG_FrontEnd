@@ -8,33 +8,14 @@ import { BiTrashAlt } from "react-icons/bi"
 import { useParams } from 'react-router-dom';
 import { Anotacao } from './Anotacao';
 
-export function AnotacoesContainer() {
+export function AnotacoesContainer({ data }) {
 
-  const [anotacoes, setAnotacoes] = useState([])
+  const [anotacoes, setAnotacoes] = useState(data && data)
   const [anotacaoEscolhida, setAnotacaoEscolhida] = useState(null)
 
   const [buttonActive, setButtonActive] = useState(-1)
 
   const { id } = useParams();
-
-  useEffect(() => {
-
-    async function fetchData() {
-
-      try {
-
-        const response = await api.get(`/sessoes/anotacao/${id}`);
-
-        setAnotacoes(response.data)
-
-      } catch (erro) {
-        console.log(erro.data);
-      }
-    }
-
-    fetchData()
-
-  }, [])
 
   async function handleCreate() {
 

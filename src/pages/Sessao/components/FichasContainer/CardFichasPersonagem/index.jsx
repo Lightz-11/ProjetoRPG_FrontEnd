@@ -34,8 +34,6 @@ export function CardFichasPersonagem({ data }) {
     const [psMax, setPsMax] = useState(data.Status[0].psMax)
     const [peMax, setPeMax] = useState(data.Status[0].peMax)
 
-    console.log(data)
-
     useEffect(() => {
 
         setPesoA(0)

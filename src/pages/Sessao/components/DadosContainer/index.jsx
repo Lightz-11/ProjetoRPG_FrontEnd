@@ -11,30 +11,11 @@ import { ButtonIcon } from '../../../../components/ButtonIcon';
 import { ModalDadoRolado } from '../../../../components/ModalDadoRolado';
 import { useParams } from 'react-router-dom'
 
-export function DadosContainer() {
+export function DadosContainer({ data }) {
 
-  const [dados, setDados] = useState([])
+  const [dados, setDados] = useState(data && data)
   const [modalAddIsOpen, setModalAddIsOpen] = useState(false)
   const [modalDadoRoladoIsOpen, setModalDadoRoladoIsOpen] = useState(false)
-
-  const { id } = useParams();
-
-  useEffect(() => {
-
-    async function fetchData() {
-
-      try {
-
-        const response = await api.get(`/sessoes/dado/${id}`);
-
-        setDados(response.data)
-
-      } catch (erro) {
-        console.log(erro);
-      }
-    }
-    fetchData()
-  }, [])
 
   return (
     <Container>

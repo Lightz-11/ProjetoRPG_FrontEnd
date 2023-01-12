@@ -11,9 +11,9 @@ import { io } from 'socket.io-client';
 
 const socket = io(api.defaults.baseURL);
 
-export function IniciativasContainer() {
+export function IniciativasContainer({ data }) {
 
-  const [iniciativas, setIniciativas] = useState([])
+  const [iniciativas, setIniciativas] = useState(data && data)
   const [low, setLow] = useState(false)
   const [precisaSalvar, setPrecisaSalvar] = useState(false)
 
@@ -39,19 +39,6 @@ export function IniciativasContainer() {
       setLow(false)
     }
 
-    async function fetchData() {
-
-      try {
-
-        const response = await api.get(`/sessoes/iniciativa/${id}`);
-
-        setIniciativas(response.data)
-
-      } catch (erro) {
-        console.log(erro.data);
-      }
-    }
-    fetchData()
   }, [])
 
   useEffect(() => {

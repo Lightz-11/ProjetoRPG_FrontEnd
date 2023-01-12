@@ -33,8 +33,14 @@ export const ButtonEdit = styled('button', {
 
 export const Button = styled('button', {
 
+  display: 'flex',
+  alignItems: 'center',
+  flexDirection: 'column',
+  justifyContent: 'center',
+
   h1: {
     width: 'min-content',
+
     fontSize: '2rem',
     marginTop: '.5rem',
     color: 'white',

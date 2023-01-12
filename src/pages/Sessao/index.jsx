@@ -20,6 +20,10 @@ export function Sessao() {
     const [fichasNPC, setFichasNPC] = useState([])
     const [fichasNPCMonstros, setFichasNPCMonstros] = useState([])
 
+    const [anotacoes, setAnotacoes] = useState([])
+    const [dados, setDados] = useState([])
+    const [iniciativas, setIniciativas] = useState([])
+
     const [isLoading, setIsLoading] = useState(true)
 
     const { id } = useParams()
@@ -45,6 +49,11 @@ export function Sessao() {
                 setFichas(response.data.Fichas)
                 setFichasNPC(response.data.FichasNPC)
                 setFichasNPCMonstros(response.data.Monstros)
+
+                setAnotacoes(response.data.Anotacoes)
+                setDados(response.data.Dados)
+                setIniciativas(response.data.Iniciativas)
+
                 setTitle(response.data.nome)
                 document.title = `Fichas RPG - ${response.data.nome}`
 
@@ -68,13 +77,13 @@ export function Sessao() {
                     <FichaContainer />
 
                     <DoubleParteContainer>
-                        <IniciativasContainer />
+                        <IniciativasContainer data={iniciativas} />
                         <UTContainer />
                     </DoubleParteContainer>
 
                     <DoubleParteContainer>
-                        <AnotacoesContainer />
-                        <DadosContainer />
+                        <AnotacoesContainer data={anotacoes} />
+                        <DadosContainer data={dados} />
                     </DoubleParteContainer>
 
                     <InventarioContainer />
