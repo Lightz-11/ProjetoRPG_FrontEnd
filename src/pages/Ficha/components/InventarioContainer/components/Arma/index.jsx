@@ -113,12 +113,12 @@ export function Arma({ data, atualizar, armas, setPesoAtual }) {
       </Modal>
 
       <Header>
-        <ButtonIcon disabled={disabled} onClick={() => setMostrarComoItem(!mostrarComoItem)} color={'aqua'}><BiInfoCircle size={22} color={'aqua'} /></ButtonIcon>
+        <ButtonIcon onClick={() => setMostrarComoItem(!mostrarComoItem)} color={'aqua'}><BiInfoCircle size={22} color={'aqua'} /></ButtonIcon>
         <h1>{data.nome}</h1>
         {mostrarComoItem == false ?
           <ButtonEdit onClick={() => setModalEditArmaIsOpen(true)} />
           :
-          <ButtonIcon color={'aqua'} onClick={handleSend} ><MdOutlineSendToMobile size={22} color={'aqua'} /></ButtonIcon>
+          <ButtonIcon disabled={disabled} color={'aqua'} onClick={handleSend} ><MdOutlineSendToMobile size={22} color={'aqua'} /></ButtonIcon>
         }
       </Header>
 

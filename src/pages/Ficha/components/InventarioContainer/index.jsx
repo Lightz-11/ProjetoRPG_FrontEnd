@@ -13,6 +13,7 @@ import { api } from '../../../../services/api';
 import { ButtonAdd } from '../../../../components/ButtonAdd';
 import { io } from 'socket.io-client';
 import { toast } from 'react-toastify';
+import { useDisabled } from '../../../../hooks/useDisabled';
 
 const socket = io(api.defaults.baseURL);
 
@@ -32,6 +33,8 @@ export function InventarioContainer({ armasData, itensData, peso }) {
   const [fichaIdAEnviar, setFichaAEnviar] = useState('')
 
   const { fichas } = useFichas()
+
+  const { disabled } = useDisabled()
 
   const { id } = useParams()
 
@@ -201,7 +204,7 @@ export function InventarioContainer({ armasData, itensData, peso }) {
 
             <Column>
               <span>Item</span>
-              <select onChange={(e) => setItemAEnviar(e.target.value)}>
+              <select disabled={disabled} onChange={(e) => setItemAEnviar(e.target.value)}>
                 <Option value={null}>Nenhum</Option>
                 {armas.map(arma => <Option key={arma.id} value={arma.id}>{arma.nome}</Option>)}
                 {itens.map(item => <Option key={item.id} value={item.id}>{item.nome}</Option>)}
@@ -210,7 +213,7 @@ export function InventarioContainer({ armasData, itensData, peso }) {
 
             <Column>
               <span>Ficha</span>
-              <select onChange={(e) => setFichaAEnviar(e.target.value)}>
+              <select disabled={disabled} onChange={(e) => setFichaAEnviar(e.target.value)}>
                 <Option value={null}>Nenhuma</Option>
                 {fichas.map(ficha => <Option key={ficha.id} value={ficha.id}>{ficha.Principal[0].nome}</Option>)}
               </select>
@@ -218,7 +221,7 @@ export function InventarioContainer({ armasData, itensData, peso }) {
 
           </Row>
 
-          <Button onClick={enviarInventario}>Enviar</Button>
+          <Button disabled={disabled} onClick={enviarInventario}>Enviar</Button>
 
         </Footer>}
 
