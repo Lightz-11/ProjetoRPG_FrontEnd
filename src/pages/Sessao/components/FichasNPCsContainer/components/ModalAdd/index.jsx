@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { Input } from '../../../../../../components';
 import { Select } from '../../../../../../components';
-import { Container, Footer, Button, SelectDiv, ButtonSelect, Grid, Grid2, Normal } from './styles';
+import { Container, Footer, Button, SelectDiv, ButtonSelect, Grid, Grid2, Normal, Grid3 } from './styles';
 import { toast } from 'react-toastify'
 import { api } from '../../../../../../services/api';
 import { useParams } from 'react-router-dom';
 import { AtributoInput } from '../../../../../../components/AtributoInput';
 import { TextArea } from '../../../../../../components/TextArea';
 import { Toggle } from '../../../../../../components/Toggle';
+import origens from '../../../../../CriarFicha/origens';
 
 export function ModalAdd({ setModalAddIsOpenFalse, setFichasNPC, setFichasNPCMonstro, setFichasNPCPrincipal }) {
 
@@ -246,9 +247,56 @@ export function ModalAdd({ setModalAddIsOpenFalse, setFichasNPC, setFichasNPCMon
 
         setFichasNPCMonstro((prev) => [...prev, response.data])
 
-      }
+      } else if (principal) {
 
-      setModalAddIsOpenFalse()
+
+        const response = await api.post(`/fichas/npcprincipal`, {
+          userId: dataUser.id,
+          sessaoId: id,
+
+          nome,
+          idade: Number(idade),
+          jogador: `${dataUser.nome} - Mestre`,
+          nacionalidade,
+          origem,
+          nex: Number(nex),
+          classe,
+          trilha,
+          patente,
+
+          agi: Number(agi),
+          int: Number(int),
+          vig: Number(vig),
+          pre: Number(pre),
+          forca: Number(forca),
+
+          pvMax: Number(pv),
+          sanMax: Number(ps),
+          peMax: Number(pe),
+        })
+
+        const origemAutomatico = origens(origem)
+
+        if (origemAutomatico != undefined) {
+
+          await api.put(`/fichas/pericias/${response.data.ficha.id}`, {
+            [origemAutomatico.pericia1]: 5,
+            [origemAutomatico.pericia2]: 5
+          })
+
+          await api.post(`/fichas/habilidade`, {
+            nome: origemAutomatico.nome,
+            descricao: origemAutomatico.desc,
+            fichaId: response.data.ficha.id
+          })
+
+        }
+
+        setFichasNPCPrincipal((prev) => [...prev, response.data])
+
+        setModalAddIsOpenFalse()
+
+      }
 
     } catch (erro) {
       console.log(erro)
@@ -340,10 +388,10 @@ export function ModalAdd({ setModalAddIsOpenFalse, setFichasNPC, setFichasNPCMon
             <Input onlyNumber maxLength={2} label={'Sanidade Máxima (SAN)'} valor={ps} setValor={setPs} />
             <Input onlyNumber maxLength={2} label={'Pontos de Esforço (PE)'} valor={pe} setValor={setPe} />
           </>}
-          <Grid>
+          <Grid3>
             <Toggle classNumber={1} span={'Adicionar como Monstro?'} checked={monstro} onChange={() => { setPrincipal(false); setMonstro(!monstro) }} />
-            {/* <Toggle classNumber={2} span={'Adicionar como Principal?'} checked={principal} onChange={() => { setMonstro(false); setPrincipal(!principal) }} /> */}
-          </Grid>
+            <Toggle classNumber={2} span={'Adicionar como Principal?'} checked={principal} onChange={() => { setMonstro(false); setPrincipal(!principal) }} />
+          </Grid3>
 
         </Normal>
 

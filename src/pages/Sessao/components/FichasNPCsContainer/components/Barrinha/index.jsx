@@ -19,11 +19,23 @@ export function Barrinha({ barrinhaId, data, valorA, setValorA, setValorMax, val
 
   useEffect(() => {
 
-    setClasse(data.classe)
-    setNex(data.nex)
+    if (data.Principal == undefined || data.Principal == null) {
 
-    setPre(data.pre)
-    setVig(data.vig)
+      setClasse(data.classe)
+      setNex(data.nex)
+
+      setPre(data.pre)
+      setVig(data.vig)
+
+    } else {
+
+      setClasse(data.Principal[0].classe)
+      setNex(data.Principal[0].nex)
+
+      setPre(data.Atributos[0].pre)
+      setVig(data.Atributos[0].vig)
+
+    }
 
   }, []);
 

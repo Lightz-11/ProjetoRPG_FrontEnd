@@ -12,10 +12,6 @@ export const Container = styled('div', {
     display: 'flex',
     flexDirection: 'column',
 
-    '@sm': {
-        width: '45rem'
-    },
-
     h1: {
         display: 'inline-block',
         marginBottom: '3.5rem',
@@ -31,7 +27,27 @@ export const Container = styled('div', {
         position: 'relative',
         alignItems: 'stretch',
         justifyContent: 'center'
-    }
+    },
+
+    '@sm': {
+        width: '100vw',
+        height: '100vh',
+
+        '.footer': {
+            top: '92%',
+            left: 0,
+            width: '100%',
+            height: 'fit-content',
+            position: 'absolute',
+            alignItems: 'stretch',
+            justifyContent: 'center'
+        },
+
+        hr: {
+            margin: '0 -2.5rem 1rem -2.5rem'
+        }
+
+    },
 
 })
 

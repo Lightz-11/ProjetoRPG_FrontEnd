@@ -55,6 +55,33 @@ export const Grid = styled('div', {
 
 })
 
+export const Grid3 = styled('div', {
+
+  width: '100%',
+  display: 'flex',
+  gridTemplateColumns: '1fr 1fr',
+  justifyContent: 'center',
+  alignItems: 'center',
+  gap: '1rem 2rem',
+
+  div: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  '@sm': {
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+
+    div: {
+      justifyContent: 'flex-start',
+    },
+
+  }
+
+})
+
 export const Grid2 = styled('div', {
 
   marginTop: '1rem',

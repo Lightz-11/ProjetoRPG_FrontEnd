@@ -8,8 +8,9 @@ import { api } from '../../../../services/api';
 import { useParams } from 'react-router-dom';
 import { NPC } from './components/NPC';
 import { NPCMonstro } from './components/NPCMonstro';
+import { NPCPrincipal } from './components/NPCPrincipal';
 
-export function FichasNPCsContainer({ npcs, npcsmonstros }) {
+export function FichasNPCsContainer({ npcs, npcsmonstros, npcsprincipais }) {
 
   const [modalAddIsOpen, setModalAddIsOpen] = useState(false)
 
@@ -17,7 +18,7 @@ export function FichasNPCsContainer({ npcs, npcsmonstros }) {
 
   const [fichasNPC, setFichasNPC] = useState(npcs)
   const [fichasNPCMonstro, setFichasNPCMonstro] = useState(npcsmonstros)
-  const [fichasNPCPrincipal, setFichasNPCPrincipal] = useState([])
+  const [fichasNPCPrincipal, setFichasNPCPrincipal] = useState(npcsprincipais)
 
   return (
     <Container>
@@ -38,7 +39,7 @@ export function FichasNPCsContainer({ npcs, npcsmonstros }) {
       <Select>
         <Button active={body == 'npcs'} onClick={() => setBody('npcs')}>NPCs</Button>
         <Button active={body == 'monstros'} onClick={() => setBody('monstros')}>Monstros</Button>
-        {/* <Button active={body == 'npcsprincipais'} onClick={() => setBody('npcsprincipais')}>NPCs Principais</Button> */}
+        <Button active={body == 'npcsprincipais'} onClick={() => setBody('npcsprincipais')}>NPCs Principais</Button>
       </Select>
 
       <hr />
@@ -49,7 +50,7 @@ export function FichasNPCsContainer({ npcs, npcsmonstros }) {
 
         {body == 'monstros' && fichasNPCMonstro && fichasNPCMonstro.map(ficha => <NPCMonstro key={ficha.id} data={ficha} lista={fichasNPCMonstro} atualizar={setFichasNPCMonstro} />)}
 
-        {body == 'npcsprincipais' && fichasNPCPrincipal && fichasNPCPrincipal.map(ficha => ficha.id)}
+        {body == 'npcsprincipais' && fichasNPCPrincipal && fichasNPCPrincipal.map(ficha => <NPCPrincipal key={ficha.id} data={ficha} lista={fichasNPCPrincipal} atualizar={setFichasNPCPrincipal} />)}
 
       </BodyContainer>
 

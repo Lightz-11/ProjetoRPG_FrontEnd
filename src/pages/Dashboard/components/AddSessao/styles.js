@@ -15,6 +15,7 @@ export const Container = styled('div', {
         margin: '0rem -1rem',
         borderColor: '#ffffff75'
     },
+
 })
 
 export const Header = styled('div', {

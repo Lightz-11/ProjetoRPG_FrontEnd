@@ -26,11 +26,27 @@ export const Container = styled('div', {
     },
 
     '.footer': {
-        flex: '20%',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+    },
+
+    '@sm': {
+        width: '100vw',
+        height: '100vh',
+
+        hr: {
+            margin: '0 -2.5rem'
+        },
+
+        '.footer': {
+            width: '100%',
+            position: 'absolute',
+            bottom: 10,
+            left: 0
+        }
     }
+
 })
 
 export const Button = styled('button', {

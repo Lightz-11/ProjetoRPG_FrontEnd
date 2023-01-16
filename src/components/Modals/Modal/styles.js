@@ -14,6 +14,11 @@ export const ContentContainer = styled("div", {
   padding: "2rem 5rem",
   overflowY: 'auto',
   overflowX: 'hidden',
+
+  '@sm': {
+    padding: 0
+  }
+
 });
 
 export const Content = styled(Dialog.Panel, {

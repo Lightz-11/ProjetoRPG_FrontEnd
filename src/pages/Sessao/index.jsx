@@ -19,6 +19,7 @@ export function Sessao() {
 
     const [fichasNPC, setFichasNPC] = useState([])
     const [fichasNPCMonstros, setFichasNPCMonstros] = useState([])
+    const [fichasNPCPrincipal, setFichasNPCPrincipal] = useState([])
 
     const [anotacoes, setAnotacoes] = useState([])
     const [dados, setDados] = useState([])
@@ -33,6 +34,9 @@ export function Sessao() {
 
         setTitle('Carregando...')
 
+        setFichas([])
+        setFichasNPCPrincipal([])
+
         async function fetchData() {
             try {
 
@@ -46,7 +50,14 @@ export function Sessao() {
 
                 response.data.Fichas.sort((a, b) => a.Principal[0].nome.localeCompare(b.Principal[0].nome))
 
-                setFichas(response.data.Fichas)
+                response.data.Fichas.forEach(ficha => {
+                    if (ficha.userId != dataUser.id) {
+                        setFichas((prev) => [...prev, ficha])
+                    } else {
+                        setFichasNPCPrincipal((prev) => [...prev, ficha])
+                    }
+                })
+
                 setFichasNPC(response.data.FichasNPC)
                 setFichasNPCMonstros(response.data.Monstros)
 
@@ -88,7 +99,7 @@ export function Sessao() {
 
                     <InventarioContainer />
 
-                    <FichasNPCsContainer npcs={fichasNPC} npcsmonstros={fichasNPCMonstros} />
+                    <FichasNPCsContainer npcs={fichasNPC} npcsmonstros={fichasNPCMonstros} npcsprincipais={fichasNPCPrincipal} />
 
                 </Body>
 

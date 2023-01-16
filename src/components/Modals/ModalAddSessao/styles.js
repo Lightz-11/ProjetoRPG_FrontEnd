@@ -5,6 +5,7 @@ export const Container = styled('div', {
     width: '65rem',
     height: '52.2rem',
     borderRadius: '1.2rem',
+    position: 'relative',
     backgroundColor: 'rgb(27,27,27)',
     boxShadow: 'rgba(255, 255, 255, 0.45) 0rem 0.5rem 1.5rem',
     padding: '3.5rem 2.5rem',
@@ -12,16 +13,13 @@ export const Container = styled('div', {
     display: 'flex',
     flexDirection: 'column',
 
-    '@sm': {
-        width: '45rem'
-    },
-
     h1: {
         display: 'inline-block',
         marginBottom: '3.5rem',
         fontSize: '3rem',
         color: '#a151b4',
     },
+
     hr: {
         marginBottom: '1rem'
     },
@@ -31,7 +29,27 @@ export const Container = styled('div', {
         position: 'relative',
         alignItems: 'stretch',
         justifyContent: 'center'
-    }
+    },
+
+    '@sm': {
+        width: '100vw',
+        height: '100vh',
+
+        '.footer': {
+            top: '92%',
+            left: 0,
+            width: '100%',
+            height: 'fit-content',
+            position: 'absolute',
+            alignItems: 'stretch',
+            justifyContent: 'center'
+        },
+
+        hr: {
+            margin: '0 -2.5rem 1rem -2.5rem'
+        }
+
+    },
 
 })
 

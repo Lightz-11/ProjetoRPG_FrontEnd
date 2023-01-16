@@ -13,7 +13,12 @@ export const Container = styled('div', {
   flexDirection: 'column',
 
   '@sm': {
-    width: '45rem'
+    width: '100vw',
+    height: '100vh',
+
+    hr: {
+      margin: '0 -2.5rem'
+    }
   },
 
   h1: {
@@ -27,7 +32,17 @@ export const Container = styled('div', {
 })
 
 export const Footer = styled('div', {
-  marginTop: '2rem'
+  marginTop: '2rem',
+
+  '@sm': {
+    position: 'absolute',
+    width: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    left: 0,
+    bottom: 10
+  }
 })
 
 export const Header = styled('div', {

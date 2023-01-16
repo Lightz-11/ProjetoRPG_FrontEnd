@@ -14,7 +14,12 @@ export const Container = styled('div', {
   fontFamily: 'Arvo',
 
   '@sm': {
-    width: '45rem'
+    width: '100vw',
+    height: '100vh',
+
+    hr: {
+      margin: '0 -2.5rem 1rem -2.5rem'
+    }
   },
 
   h1: {
@@ -31,6 +36,16 @@ export const Container = styled('div', {
 
 export const Footer = styled('div', {
   marginTop: '1.5rem',
+
+  '@sm': {
+    width: '100%',
+    position: 'absolute',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    left: 0,
+    bottom: 10
+  }
 })
 
 export const MiniFooter = styled('div', {

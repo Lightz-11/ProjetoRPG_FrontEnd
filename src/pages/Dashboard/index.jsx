@@ -79,9 +79,11 @@ export function Dashboard() {
         let fichasReal = []
 
         fichasResponse.data.forEach(ficha => {
-          if (ficha.npc != true) {
-            fichasReal.push(ficha)
-          }
+          response.data.forEach(sessao => {
+            if (ficha.userId != sessao.userId) {
+              fichasReal.push(ficha)
+            }
+          })
         });
 
         setFichas(fichasReal)
