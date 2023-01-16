@@ -41,6 +41,7 @@ export function Ficha() {
 
         setIsLoading(true)
         setTitle('Carregando...')
+        setFicha([])
 
         const response = await api.get(`/fichas/${id}`)
 
@@ -58,7 +59,12 @@ export function Ficha() {
           }
 
           const response3 = await api.get(`/fichas/sessao/${response2.data.id}`)
-          setFichas(response3.data)
+          response3.data.forEach(ficha => {
+            if (ficha.userId != response2.data.userId) {
+              setFichas((prev) => [...prev, ficha])
+            }
+          })
+
 
         } else {
           if (response.data.userId != dataUser.id) {
