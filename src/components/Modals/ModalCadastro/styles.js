@@ -33,16 +33,10 @@ export const Container = styled('div', {
 
     '@sm': {
         width: '100vw',
-        height: '100vh',
+        minHeight: '100vh',
 
         '.footer': {
-            width: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            position: 'absolute',
-            bottom: '1rem',
-            left: '0'
+
         },
 
         hr: {

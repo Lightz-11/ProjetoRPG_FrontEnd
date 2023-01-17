@@ -8,6 +8,14 @@ export const Container = styled('div', {
 
     '@sm': {
         marginLeft: '1.5rem'
+    },
+
+    variants: {
+        end: {
+            true: {
+                justifyContent: 'flex-end',
+            }
+        }
     }
 })
 

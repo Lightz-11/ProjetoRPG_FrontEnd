@@ -21,8 +21,10 @@ export const Container = styled('div', {
 
     '.toggles': {
         display: 'flex',
+        justifyContent: 'space-between',
+        width: '100%',
         flexDirection: 'row',
-        margin: '0.5rem -11rem 2rem 1rem'
+        margin: '0 0 2rem 0',
     },
 
     '.footer': {
@@ -33,17 +35,16 @@ export const Container = styled('div', {
 
     '@sm': {
         width: '100vw',
-        height: '100vh',
+        minHeight: '100vh',
 
         hr: {
             margin: '0 -2.5rem'
         },
+    },
 
-        '.footer': {
-            width: '100%',
-            position: 'absolute',
-            bottom: 10,
-            left: 0
+    '@md5': {
+        '.toggles': {
+            flexDirection: 'column'
         }
     }
 

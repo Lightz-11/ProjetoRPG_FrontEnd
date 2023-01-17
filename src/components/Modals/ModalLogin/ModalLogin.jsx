@@ -5,9 +5,12 @@ import "./styles";
 import { Button, Container } from "./styles";
 import { Input } from "../../Input";
 import { Toggle } from "../../Toggle";
+import { useEffect } from "react";
 
 export function ModalLogin({ setModalLoginClose }) {
   const { signIn } = useAuth();
+
+  const [end, setEnd] = useState(false)
 
   const [campo, setCampo] = useState("");
   const [senha, setSenha] = useState("");
@@ -51,6 +54,24 @@ export function ModalLogin({ setModalLoginClose }) {
     });
   }
 
+  useEffect(() => {
+
+    if (window.innerWidth < 420) {
+      setEnd(false)
+    } else {
+      setEnd(true)
+    }
+
+  }, [])
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth < 420) {
+      setEnd(false)
+    } else {
+      setEnd(true)
+    }
+  })
+
   return (
     <Container>
       <h1>Login</h1>
@@ -63,7 +84,7 @@ export function ModalLogin({ setModalLoginClose }) {
       <div className="toggles">
 
         <Toggle span={'Mostrar Senha'} classNumber={1} onClick={switchMostrarSenha} />
-        <Toggle span={'Manter Login'} classNumber={2} onClick={switchManterLogin} />
+        <Toggle end={end} span={'Manter Login'} classNumber={2} onClick={switchManterLogin} />
 
       </div>
 
