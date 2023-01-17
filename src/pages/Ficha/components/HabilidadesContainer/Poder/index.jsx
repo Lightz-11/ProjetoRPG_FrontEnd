@@ -40,7 +40,7 @@ export function Poder({ data, lista, atualizar }) {
 
         <Buttons>
 
-          <ButtonEdit onClick={() => setModalEditHabilidadeIsOpen(true)} />
+          <ButtonEdit onClick={() => setModalEditPoderIsOpen(true)} />
           <ButtonDelete onClick={handleDelete} />
 
         </Buttons>

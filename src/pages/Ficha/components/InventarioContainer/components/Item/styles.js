@@ -20,6 +20,8 @@ export const Header = styled('div', {
 
   h1: {
     color: 'purple',
+    wordBreak: 'break-word',
+    padding: '0 1rem',
     fontSize: '3rem',
     textAlign: 'center',
     textTransform: 'capitalize',

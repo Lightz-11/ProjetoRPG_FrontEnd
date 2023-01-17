@@ -12,7 +12,13 @@ export const Container = styled('div', {
     flexDirection: 'column',
 
     '@sm': {
-        width: '100%',
+        width: '100vw',
+        height: '100vh',
+        overflow: 'hidden',
+
+        hr: {
+            margin: '0rem -2.5rem'
+        }
     },
 
     h1: {
@@ -21,14 +27,29 @@ export const Container = styled('div', {
         fontSize: '3rem',
         color: '#a151b4',
     },
-    hr: {
-        marginBottom: '1rem'
-    },
 
 })
 
 export const Body = styled('div', {
     textAlign: 'left',
+
+    '@sm': {
+
+        overflowY: 'auto',
+        height: '80rem',
+        padding: '0 2rem 3rem 1rem'
+
+    }
+})
+
+export const Hr = styled('hr', {
+
+    borderColor: 'transparent',
+
+    '@sm': {
+        borderColor: 'white'
+    }
+
 })
 
 export const Header = styled('div', {
@@ -87,6 +108,11 @@ export const Button = styled('button', {
 
 export const Footer = styled('div', {
 
-    marginTop: '3rem'
+    marginTop: '3rem',
+
+    '@sm': {
+        marginTop: '1rem',
+        marginBottom: '-2.5rem'
+    }
 
 })

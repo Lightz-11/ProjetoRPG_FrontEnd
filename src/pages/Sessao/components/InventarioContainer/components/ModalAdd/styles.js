@@ -12,10 +12,15 @@ export const Container = styled('div', {
   flexDirection: 'column',
 
   '@sm': {
-    width: '100vw',
-    hr: {
-      margin: '0 -2.5rem 1rem -2.5rem'
-    }
+    width: '50rem',
+  },
+
+  '@sm2': {
+    width: '38rem'
+  },
+
+  '@md5': {
+    width: '30rem'
   },
 
   h1: {
@@ -45,7 +50,7 @@ export const CloseButton = styled('button', {
 
 export const Header = styled('div', {
   display: 'flex',
-  alignItems: 'baseline',
+  alignItems: 'center',
   justifyContent: 'space-between',
   marginBottom: '1rem',
   fontFamily: 'Arvo'

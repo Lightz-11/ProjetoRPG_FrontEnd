@@ -3,7 +3,6 @@ import { styled } from "../../../../../stitches.config"
 export const Container = styled('div', {
 
   width: '65rem',
-  height: '89rem',
   borderRadius: '1.2rem',
   backgroundColor: 'rgb(27,27,27)',
   boxShadow: 'rgba(255, 255, 255, 0.45) 0rem 0.5rem 1.5rem',
@@ -13,8 +12,13 @@ export const Container = styled('div', {
   flexDirection: 'column',
 
   '@sm': {
-    width: '45rem',
-    height: '115rem'
+    width: '100vw',
+    height: '100vh',
+    overflow: 'hidden',
+
+    hr: {
+      margin: '0 -2.5rem'
+    }
   },
 
   h1: {
@@ -43,6 +47,9 @@ export const Main = styled('div', {
 
   '@sm': {
     gridTemplateColumns: '1fr 1fr',
+    height: '80rem',
+    overflowY: 'auto',
+    padding: '1rem 2rem 2rem 1rem'
   }
 
 })
@@ -65,12 +72,6 @@ export const Button = styled('button', {
   fontFamily: 'Crimson Text',
   letterSpacing: '.1rem',
   cursor: 'pointer',
-
-  '@sm': {
-    width: '12rem',
-    height: '3.5rem',
-    fontSize: '2rem',
-  },
 
   variants: {
     color: {

@@ -3,7 +3,6 @@ import { styled } from '../../../../../../stitches.config';
 export const Container = styled('div', {
 
   width: '65rem',
-  height: '46rem',
   borderRadius: '1.2rem',
   backgroundColor: 'rgb(27,27,27)',
   boxShadow: 'rgba(255, 255, 255, 0.45) 0rem 0.5rem 1.5rem',
@@ -13,7 +12,12 @@ export const Container = styled('div', {
   flexDirection: 'column',
 
   '@sm': {
-    width: '45rem'
+    width: '100vw',
+    minHeight: '100vh',
+
+    hr: {
+      margin: '0 -2.5rem'
+    }
   },
 
   h1: {
@@ -22,9 +26,6 @@ export const Container = styled('div', {
     fontSize: '3rem',
     color: '#a151b4',
     fontFamily: 'Arvo'
-  },
-  hr: {
-    marginBottom: '1rem'
   },
 
 })

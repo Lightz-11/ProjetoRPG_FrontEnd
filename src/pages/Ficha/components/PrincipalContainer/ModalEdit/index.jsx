@@ -3,7 +3,7 @@ import { toast, ToastContainer } from "react-toastify";
 import { Input } from "../../../../../components";
 import { Select } from "../../../../../components/Select";
 import { api } from "../../../../../services/api";
-import { Container, Button, Body, Header, Footer, DualParte } from "./styles";
+import { Container, Button, Body, Header, Footer, DualParte, Hr } from "./styles";
 
 export function ModalEdit({ setModalClose, data, atualizar }) {
 
@@ -127,6 +127,8 @@ export function ModalEdit({ setModalClose, data, atualizar }) {
 
 
       </Body>
+
+      <Hr />
 
       <Footer>
 

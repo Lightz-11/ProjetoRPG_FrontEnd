@@ -12,7 +12,13 @@ export const Container = styled('div', {
   flexDirection: 'column',
 
   '@sm': {
-    width: '45rem'
+    width: '100vw',
+    height: '100vh',
+    overflow: 'hidden',
+
+    hr: {
+      margin: '0 -2.5rem'
+    }
   },
 
   h1: {
@@ -105,8 +111,36 @@ export const ButtonSelect = styled('button', {
 
 })
 
+export const Body = styled('div', {
+
+  '@sm': {
+
+    height: '80rem',
+    overflowY: 'auto',
+    overflowX: 'hidden',
+    padding: '0 2rem 2rem 1rem'
+
+  }
+
+})
+
+export const Hr = styled('hr', {
+
+  border: '1.5px solid transparent',
+
+  '@sm': {
+    borderColor: 'white',
+  }
+
+})
+
 export const Footer = styled('div', {
   marginTop: '3rem',
+
+  '@sm': {
+    marginTop: '1rem',
+    marginBottom: '-2.5rem'
+  }
 })
 
 export const Button = styled('button', {

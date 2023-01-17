@@ -9,10 +9,16 @@ export const Container = styled('div', {
   padding: '3.5rem 2.5rem',
   textAlign: 'center',
   display: 'flex',
+  position: 'relative',
   flexDirection: 'column',
 
   '@sm': {
-    width: '45rem'
+    width: '100vw',
+    height: '100vh',
+
+    hr: {
+      margin: '0 -2.5rem'
+    }
   },
 
   h1: {
@@ -36,6 +42,17 @@ export const Container = styled('div', {
 
 })
 
+export const HrFooter = styled('hr', {
+
+  borderColor: 'transparent',
+  margin: '0 -2.5rem',
+
+  '@sm': {
+    borderColor: 'white'
+  }
+
+})
+
 export const SelectDiv = styled('div', {
 
   display: 'flex',
@@ -51,7 +68,11 @@ export const Grid = styled('div', {
 
   display: 'grid',
   gridTemplateColumns: '1fr 1fr',
-  gap: '0 2rem'
+  gap: '0 2rem',
+
+  '@sm2': {
+    gridTemplateColumns: '1fr'
+  }
 
 })
 
@@ -70,7 +91,7 @@ export const Grid3 = styled('div', {
     justifyContent: 'center',
   },
 
-  '@sm': {
+  '@md2': {
     flexDirection: 'column',
     justifyContent: 'flex-start',
 
@@ -87,13 +108,29 @@ export const Grid2 = styled('div', {
   marginTop: '1rem',
   display: 'grid',
   gridTemplateColumns: '1fr 1fr 1fr',
-  gap: '1rem 3rem'
+  gap: '1rem 3rem',
+
+  '@md2': {
+    gridTemplateColumns: '1fr 1fr'
+  }
 
 })
 
 export const Normal = styled('div', {
 
 
+
+})
+
+export const Body = styled('div', {
+
+  '@sm': {
+
+    overflow: 'hidden auto',
+    maxHeight: '61rem',
+    padding: '0 2rem 3rem 1rem'
+
+  }
 
 })
 
@@ -134,6 +171,14 @@ export const ButtonSelect = styled('button', {
 
 export const Footer = styled('div', {
   marginTop: '3rem',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+
+  "@sm": {
+    marginTop: '1.3rem',
+    marginBottom: '-3rem',
+  }
 })
 
 export const Button = styled('button', {

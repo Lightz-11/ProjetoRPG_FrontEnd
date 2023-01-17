@@ -40,7 +40,7 @@ export function Proficiencia({ data, lista, atualizar }) {
 
         <Buttons>
 
-          <ButtonEdit onClick={() => setModalEditHabilidadeIsOpen(true)} />
+          <ButtonEdit onClick={() => setModalEditProficienciaIsOpen(true)} />
           <ButtonDelete onClick={handleDelete} />
 
         </Buttons>

@@ -14,7 +14,7 @@ export const Container = styled('div', {
 
   '@sm': {
     width: '100vw',
-    height: '100vh',
+    minHeight: '100vh',
 
     hr: {
       margin: '0 -2.5rem 1rem -2.5rem'
@@ -35,16 +35,15 @@ export const Container = styled('div', {
 })
 
 export const Footer = styled('div', {
+  top: '0rem',
   marginTop: '3rem',
+  marginBottom: '-2rem',
+  position: 'relative',
+  alignItems: 'stretch',
+  justifyContent: 'center',
 
-  "@sm": {
+  '@sm': {
     width: '100%',
-    position: 'absolute',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    bottom: 10,
-    left: 0
   }
 })
 

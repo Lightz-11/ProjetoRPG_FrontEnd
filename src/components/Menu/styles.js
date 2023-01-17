@@ -9,11 +9,10 @@ export const Container = styled("div", {
     overflow: "hidden",
 
     a: {
-        margin: '0 3.5rem',
-        paddingLeft: '2rem',
+        margin: '0 0',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'left',
     },
 
     img: {
@@ -53,6 +52,10 @@ export const Header = styled("div", {
     position: 'relative',
     background: 'rgb(15,15,15)',
     borderBottom: '2px solid white',
+
+    a: {
+        margin: '0 3.5rem'
+    },
 
     button: {
         color: "white",
@@ -255,9 +258,9 @@ export const ButtonLink = styled(Link, {
 
 export const Li = styled('li', {
 
-    margin: "5rem 0",
+    margin: "5rem auto",
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "left",
     alignItems: "center",
 
     '@md5': {

@@ -13,7 +13,12 @@ export const Container = styled('div', {
   flexDirection: 'column',
 
   '@sm': {
-    width: '45rem'
+    width: '100vw',
+    minHeight: '100vh',
+
+    hr: {
+      margin: '0 -2.5rem'
+    }
   },
 
   h1: {
@@ -23,16 +28,11 @@ export const Container = styled('div', {
     color: '#a151b4',
   },
 
-  hr: {
-    marginBottom: '1rem'
-  },
-
 })
 
 export const Footer = styled('div', {
 
-  position: 'relative',
-  top: '2rem'
+  marginTop: '3rem'
 
 })
 
@@ -45,9 +45,8 @@ export const Header = styled('div', {
 })
 
 export const Main = styled('div', {
-  marginTop: '-2rem',
+  marginTop: '-1rem',
   display: 'flex',
-  height: '310px',
   flexDirection: 'column',
 })
 
@@ -62,12 +61,6 @@ export const Button = styled('button', {
   fontFamily: 'Crimson Text',
   letterSpacing: '.1rem',
   cursor: 'pointer',
-
-  '@sm': {
-    width: '12rem',
-    height: '3.5rem',
-    fontSize: '2rem',
-  },
 
   variants: {
     color: {

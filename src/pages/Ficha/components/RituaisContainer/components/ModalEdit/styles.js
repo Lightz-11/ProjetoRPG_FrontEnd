@@ -3,7 +3,6 @@ import { styled } from "../../../../../../stitches.config"
 export const Container = styled('div', {
 
   width: '65rem',
-  height: '105rem',
   borderRadius: '1.2rem',
   backgroundColor: 'rgb(27,27,27)',
   boxShadow: 'rgba(255, 255, 255, 0.45) 0rem 0.5rem 1.5rem',
@@ -13,7 +12,9 @@ export const Container = styled('div', {
   flexDirection: 'column',
 
   '@sm': {
-    width: '45rem'
+    width: '100vw',
+    height: '100vh',
+    overflow: 'hidden'
   },
 
   h1: {
@@ -21,10 +22,6 @@ export const Container = styled('div', {
     marginBottom: '2rem',
     fontSize: '3rem',
     color: '#a151b4',
-  },
-
-  hr: {
-    marginTop: '1rem',
   },
 
 })
@@ -36,8 +33,36 @@ export const Header = styled('div', {
   fontFamily: 'Arvo'
 })
 
+export const Hr = styled('hr', {
+
+  '@sm': {
+    margin: '1rem -2.5rem 0 -2.5rem'
+  }
+
+})
+
+export const HrFooter = styled('hr', {
+
+  borderColor: 'transparent',
+
+  '@sm': {
+    borderColor: 'white',
+    margin: '0 -2.5rem'
+  }
+
+})
+
 export const Main = styled('div', {
-  height: '80rem'
+
+  '@sm': {
+    overflowY: 'auto',
+    padding: '0 2rem 4rem 1rem'
+  },
+
+  hr: {
+    marginTop: '1rem',
+  },
+
 })
 
 export const Main1 = styled('div', {
@@ -59,10 +84,8 @@ export const Main2 = styled('div', {
 })
 
 export const Footer = styled('div', {
-  top: '7rem',
-  position: 'relative',
-  alignItems: 'stretch',
-  justifyContent: 'center'
+  marginTop: '2.5rem',
+  marginBottom: '-1rem'
 })
 
 export const Button = styled('button', {

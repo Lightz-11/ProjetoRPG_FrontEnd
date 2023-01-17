@@ -4,6 +4,7 @@ import { api } from '../../../../../services/api';
 import { Container, Header, Main, Main1, Button, Footer } from './styles';
 import { toast, ToastContainer } from 'react-toastify'
 import { AtributoInput } from '../../../../../components/AtributoInput';
+import { AtributoInputMaior } from '../../../../../components/AtributoInputMaior';
 
 export function ModalAtributo({ data, atualizar, setModalAtributoIsOpenFalse }) {
 
@@ -48,7 +49,7 @@ export function ModalAtributo({ data, atualizar, setModalAtributoIsOpenFalse }) 
 
         <Main1>
 
-          <AtributoInput agi={agi} setAgi={setAgi} forca={forca} setFor={setForca} int={int} setInt={setInt} vig={vig} setVig={setVig} pre={pre} setPre={setPre} />
+          <AtributoInputMaior agi={agi} setAgi={setAgi} forca={forca} setFor={setForca} int={int} setInt={setInt} vig={vig} setVig={setVig} pre={pre} setPre={setPre} />
 
         </Main1>
 

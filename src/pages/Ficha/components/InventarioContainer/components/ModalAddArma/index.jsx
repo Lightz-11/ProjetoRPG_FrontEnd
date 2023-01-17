@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Input } from '../../../../../../components';
 import { TextArea } from '../../../../../../components/TextArea';
 import { api } from '../../../../../../services/api';
-import { Container, Header, Main, Main1, Main2, Main3, Button, Footer } from './styles';
+import { Container, Header, Main, Main1, Main2, Main3, Button, Footer, Hr } from './styles';
 
 export function ModalAddArma({ setModalAddArmaIsOpenFalse, atualizar, setPesoAtual }) {
 
@@ -62,7 +62,7 @@ export function ModalAddArma({ setModalAddArmaIsOpenFalse, atualizar, setPesoAtu
         <h1>Adicionar Arma</h1>
       </Header>
 
-      <hr />
+      <Hr />
 
       <Main>
 
@@ -94,6 +94,8 @@ export function ModalAddArma({ setModalAddArmaIsOpenFalse, atualizar, setPesoAtu
         </Main3>
 
       </Main>
+
+      <Hr />
 
       <Footer>
 

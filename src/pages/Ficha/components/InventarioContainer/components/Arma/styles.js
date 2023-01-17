@@ -16,8 +16,9 @@ export const Header = styled('div', {
   h1: {
     color: 'crimson',
     fontSize: '3rem',
+    wordBreak: 'break-word',
+    padding: '0 1rem',
     textAlign: 'center',
-    whiteSpace: 'nowrap',
     textTransform: 'capitalize',
     fontFamily: 'Permanent Marker',
     fontWeight: 100,

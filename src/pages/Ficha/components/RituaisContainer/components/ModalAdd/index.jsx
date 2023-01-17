@@ -5,7 +5,7 @@ import { Input } from '../../../../../../components';
 import { Select } from '../../../../../../components/Select';
 import { TextArea } from '../../../../../../components/TextArea';
 import { api } from '../../../../../../services/api';
-import { Container, Header, Main, Main1, Main2, Button, Footer } from './styles';
+import { Container, Header, Main, Main1, Main2, Button, Footer, Hr, HrFooter } from './styles';
 
 export function ModalAdd({ setModalAddIsOpenFalse, atualizar }) {
 
@@ -66,7 +66,7 @@ export function ModalAdd({ setModalAddIsOpenFalse, atualizar }) {
         <h1>Adicionar Ritual</h1>
       </Header>
 
-      <hr />
+      <Hr />
 
       <Main>
 
@@ -104,6 +104,8 @@ export function ModalAdd({ setModalAddIsOpenFalse, atualizar }) {
         </Main2>
 
       </Main>
+
+      <HrFooter />
 
       <Footer>
 

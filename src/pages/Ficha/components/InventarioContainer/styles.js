@@ -81,7 +81,12 @@ export const Row = styled('div', {
   alignItems: 'center',
   justifyContent: 'center',
   flexDirection: 'row',
-  gap: '5rem'
+  gap: '5rem',
+
+  '@md5': {
+    flexDirection: 'column',
+    gap: '2rem'
+  }
 })
 
 export const Column = styled('div', {

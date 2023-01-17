@@ -5,7 +5,8 @@ export const Container = styled("div", {
   height: "100vh",
   background: "rgb(20,20,20)",
   display: 'flex',
-  flexDirection: 'column'
+  flexDirection: 'column',
+  overflowX: 'hidden'
 });
 
 export const Body = styled("div", {
@@ -13,6 +14,7 @@ export const Body = styled("div", {
   marginTop: '7.3rem',
   width: '100%',
   padding: "3rem 2rem 1rem 2rem",
+  overflowX: 'hidden',
 
   hr: {
     borderColor: "#ffffff75",

@@ -47,7 +47,7 @@ export const ContainerInput = styled('div', {
 export const InputB = styled('input', {
     width: '100%',
     height: 'auto',
-    wordWrap: 'break-word',
+    wordWrap: 'break-all',
     fontSize: "2rem",
     padding: "1.5rem",
     background: "transparent",
@@ -70,6 +70,7 @@ export const LabelContainer = styled('label', {
 
     position: 'absolute',
     width: 'fit-content',
+    whiteSpace: 'nowrap',
     bottom: '18%',
     left: 15,
     zIndex: 1,

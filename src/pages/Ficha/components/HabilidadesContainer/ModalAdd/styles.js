@@ -2,9 +2,8 @@ import { styled } from "../../../../../stitches.config"
 
 export const Container = styled('div', {
 
-  width: '65rem',
-  height: '20rem',
   borderRadius: '1.2rem',
+  width: '65rem',
   backgroundColor: 'rgb(27,27,27)',
   boxShadow: 'rgba(255, 255, 255, 0.45) 0rem 0.5rem 1.5rem',
   padding: '3.5rem 2.5rem',
@@ -13,7 +12,15 @@ export const Container = styled('div', {
   flexDirection: 'column',
 
   '@sm': {
-    width: '45rem'
+    width: '50rem'
+  },
+
+  '@sm2': {
+    width: '38rem'
+  },
+
+  '@md5': {
+    width: '30rem'
   },
 
   h1: {
@@ -49,10 +56,12 @@ export const Header = styled('div', {
 
 export const Main = styled('div', {
   display: 'flex',
+  marginTop: '2rem',
+  flexWrap: 'wrap',
   alignItems: 'center',
   justifyContent: 'center',
-  paddingTop: '1.6rem',
-  gap: '5rem',
+  gridTemplateColumns: '1fr 1fr 1fr',
+  columnGap: '5rem',
 
   '@sm': {
     gap: '2rem'
@@ -60,8 +69,7 @@ export const Main = styled('div', {
 })
 
 export const Button = styled('button', {
-  width: '20rem',
-  padding: '.5rem',
+  padding: '.5rem 2rem',
   fontSize: '2.2rem',
   background: 'none',
   fontFamily: 'Crimson Text',

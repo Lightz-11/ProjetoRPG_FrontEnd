@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Input } from '../../../../../../components';
 import { TextArea } from '../../../../../../components/TextArea';
 import { api } from '../../../../../../services/api';
-import { Container, Header, Main, Main1, Main2, Main3, Button, Footer, ButtonDelete } from './styles';
+import { Container, Header, Main, Main1, Main2, Main3, Button, Footer, ButtonDelete, Hr, HrFooter } from './styles';
 import { BiTrashAlt } from 'react-icons/bi';
 import { useEffect } from 'react';
 
@@ -98,7 +98,7 @@ export function ModalEditArma({ data, setModalEditArmaIsOpenFalse, atualizar, ar
         <h1>Editar Arma</h1>
       </Header>
 
-      <hr />
+      <Hr />
 
       <Main>
 
@@ -131,6 +131,8 @@ export function ModalEditArma({ data, setModalEditArmaIsOpenFalse, atualizar, ar
         </Main3>
 
       </Main>
+
+      <HrFooter />
 
       <Footer>
 

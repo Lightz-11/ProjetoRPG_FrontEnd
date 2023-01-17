@@ -9,7 +9,6 @@ import { ModalDadoRolado } from '../../../../../../components/ModalDadoRolado';
 import { Modal } from '../../../../../../components/Modals/Modal';
 import { api } from '../../../../../../services/api';
 import { Barrinha } from '../Barrinha';
-import { ModalEditNPC } from '../ModalEditNPC';
 import periciasmapper from '../periciasmapper';
 import resistenciasmapper from '../resistenciasmapper';
 import { Container, Header, Select, Button, BodyContainerPrincipal, BodyContainerOutros, Card, TextArea, BodyContainerStatus, FlexStatus, Status, BodyContainerDados, Pericia, ButtonHeader, LinkButton } from './styles';
@@ -210,9 +209,9 @@ export function NPCPrincipal({ data, lista, atualizar }) {
         <ModalDadoRolado setModalEditIsOpenFalse={() => setModalDadoRoladoIsOpen(false)} data={dadoData} />
       </Modal>
 
-      <Modal isOpen={modalEditIsOpen} setIsOpen={() => setModalEditIsOpen(false)}>
-        <ModalEditNPC setModalEditNPCOpenIsFalse={() => setModalEditIsOpen(false)} data={data} />
-      </Modal>
+      {/* <Modal isOpen={modalEditIsOpen} setIsOpen={() => setModalEditIsOpen(false)}>
+        <ModalEditNPCPrincipal setModalEditNPCOpenIsFalse={() => setModalEditIsOpen(false)} data={data} />
+      </Modal> */}
 
       <Header>
 
@@ -227,7 +226,7 @@ export function NPCPrincipal({ data, lista, atualizar }) {
           <LinkButton to={`/sessao/ficha/${data.id}`}>
             <IoOpenOutline size={22} color="#1f55c2ff" />
           </LinkButton>
-          <ButtonEdit onClick={() => setModalEditIsOpen(true)} />
+          {/* <ButtonEdit onClick={() => setModalEditIsOpen(true)} /> */}
         </div>
 
       </Header>

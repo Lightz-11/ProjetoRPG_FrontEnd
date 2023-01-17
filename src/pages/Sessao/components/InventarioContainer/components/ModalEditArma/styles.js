@@ -32,6 +32,16 @@ export const Hr = styled('hr', {
   }
 })
 
+export const HrFooter = styled('hr', {
+
+  borderColor: 'transparent',
+
+  '@sm': {
+    margin: '0 -2.5rem',
+    borderColor: 'White'
+  }
+})
+
 export const Header = styled('div', {
   display: 'flex',
   alignItems: 'center',
@@ -44,8 +54,10 @@ export const Header = styled('div', {
 })
 
 export const Main = styled('div', {
-  overflow: 'hidden auto',
-  padding: '0 2rem 3rem 1rem'
+  '@sm': {
+    overflow: 'hidden auto',
+    padding: '0 2rem 3rem 1rem'
+  }
 })
 
 export const Main1 = styled('div', {

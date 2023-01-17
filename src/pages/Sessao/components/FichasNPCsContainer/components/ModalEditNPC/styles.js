@@ -12,7 +12,12 @@ export const Container = styled('div', {
   flexDirection: 'column',
 
   '@sm': {
-    width: '45rem'
+    width: '100vw',
+    height: '100vh',
+
+    hr: {
+      margin: '0 -2.5rem'
+    }
   },
 
   h1: {
@@ -47,11 +52,34 @@ export const SelectDiv = styled('div', {
 
 })
 
+export const HrFooter = styled('hr', {
+
+  borderColor: 'transparent',
+
+  '@sm': {
+    borderColor: 'white',
+  }
+
+})
+
+export const Body = styled('div', {
+
+  '@sm': {
+    height: '80rem',
+    overflow: 'hidden auto',
+    padding: '0 2rem 3rem 1rem'
+  }
+})
+
 export const Grid = styled('div', {
 
   display: 'grid',
   gridTemplateColumns: '1fr 1fr',
-  gap: '0 2rem'
+  gap: '0 2rem',
+
+  "@sm2": {
+    gridTemplateColumns: '1fr'
+  }
 
 })
 
@@ -60,7 +88,11 @@ export const Grid2 = styled('div', {
   marginTop: '1rem',
   display: 'grid',
   gridTemplateColumns: '1fr 1fr 1fr',
-  gap: '1rem 3rem'
+  gap: '1rem 3rem',
+
+  '@md2': {
+    gridTemplateColumns: '1fr 1fr'
+  }
 
 })
 
@@ -107,6 +139,11 @@ export const ButtonSelect = styled('button', {
 
 export const Footer = styled('div', {
   marginTop: '3rem',
+
+  '@sm': {
+    marginTop: '2rem',
+    marginBottom: '-2rem'
+  }
 })
 
 export const Button = styled('button', {

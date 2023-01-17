@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Input } from '../../../../../../components';
 import { api } from '../../../../../../services/api';
-import { Container, Header, Main, Main1, Button, Footer } from './styles';
+import { Container, Header, Main, Button, Footer, Hr } from './styles';
 import { toast, ToastContainer } from 'react-toastify'
 
 export function ModalPortrait({ data, atualizar, setModalPortraitIsOpenFalse }) {
@@ -47,16 +47,12 @@ export function ModalPortrait({ data, atualizar, setModalPortraitIsOpenFalse }) 
 
       <Main>
 
-        <Main1>
-
-          <Input opcional label={'Normal'} valor={normal} setValor={setNormal} />
-          <Input opcional label={'Ferido'} valor={ferido} setValor={setFerido} />
-          <Input opcional label={'Morrendo'} valor={morrendo} setValor={setMorrendo} />
-          <Input opcional label={'Insano'} valor={insano} setValor={setInsano} />
-          <Input opcional label={'Insano e Ferido'} valor={insanoeferido} setValor={setInsanoeferido} />
-          <Input opcional label={'Insano e Morrendo'} valor={insanoemorrendo} setValor={setInsanoemorrendo} />
-
-        </Main1>
+        <Input opcional label={'Normal'} valor={normal} setValor={setNormal} />
+        <Input opcional label={'Ferido'} valor={ferido} setValor={setFerido} />
+        <Input opcional label={'Morrendo'} valor={morrendo} setValor={setMorrendo} />
+        <Input opcional label={'Insano'} valor={insano} setValor={setInsano} />
+        <Input opcional label={'Insano e Ferido'} valor={insanoeferido} setValor={setInsanoeferido} />
+        <Input opcional label={'Insano e Morrendo'} valor={insanoemorrendo} setValor={setInsanoemorrendo} />
 
       </Main>
 
