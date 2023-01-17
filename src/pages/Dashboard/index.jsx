@@ -78,13 +78,21 @@ export function Dashboard() {
 
         let fichasReal = []
 
-        fichasResponse.data.forEach(ficha => {
-          response.data.forEach(sessao => {
-            if (ficha.userId != sessao.userId) {
-              fichasReal.push(ficha)
-            }
+        if (response.data.length > 0) {
+
+          fichasResponse.data.forEach(ficha => {
+            response.data.forEach(sessao => {
+              if (ficha.userId != sessao.userId) {
+                fichasReal.push(ficha)
+              }
+            })
+          });
+
+        } else {
+          fichasResponse.data.forEach(ficha => {
+            fichasReal.push(ficha)
           })
-        });
+        }
 
         setFichas(fichasReal)
 

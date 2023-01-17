@@ -48,6 +48,8 @@ export function Sessao() {
                     window.location.href = "/"
                 }
 
+                console.log(response.data.Fichas)
+
                 response.data.Fichas.sort((a, b) => a.Principal[0].nome.localeCompare(b.Principal[0].nome))
 
                 response.data.Fichas.forEach(ficha => {
