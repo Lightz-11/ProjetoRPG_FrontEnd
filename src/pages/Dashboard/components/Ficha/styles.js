@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { styled } from "../../../../stitches.config";
 
 export const Container = styled('div', {
@@ -41,21 +42,37 @@ export const Botoes = styled('div', {
     justifyContent: 'center',
     gap: '1rem',
 
+})
 
-    a: {
-        background: 'none',
-        textDecoration: 'none',
-        padding: '.3rem',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        border: 'solid 1px transparent',
-        transition: 'ease 0.3s'
-    },
+export const LinkButton = styled(Link, {
 
-    'a:hover': {
-        border: 'solid 1px aqua',
-    },
+    background: 'none',
+    textDecoration: 'none',
+    padding: '.3rem',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    transition: 'ease 0.3s',
+    border: 'solid 1px transparent',
+
+    variants: {
+        color: {
+            aqua: {
+                '&:hover': {
+                    border: 'solid 1px aqua',
+                },
+            },
+
+            teal: {
+                '&:hover': {
+                    border: 'solid 1px #00ffd0',
+                },
+            }
+        }
+    }
+
+
+
 
 })
 

@@ -1,7 +1,7 @@
-import { Container, Header, Desc, Footer, Botoes, Button, Grade, ParteGrade } from './styles'
+import { Container, Header, Desc, Footer, Botoes, Button, Grade, ParteGrade, LinkButton } from './styles'
 import { FaUserCircle } from 'react-icons/fa'
 import { BiTrashAlt } from 'react-icons/bi'
-import { BsEye, BsEyeSlash } from 'react-icons/bs'
+import { BsDownload, BsEye, BsEyeSlash } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import { api } from '../../../../services/api'
 import { useEffect, useState } from 'react'
@@ -56,7 +56,8 @@ export function Ficha({ data, atualizar, lista }) {
             <Header>
                 <h2>{data.Principal[0].nome} {data.sessaoId && ' - ' + sessao.nome}</h2>
                 <Botoes>
-                    <Link to={`/ficha/portrait/${data.id}`}><FaUserCircle size={20} color="#03d9ffff" /></Link>
+                    <LinkButton color={'aqua'} to={`/ficha/portrait/${data.id}`}><FaUserCircle size={20} color="#03d9ffff" /></LinkButton>
+                    <LinkButton color={'teal'} to={`/ficha/imagem/${data.id}`}><BsDownload size={20} color="#00ffd0" /></LinkButton>
                     <Button onClick={handleEdit} color={isPublic ? 'green' : 'crimson'}>{isPublic ? <BsEye size={20} color="#13ff72" /> : <BsEyeSlash size={20} color="crimson" />}</Button>
                     <Button onClick={handleDelete} color={'red'}><BiTrashAlt size={20} color='red' /></Button>
                 </Botoes>
