@@ -10,6 +10,7 @@ import { ToastContainer } from "react-toastify";
 import { useParams } from "react-router-dom";
 import { useTitle } from "../../hooks/useTitle";
 import { useFichas } from "../../hooks/useFichas";
+import { useFichasNPCSPrincipal } from "../../hooks/useFichasNPCSPrincipal";
 
 export function Sessao() {
 
@@ -17,9 +18,10 @@ export function Sessao() {
 
     const { setFichas } = useFichas()
 
+    const { setFichasNPCSPrincipal } = useFichasNPCSPrincipal()
+
     const [fichasNPC, setFichasNPC] = useState([])
     const [fichasNPCMonstros, setFichasNPCMonstros] = useState([])
-    const [fichasNPCPrincipal, setFichasNPCPrincipal] = useState([])
 
     const [anotacoes, setAnotacoes] = useState([])
     const [dados, setDados] = useState([])
@@ -35,7 +37,7 @@ export function Sessao() {
         setTitle('Carregando...')
 
         setFichas([])
-        setFichasNPCPrincipal([])
+        setFichasNPCSPrincipal([])
 
         async function fetchData() {
             try {
@@ -48,15 +50,13 @@ export function Sessao() {
                     window.location.href = "/"
                 }
 
-                console.log(response.data.Fichas)
-
                 response.data.Fichas.sort((a, b) => a.Principal[0].nome.localeCompare(b.Principal[0].nome))
 
                 response.data.Fichas.forEach(ficha => {
                     if (ficha.userId != dataUser.id) {
                         setFichas((prev) => [...prev, ficha])
                     } else {
-                        setFichasNPCPrincipal((prev) => [...prev, ficha])
+                        setFichasNPCSPrincipal((prev) => [...prev, ficha])
                     }
                 })
 
@@ -101,7 +101,7 @@ export function Sessao() {
 
                     <InventarioContainer />
 
-                    <FichasNPCsContainer npcs={fichasNPC} npcsmonstros={fichasNPCMonstros} npcsprincipais={fichasNPCPrincipal} />
+                    <FichasNPCsContainer npcs={fichasNPC} npcsmonstros={fichasNPCMonstros} />
 
                 </Body>
 

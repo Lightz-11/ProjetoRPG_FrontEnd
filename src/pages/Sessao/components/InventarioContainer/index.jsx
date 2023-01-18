@@ -12,6 +12,7 @@ import { useParams } from 'react-router-dom';
 import { api } from '../../../../services/api';
 import { toast, ToastContainer } from 'react-toastify';
 import { io } from 'socket.io-client';
+import { useFichasNPCSPrincipal } from '../../../../hooks/useFichasNPCSPrincipal';
 
 const socket = io(api.defaults.baseURL);
 
@@ -22,6 +23,7 @@ export function InventarioContainer() {
   const [armas, setArmas] = useState([])
 
   const { fichas } = useFichas()
+  const { fichasNPCSPrincipal } = useFichasNPCSPrincipal()
 
   const [modalAddIsOpen, setModalAddIsOpen] = useState(false)
   const [modalAddItemIsOpen, setModalAddItemIsOpen] = useState(false)
@@ -240,6 +242,7 @@ export function InventarioContainer() {
               <select onChange={(e) => setFichaAEnviar(e.target.value)}>
                 <Option value={null}>Nenhuma</Option>
                 {fichas.map(ficha => <Option key={ficha.id} value={ficha.id}>{ficha.Principal[0].nome}</Option>)}
+                {fichasNPCSPrincipal.map(ficha => <Option key={ficha.id} value={ficha.id}>{ficha.Principal[0].nome}</Option>)}
               </select>
             </Column>
 

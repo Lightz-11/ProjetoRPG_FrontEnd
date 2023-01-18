@@ -9,16 +9,19 @@ import { useParams } from 'react-router-dom';
 import { NPC } from './components/NPC';
 import { NPCMonstro } from './components/NPCMonstro';
 import { NPCPrincipal } from './components/NPCPrincipal';
+import { useFichasNPCSPrincipal } from '../../../../hooks/useFichasNPCSPrincipal';
 
-export function FichasNPCsContainer({ npcs, npcsmonstros, npcsprincipais }) {
+export function FichasNPCsContainer({ npcs, npcsmonstros }) {
 
   const [modalAddIsOpen, setModalAddIsOpen] = useState(false)
 
   const [body, setBody] = useState('npcs')
 
+  const { fichasNPCSPrincipal } = useFichasNPCSPrincipal()
+
   const [fichasNPC, setFichasNPC] = useState(npcs)
   const [fichasNPCMonstro, setFichasNPCMonstro] = useState(npcsmonstros)
-  const [fichasNPCPrincipal, setFichasNPCPrincipal] = useState(npcsprincipais)
+  const [fichasNPCPrincipal, setFichasNPCPrincipal] = useState(fichasNPCSPrincipal)
 
   return (
     <Container>
