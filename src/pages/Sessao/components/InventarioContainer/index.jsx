@@ -16,11 +16,11 @@ import { useFichasNPCSPrincipal } from '../../../../hooks/useFichasNPCSPrincipal
 
 const socket = io(api.defaults.baseURL);
 
-export function InventarioContainer() {
+export function InventarioContainer({ itensData, armasData }) {
 
-  const [itens, setItens] = useState([])
+  const [itens, setItens] = useState(itensData)
 
-  const [armas, setArmas] = useState([])
+  const [armas, setArmas] = useState(armasData)
 
   const { fichas } = useFichas()
   const { fichasNPCSPrincipal } = useFichasNPCSPrincipal()
@@ -37,67 +37,6 @@ export function InventarioContainer() {
 
   const { id } = useParams()
 
-  useEffect(() => {
-
-    async function fetchData() {
-
-      setItens([])
-      setArmas([])
-
-      try {
-
-        const responseItens = await api.get(`/sessoes/item/${id}`);
-
-        for (let i = 0; i < responseItens.data.length; i++) {
-
-          const item = {
-            id: responseItens.data[i].id,
-            nome: responseItens.data[i].nome,
-            espaco: responseItens.data[i].espaco,
-            categoria: responseItens.data[i].categoria,
-            descricao: responseItens.data[i].descricao,
-            isMunicao: responseItens.data[i].isMunicao,
-            municao: responseItens.data[i].municao,
-            municaoMax: responseItens.data[i].municaoMax,
-            imagem: responseItens.data[i].imagem,
-          };
-
-          setItens((prevState) => [...prevState, item]);
-        }
-
-        const responseArmas = await api.get(`/sessoes/arma/${id}`);
-
-        for (let i = 0; i < responseArmas.data.length; i++) {
-
-          const arma = {
-            id: responseArmas.data[i].id,
-            nome: responseArmas.data[i].nome,
-            tipo: responseArmas.data[i].tipo,
-            alcance: responseArmas.data[i].alcance,
-            recarga: responseArmas.data[i].recarga,
-            especial: responseArmas.data[i].especial,
-            ataque: responseArmas.data[i].ataque,
-            dano: responseArmas.data[i].dano,
-            margemCritico: responseArmas.data[i].margemCritico,
-            danoCritico: responseArmas.data[i].danoCritico,
-            espaco: responseArmas.data[i].espaco,
-            categoria: responseArmas.data[i].categoria,
-            descricao: responseArmas.data[i].descricao,
-            imagem: responseArmas.data[i].imagem,
-            municao: responseArmas.data[i].municao,
-          };
-
-          setArmas((prevState) => [...prevState, arma]);
-        }
-
-      } catch (erro) {
-        console.log(erro);
-      }
-    }
-    fetchData()
-
-  }, [])
-
   async function enviarInventario() {
 
     const item = itens.filter(item => item.id == itemAEnviar)
@@ -109,7 +48,7 @@ export function InventarioContainer() {
 
       try {
 
-        const data = await api.post(`/fichas/item/enviar`, {
+        await api.post(`/fichas/item/enviar`, {
           nome: item[0].nome,
           espaco: item[0].espaco,
           categoria: item[0].categoria,
@@ -130,7 +69,7 @@ export function InventarioContainer() {
 
       try {
 
-        const data = await api.post(`/fichas/arma/enviar`, {
+        await api.post(`/fichas/arma/enviar`, {
           nome: arma[0].nome,
           tipo: arma[0].tipo,
           alcance: arma[0].alcance,
