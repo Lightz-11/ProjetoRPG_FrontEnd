@@ -11,7 +11,7 @@ export const Container = styled('div', {
     button: {
         width: 'fit-content',
         height: 'fit-content',
-        fontSize: "7rem",
+        fontSize: "8rem",
         padding: '1rem .5rem 0rem .5rem',
         background: "none",
         border: 'none',
@@ -42,7 +42,7 @@ export const Mid = styled('div', {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: '32.5rem',
+    gap: '38.5rem',
     marginRight: '.3rem',
 })
 
@@ -55,9 +55,9 @@ export const Bot = styled('div', {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: '21.5rem',
+    gap: '25.5rem',
 })
 
 export const Img = styled('img', {
-    width: '60rem',
+    width: '70rem',
 })

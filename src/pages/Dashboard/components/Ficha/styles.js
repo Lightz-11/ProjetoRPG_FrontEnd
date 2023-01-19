@@ -103,6 +103,11 @@ export const Button = styled('button', {
                 '&:hover': {
                     border: 'solid 1px red',
                 },
+            },
+            teal: {
+                '&:hover': {
+                    border: 'solid 1px #00ffd0',
+                },
             }
         }
     }

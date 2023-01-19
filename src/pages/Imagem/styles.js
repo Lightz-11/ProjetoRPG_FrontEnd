@@ -6,9 +6,25 @@ export const Container = styled('div', {
   width: '100vw',
   overflow: 'hidden',
   height: '100vh',
-  backgroundImage: `url(${FundoImagem})`,
-  backgroundRepeat: 'no-repeat',
-  backgroundSize: 'cover',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+
+})
+
+export const FundoImg = styled('img', {
+
+  width: '1920px',
+  position: 'absolute',
+  zIndex: -1,
+  height: '1080px'
+
+})
+
+export const AllImg = styled('div', {
+
+  width: 1920,
+  height: 1080,
   display: 'flex',
 
   '@font-face': {
@@ -58,7 +74,7 @@ export const Column = styled('div', {
     fontFamily: 'Grape Nuts',
     fontWeight: 100,
     fontSize: '8rem',
-    marginBottom: '3rem'
+    marginBottom: '5rem'
 
   },
 
@@ -114,7 +130,8 @@ export const Texto = styled('div', {
 export const PortraitImg = styled('img', {
 
   position: 'relative',
-  right: '10rem',
+  right: '20rem',
+  top: -20,
   opacity: 0.7,
   filter: 'saturate(150%)'
 
