@@ -27,18 +27,6 @@ export const AllImg = styled('div', {
   height: 1080,
   display: 'flex',
 
-  '@font-face': {
-    src: "url('../../assets/fonts/MagicBrush.ttf') format('truetype')",
-  },
-
-  '@font-face': {
-    src: "url('../../assets/fonts/GrapeNuts.ttf') format('truetype')",
-  },
-
-  '@font-face': {
-    src: "url('../../assets/fonts/adrip1.ttf') format('truetype')",
-  },
-
 })
 
 export const Header = styled('div', {
