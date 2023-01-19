@@ -73,8 +73,6 @@ export const FundoNexDiv = styled('div', {
   marginTop: '10rem',
   position: 'relative',
 
-
-
 })
 
 export const Texto = styled('div', {

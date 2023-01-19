@@ -15,8 +15,7 @@ export function ModalLogin({ setModalLoginClose }) {
   const [campo, setCampo] = useState("");
   const [senha, setSenha] = useState("");
 
-  const [mostrarSenha, setMostrarSenha] = useState(false)
-  const [manterLogin, setManterLogin] = useState(false);
+  const [manterLogin, setManterLogin] = useState(true);
 
   let username = undefined;
   let email = undefined;
@@ -84,7 +83,7 @@ export function ModalLogin({ setModalLoginClose }) {
       <div className="toggles">
 
         <Toggle span={'Mostrar Senha'} classNumber={1} onClick={switchMostrarSenha} />
-        <Toggle end={end} span={'Manter Login'} classNumber={2} onClick={switchManterLogin} />
+        <Toggle end={end} span={'Manter Login'} classNumber={2} defaultChecked={true} onClick={switchManterLogin} />
 
       </div>
 

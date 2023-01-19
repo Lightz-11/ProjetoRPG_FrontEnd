@@ -31,18 +31,19 @@ export function Imagem() {
     fetchData()
 
     async function print() {
-      html2canvas(document.querySelector("#fichaImg"), { useCORS: true }).then(function (canvas) {
-        const link = document.createElement('a');
-        link.download = "screenshot.png";
-        link.href = canvas.toDataURL();
-        link.click();
-      })
+
+      const canvas = await html2canvas(document.querySelector("#fichaImg"), { useCORS: true })
+
+      const link = document.createElement('a');
+      link.download = "screenshot.png";
+      link.href = canvas.toDataURL();
+      link.click();
 
     }
 
     setTimeout(() => {
       print()
-    }, 1000)
+    }, 2000)
 
   }, [])
 
