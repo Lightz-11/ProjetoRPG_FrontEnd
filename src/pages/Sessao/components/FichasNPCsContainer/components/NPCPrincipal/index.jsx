@@ -18,7 +18,6 @@ export function NPCPrincipal({ data, lista, atualizar }) {
   const [body, setBody] = useState('status')
 
   const [modalDadoRoladoIsOpen, setModalDadoRoladoIsOpen] = useState(false)
-  const [modalEditIsOpen, setModalEditIsOpen] = useState(false)
 
   const [dadoData, setDadoData] = useState({
     nome: '',
@@ -154,34 +153,34 @@ export function NPCPrincipal({ data, lista, atualizar }) {
             let atributoChave = ''
 
             const mapeamento = {
-              adestramento: data.pre,
-              arte: data.pre,
-              diplomacia: data.pre,
-              enganacao: data.pre,
-              intimidacao: data.pre,
-              percepcao: data.pre,
-              religiao: data.pre,
-              vontade: data.pre,
-              acrobacia: data.agi,
-              crime: data.agi,
-              furtividade: data.agi,
-              pilotagem: data.agi,
-              pontaria: data.agi,
-              reflexo: data.agi,
-              atletismo: data.for,
-              luta: data.for,
-              atualidade: data.int,
-              ciencia: data.int,
-              intuicao: data.int,
-              investigacao: data.int,
-              medicina: data.int,
-              ocultismo: data.int,
-              profissao: data.int,
-              sobrevivencia: data.int,
-              tatica: data.int,
-              tecnologia: data.int,
-              fortitude: data.vig,
-              iniciativa: data.agi
+              adestramento: data.Atributos[0].pre,
+              arte: data.Atributos[0].pre,
+              diplomacia: data.Atributos[0].pre,
+              enganacao: data.Atributos[0].pre,
+              intimidacao: data.Atributos[0].pre,
+              percepcao: data.Atributos[0].pre,
+              religiao: data.Atributos[0].pre,
+              vontade: data.Atributos[0].pre,
+              acrobacia: data.Atributos[0].agi,
+              crime: data.Atributos[0].agi,
+              furtividade: data.Atributos[0].agi,
+              pilotagem: data.Atributos[0].agi,
+              pontaria: data.Atributos[0].agi,
+              reflexo: data.Atributos[0].agi,
+              atletismo: data.Atributos[0].for,
+              luta: data.Atributos[0].for,
+              atualidade: data.Atributos[0].int,
+              ciencia: data.Atributos[0].int,
+              intuicao: data.Atributos[0].int,
+              investigacao: data.Atributos[0].int,
+              medicina: data.Atributos[0].int,
+              ocultismo: data.Atributos[0].int,
+              profissao: data.Atributos[0].int,
+              sobrevivencia: data.Atributos[0].int,
+              tatica: data.Atributos[0].int,
+              tecnologia: data.Atributos[0].int,
+              fortitude: data.Atributos[0].vig,
+              iniciativa: data.Atributos[0].agi
             }
 
             atributoChave = mapeamento[key]
