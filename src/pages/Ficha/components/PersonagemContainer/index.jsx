@@ -7,7 +7,7 @@ import { TextAreaPersonagem } from './TextAreaPersonagem';
 
 export function PersonagemContainer({ data }) {
 
-  const { disabled } = useDisabled()
+  console.log(data)
 
   const [body, setBody] = useState('principal')
 
@@ -19,7 +19,7 @@ export function PersonagemContainer({ data }) {
   const [favoritos, setFavoritos] = useState(data && data.favoritos)
   const [personalidade, setPersonalidade] = useState(data && data.personalidade)
 
-  const [piorPesadelo, setPiorPesadelo] = useState(data && data.piorPesadelo)
+  const [piorPesadelo, setPiorPesadelo] = useState(data && data.piorpesadelo)
   const [anotacoesPersonagem, setAnotacoesPersonagem] = useState(data && data.anotacoesPersonagem)
   const [anotacoesPlayer, setAnotacoesPlayer] = useState(data && data.anotacoesPlayer)
 
