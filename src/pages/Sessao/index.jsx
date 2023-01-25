@@ -63,8 +63,6 @@ export function Sessao() {
                     }
                 })
 
-                console.log(response.data)
-
                 setFichasNPC(response.data.FichasNPC)
                 setFichasNPCMonstros(response.data.Monstros)
 
