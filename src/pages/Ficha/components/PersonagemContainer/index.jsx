@@ -7,8 +7,6 @@ import { TextAreaPersonagem } from './TextAreaPersonagem';
 
 export function PersonagemContainer({ data }) {
 
-  console.log(data)
-
   const [body, setBody] = useState('principal')
 
   const [historia, setHistoria] = useState(data && data.historia)
