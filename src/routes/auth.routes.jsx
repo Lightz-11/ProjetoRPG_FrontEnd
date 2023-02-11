@@ -3,6 +3,7 @@ import { Documentos } from "../pages/Documentos";
 import { Home } from "../pages/Home";
 import { Imagem } from "../pages/Imagem";
 import { Portrait } from "../pages/Portrait";
+import { Ficha } from "../pages/Ficha";
 
 export function AuthRoutes() {
   return (
