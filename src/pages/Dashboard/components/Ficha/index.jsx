@@ -57,7 +57,7 @@ export function Ficha({ data, atualizar, lista }) {
                 <h2>{data.Principal[0].nome} {data.sessaoId && ' - ' + sessao.nome}</h2>
                 <Botoes>
                     <LinkButton color={'aqua'} to={`/ficha/portrait/${data.id}`}><FaUserCircle size={20} color="#03d9ffff" /></LinkButton>
-                    <LinkButton color={'teal'} to={`/ficha/imagem/${data.id}`}><BsDownload size={20} color="#00ffd0" /></LinkButton>
+                    {/* <LinkButton color={'teal'} to={`/ficha/imagem/${data.id}`}><BsDownload size={20} color="#00ffd0" /></LinkButton> */}
                     <Button onClick={handleEdit} color={isPublic ? 'green' : 'crimson'}>{isPublic ? <BsEye size={20} color="#13ff72" /> : <BsEyeSlash size={20} color="crimson" />}</Button>
                     <Button onClick={handleDelete} color={'red'}><BiTrashAlt size={20} color='red' /></Button>
                 </Botoes>
