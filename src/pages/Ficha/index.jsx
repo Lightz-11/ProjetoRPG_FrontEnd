@@ -125,7 +125,7 @@ export function Ficha() {
         </ParteImgModal>
       </Modal>
 
-      {!isLoading &&
+      {!isLoading && <>
 
         <Body low={isLow}>
 
@@ -155,7 +155,12 @@ export function Ficha() {
           <RituaisContainer data={ficha && ficha.Rituais} />
 
         </Body>
-      }
+
+        <footer>
+          <p>a</p>
+        </footer>
+
+      </>}
 
       <ToastContainer />
 
