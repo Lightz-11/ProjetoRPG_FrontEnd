@@ -127,7 +127,7 @@ export function Ficha() {
 
       {!isLoading && <>
 
-        <Body low={isLow}>
+        <Body low={false}>
 
           <DoubleParteContainer>
             <PrincipalContainer data={ficha && ficha.Principal[0]} />
