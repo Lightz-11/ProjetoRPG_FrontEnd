@@ -161,6 +161,7 @@ export const Select = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'left',
+  flexWrap: 'wrap',
   gap: '2rem',
 
   variants: {
