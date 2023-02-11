@@ -6,7 +6,12 @@ export const Container = styled("div", {
   background: "rgb(20,20,20)",
   display: 'flex',
   flexDirection: 'column',
-  overflowX: 'hidden'
+  overflowX: 'hidden',
+
+  p: {
+    color: 'white',
+    fontSize: '2rem'
+  }
 });
 
 export const Body = styled("div", {
