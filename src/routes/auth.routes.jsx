@@ -8,6 +8,7 @@ export function AuthRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/ficha/:id" element={<Ficha />} />
       <Route path="/ficha/portrait/:id" element={<Portrait />} />
       <Route path="/ficha/imagem/:id" element={<Imagem />} />
       <Route path="/sessao/documentos/:id" element={<Documentos />} />
