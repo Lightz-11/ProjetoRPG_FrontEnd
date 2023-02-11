@@ -100,7 +100,7 @@ export function Ficha() {
     }
     socket.on("enviado.itemImg", executeItemImg);
 
-    if (innerHeight < 350) {
+    if (innerHeight < 400) {
       setIsLow(true)
     } else {
       setIsLow(false)
@@ -109,7 +109,7 @@ export function Ficha() {
   }, []);
 
   window.addEventListener('resize', () => {
-    if (innerHeight < 350) {
+    if (innerHeight < 400) {
       setIsLow(true)
     } else {
       setIsLow(false)
