@@ -127,7 +127,7 @@ export function Ficha() {
 
       {!isLoading && <>
 
-        <Body low={false}>
+        <Body low={isLow}>
 
           <DoubleParteContainer>
             <PrincipalContainer data={ficha && ficha.Principal[0]} />
@@ -155,10 +155,6 @@ export function Ficha() {
           <RituaisContainer data={ficha && ficha.Rituais} />
 
         </Body>
-
-        <footer>
-          <p>a</p>
-        </footer>
 
       </>}
 
