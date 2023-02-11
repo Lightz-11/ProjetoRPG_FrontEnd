@@ -33,12 +33,15 @@ export function InventarioContainer({ armasData, itensData, peso }) {
   const [fichaIdAEnviar, setFichaAEnviar] = useState('')
 
   const { fichas } = useFichas()
+  const [fichasFilter, setFichasFilter] = useState(fichas)
 
   const { disabled } = useDisabled()
 
   const { id } = useParams()
 
   useEffect(() => {
+
+    setFichasFilter(fichasFilter.filter(ficha => ficha.id != id))
 
     setPesoAtual(0)
 
@@ -215,7 +218,7 @@ export function InventarioContainer({ armasData, itensData, peso }) {
               <span>Ficha</span>
               <select disabled={disabled} onChange={(e) => setFichaAEnviar(e.target.value)}>
                 <Option value={null}>Nenhuma</Option>
-                {fichas.map(ficha => <Option key={ficha.id} value={ficha.id}>{ficha.Principal[0].nome}</Option>)}
+                {fichasFilter.map(ficha => <Option key={ficha.id} value={ficha.id}>{ficha.Principal[0].nome}</Option>)}
               </select>
             </Column>
 
