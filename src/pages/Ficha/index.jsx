@@ -34,6 +34,8 @@ export function Ficha() {
   const [imgAberta, setImgAberta] = useState(false)
   const [imagem, setImagem] = useState('')
 
+  const [isLow, setIsLow] = useState(false)
+ 
   useEffect(() => {
 
     async function fetchData() {
@@ -98,7 +100,21 @@ export function Ficha() {
     }
     socket.on("enviado.itemImg", executeItemImg);
 
+    if (innerHeight < 350) {
+      setIsLow(true)
+    } else {
+      setIsLow(false)
+    }
+
   }, []);
+
+  window.addEventListener('resize', () => {
+    if (innerHeight < 350) {
+      setIsLow(true)
+    } else {
+      setIsLow(false)
+    }
+  })
 
   return (
     <Container>
@@ -111,7 +127,7 @@ export function Ficha() {
 
       {!isLoading &&
 
-        <Body>
+        <Body low={isLow}>
 
           <DoubleParteContainer>
             <PrincipalContainer data={ficha && ficha.Principal[0]} />

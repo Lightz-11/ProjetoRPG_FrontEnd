@@ -22,6 +22,14 @@ export const Body = styled("div", {
 
   '@md5': {
     padding: "3rem 2rem 7rem 2rem",
+  },
+
+  variants: {
+    low: {
+      true: {
+        paddingBottom: "7rem"
+      }
+    }
   }
 });
 
