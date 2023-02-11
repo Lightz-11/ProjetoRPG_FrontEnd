@@ -25,9 +25,9 @@ export const Body = styled("div", {
     borderColor: "#ffffff75",
   },
 
-  '@md5': {
-    padding: "3rem 2rem 7rem 2rem",
-  },
+  // '@md5': {
+  //   padding: "3rem 2rem 7rem 2rem",
+  // },
 
   variants: {
     low: {
