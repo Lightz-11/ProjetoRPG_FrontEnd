@@ -66,6 +66,8 @@ export function Ficha() {
 
             if (response.data.isPublic != true) {
               navigate('/')
+            } else {
+              setDisabled(true)
             }
 
           }
@@ -96,6 +98,8 @@ export function Ficha() {
 
             if (response.data.isPublic != true) {
               navigate('/')
+            } else {
+              setDisabled(true)
             }
 
           }
