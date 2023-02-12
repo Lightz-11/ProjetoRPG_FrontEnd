@@ -50,12 +50,22 @@ export function Ficha() {
         if (response.data.sessaoId != null) {
           const response2 = await api.get(`/sessoes/${response.data.sessaoId}`)
 
-          if (response.data.userId != dataUser.id && response2.data.userId != dataUser.id) {
+          if (dataUser != null) {
+
+            if (response.data.userId != dataUser.id && response2.data.userId != dataUser.id) {
+
+              if (response.data.isPublic != true) {
+                navigate('/')
+              } else {
+                setDisabled(true)
+              }
+  
+            }
+
+          } else {
 
             if (response.data.isPublic != true) {
               navigate('/')
-            } else {
-              setDisabled(true)
             }
 
           }
@@ -69,15 +79,27 @@ export function Ficha() {
 
 
         } else {
-          if (response.data.userId != dataUser.id) {
+
+          if (dataUser != null) {
+
+            if (response.data.userId != dataUser.id) {
+
+              if (response.data.isPublic != true) {
+                navigate('/')
+              } else {
+                setDisabled(true)
+              }
+  
+            }
+
+          } else {
 
             if (response.data.isPublic != true) {
               navigate('/')
-            } else {
-              setDisabled(true)
             }
 
           }
+
         }
 
         setFicha(response.data)
