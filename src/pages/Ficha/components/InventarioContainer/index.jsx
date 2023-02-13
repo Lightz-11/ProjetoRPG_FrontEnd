@@ -33,7 +33,7 @@ export function InventarioContainer({ armasData, itensData, peso }) {
   const [fichaIdAEnviar, setFichaAEnviar] = useState('')
 
   const { fichas } = useFichas()
-  const [fichasFilter, setFichasFilter] = useState(fichas)
+  const [fichasFilter, setFichasFilter] = useState([])
 
   const { disabled } = useDisabled()
 
@@ -41,7 +41,7 @@ export function InventarioContainer({ armasData, itensData, peso }) {
 
   useEffect(() => {
 
-    setFichasFilter(fichasFilter.filter(ficha => ficha.id != id))
+    setFichasFilter(fichas.filter(ficha => ficha.id != id))
 
     setPesoAtual(0)
 
