@@ -32,16 +32,14 @@ export function InventarioContainer({ armasData, itensData, peso }) {
   const [itemAEnviar, setItemAEnviar] = useState('')
   const [fichaIdAEnviar, setFichaAEnviar] = useState('')
 
+  const { id } = useParams()
+
   const { fichas } = useFichas()
-  const [fichasFilter, setFichasFilter] = useState([])
+  const [fichasFilter, setFichasFilter] = useState(fichas.filter(ficha => ficha.id != id))
 
   const { disabled } = useDisabled()
 
-  const { id } = useParams()
-
   useEffect(() => {
-
-    setFichasFilter(fichas.filter(ficha => ficha.id != id))
 
     setPesoAtual(0)
 
@@ -73,9 +71,7 @@ export function InventarioContainer({ armasData, itensData, peso }) {
 
     function atualizarInv({ fichaId }) {
       if (fichaId == id) {
-
         fetchData()
-
       }
     }
     socket.on('enviado.inv', atualizarInv)

@@ -72,6 +72,8 @@ export function Ficha() {
 
           }
 
+          setFichas([])
+
           const response3 = await api.get(`/fichas/sessao/${response2.data.id}`)
           response3.data.forEach(ficha => {
             if (ficha.userId != response2.data.userId) {
