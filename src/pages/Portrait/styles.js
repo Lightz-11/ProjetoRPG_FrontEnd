@@ -111,14 +111,15 @@ export const Municao = styled('div', {
   zIndex: 10,
 
   img: {
-    width: '100px',
+    width: '150px',
     filter: 'drop-shadow(#00ff7b90 0 0 7px)',
     opacity: 0.7,
     marginRight: '-2rem'
   },
 
   h5: {
-    fontSize: '6rem',
+    fontSize: '8rem',
+    whiteSpace: 'nowrap',
     fontFamily: 'Special Elite',
     fontWeight: 100,
     color: '#00ff7b90',

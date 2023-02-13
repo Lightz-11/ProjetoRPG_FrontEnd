@@ -261,8 +261,8 @@ export function Portrait() {
 
         {!semPerm && <h3>{peA}</h3>}
 
-        <Municao active={municaoAtiva}>
-          <img src={municaoImg} />
+         <Municao active={municaoAtiva}> 
+          <img src={municaoImg}/>
           <h5>x {municao}</h5>
         </Municao>
 
